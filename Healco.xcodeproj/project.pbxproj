@@ -14,6 +14,8 @@
 		137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */; };
 		137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B6E2670CE2C00543CCF /* Assets.xcassets */; };
 		137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */; };
+		2289F5CC2672218D00C118CD /* FoodRecog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2289F5CB2672218D00C118CD /* FoodRecog.storyboard */; };
+		2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289F5CD267222A900C118CD /* FoodRecogVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		137A0B6E2670CE2C00543CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137A0B712670CE2C00543CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		137A0B732670CE2C00543CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2289F5CB2672218D00C118CD /* FoodRecog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodRecog.storyboard; sourceTree = "<group>"; };
+		2289F5CD267222A900C118CD /* FoodRecogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecogVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */,
 				137A0B732670CE2C00543CCF /* Info.plist */,
 				137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */,
+				2289F5CB2672218D00C118CD /* FoodRecog.storyboard */,
+				2289F5CD267222A900C118CD /* FoodRecogVC.swift */,
 			);
 			path = Healco;
 			sourceTree = "<group>";
@@ -130,6 +136,7 @@
 				137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */,
 				137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */,
 				137A0B6A2670CE2B00543CCF /* Main.storyboard in Resources */,
+				2289F5CC2672218D00C118CD /* FoodRecog.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +149,7 @@
 			files = (
 				137A0B672670CE2B00543CCF /* ViewController.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
+				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */,
 			);
