@@ -19,9 +19,9 @@ class PageViewController: UIPageViewController {
     
     private func viewControllerList() -> [UIViewController]{
         let storyboard = UIStoryboard.onboarding
-        let vc1 = storyboard.instantiateViewController(identifier: "Onboarding1View")
-        let vc2 = storyboard.instantiateViewController(identifier: "Onboarding2View")
-        let vc3 = storyboard.instantiateViewController(identifier: "Onboarding3View")
+        let vc1 = storyboard.instantiateViewController(identifier: "Onboarding1VC")
+        let vc2 = storyboard.instantiateViewController(identifier: "Onboarding2VC")
+        let vc3 = storyboard.instantiateViewController(identifier: "Onboarding3VC")
         return [vc1, vc2, vc3]
     }
     
