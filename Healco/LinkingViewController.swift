@@ -7,23 +7,22 @@
 
 import UIKit
 
+/*
+    Class penghubung kedua storyboard dengan LandscapeManager
+ */
 class LinkingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if LandscapeManager.shared.isFirstLaunch{
+            performSegue(withIdentifier: "toOnboarding", sender: nil)
+        }else{
+            performSegue(withIdentifier: "toMain", sender: nil)
+        }
     }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+extension UIStoryboard{
+    static let onboarding = UIStoryboard(name: "Onboarding", bundle: nil)
+    static let main = UIStoryboard(name: "Main", bundle: nil)
 }

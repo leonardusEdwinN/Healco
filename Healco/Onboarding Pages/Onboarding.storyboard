@@ -16,10 +16,10 @@
             </objects>
             <point key="canvasLocation" x="-1203" y="82"/>
         </scene>
-        <!--Onboarding1ViewController-->
+        <!--Onboarding1View-->
         <scene sceneID="ptK-BZ-aJl">
             <objects>
-                <viewController storyboardIdentifier="Onboarding1VC" title="Onboarding1ViewController" id="PVU-et-bqE" customClass="Onboarding1ViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding1VC" title="Onboarding1View" id="PVU-et-bqE" customClass="Onboarding1ViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kaO-yQ-xRr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,6 +48,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="PVU-et-bqE" eventType="touchUpInside" id="gE4-gC-81u"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Capture your meal and get to know if its nutrition good or not" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijO-rH-6bz">
                                 <rect key="frame" x="44" y="569" width="300" height="44"/>
@@ -65,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="-318.84057971014494" y="81.696428571428569"/>
         </scene>
-        <!--Onboarding2ViewController-->
+        <!--Onboarding2View-->
         <scene sceneID="oJ5-me-kzO">
             <objects>
-                <viewController storyboardIdentifier="Onboarding2VC" title="Onboarding2ViewController" id="PwF-Rg-2Lq" customClass="Onboarding2ViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding2VC" title="Onboarding2View" id="PwF-Rg-2Lq" customClass="Onboarding2ViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kej-K0-Hxv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,6 +107,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButtonTapped:" destination="PwF-Rg-2Lq" eventType="touchUpInside" id="HWL-CR-nxC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XWa-rK-vR5"/>
@@ -114,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="692.75362318840587" y="81.696428571428569"/>
         </scene>
-        <!--Onboarding3ViewController-->
+        <!--Onboarding3View-->
         <scene sceneID="zvA-7e-TKx">
             <objects>
-                <viewController storyboardIdentifier="Onboarding3VC" title="Onboarding3ViewController" id="hsR-ss-Omx" customClass="Onboarding3ViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Onboarding3VC" title="Onboarding3View" id="hsR-ss-Omx" customClass="Onboarding3ViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OUb-kg-y5m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -15,7 +15,12 @@ class Onboarding2ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func nextButtonTapped(_ sender: UIButton) {
+        if let pageController = parent as? PageViewController{
+            pageController.pushNext()
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

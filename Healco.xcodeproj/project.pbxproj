@@ -20,6 +20,7 @@
 		EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */; };
 		EFB2CFC7267B29C600414E66 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */; };
 		EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */; };
+		EFB2CFCB267B2EE600414E66 /* LandscapeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFCA267B2EE600414E66 /* LandscapeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3ViewController.swift; sourceTree = "<group>"; };
 		EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingViewController.swift; sourceTree = "<group>"; };
+		EFB2CFCA267B2EE600414E66 /* LandscapeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandscapeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +72,8 @@
 		137A0B612670CE2B00543CCF /* Healco */ = {
 			isa = PBXGroup;
 			children = (
-				EFB2CFBB267B13E500414E66 /* Onboarding Pages */,
 				137A0B622670CE2B00543CCF /* AppDelegate.swift */,
+				EFB2CFBB267B13E500414E66 /* Onboarding Pages */,
 				137A0B642670CE2B00543CCF /* SceneDelegate.swift */,
 				137A0B662670CE2B00543CCF /* ViewController.swift */,
 				137A0B682670CE2B00543CCF /* Main.storyboard */,
@@ -80,6 +82,7 @@
 				137A0B732670CE2C00543CCF /* Info.plist */,
 				137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */,
 				EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */,
+				EFB2CFCA267B2EE600414E66 /* LandscapeManager.swift */,
 			);
 			path = Healco;
 			sourceTree = "<group>";
@@ -93,8 +96,9 @@
 				EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */,
 				EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */,
 			);
-			path = "Onboarding Pages";
-			sourceTree = "<group>";
+			name = "Onboarding Pages";
+			path = "Healco/Onboarding Pages";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -176,6 +180,7 @@
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */,
 				EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */,
+				EFB2CFCB267B2EE600414E66 /* LandscapeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

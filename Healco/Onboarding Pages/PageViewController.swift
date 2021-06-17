@@ -9,21 +9,27 @@ import UIKit
 
 class PageViewController: UIPageViewController {
 
+    private var currentIndex: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.setViewControllers([viewControllerList()[0]], direction: .forward, animated: false, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func viewControllerList() -> [UIViewController]{
+        let storyboard = UIStoryboard.onboarding
+        let vc1 = storyboard.instantiateViewController(identifier: "Onboarding1View")
+        let vc2 = storyboard.instantiateViewController(identifier: "Onboarding2View")
+        let vc3 = storyboard.instantiateViewController(identifier: "Onboarding3View")
+        return [vc1, vc2, vc3]
     }
-    */
-
+    
+    func pushNext(){
+        if currentIndex + 1 < viewControllerList().count{
+            
+            self.setViewControllers([self.viewControllerList()[self.currentIndex + 1]], direction: .forward, animated: true, completion: nil)
+            currentIndex += 1
+        }
+    }
 }
