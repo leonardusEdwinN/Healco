@@ -15,6 +15,7 @@
 		137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B6E2670CE2C00543CCF /* Assets.xcassets */; };
 		137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */; };
 		EFB2CFD6267B4E2900414E66 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFD5267B4E2900414E66 /* FoodModel.swift */; };
+		EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		137A0B712670CE2C00543CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		137A0B732670CE2C00543CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EFB2CFD5267B4E2900414E66 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */,
 				137A0B732670CE2C00543CCF /* Info.plist */,
 				137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */,
+				EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */,
 			);
 			path = Healco;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				EFB2CFD6267B4E2900414E66 /* FoodModel.swift in Sources */,
 				137A0B672670CE2B00543CCF /* ViewController.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
+				EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */,
 			);

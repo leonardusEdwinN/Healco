@@ -18,14 +18,17 @@ struct FoodModel{
     var foodProtein: Double!
 }
 
+
 func addDataToModel()->[FoodModel]{
     var model: [FoodModel] = []
     let item1: FoodModel = FoodModel(foodName: "aslnbvsdk", foodDescription: "adjkbfd", foodCalories: 100, foodFat: 67.8, foodCarbohydrate: 87, foodProtein: 75)
     let item2: FoodModel = FoodModel(foodName: "aEdbcned", foodDescription: "Qslkdvbnds", foodCalories: 150, foodFat: 92, foodCarbohydrate: 120, foodProtein: 150)
     let item3: FoodModel = FoodModel(foodName: "Aaklsdvbned", foodDescription: "ewfQdkvn", foodCalories: 200, foodFat: 50.8, foodCarbohydrate: 100, foodProtein: 55)
+    let item4: FoodModel = FoodModel(foodName: "Nasi Goreng", foodDescription: "Nasi digoreng nikmat", foodCalories: 160, foodFat: 78, foodCarbohydrate: 120.5, foodProtein: 68.5)
     model.append(item1)
     model.append(item2)
     model.append(item3)
+    model.append(item4)
     return model
 }
 
@@ -35,7 +38,7 @@ public func addDataToFoodCoreData(){
     }
     let models = addDataToModel()
     let managedContext = appDelegate.persistentContainer.viewContext
-    let entity = NSEntityDescription.entity(forEntityName: "Food", in: managedContext)!
+    let entity = NSEntityDescription.entity(forEntityName: "Foods", in: managedContext)!
     for(i) in models.indices{
         let food = NSManagedObject(entity: entity, insertInto: managedContext)
         food.setValue(models[i].foodName, forKeyPath: "foodName")
@@ -58,7 +61,7 @@ public func fetchDataFromFoodCoreData()->[NSManagedObject]{
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     let managedContext = appDelegate!.persistentContainer.viewContext
-    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Food")
+    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Foods")
     do{
         try data = managedContext.fetch(fetchRequest)
     }catch let error as NSError{
@@ -89,3 +92,16 @@ func getFoodFromName(name: String)->FoodModel
     return food!
 }
 
+public func deleteRequest(){
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
+    let managedContext = appDelegate!.persistentContainer.viewContext
+    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Foods")
+    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+
+    do {
+        try managedContext.execute(deleteRequest)
+    } catch let error as NSError {
+        // TODO: handle the error
+    }
+}

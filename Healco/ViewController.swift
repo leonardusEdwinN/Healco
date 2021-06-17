@@ -21,9 +21,36 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
+         Method di bawah ini hanya untuk masukin test data, nanti diremove aja waktu mau gabungin, atau diubah ke data dari API
+         */
+        //addDataToFoodCoreData()
+        foods = fetchDataFromFoodCoreData()
+        //deleteRequest()
+        print(foods.count)
+        // masukin nama ke array nama, karena untuk filter nanti
+        for(i) in foods.indices{
+            foodNames.append((foods[i].value(forKeyPath:"foodName") as? String)!)
+        }
+        foodNameTableView.reloadData()
+        
+        // ==================
+        
         foodSearchBar.delegate = self
         foodNameTableView.dataSource = self
         foodNameTableView.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? FoodDetailViewController, let cell = sender as? UITableViewCell{
+            let selectedRow = foodNameTableView.indexPath(for: cell)!.row
+            if isSearching{
+                vc.foodName = filteredFoodNames[selectedRow]
+            }
+            else{
+                vc.foodName = foodNames[selectedRow]
+            }
+        }
     }
 }
 
