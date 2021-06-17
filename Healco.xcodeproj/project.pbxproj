@@ -18,6 +18,7 @@
 		EFB2CFC1267B1A5900414E66 /* Onboarding1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC0267B1A5900414E66 /* Onboarding1ViewController.swift */; };
 		EFB2CFC3267B1A6B00414E66 /* Onboarding2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */; };
 		EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */; };
+		EFB2CFC7267B29C600414E66 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		EFB2CFC0267B1A5900414E66 /* Onboarding1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1ViewController.swift; sourceTree = "<group>"; };
 		EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2ViewController.swift; sourceTree = "<group>"; };
 		EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3ViewController.swift; sourceTree = "<group>"; };
+		EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				EFB2CFC0267B1A5900414E66 /* Onboarding1ViewController.swift */,
 				EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */,
 				EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */,
+				EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */,
 			);
 			path = "Onboarding Pages";
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 				137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */,
 				137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */,
 				137A0B6A2670CE2B00543CCF /* Main.storyboard in Resources */,
+				EFB2CFC7267B29C600414E66 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
