@@ -14,6 +14,10 @@
 		137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */; };
 		137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B6E2670CE2C00543CCF /* Assets.xcassets */; };
 		137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */; };
+		EFB2CFBF267B143B00414E66 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFBE267B143B00414E66 /* PageViewController.swift */; };
+		EFB2CFC1267B1A5900414E66 /* Onboarding1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC0267B1A5900414E66 /* Onboarding1ViewController.swift */; };
+		EFB2CFC3267B1A6B00414E66 /* Onboarding2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */; };
+		EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		137A0B6E2670CE2C00543CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137A0B712670CE2C00543CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		137A0B732670CE2C00543CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFB2CFBE267B143B00414E66 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		EFB2CFC0267B1A5900414E66 /* Onboarding1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1ViewController.swift; sourceTree = "<group>"; };
+		EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2ViewController.swift; sourceTree = "<group>"; };
+		EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,7 @@
 		137A0B612670CE2B00543CCF /* Healco */ = {
 			isa = PBXGroup;
 			children = (
+				EFB2CFBB267B13E500414E66 /* Onboarding Pages */,
 				137A0B622670CE2B00543CCF /* AppDelegate.swift */,
 				137A0B642670CE2B00543CCF /* SceneDelegate.swift */,
 				137A0B662670CE2B00543CCF /* ViewController.swift */,
@@ -68,6 +77,17 @@
 				137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */,
 			);
 			path = Healco;
+			sourceTree = "<group>";
+		};
+		EFB2CFBB267B13E500414E66 /* Onboarding Pages */ = {
+			isa = PBXGroup;
+			children = (
+				EFB2CFBE267B143B00414E66 /* PageViewController.swift */,
+				EFB2CFC0267B1A5900414E66 /* Onboarding1ViewController.swift */,
+				EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */,
+				EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */,
+			);
+			path = "Onboarding Pages";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +161,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				137A0B672670CE2B00543CCF /* ViewController.swift in Sources */,
+				EFB2CFC3267B1A6B00414E66 /* Onboarding2ViewController.swift in Sources */,
+				EFB2CFBF267B143B00414E66 /* PageViewController.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
+				EFB2CFC1267B1A5900414E66 /* Onboarding1ViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */,
+				EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
