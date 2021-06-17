@@ -15,6 +15,16 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Hd-7b-nZw">
+                                <rect key="frame" x="128" y="107" width="160" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Journal View Controller"/>
+                                <connections>
+                                    <segue destination="BeM-s6-3qB" kind="modal" identifier="MoveToJournalViewController" modalPresentationStyle="fullScreen" id="JU1-1o-Rpt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                     </view>
@@ -49,6 +59,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOT-4p-fzD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1092" y="-407"/>
+        </scene>
+        <!--JournalViewController-->
+        <scene sceneID="nzT-hl-vbl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JournalViewController" referencedIdentifier="JournalViewController" id="BeM-s6-3qB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="G26-gO-9EL"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0I-JO-eEs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="487" y="-170"/>
         </scene>
     </scenes>
     <resources>

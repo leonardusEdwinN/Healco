@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,19 @@
 		137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */; };
 		137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B6E2670CE2C00543CCF /* Assets.xcassets */; };
 		137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */; };
+		1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1394FF56267AEC8E0062813A /* Quicksand-Light.ttf */; };
+		1394FF5C267AEC8E0062813A /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1394FF57267AEC8E0062813A /* Quicksand-Medium.ttf */; };
+		1394FF5D267AEC8E0062813A /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1394FF58267AEC8E0062813A /* Quicksand-Regular.ttf */; };
+		1394FF5E267AEC8E0062813A /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1394FF59267AEC8E0062813A /* Quicksand-Bold.ttf */; };
+		1394FF5F267AEC8E0062813A /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1394FF5A267AEC8E0062813A /* Quicksand-SemiBold.ttf */; };
+		1394FF67267AEFE20062813A /* WeeklyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1394FF65267AEFE20062813A /* WeeklyCollectionViewCell.swift */; };
+		1394FF68267AEFE20062813A /* WeeklyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1394FF66267AEFE20062813A /* WeeklyCollectionViewCell.xib */; };
+		13970F042678A7DF00B6F11D /* JournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13970F032678A7DF00B6F11D /* JournalViewController.swift */; };
+		13970F062678A7F200B6F11D /* JournalViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13970F052678A7F200B6F11D /* JournalViewController.storyboard */; };
+		139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */; };
+		139AD0A12679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */; };
+		139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD0AA2679F70E00954DB2 /* Photo.swift */; };
+		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
 		EFB2CFBF267B143B00414E66 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFBE267B143B00414E66 /* PageViewController.swift */; };
 		EFB2CFC1267B1A5900414E66 /* Onboarding1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC0267B1A5900414E66 /* Onboarding1ViewController.swift */; };
 		EFB2CFC3267B1A6B00414E66 /* Onboarding2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */; };
@@ -32,6 +45,21 @@
 		137A0B6E2670CE2C00543CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137A0B712670CE2C00543CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		137A0B732670CE2C00543CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1394FF56267AEC8E0062813A /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
+		1394FF57267AEC8E0062813A /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
+		1394FF58267AEC8E0062813A /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		1394FF59267AEC8E0062813A /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		1394FF5A267AEC8E0062813A /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
+		1394FF65267AEFE20062813A /* WeeklyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyCollectionViewCell.swift; sourceTree = "<group>"; };
+		1394FF66267AEFE20062813A /* WeeklyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeeklyCollectionViewCell.xib; sourceTree = "<group>"; };
+		13970F032678A7DF00B6F11D /* JournalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalViewController.swift; sourceTree = "<group>"; };
+		13970F052678A7F200B6F11D /* JournalViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JournalViewController.storyboard; sourceTree = "<group>"; };
+		139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		139AD0AA2679F70E00954DB2 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Healco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.release.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.release.xcconfig"; sourceTree = "<group>"; };
+		9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.debug.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.debug.xcconfig"; sourceTree = "<group>"; };
 		EFB2CFBE267B143B00414E66 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		EFB2CFC0267B1A5900414E66 /* Onboarding1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1ViewController.swift; sourceTree = "<group>"; };
 		EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +85,8 @@
 			children = (
 				137A0B612670CE2B00543CCF /* Healco */,
 				137A0B602670CE2B00543CCF /* Products */,
+				68300107CC7A5F6FCEACC122 /* Pods */,
+				49D385FB5606C38EC4F15509 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				EFB2CFBB267B13E500414E66 /* Onboarding Pages */,
+				1394FF53267AEC3D0062813A /* Fonts */,
+				13970EFF2678A70900B6F11D /* Controllers */,
+				13970EFE2678A70300B6F11D /* Views */,
+				13970EFD2678A6F600B6F11D /* Models */,
 				137A0B622670CE2B00543CCF /* AppDelegate.swift */,
 				137A0B642670CE2B00543CCF /* SceneDelegate.swift */,
 				137A0B662670CE2B00543CCF /* ViewController.swift */,
@@ -96,6 +131,87 @@
 			path = "Onboarding Pages";
 			sourceTree = "<group>";
 		};
+		1394FF53267AEC3D0062813A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1394FF59267AEC8E0062813A /* Quicksand-Bold.ttf */,
+				1394FF56267AEC8E0062813A /* Quicksand-Light.ttf */,
+				1394FF57267AEC8E0062813A /* Quicksand-Medium.ttf */,
+				1394FF58267AEC8E0062813A /* Quicksand-Regular.ttf */,
+				1394FF5A267AEC8E0062813A /* Quicksand-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1394FF62267AEEB60062813A /* JournalWeekly */ = {
+			isa = PBXGroup;
+			children = (
+				1394FF65267AEFE20062813A /* WeeklyCollectionViewCell.swift */,
+				1394FF66267AEFE20062813A /* WeeklyCollectionViewCell.xib */,
+			);
+			path = JournalWeekly;
+			sourceTree = "<group>";
+		};
+		13970EFD2678A6F600B6F11D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				139AD0AA2679F70E00954DB2 /* Photo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		13970EFE2678A70300B6F11D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1394FF62267AEEB60062813A /* JournalWeekly */,
+				139AD09D2679C66F00954DB2 /* JournalGalleryPhoto */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		13970EFF2678A70900B6F11D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13970F002678A78B00B6F11D /* Journal */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		13970F002678A78B00B6F11D /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				13970F032678A7DF00B6F11D /* JournalViewController.swift */,
+				13970F052678A7F200B6F11D /* JournalViewController.storyboard */,
+			);
+			path = Journal;
+			sourceTree = "<group>";
+		};
+		139AD09D2679C66F00954DB2 /* JournalGalleryPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */,
+				139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */,
+			);
+			path = JournalGalleryPhoto;
+			sourceTree = "<group>";
+		};
+		49D385FB5606C38EC4F15509 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		68300107CC7A5F6FCEACC122 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */,
+				926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +219,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 137A0B762670CE2C00543CCF /* Build configuration list for PBXNativeTarget "Healco" */;
 			buildPhases = (
+				7BA0C6E673C47AE669915A9E /* [CP] Check Pods Manifest.lock */,
 				137A0B5B2670CE2B00543CCF /* Sources */,
 				137A0B5C2670CE2B00543CCF /* Frameworks */,
 				137A0B5D2670CE2B00543CCF /* Resources */,
+				440735CEF247ED521019EC9F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -154,7 +272,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */,
+				1394FF5F267AEC8E0062813A /* Quicksand-SemiBold.ttf in Resources */,
+				1394FF68267AEFE20062813A /* WeeklyCollectionViewCell.xib in Resources */,
+				139AD0A12679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib in Resources */,
+				1394FF5C267AEC8E0062813A /* Quicksand-Medium.ttf in Resources */,
+				1394FF5D267AEC8E0062813A /* Quicksand-Regular.ttf in Resources */,
+				1394FF5E267AEC8E0062813A /* Quicksand-Bold.ttf in Resources */,
 				137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */,
+				1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */,
+				13970F062678A7F200B6F11D /* JournalViewController.storyboard in Resources */,
 				137A0B6A2670CE2B00543CCF /* Main.storyboard in Resources */,
 				EFB2CFC7267B29C600414E66 /* Onboarding.storyboard in Resources */,
 			);
@@ -162,19 +288,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		440735CEF247ED521019EC9F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Healco/Pods-Healco-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Healco/Pods-Healco-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Healco/Pods-Healco-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BA0C6E673C47AE669915A9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Healco-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		137A0B5B2670CE2B00543CCF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */,
+				139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */,
 				137A0B672670CE2B00543CCF /* ViewController.swift in Sources */,
 				EFB2CFC3267B1A6B00414E66 /* Onboarding2ViewController.swift in Sources */,
 				EFB2CFBF267B143B00414E66 /* PageViewController.swift in Sources */,
+				1394FF67267AEFE20062813A /* WeeklyCollectionViewCell.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
 				EFB2CFC1267B1A5900414E66 /* Onboarding1ViewController.swift in Sources */,
 				EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */,
+				13970F042678A7DF00B6F11D /* JournalViewController.swift in Sources */,
 				EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +491,7 @@
 		};
 		137A0B772670CE2C00543CCF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -338,6 +511,7 @@
 		};
 		137A0B782670CE2C00543CCF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
