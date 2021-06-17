@@ -19,6 +19,7 @@
 		EFB2CFC3267B1A6B00414E66 /* Onboarding2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */; };
 		EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */; };
 		EFB2CFC7267B29C600414E66 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */; };
+		EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2ViewController.swift; sourceTree = "<group>"; };
 		EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3ViewController.swift; sourceTree = "<group>"; };
 		EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */,
 				137A0B732670CE2C00543CCF /* Info.plist */,
 				137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */,
+				EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */,
 			);
 			path = Healco;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				EFB2CFBF267B143B00414E66 /* PageViewController.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
 				EFB2CFC1267B1A5900414E66 /* Onboarding1ViewController.swift in Sources */,
+				EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */,
 				EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */,
