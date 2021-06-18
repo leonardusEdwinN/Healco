@@ -100,20 +100,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqK-UQ-xGy">
-                                <rect key="frame" x="290" y="253" width="75" height="30"/>
-                                <color key="backgroundColor" red="0.38823529410000002" green="0.58431372550000005" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="1sS-l8-4dk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="14"/>
-                                <state key="normal" title="Change">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonChangeDateClicked:" destination="8xl-uu-NMt" eventType="touchUpInside" id="Aww-M7-h6O"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czm-BU-w7C">
                                 <rect key="frame" x="25" y="290.66666666666669" width="340" height="150"/>
                                 <subviews>
@@ -150,19 +136,19 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Common" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2s-Ic-dRV">
-                                        <rect key="frame" x="209" y="65.333333333333314" width="116" height="19"/>
+                                        <rect key="frame" x="209" y="65.666666666666629" width="116" height="19"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Healthy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amK-iX-bHn">
-                                        <rect key="frame" x="209" y="31.333333333333314" width="116" height="19"/>
+                                        <rect key="frame" x="209" y="31.666666666666629" width="116" height="19"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Unhealthy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzy-c7-dbH">
-                                        <rect key="frame" x="209" y="99.333333333333314" width="116" height="19"/>
+                                        <rect key="frame" x="209" y="99.666666666666629" width="116" height="19"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -240,19 +226,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kdc-uk-e3d">
+                                <rect key="frame" x="290" y="253.33333333333337" width="75" height="30"/>
+                                <color key="backgroundColor" red="0.25098039220000001" green="0.53725490200000003" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="IBc-Z5-ySC"/>
+                                </constraints>
+                                <state key="normal" title="Change">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonChangeDateClicked:" destination="8xl-uu-NMt" eventType="touchUpInside" id="YlY-Ct-C8R"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AAK-Zv-z6Y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="AAK-Zv-z6Y" firstAttribute="trailing" secondItem="tqK-UQ-xGy" secondAttribute="trailing" constant="25" id="9Rs-Fe-LgD"/>
                             <constraint firstItem="AAK-Zv-z6Y" firstAttribute="trailing" secondItem="1X0-A3-AwR" secondAttribute="trailing" id="9gT-G7-vTH"/>
                             <constraint firstItem="77f-vh-XdO" firstAttribute="leading" secondItem="AAK-Zv-z6Y" secondAttribute="leading" id="Ah8-Lr-jwR"/>
                             <constraint firstItem="AAK-Zv-z6Y" firstAttribute="trailing" secondItem="czm-BU-w7C" secondAttribute="trailing" constant="25" id="DEk-tE-YIM"/>
+                            <constraint firstItem="AAK-Zv-z6Y" firstAttribute="trailing" secondItem="Kdc-uk-e3d" secondAttribute="trailing" constant="25" id="DSF-x5-8b2"/>
                             <constraint firstItem="kZk-SB-nad" firstAttribute="top" secondItem="jOk-fH-xPT" secondAttribute="bottom" constant="15" id="FsL-vs-bs7"/>
                             <constraint firstItem="trW-6H-ocx" firstAttribute="top" secondItem="1X0-A3-AwR" secondAttribute="bottom" id="Ham-ci-0dJ"/>
                             <constraint firstItem="AAK-Zv-z6Y" firstAttribute="bottom" secondItem="trW-6H-ocx" secondAttribute="bottom" constant="25" id="R8D-jc-mtN"/>
                             <constraint firstItem="jOk-fH-xPT" firstAttribute="leading" secondItem="AAK-Zv-z6Y" secondAttribute="leading" constant="25" id="UnA-OZ-ZOc"/>
-                            <constraint firstItem="tqK-UQ-xGy" firstAttribute="centerY" secondItem="a53-F1-cNQ" secondAttribute="centerY" id="azD-ym-Sx5"/>
+                            <constraint firstItem="Kdc-uk-e3d" firstAttribute="centerY" secondItem="a53-F1-cNQ" secondAttribute="centerY" id="VpJ-pO-C3r"/>
                             <constraint firstItem="kZk-SB-nad" firstAttribute="leading" secondItem="AAK-Zv-z6Y" secondAttribute="leading" id="bEX-zh-8nx"/>
                             <constraint firstItem="AAK-Zv-z6Y" firstAttribute="trailing" secondItem="77f-vh-XdO" secondAttribute="trailing" id="dwJ-tD-ybj"/>
                             <constraint firstItem="AAK-Zv-z6Y" firstAttribute="trailing" secondItem="kZk-SB-nad" secondAttribute="trailing" id="h6S-xW-kLV"/>
@@ -270,7 +269,7 @@
                     </view>
                     <connections>
                         <outlet property="buttonAddJournal" destination="trW-6H-ocx" id="fNG-d7-rSt"/>
-                        <outlet property="buttonChangeDate" destination="tqK-UQ-xGy" id="H48-q5-83e"/>
+                        <outlet property="buttonChangeDate" destination="Kdc-uk-e3d" id="nHf-tZ-1Tn"/>
                         <outlet property="collectionViewPhotoGallery" destination="kln-8g-3YZ" id="3Sq-MB-uLv"/>
                         <outlet property="collectionViewWeekly" destination="kZk-SB-nad" id="48V-xT-uWQ"/>
                         <outlet property="labelDate" destination="a53-F1-cNQ" id="2sV-YY-aUA"/>

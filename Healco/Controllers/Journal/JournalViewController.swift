@@ -24,13 +24,13 @@ class JournalViewController : UIViewController{
     
     
     
+    @IBOutlet weak var buttonChangeDate: UIButton!
     @IBOutlet weak var collectionViewPhotoGallery: UICollectionView!
     @IBOutlet weak var buttonAddJournal: UIButton!
     @IBOutlet weak var viewSlideShowGallery: UIView!
     @IBOutlet weak var viewSummary: UIView!
     @IBOutlet weak var viewPieChart: UIView!
     @IBOutlet weak var collectionViewWeekly: UICollectionView!
-    @IBOutlet weak var buttonChangeDate: UIButton!
     @IBOutlet weak var labelDate: UILabel!
     //    var barChartView = BarChartView()
     var pieChartView = PieChartView()
@@ -45,6 +45,10 @@ class JournalViewController : UIViewController{
     let spacingBetweenCells: CGFloat = 10
     private var startingScrollingOffset = CGPoint.zero
     
+    //datepicker
+    var toolBar = UIToolbar()
+    var datePicker  = UIDatePicker()
+    
 //    var pager = HSCycleGalleryView()
     
     
@@ -53,13 +57,26 @@ class JournalViewController : UIViewController{
         buttonAddJournal.layer.cornerRadius = 13.5
         buttonAddJournal.imageView?.tintColor = UIColor.white
         buttonChangeDate.layer.cornerRadius = 13.5
+        buttonChangeDate.layer.masksToBounds = true
         
+        //pieChart
         pieChartView.delegate = self
         
-//        collectionViewPhotoGallery.register(GalleryPhotoCollectionViewCell.self, forCellWithReuseIdentifier: "galleryPhotoCell")
-//        collectionViewPhotoGallery.register(GalleryPhotoCollectionViewCell.self, forCellWithReuseIdentifier: "galleryPhotoCell")
-        collectionViewPhotoGallery.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
+        //datepicker
         
+        
+//        let gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dateChanged(_:)))
+//        gesture.numberOfTapsRequired = 1
+//        buttonChangeDate?.isUserInteractionEnabled = true
+//        buttonChangeDate?.addGestureRecognizer(gesture)
+//        buttonChangeDate.addTarget(self, action:  #selector(self.dateChanged(_:)), for: UIControl.Event.allTouchEvents)
+        
+        
+        // UIcollectionview
+        //galleryPhoto
+        collectionViewPhotoGallery.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewPhotoGallery.delegate = self
+        collectionViewPhotoGallery.dataSource = self
         let screenSize = UIScreen.main.bounds.size
         let cellWidth = floor(screenSize.width * cellScale)
         let cellHeight = floor(screenSize.height * cellScale)
@@ -71,10 +88,8 @@ class JournalViewController : UIViewController{
         layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
         collectionViewPhotoGallery.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
         
-        collectionViewPhotoGallery.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
-        collectionViewPhotoGallery.delegate = self
-        collectionViewPhotoGallery.dataSource = self
         
+        //weekly
         collectionViewWeekly.register(UINib.init(nibName: "WeeklyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "weeklyCollectionViewCell")
         collectionViewWeekly.delegate = self
         collectionViewWeekly.dataSource = self
@@ -93,18 +108,50 @@ class JournalViewController : UIViewController{
         
     }
     
-    @IBAction func buttonChangeDateClicked(_ sender: Any) {
-        let vc = CardSliderViewController.with(dataSource: self)
-        
-//        addChild(vc)
-//        viewSlideShowGallery.addSubview(vc.view)
-//        vc.view.frame = view.bounds
-//        vc.didMove(toParent: self)
-//        vc.view.frame = CGRect(x: 0, y: 0, width: viewSlideShowGallery.frame.size.width, height: viewSlideShowGallery.frame.size.height)
-        
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+    @IBAction func buttonChangeDateClicked(_ sender: UIButton) {
+        datePicker = UIDatePicker.init()
+        datePicker.backgroundColor = UIColor.white
+                
+        datePicker.autoresizingMask = .flexibleWidth
+        datePicker.datePickerMode = .date
+                
+        datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
+        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 150, width: UIScreen.main.bounds.size.width, height: 150)
+        self.view.addSubview(datePicker)
+                
+        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 150, width: UIScreen.main.bounds.size.width, height: 50))
+        toolBar.barStyle = .default
+        let topBarTitleLabel = UILabel.init(frame: (CGRect.init(origin: CGPoint.init(x: 0.0, y: 0.0), size: CGSize.init(width: 0.0, height: 0.0))))
+            topBarTitleLabel.text = "Change Date"
+            topBarTitleLabel.sizeToFit()
+            topBarTitleLabel.backgroundColor = UIColor.clear
+            topBarTitleLabel.textColor = UIColor.gray
+            topBarTitleLabel.textAlignment = NSTextAlignment.center
+            let topBarButtonItemTitleLabel = UIBarButtonItem.init(customView: topBarTitleLabel)
+        let flexibleBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+            self.toolBar.setItems([flexibleBarButtonItem, topBarButtonItemTitleLabel, flexibleBarButtonItem], animated: false)
+            self.toolBar.setNeedsLayout()
+        toolBar.sizeToFit()
+        self.view.addSubview(toolBar)
     }
+    
+    
+    
+
+    @objc func dateChanged(_ sender: UIDatePicker?) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .none
+            
+        if let date = sender?.date {
+            print("Picked the date \(dateFormatter.string(from: date))")
+            labelDate.text = dateFormatter.string(from: date)
+            datePicker.removeFromSuperview()
+            toolBar.removeFromSuperview()
+        }
+    }
+    
+
     
     func initCardSlider(){
         cardSliderItem.append(Item(image: UIImage(named: "recipe")!, rating: nil, title: "Food Gallery", subtitle: "Food Gallery per day", description: "Your food gallery per day what you eat"))
