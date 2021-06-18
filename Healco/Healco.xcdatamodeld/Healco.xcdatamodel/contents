@@ -7,8 +7,9 @@
         <attribute name="foodFat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="foodName" optional="YES" attributeType="String"/>
         <attribute name="foodProtein" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="foodStatus" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Foods" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="Foods" positionX="-63" positionY="-18" width="128" height="134"/>
     </elements>
 </model>

@@ -26,7 +26,7 @@ class FoodDetailViewController: UIViewController {
         let foodSelected = getFoodFromName(name: foodName!)
         foodNameLabel.text = foodSelected.foodName
         foodDescriptionLabel.text = foodSelected.foodDescription
-        /*switch(foodSelected.foodStatus){
+        switch(foodSelected.foodStatus){
         case "Healthy":
             foodStatusImageView.image = UIImage(named: "healthy-icon")
             break
@@ -38,22 +38,11 @@ class FoodDetailViewController: UIViewController {
             break
         default:
             break
-        }*/
+        }
         foodCaloriesLabel.text = String(foodSelected.foodCalories) + "kal"
         foodFatLabel.text = String(foodSelected.foodFat) + "g"
         foodCarbohydrateLabel.text = String(foodSelected.foodCarbohydrate) + "g"
         foodProteinLabel.text = String(foodSelected.foodProtein) + "g"
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
