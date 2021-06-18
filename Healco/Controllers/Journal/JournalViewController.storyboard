@@ -59,20 +59,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cah-WM-W2U">
-                                <rect key="frame" x="314" y="253" width="75" height="30"/>
-                                <color key="backgroundColor" red="0.38823529411764707" green="0.58431372549019611" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="hfL-3W-6XV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="14"/>
-                                <state key="normal" title="Change">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonChangeDateClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VH6-8b-Q7f"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7m-hv-TVP">
                                 <rect key="frame" x="25" y="290.5" width="364" height="150"/>
                                 <subviews>
@@ -199,6 +185,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRc-lL-k5Q">
+                                <rect key="frame" x="314" y="253" width="75" height="30"/>
+                                <color key="backgroundColor" red="0.25098039215686274" green="0.53725490196078429" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="7co-GY-kvB"/>
+                                    <constraint firstAttribute="height" constant="30" id="Khl-eM-mcL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -219,19 +216,19 @@
                             <constraint firstItem="mfT-PH-6a8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="T6Z-wG-88w"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pwn-DR-qMC" secondAttribute="trailing" id="VO6-Vz-WNb"/>
                             <constraint firstItem="eKU-tf-Dfd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="X51-EA-zLB"/>
+                            <constraint firstItem="kRc-lL-k5Q" firstAttribute="centerY" secondItem="mfT-PH-6a8" secondAttribute="centerY" id="Y1F-lw-5BY"/>
                             <constraint firstItem="eKU-tf-Dfd" firstAttribute="top" secondItem="C7m-hv-TVP" secondAttribute="bottom" id="c5M-K7-Bam"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cah-WM-W2U" secondAttribute="trailing" constant="25" id="eXj-PH-XEC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="a8f-8d-Er5" secondAttribute="trailing" constant="25" id="g0S-D8-3Ch"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="C7m-hv-TVP" secondAttribute="trailing" constant="25" id="jOM-hT-WXe"/>
-                            <constraint firstItem="cah-WM-W2U" firstAttribute="centerY" secondItem="mfT-PH-6a8" secondAttribute="centerY" id="nW9-jg-aTG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kRc-lL-k5Q" secondAttribute="trailing" constant="25" id="oFV-bv-qMN"/>
                             <constraint firstItem="a8f-8d-Er5" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="z5r-OL-lw3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="buttonAddJournal" destination="JoG-gE-ReU" id="Hc1-PY-kSE"/>
-                        <outlet property="buttonChangeDate" destination="cah-WM-W2U" id="fv9-iv-g3I"/>
                         <outlet property="collectionViewPhotoGallery" destination="di7-Y3-KBb" id="Xv0-Yx-325"/>
                         <outlet property="collectionViewWeekly" destination="4UM-JC-8HX" id="1gT-DF-FeE"/>
+                        <outlet property="labelChangeDate" destination="kRc-lL-k5Q" id="AV5-MJ-xbf"/>
                         <outlet property="labelDate" destination="mfT-PH-6a8" id="ZJv-nG-XNd"/>
                         <outlet property="viewPieChart" destination="xlW-Os-hOV" id="cb9-Zg-xME"/>
                         <outlet property="viewSlideShowGallery" destination="eKU-tf-Dfd" id="IU2-oG-DZP"/>
