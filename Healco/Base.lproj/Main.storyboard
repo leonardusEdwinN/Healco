@@ -172,6 +172,16 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="EvQ-5v-tF8"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="eV5-TO-i90"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZN-Eh-Msb">
+                                <rect key="frame" x="16" y="27" width="40" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton_Pressed:" destination="ect-KR-w5H" eventType="touchUpInside" id="dNa-dz-Coo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GgD-tA-gV9"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>

@@ -29,12 +29,15 @@ class FoodDetailViewController: UIViewController {
         switch(foodSelected.foodStatus){
         case "Healthy":
             foodStatusImageView.image = UIImage(named: "healthy-icon")
+            foodCaloriesLabel.textColor = UIColor.green
             break
         case "Common":
             foodStatusImageView.image = UIImage(named: "common-icon")
+            foodCaloriesLabel.textColor = UIColor.orange
             break
         case "Unhealthy":
             foodStatusImageView.image = UIImage(named: "unhealthy-icon")
+            foodCaloriesLabel.textColor = UIColor.red
             break
         default:
             break
@@ -45,4 +48,7 @@ class FoodDetailViewController: UIViewController {
         foodProteinLabel.text = String(foodSelected.foodProtein) + "g"
     }
 
+    @IBAction func backButton_Pressed(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
