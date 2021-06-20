@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8xl-uu-NMt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -21,10 +21,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Linking View Controller-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LinkingViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,17 +34,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-558" y="107"/>
-        </scene>
-        <!--Onboarding-->
-        <scene sceneID="ZZa-ZU-V0M">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Onboarding" id="pPk-IW-dKP" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="LGK-cJ-i7P"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QX2-Lc-kwL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="990" y="-1069"/>
+            <point key="canvasLocation" x="-615" y="-1145"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="EOc-ZC-Xcf">
@@ -276,7 +266,6 @@
                         <outlet property="viewPieChart" destination="zNa-xB-Uu7" id="Xtl-zE-YUW"/>
                         <outlet property="viewSlideShowGallery" destination="1X0-A3-AwR" id="4Xg-eJ-f2N"/>
                         <outlet property="viewSummary" destination="czm-BU-w7C" id="Dac-hm-uDb"/>
-                        <segue destination="pPk-IW-dKP" kind="show" identifier="toOnboarding" id="TxQ-eY-bo8"/>
                         <segue destination="jRb-4X-cFm" kind="show" identifier="toMain" id="m5z-W2-YT1"/>
                     </connections>
                 </viewController>

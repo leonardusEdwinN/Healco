@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Onboarding", bundle: nil);
         let viewController = storyboard.instantiateViewController(withIdentifier: "Onboarding") as! OnboardingViewController;
         self.present(viewController, animated: true, completion: nil)
+        
     }
 }
 
