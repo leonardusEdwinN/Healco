@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13492D57267F030600843181 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 13492D56267F030600843181 /* Food101.mlmodel */; };
 		137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B622670CE2B00543CCF /* AppDelegate.swift */; };
 		137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B642670CE2B00543CCF /* SceneDelegate.swift */; };
 		137A0B672670CE2B00543CCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B662670CE2B00543CCF /* ViewController.swift */; };
@@ -26,6 +27,11 @@
 		139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */; };
 		139AD0A12679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */; };
 		139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD0AA2679F70E00954DB2 /* Photo.swift */; };
+		221A0BBD267B321D0042A94A /* HasilFoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221A0BBC267B321D0042A94A /* HasilFoto.storyboard */; };
+		221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A0BC2267B3B570042A94A /* HasilFotoVC.swift */; };
+		221A0BC5267B60B00042A94A /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A0BC4267B60B00042A94A /* Extention.swift */; };
+		2289F5CC2672218D00C118CD /* FoodRecog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2289F5CB2672218D00C118CD /* FoodRecog.storyboard */; };
+		2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289F5CD267222A900C118CD /* FoodRecogVC.swift */; };
 		4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4434291D267C281900A85983 /* OnboardingViewController.swift */; };
 		44342927267C2BA800A85983 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */; };
 		44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4434292F267C3FDC00A85983 /* Onboarding.storyboard */; };
@@ -35,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13492D56267F030600843181 /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
 		137A0B5F2670CE2B00543CCF /* Healco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137A0B622670CE2B00543CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		137A0B642670CE2B00543CCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +63,11 @@
 		139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		139AD0AA2679F70E00954DB2 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		221A0BBC267B321D0042A94A /* HasilFoto.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HasilFoto.storyboard; sourceTree = "<group>"; };
+		221A0BC2267B3B570042A94A /* HasilFotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasilFotoVC.swift; sourceTree = "<group>"; };
+		221A0BC4267B60B00042A94A /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
+		2289F5CB2672218D00C118CD /* FoodRecog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodRecog.storyboard; sourceTree = "<group>"; };
+		2289F5CD267222A900C118CD /* FoodRecogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecogVC.swift; sourceTree = "<group>"; };
 		4434291D267C281900A85983 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		4434292F267C3FDC00A85983 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
@@ -78,6 +90,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13492D53267F020800843181 /* FoodRecog */ = {
+			isa = PBXGroup;
+			children = (
+				2289F5CD267222A900C118CD /* FoodRecogVC.swift */,
+				2289F5CB2672218D00C118CD /* FoodRecog.storyboard */,
+			);
+			path = FoodRecog;
+			sourceTree = "<group>";
+		};
+		13492D54267F021E00843181 /* HasilFoto */ = {
+			isa = PBXGroup;
+			children = (
+				221A0BBC267B321D0042A94A /* HasilFoto.storyboard */,
+				221A0BC2267B3B570042A94A /* HasilFotoVC.swift */,
+			);
+			path = HasilFoto;
+			sourceTree = "<group>";
+		};
+		13492D55267F022E00843181 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				221A0BC4267B60B00042A94A /* Extention.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		137A0B562670CE2B00543CCF = {
 			isa = PBXGroup;
 			children = (
@@ -99,7 +137,7 @@
 		137A0B612670CE2B00543CCF /* Healco */ = {
 			isa = PBXGroup;
 			children = (
-				4434291C267C27CC00A85983 /* Onboarding */,
+				13492D55267F022E00843181 /* Helpers */,
 				1394FF53267AEC3D0062813A /* Fonts */,
 				13970EFF2678A70900B6F11D /* Controllers */,
 				13970EFE2678A70300B6F11D /* Views */,
@@ -108,6 +146,7 @@
 				137A0B642670CE2B00543CCF /* SceneDelegate.swift */,
 				137A0B662670CE2B00543CCF /* ViewController.swift */,
 				137A0B682670CE2B00543CCF /* Main.storyboard */,
+				2268724B2678BF41006293A3 /* MLmodel */,
 				137A0B6E2670CE2C00543CCF /* Assets.xcassets */,
 				137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */,
 				137A0B732670CE2C00543CCF /* Info.plist */,
@@ -159,6 +198,9 @@
 		13970EFF2678A70900B6F11D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4434291C267C27CC00A85983 /* Onboarding */,
+				13492D54267F021E00843181 /* HasilFoto */,
+				13492D53267F020800843181 /* FoodRecog */,
 				13970F002678A78B00B6F11D /* Journal */,
 			);
 			path = Controllers;
@@ -180,6 +222,14 @@
 				139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */,
 			);
 			path = JournalGalleryPhoto;
+			sourceTree = "<group>";
+		};
+		2268724B2678BF41006293A3 /* MLmodel */ = {
+			isa = PBXGroup;
+			children = (
+				13492D56267F030600843181 /* Food101.mlmodel */,
+			);
+			path = MLmodel;
 			sourceTree = "<group>";
 		};
 		4434291C267C27CC00A85983 /* Onboarding */ = {
@@ -280,6 +330,8 @@
 				1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */,
 				13970F062678A7F200B6F11D /* JournalViewController.storyboard in Resources */,
 				137A0B6A2670CE2B00543CCF /* Main.storyboard in Resources */,
+				2289F5CC2672218D00C118CD /* FoodRecog.storyboard in Resources */,
+				221A0BBD267B321D0042A94A /* HasilFoto.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,8 +390,12 @@
 				1394FF67267AEFE20062813A /* WeeklyCollectionViewCell.swift in Sources */,
 				4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
+				13492D57267F030600843181 /* Food101.mlmodel in Sources */,
 				EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */,
+				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
+				221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */,
+				221A0BC5267B60B00042A94A /* Extention.swift in Sources */,
 				44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */,
 				44342927267C2BA800A85983 /* OnboardingCollectionViewCell.swift in Sources */,
 				137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */,
@@ -492,9 +548,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9P49UTYHH6;
+				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
 				INFOPLIST_FILE = Healco/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -513,9 +569,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9P49UTYHH6;
+				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
 				INFOPLIST_FILE = Healco/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
