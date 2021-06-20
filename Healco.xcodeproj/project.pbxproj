@@ -26,17 +26,12 @@
 		139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */; };
 		139AD0A12679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */; };
 		139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD0AA2679F70E00954DB2 /* Photo.swift */; };
-		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
-		EFB2CFBF267B143B00414E66 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFBE267B143B00414E66 /* PageViewController.swift */; };
-		EFB2CFC1267B1A5900414E66 /* Onboarding1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC0267B1A5900414E66 /* Onboarding1ViewController.swift */; };
-		EFB2CFC3267B1A6B00414E66 /* Onboarding2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */; };
-		EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */; };
-		EFB2CFC7267B29C600414E66 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */; };
-		EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */; };
 		4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4434291D267C281900A85983 /* OnboardingViewController.swift */; };
 		44342927267C2BA800A85983 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */; };
 		44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4434292F267C3FDC00A85983 /* Onboarding.storyboard */; };
 		44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */; };
+		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
+		EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,19 +56,14 @@
 		139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		139AD0AA2679F70E00954DB2 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Healco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.release.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.release.xcconfig"; sourceTree = "<group>"; };
-		9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.debug.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.debug.xcconfig"; sourceTree = "<group>"; };
-		EFB2CFBE267B143B00414E66 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		EFB2CFC0267B1A5900414E66 /* Onboarding1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1ViewController.swift; sourceTree = "<group>"; };
-		EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2ViewController.swift; sourceTree = "<group>"; };
-		EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3ViewController.swift; sourceTree = "<group>"; };
-		EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
-		EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingViewController.swift; sourceTree = "<group>"; };
 		4434291D267C281900A85983 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		4434292F267C3FDC00A85983 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
+		45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Healco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.release.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.release.xcconfig"; sourceTree = "<group>"; };
+		9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.debug.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.debug.xcconfig"; sourceTree = "<group>"; };
+		EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				4434291C267C27CC00A85983 /* Onboarding */,
-				EFB2CFBB267B13E500414E66 /* Onboarding Pages */,
 				1394FF53267AEC3D0062813A /* Fonts */,
 				13970EFF2678A70900B6F11D /* Controllers */,
 				13970EFE2678A70300B6F11D /* Views */,
@@ -126,18 +115,6 @@
 				EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */,
 			);
 			path = Healco;
-			sourceTree = "<group>";
-		};
-		EFB2CFBB267B13E500414E66 /* Onboarding Pages */ = {
-			isa = PBXGroup;
-			children = (
-				EFB2CFBE267B143B00414E66 /* PageViewController.swift */,
-				EFB2CFC0267B1A5900414E66 /* Onboarding1ViewController.swift */,
-				EFB2CFC2267B1A6B00414E66 /* Onboarding2ViewController.swift */,
-				EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */,
-				EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */,
-			);
-			path = "Onboarding Pages";
 			sourceTree = "<group>";
 		};
 		1394FF53267AEC3D0062813A /* Fonts */ = {
@@ -165,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				139AD0AA2679F70E00954DB2 /* Photo.swift */,
-                44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */,
+				44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,6 +182,16 @@
 			path = JournalGalleryPhoto;
 			sourceTree = "<group>";
 		};
+		4434291C267C27CC00A85983 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4434291D267C281900A85983 /* OnboardingViewController.swift */,
+				44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */,
+				4434292F267C3FDC00A85983 /* Onboarding.storyboard */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		49D385FB5606C38EC4F15509 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,17 +209,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		4434291C267C27CC00A85983 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				4434291D267C281900A85983 /* OnboardingViewController.swift */,
-				44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */,
-				4434292F267C3FDC00A85983 /* Onboarding.storyboard */,
-			);
-			sourceTree = "<group>";
-			path = Onboarding;
-		};
-				
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,10 +268,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44342934267C4EBF00A85983 /* Quicksand-Medium.ttf in Resources */,
-				44342935267C4EBF00A85983 /* Quicksand-SemiBold.ttf in Resources */,
-				44342936267C4EBF00A85983 /* Quicksand-Regular.ttf in Resources */,
-				44342937267C4EBF00A85983 /* Quicksand-Light.ttf in Resources */,
 				137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */,
 				1394FF5F267AEC8E0062813A /* Quicksand-SemiBold.ttf in Resources */,
 				1394FF68267AEFE20062813A /* WeeklyCollectionViewCell.xib in Resources */,
@@ -308,7 +280,6 @@
 				1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */,
 				13970F062678A7F200B6F11D /* JournalViewController.storyboard in Resources */,
 				137A0B6A2670CE2B00543CCF /* Main.storyboard in Resources */,
-				EFB2CFC7267B29C600414E66 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,19 +335,15 @@
 				139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */,
 				139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */,
 				137A0B672670CE2B00543CCF /* ViewController.swift in Sources */,
-				EFB2CFC3267B1A6B00414E66 /* Onboarding2ViewController.swift in Sources */,
-				EFB2CFBF267B143B00414E66 /* PageViewController.swift in Sources */,
 				1394FF67267AEFE20062813A /* WeeklyCollectionViewCell.swift in Sources */,
 				4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
-				EFB2CFC1267B1A5900414E66 /* Onboarding1ViewController.swift in Sources */,
 				EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */,
 				44342927267C2BA800A85983 /* OnboardingCollectionViewCell.swift in Sources */,
 				137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */,
 				13970F042678A7DF00B6F11D /* JournalViewController.swift in Sources */,
-				EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
