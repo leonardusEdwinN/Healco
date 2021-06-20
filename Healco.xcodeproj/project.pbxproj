@@ -33,6 +33,10 @@
 		EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */; };
 		EFB2CFC7267B29C600414E66 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */; };
 		EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */; };
+		4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4434291D267C281900A85983 /* OnboardingViewController.swift */; };
+		44342927267C2BA800A85983 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */; };
+		44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4434292F267C3FDC00A85983 /* Onboarding.storyboard */; };
+		44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +70,10 @@
 		EFB2CFC4267B1A7700414E66 /* Onboarding3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3ViewController.swift; sourceTree = "<group>"; };
 		EFB2CFC6267B29C600414E66 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingViewController.swift; sourceTree = "<group>"; };
+		4434291D267C281900A85983 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		4434292F267C3FDC00A85983 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 		137A0B612670CE2B00543CCF /* Healco */ = {
 			isa = PBXGroup;
 			children = (
+				4434291C267C27CC00A85983 /* Onboarding */,
 				EFB2CFBB267B13E500414E66 /* Onboarding Pages */,
 				1394FF53267AEC3D0062813A /* Fonts */,
 				13970EFF2678A70900B6F11D /* Controllers */,
@@ -156,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				139AD0AA2679F70E00954DB2 /* Photo.swift */,
+                44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -212,6 +222,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4434291C267C27CC00A85983 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4434291D267C281900A85983 /* OnboardingViewController.swift */,
+				44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */,
+				4434292F267C3FDC00A85983 /* Onboarding.storyboard */,
+			);
+			sourceTree = "<group>";
+			path = Onboarding;
+		};
+				
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,6 +292,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44342934267C4EBF00A85983 /* Quicksand-Medium.ttf in Resources */,
+				44342935267C4EBF00A85983 /* Quicksand-SemiBold.ttf in Resources */,
+				44342936267C4EBF00A85983 /* Quicksand-Regular.ttf in Resources */,
+				44342937267C4EBF00A85983 /* Quicksand-Light.ttf in Resources */,
 				137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */,
 				1394FF5F267AEC8E0062813A /* Quicksand-SemiBold.ttf in Resources */,
 				1394FF68267AEFE20062813A /* WeeklyCollectionViewCell.xib in Resources */,
@@ -278,6 +303,7 @@
 				1394FF5C267AEC8E0062813A /* Quicksand-Medium.ttf in Resources */,
 				1394FF5D267AEC8E0062813A /* Quicksand-Regular.ttf in Resources */,
 				1394FF5E267AEC8E0062813A /* Quicksand-Bold.ttf in Resources */,
+				44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */,
 				137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */,
 				1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */,
 				13970F062678A7F200B6F11D /* JournalViewController.storyboard in Resources */,
@@ -341,10 +367,13 @@
 				EFB2CFC3267B1A6B00414E66 /* Onboarding2ViewController.swift in Sources */,
 				EFB2CFBF267B143B00414E66 /* PageViewController.swift in Sources */,
 				1394FF67267AEFE20062813A /* WeeklyCollectionViewCell.swift in Sources */,
+				4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
 				EFB2CFC1267B1A5900414E66 /* Onboarding1ViewController.swift in Sources */,
 				EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
+				44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */,
+				44342927267C2BA800A85983 /* OnboardingCollectionViewCell.swift in Sources */,
 				137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */,
 				13970F042678A7DF00B6F11D /* JournalViewController.swift in Sources */,
 				EFB2CFC5267B1A7700414E66 /* Onboarding3ViewController.swift in Sources */,
@@ -498,6 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9P49UTYHH6;
 				INFOPLIST_FILE = Healco/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,6 +548,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9P49UTYHH6;
 				INFOPLIST_FILE = Healco/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
