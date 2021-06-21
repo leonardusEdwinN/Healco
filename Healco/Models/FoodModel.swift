@@ -107,7 +107,7 @@
 
      do {
          try managedContext.execute(deleteRequest)
-     } catch let error as NSError {
+     } catch let _ as NSError {
          // TODO: handle the error
      }
  }

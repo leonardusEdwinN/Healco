@@ -126,6 +126,19 @@ class JournalViewController : UIViewController{
         }
     }
     
+    @IBAction func buttonAddJournalClicked(_ sender: Any) {
+        performSegue(withIdentifier: "goToFoodRecog", sender: sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToFoodRecog",
+             let foodRecogVC = segue.destination as? FoodRecogVC {
+            print("GO TO FOOD RECOG")
+            foodRecogVC.modalPresentationStyle = .fullScreen
+          }
+        
+    }
+    
 
     
 }
