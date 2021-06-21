@@ -125,6 +125,7 @@
 				137A0B602670CE2B00543CCF /* Products */,
 				68300107CC7A5F6FCEACC122 /* Pods */,
 				49D385FB5606C38EC4F15509 /* Frameworks */,
+				139398B026809812004915C9 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,9 +154,23 @@
 				137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */,
 				137A0B732670CE2C00543CCF /* Info.plist */,
 				137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */,
-				EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */,
 			);
 			path = Healco;
+			sourceTree = "<group>";
+		};
+		139398B026809812004915C9 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		139398B12680C211004915C9 /* FoodDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */,
+			);
+			path = FoodDetail;
 			sourceTree = "<group>";
 		};
 		1394FF53267AEC3D0062813A /* Fonts */ = {
@@ -201,6 +216,7 @@
 		13970EFF2678A70900B6F11D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				139398B12680C211004915C9 /* FoodDetail */,
 				4434291C267C27CC00A85983 /* Onboarding */,
 				13492D54267F021E00843181 /* HasilFoto */,
 				13492D53267F020800843181 /* FoodRecog */,
