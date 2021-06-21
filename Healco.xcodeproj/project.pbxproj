@@ -39,6 +39,7 @@
 		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
 		EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB9682267F08CF00C23BA2 /* FoodModel.swift */; };
 		EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */; };
+		EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		137A0B6E2670CE2C00543CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137A0B712670CE2C00543CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		137A0B732670CE2C00543CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		1394FF56267AEC8E0062813A /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		1394FF57267AEC8E0062813A /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		1394FF58267AEC8E0062813A /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
@@ -153,7 +155,7 @@
 				137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */,
 				137A0B732670CE2C00543CCF /* Info.plist */,
 				137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */,
-				EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */,
+				EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */,
 			);
 			path = Healco;
 			sourceTree = "<group>";
@@ -396,6 +398,7 @@
 				13492D57267F030600843181 /* Food101.mlmodel in Sources */,
 				EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */,
 				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
+				EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */,
 				221A0BC5267B60B00042A94A /* Extention.swift in Sources */,
