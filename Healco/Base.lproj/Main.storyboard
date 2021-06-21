@@ -96,7 +96,6 @@
             </objects>
             <point key="canvasLocation" x="1283" y="-545"/>
         </scene>
-        
         <!--Food Detail View Controller-->
         <scene sceneID="7n4-rA-XiO">
             <objects>
@@ -217,7 +216,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GSS-Zc-4xQ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1261.5384615384614" y="-911.37440758293837"/>
+            <point key="canvasLocation" x="1243" y="-1336"/>
         </scene>
         <!--Journal View Controller-->
         <scene sceneID="idJ-cq-HWb">
@@ -443,15 +442,13 @@
     </scenes>
     <resources>
         <image name="brooke-lark-nBtmglfY0HU-unsplash" width="375" height="421"/>
-        <image name="header-left" width="855" height="279"/>
-        <image name="header-right" width="855" height="279"/>
-
         <image name="common-icon" width="62.333332061767578" height="62.333332061767578"/>
         <image name="header-left" width="213.66667175292969" height="69.666664123535156"/>
+        <image name="header-right" width="213.66667175292969" height="69.666664123535156"/>
         <image name="healthy-icon" width="62.333332061767578" height="62.333332061767578"/>
+        <image name="onboarding-image-1" width="855" height="926"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="unhealthy-icon" width="62.333332061767578" height="62.333332061767578"/>
-
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
