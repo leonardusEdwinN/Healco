@@ -7,17 +7,6 @@
 
 import Foundation
 import Charts
-import CardSlider
-//import HSCycleGalleryView
-
-struct Item : CardSliderItem {
-    var image: UIImage
-    var rating: Int?
-    var title: String
-    var subtitle: String?
-    var description: String?
-}
-
 
 
 class JournalViewController : UIViewController{
@@ -33,11 +22,16 @@ class JournalViewController : UIViewController{
     @IBOutlet weak var collectionViewWeekly: UICollectionView!
     @IBOutlet weak var labelDate: UILabel!
     //    var barChartView = BarChartView()
+    //Pie Chart
     var pieChartView = PieChartView()
-    var cardSliderItem = [Item]()
+    
+    //Photo Gallery
     var carouselData = Photo.fetchDummyData()
     let cellScale : CGFloat = 0.6
+    
+    // Weekly CollectionCell
     var date = ["11 Jun", "12 Jun","13 Jun", "14 Jun","15 Jun", "16 Jun", "17 Jun"]
+    var selectedBefore : IndexPath!
     
     //properties
     let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
@@ -49,7 +43,6 @@ class JournalViewController : UIViewController{
     var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
     
-//    var pager = HSCycleGalleryView()
     
     
     override func viewDidLoad() {
@@ -62,15 +55,6 @@ class JournalViewController : UIViewController{
         //pieChart
         pieChartView.delegate = self
         
-        //datepicker
-        
-        
-//        let gesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dateChanged(_:)))
-//        gesture.numberOfTapsRequired = 1
-//        buttonChangeDate?.isUserInteractionEnabled = true
-//        buttonChangeDate?.addGestureRecognizer(gesture)
-//        buttonChangeDate.addTarget(self, action:  #selector(self.dateChanged(_:)), for: UIControl.Event.allTouchEvents)
-        
         
         // UIcollectionview
         //galleryPhoto
@@ -80,7 +64,6 @@ class JournalViewController : UIViewController{
         let screenSize = UIScreen.main.bounds.size
         let cellWidth = floor(screenSize.width * cellScale)
         let cellHeight = floor(screenSize.height * cellScale)
-        print("W : \(cellWidth) H : \(cellHeight)")
         let insetX = (collectionViewPhotoGallery.frame.size.width - cellWidth) / 2.0
         let insetY = (collectionViewPhotoGallery.frame.size.height - cellHeight) / 2.0
         
@@ -93,18 +76,7 @@ class JournalViewController : UIViewController{
         collectionViewWeekly.register(UINib.init(nibName: "WeeklyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "weeklyCollectionViewCell")
         collectionViewWeekly.delegate = self
         collectionViewWeekly.dataSource = self
-        
-        initCardSlider()
-        
-//        pager = HSCycleGalleryView(frame: CGRect(x: 0, y: 0, width: viewSlideShowGallery.frame.size.width, height: 200))
-        //carousel ui init
-//        pager.register(cellClass: GalleryPhotoCollectionViewCell.self, forCellReuseIdentifier: "galleryPhotoCell")
-//        pager.delegate = self
-//        viewSlideShowGallery.addSubview(pager)
-//        pager.reloadData()
-        
-       
-        
+        collectionViewWeekly.allowsMultipleSelection = false
         
     }
     
@@ -128,16 +100,19 @@ class JournalViewController : UIViewController{
             topBarTitleLabel.textColor = UIColor.gray
             topBarTitleLabel.textAlignment = NSTextAlignment.center
             let topBarButtonItemTitleLabel = UIBarButtonItem.init(customView: topBarTitleLabel)
+        let buttonCancel = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(self.onCancelButtonClick))
         let flexibleBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-            self.toolBar.setItems([flexibleBarButtonItem, topBarButtonItemTitleLabel, flexibleBarButtonItem], animated: false)
+            self.toolBar.setItems([flexibleBarButtonItem, topBarButtonItemTitleLabel, flexibleBarButtonItem, buttonCancel], animated: false)
             self.toolBar.setNeedsLayout()
         toolBar.sizeToFit()
         self.view.addSubview(toolBar)
     }
     
+    @objc func onCancelButtonClick() {
+        toolBar.removeFromSuperview()
+        datePicker.removeFromSuperview()
+    }
     
-    
-
     @objc func dateChanged(_ sender: UIDatePicker?) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .full
@@ -151,13 +126,21 @@ class JournalViewController : UIViewController{
         }
     }
     
+    @IBAction func buttonAddJournalClicked(_ sender: Any) {
+        performSegue(withIdentifier: "goToFoodRecog", sender: sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToFoodRecog",
+             let foodRecogVC = segue.destination as? FoodRecogVC {
+            print("GO TO FOOD RECOG")
+            foodRecogVC.modalPresentationStyle = .fullScreen
+          }
+        
+    }
+    
 
     
-    func initCardSlider(){
-        cardSliderItem.append(Item(image: UIImage(named: "recipe")!, rating: nil, title: "Food Gallery", subtitle: "Food Gallery per day", description: "Your food gallery per day what you eat"))
-        cardSliderItem.append(Item(image: UIImage(named: "recipe")!, rating: nil, title: "Food Gallery", subtitle: "Food Gallery per day", description: "Your food gallery per day what you eat"))
-        cardSliderItem.append(Item(image: UIImage(named: "recipe")!, rating: nil, title: "Food Gallery", subtitle: "Food Gallery per day", description: "Your food gallery per day what you eat"))
-    }
 }
 
 // MARK : - UICollectionViewDataSource
@@ -181,6 +164,7 @@ extension JournalViewController : UICollectionViewDataSource{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
             cell.setUI(dateText: date[indexPath.item])
+            cell.delegate = self
             
             return cell
         }else if collectionView == self.collectionViewPhotoGallery{
@@ -196,58 +180,39 @@ extension JournalViewController : UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+//        collectionView.deselectItem(at: indexPath, animated: true)
         if collectionView == self.collectionViewWeekly {
+            
+//            if let selectedCellBefore = selectedBefore{
+//                collectionViewWeekly.deselectItem(at: selectedBefore, animated: true)
+//            }
             print("selected index path : \(indexPath.item) :: ")
             
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
-            cell.imageIcon.image = UIImage(systemName: "heart.fill")
-            print("selected : \(cell.isSelected)")
-            collectionViewWeekly.reloadData()
+            let cell = collectionView.cellForItem(at: indexPath) as? WeeklyCollectionViewCell
+//            selectedBefore = indexPath
+            cell?.selectedCell = true
             
         }
     }
-    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionViewWeekly {
-            print("selected index path : \(indexPath.item) :: ")
+            print("deselected index path : \(indexPath.item) :: ")
             
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
-            cell.imageIcon.image = UIImage(systemName: "heart.fill")
-            print("deselect : \(cell.isSelected)")
-            collectionViewWeekly.reloadData()
+            let cell = collectionView.cellForItem(at: indexPath) as? WeeklyCollectionViewCell
+            cell?.selectedCell = false
+            
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        if collectionView == self.collectionViewWeekly {
-//            let totalSpacing = (2 * sectionInsets.left) + ((numberOfItemsPerRow - 1) * spacingBetweenCells) //Amount of total spacing in a row
-//
-//            if let collection = self.collectionViewWeekly{
-//                let width = (collection.bounds.width - totalSpacing)/numberOfItemsPerRow
-//                return CGSize(width: width, height: width)
-//            }
-//        }
-//        return CGSize(width: 0, height: 0)
-//
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        if collectionView == self.collectionViewWeekly {
-//            return sectionInsets
-//        }
-//        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0 )
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        if collectionView == self.collectionViewWeekly {
-//            return spacingBetweenCells
-//        }
-//
-//        return CGFloat(0)
-//    }
+    //how to equaly space
+}
+
+extension JournalViewController : WeeklyCollectionViewCellProtocol{
+    func reloadCell() {
+        collectionViewWeekly.reloadData()
+    }
 }
 
 // MARK : - UICollectionViewDelegate
@@ -313,31 +278,3 @@ extension JournalViewController : ChartViewDelegate{
         pieChartView.data = data
     }
 }
-
-extension JournalViewController : CardSliderDataSource{
-    func item(for index: Int) -> CardSliderItem {
-        return cardSliderItem[index]
-    }
-    
-    func numberOfItems() -> Int {
-        return cardSliderItem.count
-    }
-    
-    
-}
-
-//extension JournalViewController : HSCycleGalleryViewDelegate{
-//
-//    func numberOfItemInCycleGalleryView(_ cycleGalleryView: HSCycleGalleryView) -> Int {
-//        return 3
-//    }
-//
-//    func cycleGalleryView(_ cycleGalleryView: HSCycleGalleryView, cellForItemAtIndex index: Int) -> UICollectionViewCell {
-//        let cell = cycleGalleryView.dequeueReusableCell(withIdentifier: "galleryPhotoCell", for: IndexPath(item: index, section: 0))
-//
-//
-//        cell.backgroundColor = .black
-//        return cell
-//    }
-//
-//}
