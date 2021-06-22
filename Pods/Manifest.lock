@@ -1,26 +1,18 @@
 PODS:
-  - CardSlider (0.1.0)
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
-  - HSCycleGalleryView (1.2.0)
 
 DEPENDENCIES:
-  - CardSlider
   - Charts
-  - HSCycleGalleryView
 
 SPEC REPOS:
   trunk:
-    - CardSlider
     - Charts
-    - HSCycleGalleryView
 
 SPEC CHECKSUMS:
-  CardSlider: 0a8f5f17f5a76701771794b07fdaeddc512358c8
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
-  HSCycleGalleryView: 5101435175a26d08f1c062cf6cb245f58f09b425
 
-PODFILE CHECKSUM: f068dd21c5ea5ba209f7a3e0c26b69535dd13b12
+PODFILE CHECKSUM: 4dd0806c3c889d2cdc51033cdb91309f39f5fb01
 
 COCOAPODS: 1.10.1
