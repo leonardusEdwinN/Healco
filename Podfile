@@ -8,7 +8,5 @@ target 'Healco' do
   # Pods for Healco
 
 pod 'Charts'
-pod 'CardSlider'
-pod 'HSCycleGalleryView'
 
 end
