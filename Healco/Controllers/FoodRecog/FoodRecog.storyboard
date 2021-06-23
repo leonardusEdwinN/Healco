@@ -18,7 +18,18 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1jx-Qs-8bL"/>
+                    <navigationItem key="navigationItem" id="1jx-Qs-8bL">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="jK4-6c-mHX">
+                            <inset key="imageInsets" minX="0.0" minY="-1" maxX="0.0" maxY="0.0"/>
+                            <inset key="largeContentSizeImageInsets" minX="-1" minY="1" maxX="0.0" maxY="0.0"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nxe-qX-ZiO">
+                                <rect key="frame" x="236" y="154" width="13" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="chevron.left" catalog="system"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,6 +55,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

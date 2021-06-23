@@ -46,7 +46,8 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
         view.addSubview(shutterButton)
         view.addSubview(innerButton)
         
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.barTintColor = UIColor.black
         checkCameraPermissions()
         innerButton.addTarget(self, action: #selector(didTapTakePhoto), for: .touchUpInside)
 
