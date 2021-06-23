@@ -133,7 +133,6 @@ class JournalViewController : UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFoodRecog",
              let foodRecogVC = segue.destination as? FoodRecogVC {
-            print("GO TO FOOD RECOG")
             foodRecogVC.modalPresentationStyle = .fullScreen
           }
         
