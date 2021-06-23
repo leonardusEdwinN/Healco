@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,7 @@
 		139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */; };
 		139AD0A12679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */; };
 		139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD0AA2679F70E00954DB2 /* Photo.swift */; };
+		13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 13A11C75268324E200FA1545 /* FatSecretSwift */; };
 		221A0BBD267B321D0042A94A /* HasilFoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221A0BBC267B321D0042A94A /* HasilFoto.storyboard */; };
 		221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A0BC2267B3B570042A94A /* HasilFotoVC.swift */; };
 		221A0BC5267B60B00042A94A /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A0BC4267B60B00042A94A /* Extention.swift */; };
@@ -38,7 +39,7 @@
 		44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */; };
 		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
 		EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB9682267F08CF00C23BA2 /* FoodModel.swift */; };
-		EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */; };
+		EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +78,7 @@
 		926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.release.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.release.xcconfig"; sourceTree = "<group>"; };
 		9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.debug.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.debug.xcconfig"; sourceTree = "<group>"; };
 		EFAB9682267F08CF00C23BA2 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
-		EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingViewController.swift; sourceTree = "<group>"; };
+		EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */,
 				B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -125,6 +127,7 @@
 				137A0B602670CE2B00543CCF /* Products */,
 				68300107CC7A5F6FCEACC122 /* Pods */,
 				49D385FB5606C38EC4F15509 /* Frameworks */,
+				139398B026809812004915C9 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,9 +156,23 @@
 				137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */,
 				137A0B732670CE2C00543CCF /* Info.plist */,
 				137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */,
-				EFB2CFC8267B2C2700414E66 /* LinkingViewController.swift */,
 			);
 			path = Healco;
+			sourceTree = "<group>";
+		};
+		139398B026809812004915C9 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		139398B12680C211004915C9 /* FoodDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */,
+			);
+			path = FoodDetail;
 			sourceTree = "<group>";
 		};
 		1394FF53267AEC3D0062813A /* Fonts */ = {
@@ -201,6 +218,7 @@
 		13970EFF2678A70900B6F11D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				139398B12680C211004915C9 /* FoodDetail */,
 				4434291C267C27CC00A85983 /* Onboarding */,
 				13492D54267F021E00843181 /* HasilFoto */,
 				13492D53267F020800843181 /* FoodRecog */,
@@ -280,6 +298,9 @@
 			dependencies = (
 			);
 			name = Healco;
+			packageProductDependencies = (
+				13A11C75268324E200FA1545 /* FatSecretSwift */,
+			);
 			productName = Healco;
 			productReference = 137A0B5F2670CE2B00543CCF /* Healco.app */;
 			productType = "com.apple.product-type.application";
@@ -307,6 +328,9 @@
 				Base,
 			);
 			mainGroup = 137A0B562670CE2B00543CCF;
+			packageReferences = (
+				13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */,
+			);
 			productRefGroup = 137A0B602670CE2B00543CCF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -394,8 +418,8 @@
 				4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
 				13492D57267F030600843181 /* Food101.mlmodel in Sources */,
-				EFB2CFC9267B2C2700414E66 /* LinkingViewController.swift in Sources */,
 				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
+				EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */,
 				221A0BC5267B60B00042A94A /* Extention.swift in Sources */,
@@ -552,7 +576,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
+				DEVELOPMENT_TEAM = Y4SYN8VK49;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -573,7 +597,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
+				DEVELOPMENT_TEAM = Y4SYN8VK49;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -609,6 +633,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NicholasBellucci/FatSecretSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		13A11C75268324E200FA1545 /* FatSecretSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */;
+			productName = FatSecretSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */ = {
