@@ -16,11 +16,11 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageIcon: UIImageView!
     @IBOutlet weak var labelDate: UILabel!
     
-    var selectedCell: Bool = false {
-        didSet{
-            self.changeUpdate()
-        }
-    }
+//    var selectedCell: Bool = false {
+//        didSet{
+//            self.changeUpdate()
+//        }
+//    }
     
     var delegate : WeeklyCollectionViewCellProtocol?
     
@@ -35,8 +35,8 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
     }
     
     func changeUpdate(){
-        print("CELL : \(selectedCell) :: isselected \(isSelected)")
-        if(selectedCell){
+//        print("CELL : \(selectedCell) :: isselected \(isSelected)")
+        if(isSelected){
             imageIcon.image = UIImage(systemName: "heart.fill")
         }else{
             imageIcon.image = UIImage(systemName: "heart")
