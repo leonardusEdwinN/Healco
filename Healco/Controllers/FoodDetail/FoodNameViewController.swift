@@ -15,8 +15,9 @@ class ViewController: UIViewController {
     var foods: [NSManagedObject] = []
     var filteredFoodNames: [String] = []
     
-    //@IBOutlet weak var foodSearchBar: UISearchBar!
-    //@IBOutlet weak var foodNameTableView: UITableView!
+    @IBOutlet weak var foodSearchBar: UISearchBar!
+    @IBOutlet weak var foodNameTableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,7 @@ class ViewController: UIViewController {
             else{
                 vc.foodName = foodNames[selectedRow]
             }
+            vc.modalPresentationStyle = .pageSheet
         }
     }
 }
