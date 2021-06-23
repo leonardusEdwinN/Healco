@@ -16,6 +16,8 @@
      var foodCarbohydrate: Double!
      var foodProtein: Double!
      var foodStatus: String!
+    
+
  }
 
  enum HealthyStatus: String{
@@ -24,6 +26,13 @@
      case unhealthy = "Unhealthy"
  }
 
+
+//func calculateFood(foodModel : FoodModel) -> HealthyStatus{
+//    var healthyStat : Int!
+//    
+//    var HealthyStatus : HealthyStatus
+//    return HealthyStatus
+//}
  func addDataToModel()->[FoodModel]{
      var model: [FoodModel] = []
      let item1: FoodModel = FoodModel(foodName: "aslnbvsdk", foodDescription: "adjkbfd", foodCalories: 100, foodFat: 67.8, foodCarbohydrate: 87, foodProtein: 75, foodStatus: HealthyStatus.healthy.rawValue)
@@ -36,6 +45,7 @@
      model.append(item4)
      return model
  }
+
 
  public func addDataToFoodCoreData(){
      guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
@@ -107,7 +117,8 @@
 
      do {
          try managedContext.execute(deleteRequest)
-     } catch let _ as NSError {
+     } catch let error as NSError {
          // TODO: handle the error
+        print(error)
      }
  }
