@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,7 @@
 		139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */; };
 		139AD0A12679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */; };
 		139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD0AA2679F70E00954DB2 /* Photo.swift */; };
+		13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 13A11C75268324E200FA1545 /* FatSecretSwift */; };
 		221A0BBD267B321D0042A94A /* HasilFoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221A0BBC267B321D0042A94A /* HasilFoto.storyboard */; };
 		221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A0BC2267B3B570042A94A /* HasilFotoVC.swift */; };
 		221A0BC5267B60B00042A94A /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A0BC4267B60B00042A94A /* Extention.swift */; };
@@ -85,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */,
 				B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +298,9 @@
 			dependencies = (
 			);
 			name = Healco;
+			packageProductDependencies = (
+				13A11C75268324E200FA1545 /* FatSecretSwift */,
+			);
 			productName = Healco;
 			productReference = 137A0B5F2670CE2B00543CCF /* Healco.app */;
 			productType = "com.apple.product-type.application";
@@ -323,6 +328,9 @@
 				Base,
 			);
 			mainGroup = 137A0B562670CE2B00543CCF;
+			packageReferences = (
+				13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */,
+			);
 			productRefGroup = 137A0B602670CE2B00543CCF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -625,6 +633,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NicholasBellucci/FatSecretSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		13A11C75268324E200FA1545 /* FatSecretSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */;
+			productName = FatSecretSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */ = {

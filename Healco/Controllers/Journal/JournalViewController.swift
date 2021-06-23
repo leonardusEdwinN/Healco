@@ -164,7 +164,7 @@ extension JournalViewController : UICollectionViewDataSource{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
             cell.setUI(dateText: date[indexPath.item])
-            cell.delegate = self
+            
             
             return cell
         }else if collectionView == self.collectionViewPhotoGallery{
@@ -186,23 +186,36 @@ extension JournalViewController : UICollectionViewDataSource{
 //            if let selectedCellBefore = selectedBefore{
 //                collectionViewWeekly.deselectItem(at: selectedBefore, animated: true)
 //            }
-            print("selected index path : \(indexPath.item) :: ")
-            
-            
-            let cell = collectionView.cellForItem(at: indexPath) as? WeeklyCollectionViewCell
+            let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
+            cell.changeUpdate()
+//            cell.delegate = self
+//            if cell.isSelected{
+//                print("SELECTED CELL : \(indexPath.item)")
+//                DispatchQueue.main.async {
+//                    cell.imageIcon.image = UIImage(systemName: "heart.fill")
+//                    cell.delegate?.reloadCell()
+//                }
+//
+//            }
 //            selectedBefore = indexPath
-            cell?.selectedCell = true
+//            cell?.selectedCell = true
             
         }
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionViewWeekly {
-            print("deselected index path : \(indexPath.item) :: ")
-            
-            
-            let cell = collectionView.cellForItem(at: indexPath) as? WeeklyCollectionViewCell
-            cell?.selectedCell = false
-            
+            let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
+            cell.changeUpdate()
+//            cell.delegate = self
+//            if !cell.isSelected{
+//                print("UNSELECTED CELL : \(indexPath.item)")
+//                DispatchQueue.main.async {
+//                    cell.imageIcon.image = UIImage(systemName: "heart")
+//                    cell.delegate?.reloadCell()
+//                }
+//
+//            }
+
         }
     }
     
@@ -211,7 +224,9 @@ extension JournalViewController : UICollectionViewDataSource{
 
 extension JournalViewController : WeeklyCollectionViewCellProtocol{
     func reloadCell() {
-        collectionViewWeekly.reloadData()
+        DispatchQueue.main.async {
+            self.collectionViewWeekly.reloadData()
+        }
     }
 }
 
@@ -278,3 +293,31 @@ extension JournalViewController : ChartViewDelegate{
         pieChartView.data = data
     }
 }
+
+//Untuk search and get food nutritiont
+//func search(searchName : String){
+//    fatSecretClient.searchFood(name: searchName) { search in
+//        for food in search.foods{
+//            self.getFood(idFood: food.id)
+////                print("FOOD DESC : \(food.description)")
+//        }
+//    }
+//}
+//
+//func getFood(idFood : String){
+//    fatSecretClient.getFood(id: idFood) { food in
+//        print("FOOD NAME : \(food.name)")
+//        print("FOOD ID : \(food.id)")
+////            print("FOOD DESC : \(String(describing: food.servings.serving))")
+////            for serving in food.servings!{
+////                print("Serving : \(serving) \n")
+////            }
+////
+//        guard let servingsFood = food.servings else { return }
+//        for serving in servingsFood {
+//            print(serving)
+////                print("Serving Calcium : \(serving.calcium ?? "0")")
+////                print("Serving Potasium : \(serving.potassium ?? "0")")
+//            }
+//    }
+//}
