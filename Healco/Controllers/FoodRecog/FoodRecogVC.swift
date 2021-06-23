@@ -20,6 +20,7 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
     let previewLayer = AVCaptureVideoPreviewLayer()
     //Shutter Button
 
+
     
     private let shutterButton : UIButton = {
         let button = UIButton(frame: CGRect(x:0, y:0, width: 80, height: 80))
@@ -158,6 +159,13 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
     func pindahVC(image : UIImage){
         let storyboard = UIStoryboard(name: "HasilFoto", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "HasilFotoVC") as! HasilFotoVC
+        vc.imageHasilFoto = image
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func BackToMain(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! HasilFotoVC
         vc.imageHasilFoto = image
         navigationController?.pushViewController(vc, animated: true)
     }
