@@ -1,4 +1,2 @@
 ${PODS_ROOT}/Target Support Files/Pods-Healco/Pods-Healco-frameworks.sh
-${BUILT_PRODUCTS_DIR}/CardSlider/CardSlider.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
-${BUILT_PRODUCTS_DIR}/HSCycleGalleryView/HSCycleGalleryView.framework

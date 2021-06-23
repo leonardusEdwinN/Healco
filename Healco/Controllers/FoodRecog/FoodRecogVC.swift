@@ -165,7 +165,7 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
     }
     
     @IBAction func BackToMain(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
         navigationController?.pushViewController(vc, animated: true)
     }
