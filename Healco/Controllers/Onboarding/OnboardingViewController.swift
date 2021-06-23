@@ -44,12 +44,12 @@ class OnboardingViewController: UIViewController {
     
     @IBAction func btn_next_click(_ sender: Any) {
         if currentPage == slides.count - 1 {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil);
-//
-//            let viewController = storyboard.instantiateViewController(withIdentifier: "HomeView") as! MainPageViewController;
-//            viewController.modalTransitionStyle = .crossDissolve
-//            viewController.modalPresentationStyle = .fullScreen
-//            self.present(viewController, animated: true, completion: nil)
+            let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil);
+
+            let viewController = storyboard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController;
+            viewController.modalTransitionStyle = .crossDissolve
+            viewController.modalPresentationStyle = .fullScreen
+            self.present(viewController, animated: true, completion: nil)
         } else {
             currentPage += 1
             collectionView.isPagingEnabled = false
@@ -57,6 +57,8 @@ class OnboardingViewController: UIViewController {
             collectionView.isPagingEnabled = true
         }
     }
+    
+    
 }
 
 extension OnboardingViewController: UICollectionViewDelegate {
