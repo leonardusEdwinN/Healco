@@ -357,13 +357,9 @@
     </scenes>
     <resources>
         <image name="brooke-lark-nBtmglfY0HU-unsplash" width="375" height="421"/>
-        <image name="common-icon" width="62.333332061767578" height="62.333332061767578"/>
         <image name="header-left" width="213.66667175292969" height="69.666664123535156"/>
         <image name="header-right" width="213.66667175292969" height="69.666664123535156"/>
-        <image name="healthy-icon" width="62.333332061767578" height="62.333332061767578"/>
         <image name="onboarding-image-1" width="855" height="926"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="unhealthy-icon" width="62.333332061767578" height="62.333332061767578"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
