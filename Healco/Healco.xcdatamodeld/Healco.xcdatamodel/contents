@@ -2,19 +2,22 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Foods" representedClassName="Foods" syncable="YES" codeGenerationType="class">
         <attribute name="dateTaken" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="eatCause" optional="YES" attributeType="String"/>
+        <attribute name="eatFeeling" optional="YES" attributeType="String"/>
         <attribute name="foodCalories" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="foodCarbohydrate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="foodDescription" optional="YES" attributeType="String"/>
         <attribute name="foodFat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="foodID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="foodID" optional="YES" attributeType="String"/>
         <attribute name="foodName" optional="YES" attributeType="String"/>
         <attribute name="foodPhoto" optional="YES" attributeType="String"/>
         <attribute name="foodProtein" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="foodSaturatedFat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="foodSodium" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="foodStatus" optional="YES" attributeType="String"/>
+        <attribute name="timeTaken" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Foods" positionX="-63" positionY="-18" width="128" height="209"/>
+        <element name="Foods" positionX="-63" positionY="-18" width="128" height="254"/>
     </elements>
 </model>
