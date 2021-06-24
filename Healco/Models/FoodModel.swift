@@ -122,7 +122,7 @@ func calculateFood(foodModel : FoodModel2) -> HealthyStatus{
     return HealthyStat ?? HealthyStatus.common
 }
 
- func addDataToModel()->[FoodModel]{
+ func addDataToModel( )->[FoodModel]{
      var model: [FoodModel] = []
      /*let item1: FoodModel = FoodModel(foodName: "aslnbvsdk", foodDescription: "adjkbfd", foodCalories: 100, foodFat: 67.8, foodCarbohydrate: 87, foodProtein: 75, foodStatus: HealthyStatus.healthy.rawValue)
      let item2: FoodModel = FoodModel(foodName: "aEdbcned", foodDescription: "Qslkdvbnds", foodCalories: 150, foodFat: 92, foodCarbohydrate: 120, foodProtein: 150, foodStatus: HealthyStatus.unhealthy.rawValue)
