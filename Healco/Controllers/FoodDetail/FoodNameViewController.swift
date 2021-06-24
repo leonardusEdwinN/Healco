@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  FoodNameViewController.swift
 //  Healco
 //
-//  Created by Edwin Niwarlangga on 09/06/21.
+//  Created by Kelny Tan on 23/06/21.
 //
 
 import UIKit
@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var foodSearchBar: UISearchBar!
     @IBOutlet weak var foodNameTableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,7 @@ class ViewController: UIViewController {
             else{
                 vc.foodName = foodNames[selectedRow]
             }
+            vc.modalPresentationStyle = .pageSheet
         }
     }
 }

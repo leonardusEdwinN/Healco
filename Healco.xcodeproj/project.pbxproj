@@ -10,8 +10,6 @@
 		13492D57267F030600843181 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 13492D56267F030600843181 /* Food101.mlmodel */; };
 		137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B622670CE2B00543CCF /* AppDelegate.swift */; };
 		137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B642670CE2B00543CCF /* SceneDelegate.swift */; };
-		137A0B672670CE2B00543CCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B662670CE2B00543CCF /* ViewController.swift */; };
-		137A0B6A2670CE2B00543CCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B682670CE2B00543CCF /* Main.storyboard */; };
 		137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */; };
 		137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B6E2670CE2C00543CCF /* Assets.xcassets */; };
 		137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */; };
@@ -38,6 +36,8 @@
 		44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4434292F267C3FDC00A85983 /* Onboarding.storyboard */; };
 		44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */; };
 		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
+		EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */; };
+		EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */; };
 		EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB9682267F08CF00C23BA2 /* FoodModel.swift */; };
 		EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -47,8 +47,6 @@
 		137A0B5F2670CE2B00543CCF /* Healco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137A0B622670CE2B00543CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		137A0B642670CE2B00543CCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		137A0B662670CE2B00543CCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		137A0B692670CE2B00543CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		137A0B6C2670CE2B00543CCF /* Healco.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Healco.xcdatamodel; sourceTree = "<group>"; };
 		137A0B6E2670CE2C00543CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137A0B712670CE2C00543CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,6 +75,8 @@
 		45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Healco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.release.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.release.xcconfig"; sourceTree = "<group>"; };
 		9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.debug.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.debug.xcconfig"; sourceTree = "<group>"; };
+		EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodDetail.storyboard; sourceTree = "<group>"; };
+		EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNameViewController.swift; sourceTree = "<group>"; };
 		EFAB9682267F08CF00C23BA2 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,8 +149,6 @@
 				13970EFD2678A6F600B6F11D /* Models */,
 				137A0B622670CE2B00543CCF /* AppDelegate.swift */,
 				137A0B642670CE2B00543CCF /* SceneDelegate.swift */,
-				137A0B662670CE2B00543CCF /* ViewController.swift */,
-				137A0B682670CE2B00543CCF /* Main.storyboard */,
 				2268724B2678BF41006293A3 /* MLmodel */,
 				137A0B6E2670CE2C00543CCF /* Assets.xcassets */,
 				137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */,
@@ -171,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */,
+				EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */,
+				EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */,
 			);
 			path = FoodDetail;
 			sourceTree = "<group>";
@@ -356,9 +356,9 @@
 				137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */,
 				1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */,
 				13970F062678A7F200B6F11D /* JournalViewController.storyboard in Resources */,
-				137A0B6A2670CE2B00543CCF /* Main.storyboard in Resources */,
 				2289F5CC2672218D00C118CD /* FoodRecog.storyboard in Resources */,
 				221A0BBD267B321D0042A94A /* HasilFoto.storyboard in Resources */,
+				EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,9 +413,9 @@
 			files = (
 				139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */,
 				139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */,
-				137A0B672670CE2B00543CCF /* ViewController.swift in Sources */,
 				1394FF67267AEFE20062813A /* WeeklyCollectionViewCell.swift in Sources */,
 				4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */,
+				EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
 				13492D57267F030600843181 /* Food101.mlmodel in Sources */,
 				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
@@ -434,14 +434,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		137A0B682670CE2B00543CCF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				137A0B692670CE2B00543CCF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
