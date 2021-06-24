@@ -23,11 +23,104 @@
     var dateTaken: Date!
  }
 
+struct FoodModel2{
+    var foodName: String!
+    var foodDescription: String!
+    var foodCalories: Double!
+    var foodFat: Double!
+    var foodCarbohydrate: Double!
+    var foodProtein: Double!
+    var foodSodium : Double!
+    var foodStatus: String!
+    var foodSaturatedFat : Double!
+    
+}
+//struct FoodModel{
+//    var foodName: String!
+//    var foodDescription: String!
+//    var foodCalories: Double!
+//    var foodFat: Double!
+//    var foodCarbohydrate: Double!
+//    var foodProtein: Double!
+//    var foodStatus: String!
+//}
+
  enum HealthyStatus: String{
      case healthy = "Healthy"
      case common = "Common"
      case unhealthy = "Unhealthy"
  }
+
+
+func calculateFood(foodModel : FoodModel2) -> HealthyStatus{
+    var ifHealthy : Int!
+    var ifCommmon : Int!
+    var ifUnhealthy : Int!
+    var HealthyStat : HealthyStatus!
+    
+    if foodModel.foodFat <= 3.0 {
+        ifHealthy = +1
+    }else if foodModel.foodFat > 3.0 && foodModel.foodFat <= 17.5 {
+        ifCommmon = +1
+    }else {
+        ifUnhealthy = +1
+    }
+    
+    if foodModel.foodProtein <= 25.0 {
+        ifHealthy = +1
+    }else if foodModel.foodProtein > 25.0 && foodModel.foodProtein <= 56 {
+        ifCommmon = +1
+    }else {
+        ifUnhealthy = +1
+    }
+    
+    if foodModel.foodSodium <= 140.0 {
+        ifHealthy = +1
+    }else if foodModel.foodSodium > 140 && foodModel.foodSodium <= 400 {
+        ifCommmon = +1
+    }else {
+        ifUnhealthy = +1
+    }
+    
+    if foodModel.foodSaturatedFat <= 1.5 {
+        ifHealthy = +1
+    }else if foodModel.foodSaturatedFat > 1.5 && foodModel.foodSaturatedFat <= 5 {
+        ifCommmon = +1
+    }else {
+        ifUnhealthy = +1
+    }
+    
+    if foodModel.foodCarbohydrate <= 65 {
+        ifHealthy = +1
+    }else if foodModel.foodCarbohydrate > 65 && foodModel.foodCarbohydrate <= 90 {
+        ifCommmon = +1
+    }else {
+        ifUnhealthy = +1
+    }
+    
+    
+    if ifUnhealthy > 2 {
+        HealthyStat = HealthyStatus.unhealthy
+    }else if ifCommmon > 2 && ifUnhealthy < 2 {
+        HealthyStat = HealthyStatus.common
+    }else if ifHealthy >= 2 && ifCommmon >= 2 {
+        HealthyStat = HealthyStatus.common
+    }else {
+        HealthyStat = HealthyStatus.healthy
+    }
+    
+    if ifUnhealthy > 2 {
+        HealthyStat = HealthyStatus.unhealthy
+    }else if ifCommmon > 2 && ifUnhealthy < 2 {
+        HealthyStat = HealthyStatus.common
+    }else if ifHealthy >= 2 && ifCommmon >= 2 {
+        HealthyStat = HealthyStatus.healthy
+    }else {
+        HealthyStat = HealthyStatus.healthy
+    }
+    
+    return HealthyStat ?? HealthyStatus.common
+}
 
  func addDataToModel()->[FoodModel]{
      var model: [FoodModel] = []
@@ -41,6 +134,7 @@
      model.append(item4)*/
      return model
  }
+
 
  public func addDataToFoodCoreData(){
      guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
@@ -112,7 +206,8 @@
 
      do {
          try managedContext.execute(deleteRequest)
-     } catch let _ as NSError {
+     } catch let error as NSError {
          // TODO: handle the error
+        print(error)
      }
  }
