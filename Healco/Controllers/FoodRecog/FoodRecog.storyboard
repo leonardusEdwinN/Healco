@@ -34,6 +34,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="OVL-X7-Nul" id="vg8-rK-6lF"/>
+                        <segue destination="3tp-al-7fR" kind="show" identifier="goToFoodNameVC" id="eti-qy-AcG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -57,6 +58,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fD4-tW-nMp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3.0769230769230766" y="67.535545023696685"/>
+        </scene>
+        <!--FoodNameViewController-->
+        <scene sceneID="ccn-9b-uaB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FoodDetail" referencedIdentifier="FoodNameViewController" id="3tp-al-7fR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4bV-C1-ZOJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TyZ-8C-Srw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1584" y="-195"/>
         </scene>
     </scenes>
     <resources>

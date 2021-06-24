@@ -18,6 +18,8 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
     let output = AVCapturePhotoOutput()
     //Video Preview
     let previewLayer = AVCaptureVideoPreviewLayer()
+    var imageSend = UIImage()
+    
 
     //backButton
     @IBOutlet weak var backButton: UIButton!
@@ -157,17 +159,25 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
     
 
     
-    func pindahVC(image : UIImage){
-        let storyboard = UIStoryboard(name: "HasilFoto", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "HasilFotoVC") as! HasilFotoVC
-        vc.imageHasilFoto = image
-        navigationController?.pushViewController(vc, animated: true)
-    }
+//    func pindahVC(image : UIImage){
+//        let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil)
+//        let vc = storyboard.instantiateViewController(identifier: "FoodNameViewController") as! FoodNameViewController
+//        vc.imageHasilFoto = image
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
     
     @IBAction func BackToMain(_ sender: Any) {
         let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "goToFoodNameVC"){
+        let foodNameVC = segue.destination as? FoodNameViewController
+        foodNameVC?.imageHasilFoto = imageSend
+        }
     }
 }
 
@@ -176,13 +186,18 @@ extension FoodRecogVC : AVCapturePhotoCaptureDelegate{
     
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+        print("PHOTO OUTPUT \(photo.fileDataRepresentation())")
         guard let data = photo.fileDataRepresentation() else{
             return
         }
         guard let image = UIImage(data: data) else {return}
         captureSession?.stopRunning()
+        
+        self.imageSend = image
+        
+        performSegue(withIdentifier: "goToFoodNameVC", sender: self)
 
-        pindahVC(image: image)
+//        pindahVC(image: image)
         
         //let imageView = UIImageView(image: image)
         //imageView.contentMode = .center
