@@ -18,12 +18,19 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var foodFatLabel: UILabel!
     @IBOutlet weak var foodCarbohydrateLabel: UILabel!
     @IBOutlet weak var foodProteinLabel: UILabel!*/
+    @IBOutlet weak var foodNameLabel: UILabel!
+    @IBOutlet weak var foodDescriptionLabel: UILabel!
+    @IBOutlet weak var foodCaloriesLabel: UILabel!
+    @IBOutlet weak var foodFatLabel: UILabel!
+    @IBOutlet weak var foodCarbohydrateLabel: UILabel!
+    @IBOutlet weak var foodProteinLabel: UILabel!
+    @IBOutlet weak var foodStatusImageView: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        /*let foodSelected = getFoodFromName(name: foodName!)
+        let foodSelected = getFoodFromName(name: foodName!)
         foodNameLabel.text = foodSelected.foodName
         foodDescriptionLabel.text = foodSelected.foodDescription
         switch(foodSelected.foodStatus){
@@ -45,10 +52,6 @@ class FoodDetailViewController: UIViewController {
         foodCaloriesLabel.text = String(foodSelected.foodCalories) + "kal"
         foodFatLabel.text = String(foodSelected.foodFat) + "g"
         foodCarbohydrateLabel.text = String(foodSelected.foodCarbohydrate) + "g"
-        foodProteinLabel.text = String(foodSelected.foodProtein) + "g"*/
-    }
-
-    @IBAction func backButton_Pressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        foodProteinLabel.text = String(foodSelected.foodProtein) + "g"
     }
 }
