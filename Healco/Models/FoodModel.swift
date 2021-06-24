@@ -4,11 +4,11 @@
 //
 //  Created by Kelny Tan on 20/06/21.
 //
- import Foundation
- import CoreData
- import UIKit
+import Foundation
+import CoreData
+import UIKit
 
- struct FoodModel{
+struct FoodModel{
     var foodID: String!
     var foodName: String!
     var foodDescription: String!
@@ -24,7 +24,7 @@
     var eatCause: String!
     var eatFeeling: String!
     var timeTaken: String!
- }
+}
 
 struct FoodModel2{
     var foodName: String!
@@ -48,12 +48,11 @@ struct FoodModel2{
 //    var foodStatus: String!
 //}
 
- enum HealthyStatus: String{
-     case healthy = "Healthy"
-     case common = "Common"
-     case unhealthy = "Unhealthy"
- }
-
+enum HealthyStatus: String{
+    case healthy = "Healthy"
+    case common = "Common"
+    case unhealthy = "Unhealthy"
+}
 
 func calculateFood(foodModel : FoodModel2) -> HealthyStatus{
     var ifHealthy : Int!
@@ -125,8 +124,8 @@ func calculateFood(foodModel : FoodModel2) -> HealthyStatus{
     return HealthyStat ?? HealthyStatus.common
 }
 
- func addDataToModel()->[FoodModel]{
-     var model: [FoodModel] = []
+func addDataToModel()->[FoodModel]{
+    var model: [FoodModel] = []
     /* Nanti data2 dari API dimasukkik ke array model terlebih dahulu dan sesuaikan dengan struktur dari struct FoodModel*/
      /*let item1: FoodModel = FoodModel(foodName: "aslnbvsdk", foodDescription: "adjkbfd", foodCalories: 100, foodFat: 67.8, foodCarbohydrate: 87, foodProtein: 75, foodStatus: HealthyStatus.healthy.rawValue)
      let item2: FoodModel = FoodModel(foodName: "aEdbcned", foodDescription: "Qslkdvbnds", foodCalories: 150, foodFat: 92, foodCarbohydrate: 120, foodProtein: 150, foodStatus: HealthyStatus.unhealthy.rawValue)
@@ -136,18 +135,18 @@ func calculateFood(foodModel : FoodModel2) -> HealthyStatus{
      model.append(item2)
      model.append(item3)
      model.append(item4)*/
-     return model
- }
+    return model
+}
 
 
- public func addDataToFoodCoreData(){
-     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
-         return
-     }
-     let models = addDataToModel()
-     let managedContext = appDelegate.persistentContainer.viewContext
-     let entity = NSEntityDescription.entity(forEntityName: "Foods", in: managedContext)!
-     for(i) in models.indices{
+public func addDataToFoodCoreData(){
+    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+        return
+    }
+    let models = addDataToModel()
+    let managedContext = appDelegate.persistentContainer.viewContext
+    let entity = NSEntityDescription.entity(forEntityName: "Foods", in: managedContext)!
+    for(i) in models.indices{
         let food = NSManagedObject(entity: entity, insertInto: managedContext)
         food.setValue(models[i].foodName, forKeyPath: "foodName")
         food.setValue(models[i].foodDescription, forKeyPath: "foodDescription")
@@ -162,12 +161,12 @@ func calculateFood(foodModel : FoodModel2) -> HealthyStatus{
         food.setValue(models[i].eatFeeling, forKeyPath: "eatFeeling")
         food.setValue(models[i].timeTaken, forKeyPath: "timeTaken")
      }
-     do{
-         try managedContext.save()
-     }catch let error as NSError{
-         print("Error! \(error) \(error.userInfo)")
-     }
- }
+    do{
+        try managedContext.save()
+    }catch let error as NSError{
+        print("Error! \(error) \(error.userInfo)")
+    }
+}
 
  public func fetchDataFromFoodCoreData()->[NSManagedObject]{
      var data: [NSManagedObject] = []
