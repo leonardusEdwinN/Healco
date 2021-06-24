@@ -7,13 +7,27 @@
 
 import UIKit
 import CoreData
+import Foundation
+import AVKit
+import Vision
+import FatSecretSwift
 
-class ViewController: UIViewController {
+struct FoodDataSearch {
+    var foodName : String
+    var foodId : String
+}
 
+
+class FoodNameViewController: UIViewController {
+    
     var isSearching: Bool = false
-    var foodNames: [String] = []
+//    var foodNames: [String] = []
     var foods: [NSManagedObject] = []
     var filteredFoodNames: [String] = []
+    var imageHasilFoto : UIImage!
+    let fatSecretClient = FatSecretClient()
+    var foodData : [FoodDataSearch] = []
+    var selectedData : FoodDataSearch?
     
     @IBOutlet weak var foodSearchBar: UISearchBar!
     @IBOutlet weak var foodNameTableView: UITableView!
@@ -26,13 +40,16 @@ class ViewController: UIViewController {
          Method di bawah ini hanya untuk masukin test data, nanti diremove aja waktu mau gabungin, atau diubah ke data dari API
          */
         //addDataToFoodCoreData()
+        analyzeImage(image: imageHasilFoto)
+        
         foods = fetchDataFromFoodCoreData()
         //deleteRequest()
-        print(foods.count)
+        //        print(foods.count)
         // masukin nama ke array nama, karena untuk filter nanti
-        for(i) in foods.indices{
-            foodNames.append((foods[i].value(forKeyPath:"foodName") as? String)!)
-        }
+        //filter food name
+//        for(i) in foods.indices{
+//            foodNames.append((foods[i].value(forKeyPath:"foodName") as? String)!)
+//        }
         foodNameTableView.reloadData()
         
         // ==================
@@ -40,29 +57,76 @@ class ViewController: UIViewController {
         foodSearchBar.delegate = self
         foodNameTableView.dataSource = self
         foodNameTableView.delegate = self
+        //
+        //        self.foodData.insert(FoodDataSearch(foodName: "DUmmy", foodId: "1"), at: 0)
+        //        print("\(self.foodData[0].foodName)")
+        
+    }
+    
+    //    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    //        print("Camera was able to capture a frame:", Date())
+    //
+    //        guard let model = try? VNCoreMLModel(for:  Food101().model) else{return}
+    //        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {return}
+    //
+    //        let request = VNCoreMLRequest(model: model) { (finishedReq, err) in
+    //            guard let result = finishedReq.results as? [VNClassificationObservation] else {return}
+    //
+    //            guard let firstObservation = result.first else {return}
+    //            print(firstObservation.identifier, firstObservation.confidence)
+    //        }
+    //
+    //        try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
+    //    }
+    
+    private func analyzeImage (image: UIImage?){
+        guard let buffer = image?.resize(size: CGSize(width: 299, height: 299))?
+                .getCVPixelBuffer() else {
+            return
+        }
+        
+        do {
+            let config = MLModelConfiguration()
+            let model = try Food101(configuration: config)
+            let input = Food101Input(image:  buffer)
+            
+            let output = try model.prediction(input: input)
+            let text = output.classLabel
+            print("nama makanannya ", text)
+            search(searchName: text)
+            //            foodData.append(FoodDataSearch(foodName: searchedFood[0].name, foodId: searchedFood[0].id))
+            //            print("food data : \(searchedFood)")
+        }
+        catch {
+            print(error.localizedDescription)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? FoodDetailViewController, let cell = sender as? UITableViewCell{
-            let selectedRow = foodNameTableView.indexPath(for: cell)!.row
-            if isSearching{
-                vc.foodName = filteredFoodNames[selectedRow]
+        
+        if let vc = segue.destination as? FoodDetailViewController{
+            
+            if(segue.identifier == "goToDetailVC"){
+//                if isSearching{
+//                    vc.foodId = filteredFoodNames[selectedRow]
+//                }
+//                else{
+                    vc.selectedData = selectedData
+//                }
+                vc.modalPresentationStyle = .pageSheet
             }
-            else{
-                vc.foodName = foodNames[selectedRow]
-            }
-            vc.modalPresentationStyle = .pageSheet
+            
         }
     }
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
+extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching{
             return filteredFoodNames.count
         }
         else{
-            return foodNames.count
+            return foodData.count
         }
     }
     
@@ -72,13 +136,29 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, UISearchBa
             cell.textLabel?.text = filteredFoodNames[indexPath.row]
         }
         else{
-            cell.textLabel?.text = foodNames[indexPath.row]
+            cell.textLabel?.text = foodData[indexPath.row].foodName
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        selectedData = FoodDataSearch(foodName: foodData[indexPath.row].foodName, foodId: foodData[indexPath.row].foodId)
+        performSegue(withIdentifier: "goToDetailVC", sender: self)
+        
+        
+//        let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
+//
+//        let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
+//        if isSearching{
+//            vc.foodId = filteredFoodNames[indexPath.row]
+//        }
+//        else{
+//            vc.foodId = foodData[indexPath.row].foodId
+//        }
+//        vc.modalPresentationStyle = .pageSheet
+//        self.present(vc, animated: true, completion: nil)
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == "" {
@@ -86,14 +166,33 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, UISearchBa
             foodNameTableView.reloadData()
         } else{
             isSearching = true
-            filteredFoodNames = foodNames.filter{(name: String) -> Bool in return name.range(of: searchText, options:.caseInsensitive, range: nil, locale: nil) != nil}
+            //comment search function
+//            filteredFoodNames = foodNames.filter{(name: String) -> Bool in return name.range(of: searchText, options:.caseInsensitive, range: nil, locale: nil) != nil}
             foodNameTableView.reloadData()
         }
     }
-//    override func viewDidAppear(_ animated: Bool) {
-//        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil);
-//        let viewController = storyboard.instantiateViewController(withIdentifier: "Onboarding") as! OnboardingViewController;
-//        self.present(viewController, animated: true, completion: nil)
-//
-//    }
+    
+    //Untuk search and get food nutritiont
+    func search(searchName : String){
+        fatSecretClient.searchFood(name: searchName) { search in
+            for food in search.foods{
+                self.foodData.append(FoodDataSearch(foodName: food.name, foodId: food.id))
+                
+            }
+            DispatchQueue.main.async {
+                self.foodNameTableView.reloadData()
+            }
+            
+        }
+    }
+    
+    
+    
+    
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil);
+    //        let viewController = storyboard.instantiateViewController(withIdentifier: "Onboarding") as! OnboardingViewController;
+    //        self.present(viewController, animated: true, completion: nil)
+    //
+    //    }
 }

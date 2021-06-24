@@ -63,6 +63,7 @@
 		139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		139AD0AA2679F70E00954DB2 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		13C1B890268497D400DEA005 /* Healco 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Healco 2.xcdatamodel"; sourceTree = "<group>"; };
 		221A0BBC267B321D0042A94A /* HasilFoto.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HasilFoto.storyboard; sourceTree = "<group>"; };
 		221A0BC2267B3B570042A94A /* HasilFotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasilFotoVC.swift; sourceTree = "<group>"; };
 		221A0BC4267B60B00042A94A /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
@@ -568,7 +569,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y4SYN8VK49;
+				DEVELOPMENT_TEAM = 9P49UTYHH6;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -589,7 +590,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Y4SYN8VK49;
+				DEVELOPMENT_TEAM = 9P49UTYHH6;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -649,9 +650,10 @@
 		137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				13C1B890268497D400DEA005 /* Healco 2.xcdatamodel */,
 				137A0B6C2670CE2B00543CCF /* Healco.xcdatamodel */,
 			);
-			currentVersion = 137A0B6C2670CE2B00543CCF /* Healco.xcdatamodel */;
+			currentVersion = 13C1B890268497D400DEA005 /* Healco 2.xcdatamodel */;
 			path = Healco.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

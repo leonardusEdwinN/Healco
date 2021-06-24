@@ -11,7 +11,7 @@
         <!--Food Name View Controller-->
         <scene sceneID="Yfk-CQ-G9z">
             <objects>
-                <viewController id="tOG-QD-UPg" customClass="FoodNameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodNameViewController" id="tOG-QD-UPg" customClass="FoodNameViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t5Z-7y-OEz">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,9 +45,6 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="344.33333333333331" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </tableViewCellContentView>
-                                                <connections>
-                                                    <segue destination="hB0-UV-Gbw" kind="show" id="sf8-6R-bfM"/>
-                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -62,6 +59,7 @@
                     <connections>
                         <outlet property="foodNameTableView" destination="7BX-E5-XjY" id="bJ5-k1-QOD"/>
                         <outlet property="foodSearchBar" destination="Tk5-Ah-18z" id="Mij-Ai-Ev0"/>
+                        <segue destination="hB0-UV-Gbw" kind="show" identifier="goToDetailVC" id="dxu-7F-KwG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHg-yg-Ve2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -71,8 +69,8 @@
         <!--Food Detail View Controller-->
         <scene sceneID="AeU-kL-8nW">
             <objects>
-                <viewController modalPresentationStyle="pageSheet" id="hB0-UV-Gbw" customClass="FoodDetailViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="Joa-fY-5Ro">
+                <viewController storyboardIdentifier="FoodDetailViewController" modalPresentationStyle="pageSheet" id="hB0-UV-Gbw" customClass="FoodDetailViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Joa-fY-5Ro">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
