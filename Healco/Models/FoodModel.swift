@@ -36,7 +36,6 @@ struct FoodModel2{
     var foodSodium : Double!
     var foodStatus: String!
     var foodSaturatedFat : Double!
-    
 }
 //struct FoodModel{
 //    var foodName: String!
@@ -204,8 +203,9 @@ func getFoodFromID(ID: String) -> FoodModel{
     return food!
 }
 
-func getFoodFromName(name: String)->FoodModel
+func getFoodFromName(name: String) -> FoodModel
 {
+    print("foodname : \(name)")
     var food: FoodModel?
     let foodData = putDataIntoArray()
     for(i) in foodData.indices{

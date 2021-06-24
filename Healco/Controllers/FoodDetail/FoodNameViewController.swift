@@ -12,16 +12,22 @@ import AVKit
 import Vision
 import FatSecretSwift
 
+struct FoodDataSearch {
+    var foodName : String
+    var foodId : String
+}
+
 
 class FoodNameViewController: UIViewController {
     
     var isSearching: Bool = false
-    var foodNames: [String] = []
-    var foodId: [String] = []
+//    var foodNames: [String] = []
     var foods: [NSManagedObject] = []
     var filteredFoodNames: [String] = []
     var imageHasilFoto : UIImage!
     let fatSecretClient = FatSecretClient()
+    var foodData : [FoodDataSearch] = []
+    var selectedData : FoodDataSearch?
     
     @IBOutlet weak var foodSearchBar: UISearchBar!
     @IBOutlet weak var foodNameTableView: UITableView!
@@ -40,9 +46,10 @@ class FoodNameViewController: UIViewController {
         //deleteRequest()
         //        print(foods.count)
         // masukin nama ke array nama, karena untuk filter nanti
-        for(i) in foods.indices{
-            foodNames.append((foods[i].value(forKeyPath:"foodName") as? String)!)
-        }
+        //filter food name
+//        for(i) in foods.indices{
+//            foodNames.append((foods[i].value(forKeyPath:"foodName") as? String)!)
+//        }
         foodNameTableView.reloadData()
         
         // ==================
@@ -96,15 +103,19 @@ class FoodNameViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? FoodDetailViewController, let cell = sender as? UITableViewCell{
-            let selectedRow = foodNameTableView.indexPath(for: cell)!.row
-            if isSearching{
-                vc.foodName = filteredFoodNames[selectedRow]
+        
+        if let vc = segue.destination as? FoodDetailViewController{
+            
+            if(segue.identifier == "goToDetailVC"){
+//                if isSearching{
+//                    vc.foodId = filteredFoodNames[selectedRow]
+//                }
+//                else{
+                    vc.selectedData = selectedData
+//                }
+                vc.modalPresentationStyle = .pageSheet
             }
-            else{
-                vc.foodName = foodNames[selectedRow]
-            }
-            vc.modalPresentationStyle = .pageSheet
+            
         }
     }
 }
@@ -115,7 +126,7 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
             return filteredFoodNames.count
         }
         else{
-            return foodNames.count
+            return foodData.count
         }
     }
     
@@ -125,15 +136,29 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
             cell.textLabel?.text = filteredFoodNames[indexPath.row]
         }
         else{
-            cell.textLabel?.text = foodNames[indexPath.row]
+            cell.textLabel?.text = foodData[indexPath.row].foodName
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let cell = tableView.cellForRow(at: indexPath)
-        print("Clickd : \(cell)")
+        
+        selectedData = FoodDataSearch(foodName: foodData[indexPath.row].foodName, foodId: foodData[indexPath.row].foodId)
+        performSegue(withIdentifier: "goToDetailVC", sender: self)
+        
+        
+//        let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
+//
+//        let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
+//        if isSearching{
+//            vc.foodId = filteredFoodNames[indexPath.row]
+//        }
+//        else{
+//            vc.foodId = foodData[indexPath.row].foodId
+//        }
+//        vc.modalPresentationStyle = .pageSheet
+//        self.present(vc, animated: true, completion: nil)
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == "" {
@@ -141,7 +166,8 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
             foodNameTableView.reloadData()
         } else{
             isSearching = true
-            filteredFoodNames = foodNames.filter{(name: String) -> Bool in return name.range(of: searchText, options:.caseInsensitive, range: nil, locale: nil) != nil}
+            //comment search function
+//            filteredFoodNames = foodNames.filter{(name: String) -> Bool in return name.range(of: searchText, options:.caseInsensitive, range: nil, locale: nil) != nil}
             foodNameTableView.reloadData()
         }
     }
@@ -150,8 +176,7 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
     func search(searchName : String){
         fatSecretClient.searchFood(name: searchName) { search in
             for food in search.foods{
-                self.foodNames.append(food.name)
-                self.foodId.append(food.id)
+                self.foodData.append(FoodDataSearch(foodName: food.name, foodId: food.id))
                 
             }
             DispatchQueue.main.async {
@@ -161,23 +186,7 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
         }
     }
     
-    func getFood(idFood : String){
-        fatSecretClient.getFood(id: idFood) { food in
-            print("FOOD NAME : \(food.name)")
-            print("FOOD ID : \(food.id)")
-            //            print("FOOD DESC : \(String(describing: food.servings.serving))")
-            //            for serving in food.servings!{
-            //                print("Serving : \(serving) \n")
-            //            }
-            //
-            guard let servingsFood = food.servings else { return }
-            for serving in servingsFood {
-                print(serving)
-                //                print("Serving Calcium : \(serving.calcium ?? "0")")
-                //                print("Serving Potasium : \(serving.potassium ?? "0")")
-            }
-        }
-    }
+    
     
     
     //    override func viewDidAppear(_ animated: Bool) {
