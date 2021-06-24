@@ -18,8 +18,10 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
     let output = AVCapturePhotoOutput()
     //Video Preview
     let previewLayer = AVCaptureVideoPreviewLayer()
-    //Shutter Button
 
+    //backButton
+    @IBOutlet weak var backButton: UIButton!
+    
     
     private let shutterButton : UIButton = {
         let button = UIButton(frame: CGRect(x:0, y:0, width: 80, height: 80))
@@ -47,6 +49,7 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
         view.addSubview(innerButton)
         
         self.navigationController?.isNavigationBarHidden = true
+        //self.navigationController?.navigationBar.barTintColor = UIColor.black
         checkCameraPermissions()
         innerButton.addTarget(self, action: #selector(didTapTakePhoto), for: .touchUpInside)
 
@@ -158,6 +161,12 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
         let storyboard = UIStoryboard(name: "HasilFoto", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "HasilFotoVC") as! HasilFotoVC
         vc.imageHasilFoto = image
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func BackToMain(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
         navigationController?.pushViewController(vc, animated: true)
     }
 }
