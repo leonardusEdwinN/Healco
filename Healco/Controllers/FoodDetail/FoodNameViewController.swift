@@ -23,7 +23,7 @@ class FoodNameViewController: UIViewController {
     var isSearching: Bool = false
     //    var foodNames: [String] = []
     var foods: [NSManagedObject] = []
-    var filteredFoodNames: [String] = []
+    var filteredFoodNames: [FoodDataSearch] = []
     var imageHasilFoto : UIImage!
     let fatSecretClient = FatSecretClient()
     var foodData : [FoodDataSearch] = []
@@ -139,7 +139,7 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodNameCell", for: indexPath)
         if isSearching{
-            cell.textLabel?.text = filteredFoodNames[indexPath.row]
+            cell.textLabel?.text = filteredFoodNames[indexPath.row].foodName
         }
         else{
             cell.textLabel?.text = foodData[indexPath.row].foodName
@@ -163,6 +163,8 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
             isSearching = true
             //comment search function
             //            filteredFoodNames = foodNames.filter{(name: String) -> Bool in return name.range(of: searchText, options:.caseInsensitive, range: nil, locale: nil) != nil}
+            //filteredFoodNames = foodData.filter({foodDa} -> Bool )
+            filteredFoodNames = foodData.lazy.filter { x in x.foodName.lowercased().contains(searchBar.text!.lowercased()) }
             foodNameTableView.reloadData()
         }
     }
