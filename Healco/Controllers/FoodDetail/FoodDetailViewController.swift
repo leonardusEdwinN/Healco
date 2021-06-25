@@ -42,9 +42,15 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var timeToEatCollectionView: UICollectionView!
     @IBOutlet weak var feelWhenEatCollectionView: UICollectionView!
     
+    var selectedReason: String!
+    var selectedTime: String!
+    var selectedFeel: String!
+    
     @IBOutlet weak var buttonSubmit: UIButton!
     @IBAction func buttonSubmitPressed(_ sender: Any) {
-        
+        if (selectedReason != "" || selectedTime != "" || selectedFeel != ""){
+            // get nilai2 tersebut ke dalam CoreData
+        }
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -70,7 +76,7 @@ class FoodDetailViewController: UIViewController {
         buttonSubmit.layer.cornerRadius = 15
         
         setData()
-        getSelectedDataIntoCoreData() // masukin data selectedFood ke CoreData
+        //getSelectedDataIntoCoreData() // masukin data selectedFood ke CoreData
     }
     
     
@@ -164,6 +170,25 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         return CGSize(width: 0, height: 0)
            
         }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.timeToEatCollectionView{
+            let time = timeToEatArray[indexPath.item]
+            selectedTime = time
+            print(selectedTime!)
+        } else if collectionView == self.reasonToEatCollectionView{
+            let reason = reasonToEatArray[indexPath.item]
+            selectedReason = reason
+            print(selectedReason!)
+        } else if collectionView == self.feelWhenEatCollectionView{
+            let feel = feelWhenEatArray[indexPath.item]
+            selectedFeel = feel
+            print(selectedFeel!)
+        } else{
+            selectedTime = ""
+            selectedReason = ""
+            selectedFeel = ""
+        }
+    }
     
     func getSelectedDataIntoCoreData(){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
@@ -182,6 +207,7 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         food.setValue(detailFood?.foodStatus, forKeyPath: "foodStatus")
         do{
             try managedContext.save()
+            print("Data save!")
         }catch let error as NSError{
             print("Error! \(error) \(error.userInfo)")
         }
