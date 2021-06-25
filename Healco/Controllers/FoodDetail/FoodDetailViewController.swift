@@ -47,11 +47,6 @@ class FoodDetailViewController: UIViewController {
     var selectedFeel: String!
     
     @IBOutlet weak var buttonSubmit: UIButton!
-    @IBAction func buttonSubmitPressed(_ sender: Any) {
-        if (selectedReason != "" || selectedTime != "" || selectedFeel != ""){
-            // get nilai2 tersebut ke dalam CoreData
-        }
-    }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -107,6 +102,17 @@ class FoodDetailViewController: UIViewController {
         foodProteinLabel.text = String(self.selectedFood.foodProtein) + "g"
     }
     
+    @IBAction func buttonSubmit_Pressed(_ sender: Any) {
+        if (selectedReason != "" || selectedTime != "" || selectedFeel != ""){
+            // get nilai2 tersebut ke dalam CoreData
+            print(selectedFeel!)
+            print(selectedTime!)
+            print(selectedReason!)
+        }
+        else{
+            print("Kosong!")
+        }
+    }
 }
 
 

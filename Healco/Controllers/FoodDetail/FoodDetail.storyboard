@@ -11,9 +11,6 @@
         <array key="Quicksand-Bold.ttf">
             <string>Quicksand-Bold</string>
         </array>
-        <array key="Quicksand-Medium.ttf">
-            <string>Quicksand-Medium</string>
-        </array>
         <array key="Quicksand-Regular.ttf">
             <string>Quicksand-Regular</string>
         </array>
@@ -148,7 +145,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="515"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJz-kx-Ydb">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="919.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="1515"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udo-Lm-ulA">
                                                         <rect key="frame" x="30" y="30" width="330" height="27.666666666666671"/>
@@ -258,7 +255,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snL-ih-wTa">
-                                                        <rect key="frame" x="30" y="227.66666666666674" width="330" height="677"/>
+                                                        <rect key="frame" x="30" y="227.66666666666663" width="330" height="1272.3333333333335"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Food is For" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGW-74-Glx">
                                                                 <rect key="frame" x="20" y="19.999999999999943" width="290" height="20"/>
@@ -309,21 +306,6 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdX-jd-Rhs">
-                                                                <rect key="frame" x="115" y="587" width="100" height="40"/>
-                                                                <color key="backgroundColor" red="0.25098039220000001" green="0.53725490200000003" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="100" id="83N-j0-cJN"/>
-                                                                    <constraint firstAttribute="height" constant="40" id="Ne9-I8-eke"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="15"/>
-                                                                <state key="normal" title="Submit">
-                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="buttonSubmitPressed:" destination="jgR-un-cvJ" eventType="touchUpInside" id="wbH-wR-BuG"/>
-                                                                </connections>
-                                                            </button>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DZ8-Se-GdG">
                                                                 <rect key="frame" x="15" y="411.99999999999994" width="300" height="150.00000000000006"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -338,14 +320,23 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
                                                             </collectionView>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIX-He-YFa">
+                                                                <rect key="frame" x="126" y="598" width="79" height="30"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" red="0.18007952990000001" green="0.63381372319999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <state key="normal" title="Submit">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="buttonSubmit_Pressed:" destination="jgR-un-cvJ" eventType="touchUpInside" id="9vg-0l-aBz"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="eOT-fK-qBC" firstAttribute="top" secondItem="IcG-x1-K8h" secondAttribute="bottom" constant="20" id="0ye-oY-Ccf"/>
-                                                            <constraint firstAttribute="bottom" secondItem="DdX-jd-Rhs" secondAttribute="bottom" constant="50" id="4V8-bc-cLU"/>
                                                             <constraint firstAttribute="trailing" secondItem="DZ8-Se-GdG" secondAttribute="trailing" constant="15" id="6pv-JP-dpl"/>
                                                             <constraint firstItem="pGW-74-Glx" firstAttribute="centerX" secondItem="snL-ih-wTa" secondAttribute="centerX" id="9k3-f6-ho3"/>
-                                                            <constraint firstItem="DdX-jd-Rhs" firstAttribute="centerX" secondItem="snL-ih-wTa" secondAttribute="centerX" id="Agt-Sz-GNr"/>
                                                             <constraint firstAttribute="trailing" secondItem="eOT-fK-qBC" secondAttribute="trailing" constant="15" id="CkG-Gm-2dU"/>
                                                             <constraint firstItem="DZ8-Se-GdG" firstAttribute="top" secondItem="eOT-fK-qBC" secondAttribute="bottom" constant="15" id="QkM-ZL-r8Y"/>
                                                             <constraint firstAttribute="trailing" secondItem="IcG-x1-K8h" secondAttribute="trailing" constant="15" id="SbR-TQ-qLV"/>
@@ -353,7 +344,6 @@
                                                             <constraint firstItem="pGW-74-Glx" firstAttribute="top" secondItem="snL-ih-wTa" secondAttribute="top" constant="20" id="Vcj-jx-BqG"/>
                                                             <constraint firstItem="pGW-74-Glx" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="20" id="Z3Z-Z2-WXO"/>
                                                             <constraint firstItem="Kdw-Yt-aak" firstAttribute="top" secondItem="pGW-74-Glx" secondAttribute="bottom" constant="15" id="Zw2-6R-FCR"/>
-                                                            <constraint firstItem="DdX-jd-Rhs" firstAttribute="top" secondItem="DZ8-Se-GdG" secondAttribute="bottom" constant="25" id="a1t-Hi-d0E"/>
                                                             <constraint firstItem="Kdw-Yt-aak" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="15" id="c8T-xa-kR4"/>
                                                             <constraint firstItem="IcG-x1-K8h" firstAttribute="top" secondItem="BnN-Kw-wYQ" secondAttribute="bottom" constant="15" id="dgI-An-CQ1"/>
                                                             <constraint firstItem="DZ8-Se-GdG" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="15" id="fYq-Hi-dge"/>
@@ -436,7 +426,7 @@
                     <navigationItem key="navigationItem" id="xNF-1E-g7r"/>
                     <connections>
                         <outlet property="backButton" destination="Xnv-hV-W2y" id="qun-1r-VHj"/>
-                        <outlet property="buttonSubmit" destination="DdX-jd-Rhs" id="Sp4-ec-PX5"/>
+                        <outlet property="buttonSubmit" destination="TIX-He-YFa" id="ny4-wQ-Pfw"/>
                         <outlet property="feelWhenEatCollectionView" destination="DZ8-Se-GdG" id="Dki-s8-dz0"/>
                         <outlet property="foodCaloriesLabel" destination="rew-7H-VJU" id="A06-8k-JBR"/>
                         <outlet property="foodCarbohydrateLabel" destination="z30-oe-fiw" id="BdW-1M-fgx"/>
@@ -453,7 +443,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvZ-pi-OrQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3242" y="-99"/>
+            <point key="canvasLocation" x="3241.5384615384614" y="-99.526066350710892"/>
         </scene>
     </scenes>
     <resources>
