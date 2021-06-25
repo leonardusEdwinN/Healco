@@ -70,6 +70,7 @@ class FoodDetailViewController: UIViewController {
         buttonSubmit.layer.cornerRadius = 15
         
         setData()
+        getSelectedDataIntoCoreData() // masukin data selectedFood ke CoreData
     }
     
     
