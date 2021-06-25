@@ -21,5 +21,14 @@ class FeelToEatCollectionViewCell: UICollectionViewCell {
     func setUI(feel : String){
         labelFeel.text = feel
     }
+    
+    func changeUpdate(){
+        if(isSelected){
+            self.viewFeel.backgroundColor = UIColor(red: 0.38, green: 0.58, blue: 0.29, alpha: 1.00)
+        }else{
+            self.viewFeel.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.98, alpha: 1.00)
+            
+        }
+    }
 
 }
