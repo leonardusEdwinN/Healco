@@ -320,9 +320,8 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
                                                             </collectionView>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIX-He-YFa">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIX-He-YFa">
                                                                 <rect key="frame" x="126" y="598" width="79" height="30"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" red="0.18007952990000001" green="0.63381372319999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <state key="normal" title="Submit">
                                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -340,6 +339,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="eOT-fK-qBC" secondAttribute="trailing" constant="15" id="CkG-Gm-2dU"/>
                                                             <constraint firstItem="DZ8-Se-GdG" firstAttribute="top" secondItem="eOT-fK-qBC" secondAttribute="bottom" constant="15" id="QkM-ZL-r8Y"/>
                                                             <constraint firstAttribute="trailing" secondItem="IcG-x1-K8h" secondAttribute="trailing" constant="15" id="SbR-TQ-qLV"/>
+                                                            <constraint firstItem="TIX-He-YFa" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="126" id="U8J-oo-RP9"/>
                                                             <constraint firstItem="eOT-fK-qBC" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="15" id="ULv-dM-tCi"/>
                                                             <constraint firstItem="pGW-74-Glx" firstAttribute="top" secondItem="snL-ih-wTa" secondAttribute="top" constant="20" id="Vcj-jx-BqG"/>
                                                             <constraint firstItem="pGW-74-Glx" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="20" id="Z3Z-Z2-WXO"/>
@@ -348,9 +348,11 @@
                                                             <constraint firstItem="IcG-x1-K8h" firstAttribute="top" secondItem="BnN-Kw-wYQ" secondAttribute="bottom" constant="15" id="dgI-An-CQ1"/>
                                                             <constraint firstItem="DZ8-Se-GdG" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="15" id="fYq-Hi-dge"/>
                                                             <constraint firstItem="IcG-x1-K8h" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="15" id="g3f-oc-hus"/>
+                                                            <constraint firstAttribute="trailing" secondItem="TIX-He-YFa" secondAttribute="trailing" constant="125" id="h5u-zi-0N7"/>
                                                             <constraint firstAttribute="trailing" secondItem="pGW-74-Glx" secondAttribute="trailing" constant="20" id="hyO-15-NJ5"/>
                                                             <constraint firstAttribute="trailing" secondItem="BnN-Kw-wYQ" secondAttribute="trailing" constant="20" id="kiN-xJ-9f7"/>
                                                             <constraint firstItem="BnN-Kw-wYQ" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="20" id="orM-Wq-Zjc"/>
+                                                            <constraint firstAttribute="bottom" secondItem="TIX-He-YFa" secondAttribute="bottom" constant="644.33000000000004" id="s45-sA-Sp4"/>
                                                             <constraint firstItem="BnN-Kw-wYQ" firstAttribute="top" secondItem="Kdw-Yt-aak" secondAttribute="bottom" constant="15" id="tSU-ls-tQ8"/>
                                                             <constraint firstAttribute="trailing" secondItem="Kdw-Yt-aak" secondAttribute="trailing" constant="15" id="x7o-S7-xPW"/>
                                                         </constraints>

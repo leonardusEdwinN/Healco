@@ -177,6 +177,8 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
            
         }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //collectionView.backgroundColor = UIColor.green
+        //collectionView.layer.backgroundColor = CGColor.init(red: 0, green: 255, blue: 0, alpha: 1)
         if collectionView == self.timeToEatCollectionView{
             let time = timeToEatArray[indexPath.item]
             selectedTime = time
