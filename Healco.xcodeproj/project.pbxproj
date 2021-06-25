@@ -13,6 +13,12 @@
 		137A0B6D2670CE2B00543CCF /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B6B2670CE2B00543CCF /* Healco.xcdatamodeld */; };
 		137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B6E2670CE2C00543CCF /* Assets.xcassets */; };
 		137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */; };
+		138C847B26859C4D008E5C2C /* TimeToEatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C847926859C4D008E5C2C /* TimeToEatCollectionViewCell.swift */; };
+		138C847C26859C4D008E5C2C /* TimeToEatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138C847A26859C4D008E5C2C /* TimeToEatCollectionViewCell.xib */; };
+		138C84802685A0B8008E5C2C /* ReasonToEatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C847E2685A0B8008E5C2C /* ReasonToEatCollectionViewCell.swift */; };
+		138C84812685A0B8008E5C2C /* ReasonToEatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138C847F2685A0B8008E5C2C /* ReasonToEatCollectionViewCell.xib */; };
+		138C84852685CD8B008E5C2C /* FeelToEatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 138C84832685CD8B008E5C2C /* FeelToEatCollectionViewCell.swift */; };
+		138C84862685CD8B008E5C2C /* FeelToEatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 138C84842685CD8B008E5C2C /* FeelToEatCollectionViewCell.xib */; };
 		1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1394FF56267AEC8E0062813A /* Quicksand-Light.ttf */; };
 		1394FF5C267AEC8E0062813A /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1394FF57267AEC8E0062813A /* Quicksand-Medium.ttf */; };
 		1394FF5D267AEC8E0062813A /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1394FF58267AEC8E0062813A /* Quicksand-Regular.ttf */; };
@@ -51,6 +57,12 @@
 		137A0B6E2670CE2C00543CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137A0B712670CE2C00543CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		137A0B732670CE2C00543CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		138C847926859C4D008E5C2C /* TimeToEatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeToEatCollectionViewCell.swift; sourceTree = "<group>"; };
+		138C847A26859C4D008E5C2C /* TimeToEatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeToEatCollectionViewCell.xib; sourceTree = "<group>"; };
+		138C847E2685A0B8008E5C2C /* ReasonToEatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonToEatCollectionViewCell.swift; sourceTree = "<group>"; };
+		138C847F2685A0B8008E5C2C /* ReasonToEatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReasonToEatCollectionViewCell.xib; sourceTree = "<group>"; };
+		138C84832685CD8B008E5C2C /* FeelToEatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelToEatCollectionViewCell.swift; sourceTree = "<group>"; };
+		138C84842685CD8B008E5C2C /* FeelToEatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeelToEatCollectionViewCell.xib; sourceTree = "<group>"; };
 		1394FF56267AEC8E0062813A /* Quicksand-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Light.ttf"; sourceTree = "<group>"; };
 		1394FF57267AEC8E0062813A /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Medium.ttf"; sourceTree = "<group>"; };
 		1394FF58267AEC8E0062813A /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
@@ -159,6 +171,33 @@
 			path = Healco;
 			sourceTree = "<group>";
 		};
+		138C847626859C20008E5C2C /* TimeToEat */ = {
+			isa = PBXGroup;
+			children = (
+				138C847926859C4D008E5C2C /* TimeToEatCollectionViewCell.swift */,
+				138C847A26859C4D008E5C2C /* TimeToEatCollectionViewCell.xib */,
+			);
+			path = TimeToEat;
+			sourceTree = "<group>";
+		};
+		138C847D2685A093008E5C2C /* ReasonToEat */ = {
+			isa = PBXGroup;
+			children = (
+				138C847E2685A0B8008E5C2C /* ReasonToEatCollectionViewCell.swift */,
+				138C847F2685A0B8008E5C2C /* ReasonToEatCollectionViewCell.xib */,
+			);
+			path = ReasonToEat;
+			sourceTree = "<group>";
+		};
+		138C84822685CD71008E5C2C /* FeelWhenEat */ = {
+			isa = PBXGroup;
+			children = (
+				138C84832685CD8B008E5C2C /* FeelToEatCollectionViewCell.swift */,
+				138C84842685CD8B008E5C2C /* FeelToEatCollectionViewCell.xib */,
+			);
+			path = FeelWhenEat;
+			sourceTree = "<group>";
+		};
 		139398B026809812004915C9 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +249,9 @@
 		13970EFE2678A70300B6F11D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				138C84822685CD71008E5C2C /* FeelWhenEat */,
+				138C847D2685A093008E5C2C /* ReasonToEat */,
+				138C847626859C20008E5C2C /* TimeToEat */,
 				1394FF62267AEEB60062813A /* JournalWeekly */,
 				139AD09D2679C66F00954DB2 /* JournalGalleryPhoto */,
 			);
@@ -356,9 +398,12 @@
 				44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */,
 				137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */,
 				1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */,
+				138C84812685A0B8008E5C2C /* ReasonToEatCollectionViewCell.xib in Resources */,
+				138C84862685CD8B008E5C2C /* FeelToEatCollectionViewCell.xib in Resources */,
 				13970F062678A7F200B6F11D /* JournalViewController.storyboard in Resources */,
 				2289F5CC2672218D00C118CD /* FoodRecog.storyboard in Resources */,
 				221A0BBD267B321D0042A94A /* HasilFoto.storyboard in Resources */,
+				138C847C26859C4D008E5C2C /* TimeToEatCollectionViewCell.xib in Resources */,
 				EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,7 +458,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */,
+				138C847B26859C4D008E5C2C /* TimeToEatCollectionViewCell.swift in Sources */,
 				139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */,
+				138C84802685A0B8008E5C2C /* ReasonToEatCollectionViewCell.swift in Sources */,
 				1394FF67267AEFE20062813A /* WeeklyCollectionViewCell.swift in Sources */,
 				4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */,
 				EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */,
@@ -422,6 +469,7 @@
 				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
 				EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
+				138C84852685CD8B008E5C2C /* FeelToEatCollectionViewCell.swift in Sources */,
 				221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */,
 				221A0BC5267B60B00042A94A /* Extention.swift in Sources */,
 				44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */,

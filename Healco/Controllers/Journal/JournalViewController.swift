@@ -7,7 +7,7 @@
 
 import Foundation
 import Charts
-
+import CoreData
 
 class JournalViewController : UIViewController{
     
@@ -20,6 +20,9 @@ class JournalViewController : UIViewController{
     @IBOutlet weak var viewSummary: UIView!
     @IBOutlet weak var viewPieChart: UIView!
     @IBOutlet weak var collectionViewWeekly: UICollectionView!
+    @IBOutlet weak var labelCommon: UILabel!
+    @IBOutlet weak var labelUnhealthy: UILabel!
+    @IBOutlet weak var labelHealthy: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     //    var barChartView = BarChartView()
     //Pie Chart
@@ -43,10 +46,12 @@ class JournalViewController : UIViewController{
     var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
     
-    
+    var foodData: [NSManagedObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // foodData
+        foodData = fetchDataFromFoodCoreData()
         buttonAddJournal.layer.cornerRadius = 13.5
         buttonAddJournal.imageView?.tintColor = UIColor.white
         buttonChangeDate.layer.cornerRadius = 13.5
@@ -77,10 +82,10 @@ class JournalViewController : UIViewController{
         collectionViewWeekly.delegate = self
         collectionViewWeekly.dataSource = self
         collectionViewWeekly.allowsMultipleSelection = false
-        
     }
     
     @IBAction func buttonChangeDateClicked(_ sender: UIButton) {
+
         datePicker = UIDatePicker.init()
         datePicker.backgroundColor = UIColor.white
                 
@@ -138,7 +143,9 @@ class JournalViewController : UIViewController{
         
     }
     
-
+    func foodStatusChange(){
+        
+    }
     
 }
 
@@ -179,25 +186,9 @@ extension JournalViewController : UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        collectionView.deselectItem(at: indexPath, animated: true)
         if collectionView == self.collectionViewWeekly {
-            
-//            if let selectedCellBefore = selectedBefore{
-//                collectionViewWeekly.deselectItem(at: selectedBefore, animated: true)
-//            }
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
             cell.changeUpdate()
-//            cell.delegate = self
-//            if cell.isSelected{
-//                print("SELECTED CELL : \(indexPath.item)")
-//                DispatchQueue.main.async {
-//                    cell.imageIcon.image = UIImage(systemName: "heart.fill")
-//                    cell.delegate?.reloadCell()
-//                }
-//
-//            }
-//            selectedBefore = indexPath
-//            cell?.selectedCell = true
             
         }
     }
@@ -205,16 +196,6 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
             cell.changeUpdate()
-//            cell.delegate = self
-//            if !cell.isSelected{
-//                print("UNSELECTED CELL : \(indexPath.item)")
-//                DispatchQueue.main.async {
-//                    cell.imageIcon.image = UIImage(systemName: "heart")
-//                    cell.delegate?.reloadCell()
-//                }
-//
-//            }
-
         }
     }
     
@@ -293,30 +274,19 @@ extension JournalViewController : ChartViewDelegate{
     }
 }
 
-//Untuk search and get food nutritiont
-//func search(searchName : String){
-//    fatSecretClient.searchFood(name: searchName) { search in
-//        for food in search.foods{
-//            self.getFood(idFood: food.id)
-////                print("FOOD DESC : \(food.description)")
-//        }
-//    }
-//}
-//
-//func getFood(idFood : String){
-//    fatSecretClient.getFood(id: idFood) { food in
-//        print("FOOD NAME : \(food.name)")
-//        print("FOOD ID : \(food.id)")
-////            print("FOOD DESC : \(String(describing: food.servings.serving))")
-////            for serving in food.servings!{
-////                print("Serving : \(serving) \n")
-////            }
-////
-//        guard let servingsFood = food.servings else { return }
-//        for serving in servingsFood {
-//            print(serving)
-////                print("Serving Calcium : \(serving.calcium ?? "0")")
-////                print("Serving Potasium : \(serving.potassium ?? "0")")
-//            }
-//    }
-//}
+extension FoodModel{
+    func getFoodStatusViaDate(date: String) -> [String]{
+        let foods: [NSManagedObject] = fetchDataFromFoodCoreData()
+        var foodStatusGotten: [String] = []
+        let dateNow = Date()
+        let dateFormatter = DateFormatter()
+        let dateChosen = dateFormatter.date(from: date)
+        for(i) in foods.indices{
+            if(dateNow == dateChosen){
+                foodStatusGotten.append((foods[i].value(forKeyPath: "foodStatus") as? String)!)
+                return foodStatusGotten
+            }
+        }
+        return foodStatusGotten
+    }
+}

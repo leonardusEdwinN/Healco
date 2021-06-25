@@ -23,6 +23,9 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
 
     //backButton
     @IBOutlet weak var backButton: UIButton!
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     private let shutterButton : UIButton = {
