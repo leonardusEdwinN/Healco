@@ -179,25 +179,9 @@ extension JournalViewController : UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        collectionView.deselectItem(at: indexPath, animated: true)
         if collectionView == self.collectionViewWeekly {
-            
-//            if let selectedCellBefore = selectedBefore{
-//                collectionViewWeekly.deselectItem(at: selectedBefore, animated: true)
-//            }
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
             cell.changeUpdate()
-//            cell.delegate = self
-//            if cell.isSelected{
-//                print("SELECTED CELL : \(indexPath.item)")
-//                DispatchQueue.main.async {
-//                    cell.imageIcon.image = UIImage(systemName: "heart.fill")
-//                    cell.delegate?.reloadCell()
-//                }
-//
-//            }
-//            selectedBefore = indexPath
-//            cell?.selectedCell = true
             
         }
     }
@@ -205,16 +189,6 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
             cell.changeUpdate()
-//            cell.delegate = self
-//            if !cell.isSelected{
-//                print("UNSELECTED CELL : \(indexPath.item)")
-//                DispatchQueue.main.async {
-//                    cell.imageIcon.image = UIImage(systemName: "heart")
-//                    cell.delegate?.reloadCell()
-//                }
-//
-//            }
-
         }
     }
     
@@ -292,31 +266,3 @@ extension JournalViewController : ChartViewDelegate{
         pieChartView.data = data
     }
 }
-
-//Untuk search and get food nutritiont
-//func search(searchName : String){
-//    fatSecretClient.searchFood(name: searchName) { search in
-//        for food in search.foods{
-//            self.getFood(idFood: food.id)
-////                print("FOOD DESC : \(food.description)")
-//        }
-//    }
-//}
-//
-//func getFood(idFood : String){
-//    fatSecretClient.getFood(id: idFood) { food in
-//        print("FOOD NAME : \(food.name)")
-//        print("FOOD ID : \(food.id)")
-////            print("FOOD DESC : \(String(describing: food.servings.serving))")
-////            for serving in food.servings!{
-////                print("Serving : \(serving) \n")
-////            }
-////
-//        guard let servingsFood = food.servings else { return }
-//        for serving in servingsFood {
-//            print(serving)
-////                print("Serving Calcium : \(serving.calcium ?? "0")")
-////                print("Serving Potasium : \(serving.potassium ?? "0")")
-//            }
-//    }
-//}
