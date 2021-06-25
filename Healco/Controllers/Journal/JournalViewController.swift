@@ -7,7 +7,7 @@
 
 import Foundation
 import Charts
-
+import CoreData
 
 class JournalViewController : UIViewController{
     
@@ -20,6 +20,9 @@ class JournalViewController : UIViewController{
     @IBOutlet weak var viewSummary: UIView!
     @IBOutlet weak var viewPieChart: UIView!
     @IBOutlet weak var collectionViewWeekly: UICollectionView!
+    @IBOutlet weak var labelCommon: UILabel!
+    @IBOutlet weak var labelUnhealthy: UILabel!
+    @IBOutlet weak var labelHealthy: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     //    var barChartView = BarChartView()
     //Pie Chart
@@ -43,10 +46,12 @@ class JournalViewController : UIViewController{
     var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
     
-    
+    var foodData: [NSManagedObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // foodData
+        foodData = fetchDataFromFoodCoreData()
         buttonAddJournal.layer.cornerRadius = 13.5
         buttonAddJournal.imageView?.tintColor = UIColor.white
         buttonChangeDate.layer.cornerRadius = 13.5
@@ -77,10 +82,10 @@ class JournalViewController : UIViewController{
         collectionViewWeekly.delegate = self
         collectionViewWeekly.dataSource = self
         collectionViewWeekly.allowsMultipleSelection = false
-        
     }
     
     @IBAction func buttonChangeDateClicked(_ sender: UIButton) {
+
         datePicker = UIDatePicker.init()
         datePicker.backgroundColor = UIColor.white
                 
@@ -138,7 +143,9 @@ class JournalViewController : UIViewController{
         
     }
     
-
+    func foodStatusChange(){
+        
+    }
     
 }
 
@@ -268,5 +275,22 @@ extension JournalViewController : ChartViewDelegate{
         
         let data = PieChartData(dataSet: set)
         pieChartView.data = data
+    }
+}
+
+extension FoodModel{
+    func getFoodStatusViaDate(date: String) -> [String]{
+        let foods: [NSManagedObject] = fetchDataFromFoodCoreData()
+        var foodStatusGotten: [String] = []
+        let dateNow = Date()
+        let dateFormatter = DateFormatter()
+        let dateChosen = dateFormatter.date(from: date)
+        for(i) in foods.indices{
+            if(dateNow == dateChosen){
+                foodStatusGotten.append((foods[i].value(forKeyPath: "foodStatus") as? String)!)
+                return foodStatusGotten
+            }
+        }
+        return foodStatusGotten
     }
 }
