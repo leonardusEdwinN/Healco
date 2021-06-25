@@ -11,6 +11,9 @@
         <array key="Quicksand-Bold.ttf">
             <string>Quicksand-Bold</string>
         </array>
+        <array key="Quicksand-Medium.ttf">
+            <string>Quicksand-Medium</string>
+        </array>
         <array key="Quicksand-Regular.ttf">
             <string>Quicksand-Regular</string>
         </array>
@@ -318,7 +321,7 @@
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="buttonSubmitPressed:" destination="jgR-un-cvJ" eventType="touchUpInside" id="wbH-wR-BuG"/>
+                                                                    <action selector="buttonSubmit_Pressed:" destination="jgR-un-cvJ" eventType="touchUpInside" id="Idd-XB-nW7"/>
                                                                 </connections>
                                                             </button>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DZ8-Se-GdG">
@@ -335,16 +338,6 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
                                                             </collectionView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIX-He-YFa">
-                                                                <rect key="frame" x="126" y="598" width="79" height="30"/>
-                                                                <color key="backgroundColor" red="0.18007952990000001" green="0.63381372319999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <state key="normal" title="Submit">
-                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="buttonSubmit_Pressed:" destination="jgR-un-cvJ" eventType="touchUpInside" id="9vg-0l-aBz"/>
-                                                                </connections>
-                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
@@ -352,9 +345,10 @@
                                                             <constraint firstAttribute="trailing" secondItem="DZ8-Se-GdG" secondAttribute="trailing" constant="15" id="6pv-JP-dpl"/>
                                                             <constraint firstItem="pGW-74-Glx" firstAttribute="centerX" secondItem="snL-ih-wTa" secondAttribute="centerX" id="9k3-f6-ho3"/>
                                                             <constraint firstAttribute="trailing" secondItem="eOT-fK-qBC" secondAttribute="trailing" constant="15" id="CkG-Gm-2dU"/>
+                                                            <constraint firstItem="DdX-jd-Rhs" firstAttribute="centerX" secondItem="snL-ih-wTa" secondAttribute="centerX" id="GZL-Kw-ONw"/>
+                                                            <constraint firstItem="DdX-jd-Rhs" firstAttribute="top" secondItem="DZ8-Se-GdG" secondAttribute="bottom" constant="25" id="Ihh-Ma-f5v"/>
                                                             <constraint firstItem="DZ8-Se-GdG" firstAttribute="top" secondItem="eOT-fK-qBC" secondAttribute="bottom" constant="15" id="QkM-ZL-r8Y"/>
                                                             <constraint firstAttribute="trailing" secondItem="IcG-x1-K8h" secondAttribute="trailing" constant="15" id="SbR-TQ-qLV"/>
-                                                            <constraint firstItem="TIX-He-YFa" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="126" id="U8J-oo-RP9"/>
                                                             <constraint firstItem="eOT-fK-qBC" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="15" id="ULv-dM-tCi"/>
                                                             <constraint firstItem="pGW-74-Glx" firstAttribute="top" secondItem="snL-ih-wTa" secondAttribute="top" constant="20" id="Vcj-jx-BqG"/>
                                                             <constraint firstItem="pGW-74-Glx" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="20" id="Z3Z-Z2-WXO"/>
@@ -363,11 +357,10 @@
                                                             <constraint firstItem="IcG-x1-K8h" firstAttribute="top" secondItem="BnN-Kw-wYQ" secondAttribute="bottom" constant="15" id="dgI-An-CQ1"/>
                                                             <constraint firstItem="DZ8-Se-GdG" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="15" id="fYq-Hi-dge"/>
                                                             <constraint firstItem="IcG-x1-K8h" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="15" id="g3f-oc-hus"/>
-                                                            <constraint firstAttribute="trailing" secondItem="TIX-He-YFa" secondAttribute="trailing" constant="125" id="h5u-zi-0N7"/>
                                                             <constraint firstAttribute="trailing" secondItem="pGW-74-Glx" secondAttribute="trailing" constant="20" id="hyO-15-NJ5"/>
+                                                            <constraint firstAttribute="bottom" secondItem="DdX-jd-Rhs" secondAttribute="bottom" constant="50" id="k9d-ti-uqF"/>
                                                             <constraint firstAttribute="trailing" secondItem="BnN-Kw-wYQ" secondAttribute="trailing" constant="20" id="kiN-xJ-9f7"/>
                                                             <constraint firstItem="BnN-Kw-wYQ" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="20" id="orM-Wq-Zjc"/>
-                                                            <constraint firstAttribute="bottom" secondItem="TIX-He-YFa" secondAttribute="bottom" constant="644.33000000000004" id="s45-sA-Sp4"/>
                                                             <constraint firstItem="BnN-Kw-wYQ" firstAttribute="top" secondItem="Kdw-Yt-aak" secondAttribute="bottom" constant="15" id="tSU-ls-tQ8"/>
                                                             <constraint firstAttribute="trailing" secondItem="Kdw-Yt-aak" secondAttribute="trailing" constant="15" id="x7o-S7-xPW"/>
                                                         </constraints>
@@ -443,7 +436,7 @@
                     <navigationItem key="navigationItem" id="xNF-1E-g7r"/>
                     <connections>
                         <outlet property="backButton" destination="Xnv-hV-W2y" id="qun-1r-VHj"/>
-                        <outlet property="buttonSubmit" destination="TIX-He-YFa" id="ny4-wQ-Pfw"/>
+                        <outlet property="buttonSubmit" destination="DdX-jd-Rhs" id="kVk-wf-orB"/>
                         <outlet property="feelWhenEatCollectionView" destination="DZ8-Se-GdG" id="Dki-s8-dz0"/>
                         <outlet property="foodCaloriesLabel" destination="rew-7H-VJU" id="A06-8k-JBR"/>
                         <outlet property="foodCarbohydrateLabel" destination="z30-oe-fiw" id="BdW-1M-fgx"/>
