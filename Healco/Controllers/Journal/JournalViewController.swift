@@ -162,6 +162,10 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
+//            if(indexPath.item == 0){
+//                collectionViewWeekly.selectItem(at: indexPath, animated: true, scrollPosition: [])
+//                cell.changeUpdate()
+//            }
             cell.setUI(dateText: date[indexPath.item])
             
             
@@ -195,13 +199,13 @@ extension JournalViewController : UICollectionViewDataSource{
     //how to equaly space
 }
 
-extension JournalViewController : WeeklyCollectionViewCellProtocol{
-    func reloadCell() {
-        DispatchQueue.main.async {
-            self.collectionViewWeekly.reloadData()
-        }
-    }
-}
+//extension JournalViewController : WeeklyCollectionViewCellProtocol{
+//    func reloadCell() {
+//        DispatchQueue.main.async {
+//            self.collectionViewWeekly.reloadData()
+//        }
+//    }
+//}
 
 // MARK : - UICollectionViewDelegate
 extension JournalViewController : UICollectionViewDelegate, UIScrollViewDelegate{

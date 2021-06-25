@@ -22,7 +22,7 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
 //        }
 //    }
     
-    var delegate : WeeklyCollectionViewCellProtocol?
+//    var delegate : WeeklyCollectionViewCellProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,7 +42,7 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
             imageIcon.image = UIImage(systemName: "heart")
         }
         
-        delegate?.reloadCell()
+//        delegate?.reloadCell()
     }
     
 

@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ce-SC-Dcp">
-                                <rect key="frame" x="4" y="14.5" width="42" height="21"/>
+                                <rect key="frame" x="5" y="5" width="40" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -29,6 +29,10 @@
                         <color key="backgroundColor" red="0.95686274509803915" green="0.96078431372549022" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="9ce-SC-Dcp" firstAttribute="centerX" secondItem="Dd7-BS-HSh" secondAttribute="centerX" id="Bkc-Hw-C3x"/>
+                            <constraint firstAttribute="trailing" secondItem="9ce-SC-Dcp" secondAttribute="trailing" constant="5" id="VWR-5P-BsF"/>
+                            <constraint firstItem="9ce-SC-Dcp" firstAttribute="leading" secondItem="Dd7-BS-HSh" secondAttribute="leading" constant="5" id="XK5-fG-UNU"/>
+                            <constraint firstItem="9ce-SC-Dcp" firstAttribute="top" secondItem="Dd7-BS-HSh" secondAttribute="top" constant="5" id="j3g-JM-ufN"/>
+                            <constraint firstAttribute="bottom" secondItem="9ce-SC-Dcp" secondAttribute="bottom" constant="5" id="l0y-3S-Fpj"/>
                             <constraint firstItem="9ce-SC-Dcp" firstAttribute="centerY" secondItem="Dd7-BS-HSh" secondAttribute="centerY" id="zHy-Tt-IkG"/>
                         </constraints>
                     </view>
