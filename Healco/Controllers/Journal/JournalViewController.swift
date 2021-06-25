@@ -289,4 +289,5 @@ extension FoodModel{
         }
         return foodStatusGotten
     }
+    func a(){}
 }
