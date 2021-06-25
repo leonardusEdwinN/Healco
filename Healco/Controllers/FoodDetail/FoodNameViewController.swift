@@ -99,8 +99,9 @@ class FoodNameViewController: UIViewController {
             
             let output = try model.prediction(input: input)
             let text = output.classLabel
-            print("nama makanannya ", text)
-            search(searchName: text)
+            let foodName = text.replacingOccurrences(of: " ", with: "_")
+            print("nama makanannya ", foodName)
+            search(searchName: foodName)
         }
         catch {
             print(error.localizedDescription)

@@ -13,6 +13,7 @@ class FoodDetailViewController: UIViewController {
     var selectedFood : FoodModel2!
     var timeToEatArray : [String] = ["Breakfast","Lunch","Dinner", "Snack"]
     var reasonToEatArray : [String] = ["It was time", "Hungry", "Social", "Bored", "Stressed", "Loved taste", "Other"]
+    var feelWhenEatArray : [String] = ["😆", "😭", "😰", "😧", "😠", "🥱"]
     
     
     /*@IBOutlet weak var foodStatusImageView: UIImageView!
@@ -28,7 +29,6 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var viewDescription: UIView!
     @IBOutlet weak var foodStatusImageView: UIImageView!
     @IBOutlet weak var foodDescriptionLabel: UILabel!
-    @IBOutlet weak var foodSubDescriptionLabel: UILabel!
     
     @IBOutlet weak var viewDetailFood: UIView!
     @IBOutlet weak var foodCaloriesLabel: UILabel!
@@ -39,7 +39,12 @@ class FoodDetailViewController: UIViewController {
     
     @IBOutlet weak var reasonToEatCollectionView: UICollectionView!
     @IBOutlet weak var timeToEatCollectionView: UICollectionView!
+    @IBOutlet weak var feelWhenEatCollectionView: UICollectionView!
     
+    @IBOutlet weak var buttonSubmit: UIButton!
+    @IBAction func buttonSubmitPressed(_ sender: Any) {
+        
+    }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -52,9 +57,16 @@ class FoodDetailViewController: UIViewController {
         timeToEatCollectionView.dataSource = self
         
         
-//        reasonToEatCollectionView.register(UINib(nibName: "ReasonToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "reasonToEatCell")
-//        reasonToEatCollectionView.delegate = self
-//        reasonToEatCollectionView.dataSource = self
+        reasonToEatCollectionView.register(UINib(nibName: "ReasonToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "reasonToEatCell")
+        reasonToEatCollectionView.delegate = self
+        reasonToEatCollectionView.dataSource = self
+        
+        
+        feelWhenEatCollectionView.register(UINib(nibName: "FeelToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "feelToEatCell")
+        feelWhenEatCollectionView.delegate = self
+        feelWhenEatCollectionView.dataSource = self
+        
+        buttonSubmit.layer.cornerRadius = 15
         
         setData()
     }
@@ -94,10 +106,12 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.timeToEatCollectionView{
             return timeToEatArray.count
+        }else if collectionView == self.reasonToEatCollectionView{
+            return reasonToEatArray.count
+        }else if collectionView == self.feelWhenEatCollectionView{
+            return feelWhenEatArray.count
         }
-//        else if collectionView == self.reasonToEatCollectionView{
-//            return reasonToEatArray.count
-//        }
+        
         return 0
         
     }
@@ -110,12 +124,17 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
             
             cell.setUI(timeToEat: timeToEatArray[indexPath.item])
             return cell
+        }else if collectionView == self.reasonToEatCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reasonToEatCell", for: indexPath) as! ReasonToEatCollectionViewCell
+
+            cell.setUI(reasonToEat: reasonToEatArray[indexPath.item])
+            return cell
+        }else if collectionView == self.feelWhenEatCollectionView{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "feelToEatCell", for: indexPath) as! FeelToEatCollectionViewCell
+
+            cell.setUI(feel: feelWhenEatArray[indexPath.item])
+            return cell
         }
-//        else if collectionView == self.reasonToEatCollectionView{
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reasonToEatCell", for: indexPath) as! ReasonToEatCollectionViewCell
-//
-//            cell.setUI(reasonToEat: reasonToEatArray[indexPath.item])
-//        }
         return UICollectionViewCell()
     }
 //
@@ -133,7 +152,15 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
 //
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
         {
-           return CGSize(width: 100.0, height: 30.0)
+        if collectionView == self.timeToEatCollectionView{
+            return CGSize(width: 100.0, height: 30.0)
+        }else if collectionView == self.reasonToEatCollectionView{
+            return CGSize(width: 75.0, height: 30.0)
+        }else if collectionView == self.feelWhenEatCollectionView{
+            return CGSize(width: 50.0, height: 50.0)
+        }
+        return CGSize(width: 0, height: 0)
+           
         }
     
     
