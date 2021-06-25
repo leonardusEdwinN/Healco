@@ -15,7 +15,6 @@ class JournalViewController : UIViewController{
     
     @IBOutlet weak var buttonChangeDate: UIButton!
     @IBOutlet weak var collectionViewPhotoGallery: UICollectionView!
-    @IBOutlet weak var buttonAddJournal: UIButton!
     @IBOutlet weak var viewSlideShowGallery: UIView!
     @IBOutlet weak var viewSummary: UIView!
     @IBOutlet weak var viewPieChart: UIView!
@@ -29,7 +28,7 @@ class JournalViewController : UIViewController{
     var pieChartView = PieChartView()
     
     //Photo Gallery
-    var carouselData = Photo.fetchDummyData()
+    var carouselData = [Photo]()
     let cellScale : CGFloat = 0.6
     
     // Weekly CollectionCell
@@ -48,9 +47,11 @@ class JournalViewController : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getDate()
+        initFirstCollectionView()
         // foodData
-        buttonAddJournal.layer.cornerRadius = 13.5
-        buttonAddJournal.imageView?.tintColor = UIColor.white
+//        buttonAddJournal.layer.cornerRadius = 13.5
+//        buttonAddJournal.imageView?.tintColor = UIColor.white
         buttonChangeDate.layer.cornerRadius = 13.5
         buttonChangeDate.layer.masksToBounds = true
         
@@ -63,15 +64,15 @@ class JournalViewController : UIViewController{
         collectionViewPhotoGallery.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
         collectionViewPhotoGallery.delegate = self
         collectionViewPhotoGallery.dataSource = self
-        let screenSize = UIScreen.main.bounds.size
-        let cellWidth = floor(screenSize.width * cellScale)
-        let cellHeight = floor(screenSize.height * cellScale)
-        let insetX = (collectionViewPhotoGallery.frame.size.width - cellWidth) / 2.0
-        let insetY = (collectionViewPhotoGallery.frame.size.height - cellHeight) / 2.0
-        
-        let layout = collectionViewPhotoGallery.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
-        collectionViewPhotoGallery.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
+//        let screenSize = UIScreen.main.bounds.size
+//        let cellWidth = floor(screenSize.width * cellScale)
+//        let cellHeight = floor(screenSize.height * cellScale)
+//        let insetX = (collectionViewPhotoGallery.frame.size.width - cellWidth) / 2.0
+//        let insetY = (collectionViewPhotoGallery.frame.size.height - cellHeight) / 2.0
+//
+//        let layout = collectionViewPhotoGallery.collectionViewLayout as! UICollectionViewFlowLayout
+//        layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
+//        collectionViewPhotoGallery.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
         
         
         //weekly
@@ -79,6 +80,21 @@ class JournalViewController : UIViewController{
         collectionViewWeekly.delegate = self
         collectionViewWeekly.dataSource = self
         collectionViewWeekly.allowsMultipleSelection = false
+    }
+    func initFirstCollectionView(){
+        carouselData.append(Photo(image: UIImage(systemName: "plus")!, title: "Add Journal", description: "Click Here To Add Journal"))
+    }
+    
+    
+    
+    func getDate(){
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .none
+        
+        let result = dateFormatter.string(from: date)
+        labelDate.text = result
     }
     
     @IBAction func buttonChangeDateClicked(_ sender: UIButton) {
@@ -95,6 +111,7 @@ class JournalViewController : UIViewController{
                 
         toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 150, width: UIScreen.main.bounds.size.width, height: 50))
         toolBar.barStyle = .default
+        
         let topBarTitleLabel = UILabel.init(frame: (CGRect.init(origin: CGPoint.init(x: 0.0, y: 0.0), size: CGSize.init(width: 0.0, height: 0.0))))
             topBarTitleLabel.text = "Change Date"
             topBarTitleLabel.sizeToFit()
@@ -102,6 +119,7 @@ class JournalViewController : UIViewController{
             topBarTitleLabel.textColor = UIColor.gray
             topBarTitleLabel.textAlignment = NSTextAlignment.center
             let topBarButtonItemTitleLabel = UIBarButtonItem.init(customView: topBarTitleLabel)
+        
         let buttonCancel = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(self.onCancelButtonClick))
         let flexibleBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
             self.toolBar.setItems([flexibleBarButtonItem, topBarButtonItemTitleLabel, flexibleBarButtonItem, buttonCancel], animated: false)
@@ -166,10 +184,6 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
-//            if(indexPath.item == 0){
-//                collectionViewWeekly.selectItem(at: indexPath, animated: true, scrollPosition: [])
-//                cell.changeUpdate()
-//            }
             cell.setUI(dateText: date[indexPath.item])
             
             
@@ -177,7 +191,7 @@ extension JournalViewController : UICollectionViewDataSource{
         }else if collectionView == self.collectionViewPhotoGallery{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryPhotoCell", for: indexPath) as! GalleryPhotoCollectionViewCell
             
-            cell.photo = carouselData[indexPath.item]
+            cell.setUI(dataPhoto: carouselData[indexPath.item])
             
             return cell
         }
@@ -190,7 +204,15 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
             cell.changeUpdate()
+        }else if collectionView == self.collectionViewPhotoGallery{
+            let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
             
+            if(indexPath.item == 0){
+                //pindah ke halaman foodRecog
+                performSegue(withIdentifier: "goToFoodRecog", sender: self)
+            }else{
+                //masuk ke halaman detail
+            }
         }
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
