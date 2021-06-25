@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FoodDetailViewController: UIViewController {
 
@@ -163,5 +164,25 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
            
         }
     
-    
+    func getSelectedDataIntoCoreData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        let detailFood = self.selectedFood
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Foods", in: managedContext)!
+        let food = NSManagedObject(entity: entity, insertInto: managedContext)
+        food.setValue(detailFood?.foodName, forKeyPath: "foodName")
+        food.setValue(detailFood?.foodDescription, forKeyPath: "foodDescription")
+        food.setValue(detailFood?.foodCalories, forKeyPath: "foodCalories")
+        food.setValue(detailFood?.foodFat, forKeyPath: "foodFat")
+        food.setValue(detailFood?.foodCarbohydrate, forKeyPath: "foodCarbohydrate")
+        food.setValue(detailFood?.foodProtein, forKeyPath: "foodProtein")
+        food.setValue(detailFood?.foodStatus, forKeyPath: "foodStatus")
+        do{
+            try managedContext.save()
+        }catch let error as NSError{
+            print("Error! \(error) \(error.userInfo)")
+        }
+    }
 }
