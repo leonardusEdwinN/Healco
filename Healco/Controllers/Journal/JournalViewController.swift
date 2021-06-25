@@ -46,12 +46,9 @@ class JournalViewController : UIViewController{
     var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
     
-    var foodData: [NSManagedObject] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // foodData
-        foodData = fetchDataFromFoodCoreData()
         buttonAddJournal.layer.cornerRadius = 13.5
         buttonAddJournal.imageView?.tintColor = UIColor.white
         buttonChangeDate.layer.cornerRadius = 13.5
@@ -278,19 +275,4 @@ extension JournalViewController : ChartViewDelegate{
     }
 }
 
-extension FoodModel{
-    func getFoodStatusViaDate(date: String) -> [String]{
-        let foods: [NSManagedObject] = fetchDataFromFoodCoreData()
-        var foodStatusGotten: [String] = []
-        let dateNow = Date()
-        let dateFormatter = DateFormatter()
-        let dateChosen = dateFormatter.date(from: date)
-        for(i) in foods.indices{
-            if(dateNow == dateChosen){
-                foodStatusGotten.append((foods[i].value(forKeyPath: "foodStatus") as? String)!)
-                return foodStatusGotten
-            }
-        }
-        return foodStatusGotten
-    }
-}
+

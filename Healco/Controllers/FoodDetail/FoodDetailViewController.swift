@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FoodDetailViewController: UIViewController {
     
@@ -41,10 +42,11 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var timeToEatCollectionView: UICollectionView!
     @IBOutlet weak var feelWhenEatCollectionView: UICollectionView!
     
+    var selectedReason: String?
+    var selectedTime: String?
+    var selectedFeel: String?
+    
     @IBOutlet weak var buttonSubmit: UIButton!
-    @IBAction func buttonSubmitPressed(_ sender: Any) {
-        
-    }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -70,6 +72,7 @@ class FoodDetailViewController: UIViewController {
         buttonSubmit.layer.cornerRadius = 15
         
         setData()
+        //getSelectedDataIntoCoreData() // masukin data selectedFood ke CoreData
     }
     
     
@@ -100,6 +103,17 @@ class FoodDetailViewController: UIViewController {
         foodProteinLabel.text = String(self.selectedFood.foodProtein) + "g"
     }
     
+    @IBAction func buttonSubmit_Pressed(_ sender: Any) {
+        if (selectedReason != "" || selectedTime != "" || selectedFeel != ""){
+            // get nilai2 tersebut ke dalam CoreData
+            print(selectedFeel ?? "")
+            print(selectedTime ?? "")
+            print(selectedReason ?? "")
+        }
+        else{
+            print("Kosong!")
+        }
+    }
 }
 
 
@@ -124,8 +138,8 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "timeToEatCell", for: indexPath) as! TimeToEatCollectionViewCell
             
             cell.setUI(timeToEat: timeToEatArray[indexPath.item])
-//            cell.viewTimeToEat.backgroundColor = UIColor(displayP3Red: 244.0, green: 245.0, blue: 250.0, alpha: 1.0)
-//            cell.labelTimeToEat.textColor = UIColor(displayP3Red: 141.0, green: 141.0, blue: 141.0, alpha: 1.0)
+            //            cell.viewTimeToEat.backgroundColor = UIColor(displayP3Red: 244.0, green: 245.0, blue: 250.0, alpha: 1.0)
+            //            cell.labelTimeToEat.textColor = UIColor(displayP3Red: 141.0, green: 141.0, blue: 141.0, alpha: 1.0)
             return cell
         }else if collectionView == self.reasonToEatCollectionView{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reasonToEatCell", for: indexPath) as! ReasonToEatCollectionViewCell
@@ -141,19 +155,6 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         return UICollectionViewCell()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == self.timeToEatCollectionView{
-            let cell = collectionView.cellForItem(at: indexPath) as! TimeToEatCollectionViewCell
-            cell.changeUpdate()
-        }else if collectionView == self.reasonToEatCollectionView{
-            let cell = collectionView.cellForItem(at: indexPath) as! ReasonToEatCollectionViewCell
-            cell.changeUpdate()
-        }else if collectionView == self.feelWhenEatCollectionView{
-            let cell = collectionView.cellForItem(at: indexPath) as! FeelToEatCollectionViewCell
-            cell.changeUpdate()
-        }
-        
-    }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == self.timeToEatCollectionView{
             let cell = collectionView.cellForItem(at: indexPath) as! TimeToEatCollectionViewCell
@@ -164,6 +165,56 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         }else if collectionView == self.feelWhenEatCollectionView{
             let cell = collectionView.cellForItem(at: indexPath) as! FeelToEatCollectionViewCell
             cell.changeUpdate()
+            
+        }}
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //collectionView.backgroundColor = UIColor.green
+        //collectionView.layer.backgroundColor = CGColor.init(red: 0, green: 255, blue: 0, alpha: 1)
+        if collectionView == self.timeToEatCollectionView{
+            let cell = collectionView.cellForItem(at: indexPath) as! TimeToEatCollectionViewCell
+            cell.changeUpdate()
+            let time = timeToEatArray[indexPath.item]
+            selectedTime = time
+            print(selectedTime ?? "")
+        } else if collectionView == self.reasonToEatCollectionView{
+            let cell = collectionView.cellForItem(at: indexPath) as! ReasonToEatCollectionViewCell
+            cell.changeUpdate()
+            let reason = reasonToEatArray[indexPath.item]
+            selectedReason = reason
+            print(selectedReason ?? "")
+        } else if collectionView == self.feelWhenEatCollectionView{
+            let cell = collectionView.cellForItem(at: indexPath) as! FeelToEatCollectionViewCell
+            cell.changeUpdate()
+            let feel = feelWhenEatArray[indexPath.item]
+            selectedFeel = feel
+            print(selectedFeel ?? "")
+        } else{
+            selectedTime = ""
+            selectedReason = ""
+            selectedFeel = ""
+        }
+    }
+    
+    func getSelectedDataIntoCoreData(){
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
+            return
+        }
+        let detailFood = self.selectedFood
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Foods", in: managedContext)!
+        let food = NSManagedObject(entity: entity, insertInto: managedContext)
+        food.setValue(detailFood?.foodName, forKeyPath: "foodName")
+        food.setValue(detailFood?.foodDescription, forKeyPath: "foodDescription")
+        food.setValue(detailFood?.foodCalories, forKeyPath: "foodCalories")
+        food.setValue(detailFood?.foodFat, forKeyPath: "foodFat")
+        food.setValue(detailFood?.foodCarbohydrate, forKeyPath: "foodCarbohydrate")
+        food.setValue(detailFood?.foodProtein, forKeyPath: "foodProtein")
+        food.setValue(detailFood?.foodStatus, forKeyPath: "foodStatus")
+        do{
+            try managedContext.save()
+            print("Data save!")
+        }catch let error as NSError{
+            print("Error! \(error) \(error.userInfo)")
         }
     }
 }

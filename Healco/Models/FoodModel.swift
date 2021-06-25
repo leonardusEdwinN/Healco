@@ -126,14 +126,14 @@ func calculateFood(foodModel : FoodModel2) -> HealthyStatus{
 func addDataToModel()->[FoodModel]{
     var model: [FoodModel] = []
     /* Nanti data2 dari API dimasukkik ke array model terlebih dahulu dan sesuaikan dengan struktur dari struct FoodModel*/
-     /*let item1: FoodModel = FoodModel(foodName: "aslnbvsdk", foodDescription: "adjkbfd", foodCalories: 100, foodFat: 67.8, foodCarbohydrate: 87, foodProtein: 75, foodStatus: HealthyStatus.healthy.rawValue)
+     let item1: FoodModel = FoodModel(foodName: "aslnbvsdk", foodDescription: "adjkbfd", foodCalories: 100, foodFat: 67.8, foodCarbohydrate: 87, foodProtein: 75, foodStatus: HealthyStatus.healthy.rawValue)
      let item2: FoodModel = FoodModel(foodName: "aEdbcned", foodDescription: "Qslkdvbnds", foodCalories: 150, foodFat: 92, foodCarbohydrate: 120, foodProtein: 150, foodStatus: HealthyStatus.unhealthy.rawValue)
      let item3: FoodModel = FoodModel(foodName: "Aaklsdvbned", foodDescription: "ewfQdkvn", foodCalories: 200, foodFat: 50.8, foodCarbohydrate: 100, foodProtein: 55, foodStatus: HealthyStatus.common.rawValue)
      let item4: FoodModel = FoodModel(foodName: "Nasi Goreng", foodDescription: "Nasi digoreng nikmat", foodCalories: 160, foodFat: 78, foodCarbohydrate: 120.5, foodProtein: 68.5, foodStatus: HealthyStatus.unhealthy.rawValue)
      model.append(item1)
      model.append(item2)
      model.append(item3)
-     model.append(item4)*/
+     model.append(item4)
     return model
 }
 
