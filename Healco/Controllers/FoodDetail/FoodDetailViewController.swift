@@ -42,9 +42,9 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var timeToEatCollectionView: UICollectionView!
     @IBOutlet weak var feelWhenEatCollectionView: UICollectionView!
     
-    var selectedReason: String!
-    var selectedTime: String!
-    var selectedFeel: String!
+    var selectedReason: String?
+    var selectedTime: String?
+    var selectedFeel: String?
     
     @IBOutlet weak var buttonSubmit: UIButton!
     
@@ -105,9 +105,9 @@ class FoodDetailViewController: UIViewController {
     @IBAction func buttonSubmit_Pressed(_ sender: Any) {
         if (selectedReason != "" || selectedTime != "" || selectedFeel != ""){
             // get nilai2 tersebut ke dalam CoreData
-            print(selectedFeel!)
-            print(selectedTime!)
-            print(selectedReason!)
+            print(selectedFeel ?? "")
+            print(selectedTime ?? "")
+            print(selectedReason ?? "")
         }
         else{
             print("Kosong!")
@@ -180,15 +180,15 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         if collectionView == self.timeToEatCollectionView{
             let time = timeToEatArray[indexPath.item]
             selectedTime = time
-            print(selectedTime!)
+            print(selectedTime ?? "")
         } else if collectionView == self.reasonToEatCollectionView{
             let reason = reasonToEatArray[indexPath.item]
             selectedReason = reason
-            print(selectedReason!)
+            print(selectedReason ?? "")
         } else if collectionView == self.feelWhenEatCollectionView{
             let feel = feelWhenEatArray[indexPath.item]
             selectedFeel = feel
-            print(selectedFeel!)
+            print(selectedFeel ?? "")
         } else{
             selectedTime = ""
             selectedReason = ""
