@@ -104,7 +104,7 @@ class FoodNameViewController: UIViewController {
             
             let output = try model.prediction(input: input)
             let text = output.classLabel
-            let foodName = text.replacingOccurrences(of: " ", with: "_")
+            let foodName = text.replacingOccurrences(of: "_", with: " ")
             print("nama makanannya ", foodName)
             search(searchName: foodName)
         }
@@ -244,7 +244,7 @@ extension FoodNameViewController {
         }
         
         
-        if ifUnhealthy > 2 {
+        if ifUnhealthy >= 1 {
             HealthyStat = HealthyStatus.unhealthy
         }else if ifCommmon > 2 && ifUnhealthy < 2 {
             HealthyStat = HealthyStatus.common
@@ -279,7 +279,7 @@ extension FoodNameViewController {
             self.selectedFood = FoodModel2(foodName: food.name, foodDescription: food.type, foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: foodStatus, foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0)
             
             
-            print("DATA SELECTED FOOD : \(self.selectedFood)")
+            //print("DATA SELECTED FOOD : \(self.selectedFood)")
             DispatchQueue.main.async {
                 let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
                 let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
