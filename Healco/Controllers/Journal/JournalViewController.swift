@@ -80,7 +80,22 @@ class JournalViewController : UIViewController{
         collectionViewWeekly.delegate = self
         collectionViewWeekly.dataSource = self
         collectionViewWeekly.allowsMultipleSelection = false
+        
+        //Specify date components
+        var dateComponents = DateComponents()
+        dateComponents.year = 1980
+        dateComponents.month = 7
+        dateComponents.day = 11
+        dateComponents.timeZone = TimeZone(abbreviation: "JST") // Japan Standard Time
+        dateComponents.hour = 8
+        dateComponents.minute = 34
+
+        // Create date from components
+        let userCalendar = Calendar.current // user calendar
+        let someDateTime = userCalendar.date(from: dateComponents)
+        print("Hari ini: \(Date())")
     }
+    
     func initFirstCollectionView(){
         carouselData.append(Photo(image: UIImage(systemName: "plus")!, title: "Add Journal", description: "Click Here To Add Journal"))
     }
