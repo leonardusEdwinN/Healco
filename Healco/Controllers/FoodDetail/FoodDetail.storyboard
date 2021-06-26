@@ -323,6 +323,7 @@
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="buttonSubmit_Pressed:" destination="jgR-un-cvJ" eventType="touchUpInside" id="Idd-XB-nW7"/>
+                                                                    <segue destination="XLX-Ey-G16" kind="show" identifier="goToJournalVC" id="pTY-C3-H2S"/>
                                                                 </connections>
                                                             </button>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DZ8-Se-GdG">
@@ -456,6 +457,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvZ-pi-OrQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3241.5384615384614" y="-99.526066350710892"/>
+        </scene>
+        <!--JournalViewController-->
+        <scene sceneID="rW5-HV-I7K">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JournalViewController" referencedIdentifier="JournalViewController" id="XLX-Ey-G16" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YHI-jQ-Ryi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mrZ-Rq-rPq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4364" y="-281"/>
         </scene>
     </scenes>
     <resources>

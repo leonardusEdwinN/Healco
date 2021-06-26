@@ -112,9 +112,20 @@ class FoodDetailViewController: UIViewController {
             print(selectedTime ?? "")
             print(selectedReason ?? "")
             getSelectedDataIntoCoreData(time: selectedTime!, feel: selectedFeel!, reason: selectedReason!)
+            
+            /*let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
+            navigationController?.pushViewController(vc, animated: true)*/
         }
         else{
             print("Kosong!")
+        }
+    }
+    
+    override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "goToJournalVC"){
+            let vc = segue.destination as? JournalViewController
+            vc?.modalPresentationStyle = .fullScreen
         }
     }
 }
