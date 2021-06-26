@@ -111,6 +111,7 @@ class FoodDetailViewController: UIViewController {
             print(selectedFeel ?? "")
             print(selectedTime ?? "")
             print(selectedReason ?? "")
+            getSelectedDataIntoCoreData(time: selectedTime!, feel: selectedFeel!, reason: selectedReason!)
         }
         else{
             print("Kosong!")
@@ -197,7 +198,7 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         }
     }
     
-    func getSelectedDataIntoCoreData(){
+    func getSelectedDataIntoCoreData(time: String, feel: String, reason: String){
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{
             return
         }
@@ -212,6 +213,11 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         food.setValue(detailFood?.foodCarbohydrate, forKeyPath: "foodCarbohydrate")
         food.setValue(detailFood?.foodProtein, forKeyPath: "foodProtein")
         food.setValue(detailFood?.foodStatus, forKeyPath: "foodStatus")
+        food.setValue(detailFood?.foodSodium, forKeyPath: "foodSodium")
+        food.setValue(detailFood?.foodSaturatedFat, forKeyPath: "foodSaturatedFat")
+        food.setValue(time, forKeyPath: "timeTaken")
+        food.setValue(reason, forKeyPath: "eatCause")
+        food.setValue(feel, forKeyPath: "eatFeel")
         do{
             try managedContext.save()
             print("Data save!")
