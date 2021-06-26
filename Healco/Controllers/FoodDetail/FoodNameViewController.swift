@@ -30,6 +30,7 @@ class FoodNameViewController: UIViewController {
     //    var selectedData : FoodDataSearch?
     var selectedFood = FoodModel2()
     
+    @IBOutlet weak var imagePhoto: UIImageView!
     @IBOutlet weak var buttonBack: UIButton!
     @IBOutlet weak var foodSearchBar: UISearchBar!
     @IBOutlet weak var foodNameTableView: UITableView!
@@ -41,6 +42,10 @@ class FoodNameViewController: UIViewController {
         /*
          Method di bawah ini hanya untuk masukin test data, nanti diremove aja waktu mau gabungin, atau diubah ke data dari API
          */
+        
+        //add imagephoto ke jurnal
+        imagePhoto.image = imageHasilFoto
+        
         //addDataToFoodCoreData()
         analyzeImage(image: imageHasilFoto)
         
@@ -99,7 +104,7 @@ class FoodNameViewController: UIViewController {
             
             let output = try model.prediction(input: input)
             let text = output.classLabel
-            let foodName = text.replacingOccurrences(of: " ", with: "_")
+            let foodName = text.replacingOccurrences(of: "_", with: " ")
             print("nama makanannya ", foodName)
             search(searchName: foodName)
         }
@@ -192,18 +197,94 @@ extension FoodNameViewController {
         }
     }
     
+    func calculateFood(foodModel : FoodModel2) -> HealthyStatus{
+        var ifHealthy : Int = 0
+        var ifCommmon : Int = 0
+        var ifUnhealthy : Int = 0
+        var HealthyStat : HealthyStatus!
+        
+        if foodModel.foodFat <= 3.0 {
+            ifHealthy += 1
+        }else if foodModel.foodFat > 3.0 && foodModel.foodFat <= 17.5 {
+            ifCommmon += 1
+        }else {
+            ifUnhealthy += 1
+        }
+        
+        if foodModel.foodProtein <= 25.0 {
+            ifHealthy += 1
+        }else if foodModel.foodProtein > 25.0 && foodModel.foodProtein <= 56 {
+            ifCommmon += 1
+        }else {
+            ifUnhealthy += 1
+        }
+        
+        if foodModel.foodSodium <= 140.0 {
+            ifHealthy += 1
+        }else if foodModel.foodSodium > 140 && foodModel.foodSodium <= 400 {
+            ifCommmon += 1
+        }else {
+            ifUnhealthy += 1
+        }
+        
+        if foodModel.foodSaturatedFat <= 1.5 {
+            ifHealthy += 1
+        }else if foodModel.foodSaturatedFat > 1.5 && foodModel.foodSaturatedFat <= 5 {
+            ifCommmon += 1
+        }else {
+            ifUnhealthy += 1
+        }
+        
+        if foodModel.foodCarbohydrate <= 65 {
+            ifHealthy += 1
+        }else if foodModel.foodCarbohydrate > 65 && foodModel.foodCarbohydrate <= 90 {
+            ifCommmon += 1
+        }else {
+            ifUnhealthy += 1
+        }
+        
+        
+        if ifUnhealthy >= 1 {
+            HealthyStat = HealthyStatus.unhealthy
+        }else if ifCommmon > 2 && ifUnhealthy < 2 {
+            HealthyStat = HealthyStatus.common
+        }else if ifHealthy >= 2 && ifCommmon >= 2 {
+            HealthyStat = HealthyStatus.common
+        }else {
+            HealthyStat = HealthyStatus.healthy
+        }
+        
+        if ifUnhealthy > 2 {
+            HealthyStat = HealthyStatus.unhealthy
+        }else if ifCommmon > 2 && ifUnhealthy < 2 {
+            HealthyStat = HealthyStatus.common
+        }else if ifHealthy >= 2 && ifCommmon >= 2 {
+            HealthyStat = HealthyStatus.healthy
+        }else {
+            HealthyStat = HealthyStatus.healthy
+        }
+        
+        return HealthyStat ?? HealthyStatus.common
+    }
+    
     func getFood(idFood : String){
         fatSecretClient.getFood(id: idFood) { food in
             guard let servingsFood = food.servings?[0] else { return }
             
             
-            self.selectedFood = FoodModel2(foodName: food.name, foodDescription: food.type, foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0)
+            let data = FoodModel2(foodName: food.name, foodDescription: food.type, foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0)
             
-            print("DATA SELECTED FOOD : \(self.selectedFood)")
+            let foodStatus = self.calculateFood(foodModel: data).rawValue
+            
+            self.selectedFood = FoodModel2(foodName: food.name, foodDescription: food.type, foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: foodStatus, foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0)
+            
+            
+            //print("DATA SELECTED FOOD : \(self.selectedFood)")
             DispatchQueue.main.async {
                 let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
                 let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
                 vc.selectedFood = self.selectedFood
+                vc.imageHasilPhoto = self.imageHasilFoto
                 vc.modalPresentationStyle = .pageSheet
                 self.present(vc, animated: true, completion: nil)
             }
