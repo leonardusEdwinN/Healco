@@ -125,6 +125,7 @@ class FoodDetailViewController: UIViewController {
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "goToJournalVC"){
             let vc = segue.destination as? JournalViewController
+            vc?.picTakenDetail = imageHasilPhoto
             vc?.modalPresentationStyle = .fullScreen
         }
     }
@@ -229,10 +230,14 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         food.setValue(time, forKeyPath: "timeTaken")
         food.setValue(reason, forKeyPath: "eatCause")
         food.setValue(feel, forKeyPath: "eatFeeling")
-        let formatter = DateFormatter()
-        let dateString = formatter.string(from: Date())
-        food.setValue(dateString, forKeyPath: "dateTaken")
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let formattedDate = format.string(from: date)
+        //print("tanggal hari ini : \(formattedDate)")
+        food.setValue(formattedDate, forKeyPath: "dateTaken")
         //food.setValue(imageHasilPhoto.toPngString(), forKeyPath: "foodPhoto")
+        food.setValue(imageHasilPhoto.pngData(), forKeyPath: "foodPhoto")
         do{
             try managedContext.save()
             print("Data save!")

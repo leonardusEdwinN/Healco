@@ -35,6 +35,7 @@ class JournalViewController : UIViewController{
     //Photo Gallery
     var carouselData = [Photo]()
     let cellScale : CGFloat = 0.6
+    var picTakenDetail: UIImage!
     
     // Weekly CollectionCell
     var date = ["11 Jun", "12 Jun","13 Jun", "14 Jun","15 Jun", "16 Jun", "17 Jun"]
@@ -49,6 +50,8 @@ class JournalViewController : UIViewController{
     //datepicker
     var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
+    
+    var fetchData: [NSManagedObject] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,19 +99,31 @@ class JournalViewController : UIViewController{
         collectionViewWeekly.dataSource = self
         collectionViewWeekly.allowsMultipleSelection = false
         
-        //Specify date components
-        var dateComponents = DateComponents()
-        dateComponents.year = 1980
-        dateComponents.month = 7
-        dateComponents.day = 11
-        dateComponents.timeZone = TimeZone(abbreviation: "JST") // Japan Standard Time
-        dateComponents.hour = 8
-        dateComponents.minute = 34
-        
-        // Create date from components
-        let userCalendar = Calendar.current // user calendar
-        let someDateTime = userCalendar.date(from: dateComponents)
-        print("Hari ini: \(Date())")
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let formattedDate = format.string(from: date)
+        print("tanggal : \(formattedDate)")
+        fetchData = myFetchRequestByDate(date: formattedDate)
+        var count_healthy: Int = 0
+        var count_common: Int = 0
+        var count_unhealthy: Int = 0
+        for(i) in fetchData.indices{
+            carouselData.append(Photo(image: UIImage(data: fetchData[i].value(forKeyPath: "foodPhoto") as! Data)!, title: "Record", description: "\(fetchData[i].value(forKeyPath: "foodDescription") as! String)"))
+            print("Tanggal: \(fetchData[i].value(forKeyPath: "dateTaken") as! String)")
+            var status = fetchData[i].value(forKeyPath: "foodStatus") as? String
+            if(status == "Healthy"){
+                //count_healthy = fetchData.count
+                count_healthy += 1
+            }else if status == "Common"{
+                count_common += 1
+            } else{
+                count_unhealthy += 1
+            }
+        }
+        labelHealthy.text = "\(count_healthy) Healthy"
+        labelCommon.text = "\(count_common) Common"
+        labelUnhealthy.text = "\(count_unhealthy) Unhealthy"
     }
     
     
@@ -244,12 +259,26 @@ extension JournalViewController : UICollectionViewDataSource{
             cell.changeUpdate()
         }else if collectionView == self.collectionViewPhotoGallery{
             let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
-            
+            let date = Date()
+            let format = DateFormatter()
+            format.dateFormat = "yyyy-MM-dd"
+            let formattedDate = format.string(from: date)
+            print("tanggal : \(formattedDate)")
+            fetchData = myFetchRequestByDate(date: formattedDate)
             if(indexPath.item == 0){
                 //pindah ke halaman foodRecog
                 performSegue(withIdentifier: "goToFoodRecog", sender: self)
             }else{
                 //masuk ke halaman detail
+                if let status = fetchData[indexPath.item].value(forKeyPath:"foodStatus") as? String{
+                    if status == "Healthy"{
+                        labelHealthy.text = status
+                    } else if status == "Common"{
+                        labelCommon.text = status
+                    } else if status == "Unhealthy"{
+                        labelUnhealthy.text = status
+                    }
+                }
             }
         }
     }
@@ -357,6 +386,39 @@ extension JournalViewController : ChartViewDelegate{
         let data = PieChartData(dataSet: set)
         data.setDrawValues(false)
         pieChartView.data = data
+    }
+}
+
+extension JournalViewController{
+    func fetchValueFromCoreData()->[NSManagedObject]{
+        var data: [NSManagedObject] = []
+
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+
+        let managedContext = appDelegate!.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Foods")
+        do{
+            try data = managedContext.fetch(fetchRequest)
+        }catch let error as NSError{
+            print("\(error)")
+        }
+        return data
+    }
+    
+    func myFetchRequestByDate(date: String)->[NSManagedObject]
+    {
+        let moc = UIApplication.shared.delegate as? AppDelegate
+        var data: [NSManagedObject] = []
+        let myRequest = NSFetchRequest<NSManagedObject>(entityName: "Foods")
+        let managedContext = moc!.persistentContainer.viewContext
+        myRequest.predicate = NSPredicate(format: "dateTaken CONTAINS[cd] %@", date)
+
+        do{
+            try data = managedContext.fetch(myRequest)
+        } catch let error{
+            print(error)
+        }
+        return data
     }
 }
 
