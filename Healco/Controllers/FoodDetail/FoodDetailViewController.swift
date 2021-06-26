@@ -233,6 +233,7 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         let dateString = formatter.string(from: Date())
         food.setValue(dateString, forKeyPath: "dateTaken")
         //food.setValue(imageHasilPhoto.toPngString(), forKeyPath: "foodPhoto")
+        food.setValue(imageHasilPhoto.pngData(), forKeyPath: "foodPhoto")
         do{
             try managedContext.save()
             print("Data save!")
