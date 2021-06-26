@@ -15,7 +15,7 @@ class FoodDetailViewController: UIViewController {
     var timeToEatArray : [String] = ["Breakfast","Lunch","Dinner", "Snack"]
     var reasonToEatArray : [String] = ["It was time", "Hungry", "Social", "Bored", "Stressed", "Loved taste", "Other"]
     var feelWhenEatArray : [String] = ["😆", "😭", "😰", "😧", "😠", "🥱"]
-    
+    var imageHasilPhoto : UIImage!
     
     /*@IBOutlet weak var foodStatusImageView: UIImageView!
      @IBOutlet weak var foodNameLabel: UILabel!
@@ -25,6 +25,7 @@ class FoodDetailViewController: UIViewController {
      @IBOutlet weak var foodCarbohydrateLabel: UILabel!
      @IBOutlet weak var foodProteinLabel: UILabel!*/
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var imagePhoto: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
     
     @IBOutlet weak var viewDescription: UIView!
@@ -54,6 +55,7 @@ class FoodDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imagePhoto.image = imageHasilPhoto
         timeToEatCollectionView.register(UINib(nibName: "TimeToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeToEatCell")
         timeToEatCollectionView.delegate = self
         timeToEatCollectionView.dataSource = self

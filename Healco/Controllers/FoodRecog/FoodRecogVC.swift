@@ -189,7 +189,7 @@ extension FoodRecogVC : AVCapturePhotoCaptureDelegate{
     
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        print("PHOTO OUTPUT \(photo.fileDataRepresentation())")
+        //print("PHOTO OUTPUT \(photo.fileDataRepresentation())")
         guard let data = photo.fileDataRepresentation() else{
             return
         }

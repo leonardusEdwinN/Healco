@@ -113,6 +113,7 @@
                         <outlet property="buttonBack" destination="zfn-Rl-5hN" id="RLl-HG-rfk"/>
                         <outlet property="foodNameTableView" destination="7BX-E5-XjY" id="bJ5-k1-QOD"/>
                         <outlet property="foodSearchBar" destination="Tk5-Ah-18z" id="Mij-Ai-Ev0"/>
+                        <outlet property="imagePhoto" destination="G31-iQ-mMA" id="pEA-uU-Dyt"/>
                         <segue destination="jgR-un-cvJ" kind="show" identifier="goToDetailVC" id="CzE-Ie-AfM"/>
                     </connections>
                 </viewController>
@@ -445,6 +446,7 @@
                         <outlet property="foodNameLabel" destination="udo-Lm-ulA" id="RMW-Na-UAm"/>
                         <outlet property="foodProteinLabel" destination="zHC-nV-wIO" id="S8J-eQ-FF2"/>
                         <outlet property="foodStatusImageView" destination="Aj7-9J-thl" id="7yx-1s-ZKD"/>
+                        <outlet property="imagePhoto" destination="K4y-Vc-5wL" id="gww-m2-koD"/>
                         <outlet property="reasonToEatCollectionView" destination="IcG-x1-K8h" id="6TS-Zx-6nn"/>
                         <outlet property="timeToEatCollectionView" destination="Kdw-Yt-aak" id="qFy-wA-vpB"/>
                         <outlet property="viewDescription" destination="mhv-nO-D5t" id="IjU-lk-iqY"/>
