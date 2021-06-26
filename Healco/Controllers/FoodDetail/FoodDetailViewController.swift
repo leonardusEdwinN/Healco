@@ -109,6 +109,7 @@ class FoodDetailViewController: UIViewController {
             print(selectedFeel ?? "")
             print(selectedTime ?? "")
             print(selectedReason ?? "")
+            getSelectedDataIntoCoreData(time: selectedTime!, feel: selectedFeel!, reason: selectedReason!)
         }
         else{
             print("Kosong!")
