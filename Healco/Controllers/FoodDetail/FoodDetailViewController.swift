@@ -112,9 +112,20 @@ class FoodDetailViewController: UIViewController {
             print(selectedTime ?? "")
             print(selectedReason ?? "")
             getSelectedDataIntoCoreData(time: selectedTime!, feel: selectedFeel!, reason: selectedReason!)
+            
+            /*let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
+            navigationController?.pushViewController(vc, animated: true)*/
         }
         else{
             print("Kosong!")
+        }
+    }
+    
+    override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "goToJournalVC"){
+            let vc = segue.destination as? JournalViewController
+            vc?.modalPresentationStyle = .fullScreen
         }
     }
 }
@@ -217,7 +228,11 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         food.setValue(detailFood?.foodSaturatedFat, forKeyPath: "foodSaturatedFat")
         food.setValue(time, forKeyPath: "timeTaken")
         food.setValue(reason, forKeyPath: "eatCause")
-        food.setValue(feel, forKeyPath: "eatFeel")
+        food.setValue(feel, forKeyPath: "eatFeeling")
+        let formatter = DateFormatter()
+        let dateString = formatter.string(from: Date())
+        food.setValue(dateString, forKeyPath: "dateTaken")
+        //food.setValue(imageHasilPhoto.toPngString(), forKeyPath: "foodPhoto")
         do{
             try managedContext.save()
             print("Data save!")
@@ -227,3 +242,29 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
     }
 }
 
+/*extension Date{
+    func dateToString(d: Date) -> String{
+        let formatter = DateFormatter()
+        return formatter.string(from: d)
+    }
+}*/
+extension String {
+    func toImage() -> UIImage? {
+        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters){
+            return UIImage(data: data)
+        }
+        return nil
+    }
+}
+
+extension UIImage {
+    func toPngString() -> String? {
+        let data = self.pngData()
+        return data?.base64EncodedString(options: .endLineWithLineFeed)
+    }
+  
+    func toJpegString(compressionQuality cq: CGFloat) -> String? {
+        let data = self.jpegData(compressionQuality: cq)
+        return data?.base64EncodedString(options: .endLineWithLineFeed)
+    }
+}
