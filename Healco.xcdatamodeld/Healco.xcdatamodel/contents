@@ -10,7 +10,7 @@
         <attribute name="foodFat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="foodID" optional="YES" attributeType="String"/>
         <attribute name="foodName" optional="YES" attributeType="String"/>
-        <attribute name="foodPhoto" optional="YES" attributeType="String"/>
+        <attribute name="foodPhoto" optional="YES" attributeType="Binary"/>
         <attribute name="foodProtein" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="foodSaturatedFat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="foodSodium" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
