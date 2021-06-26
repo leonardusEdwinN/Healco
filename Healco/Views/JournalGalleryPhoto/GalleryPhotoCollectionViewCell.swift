@@ -23,6 +23,7 @@ class GalleryPhotoCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.labelDescriptionGalleryPhoto.sizeToFit()
         // Initialization code
     }
     
@@ -30,6 +31,7 @@ class GalleryPhotoCollectionViewCell: UICollectionViewCell {
         self.labelTitleGalleryPhoto.text = dataPhoto.title
         self.labelDescriptionGalleryPhoto.text = dataPhoto.description
         self.photoGalleryView.image = dataPhoto.image
+        
         
         self.photoGalleryView.layer.cornerRadius = 15
         self.photoGalleryView.layer.masksToBounds = true
