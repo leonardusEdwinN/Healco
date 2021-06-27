@@ -247,9 +247,9 @@ extension JournalViewController : UICollectionViewDataSource{
             if(indexPath.item == 0){
                 //pindah ke halaman foodRecog
                 performSegue(withIdentifier: "goToFoodRecog", sender: self)
-            }else{
+            }else if indexPath.item < fetchData.count - 1{
                 //masuk ke halaman detail
-                var food = getFoodFromCoreDataByName(name: fetchData[indexPath.item].value(forKeyPath: "foodName") as! String)
+                let food = getFoodFromCoreDataByName(name: fetchData[indexPath.item].value(forKeyPath: "foodName") as! String)
                 let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
                 let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
                 vc.selectedFood = food
