@@ -189,7 +189,7 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
             let cell = collectionView.cellForItem(at: indexPath) as! TimeToEatCollectionViewCell
             cell.changeUpdate()
             let time = timeToEatArray[indexPath.item]
-            selectedTime = time
+            selectedTime = time 
             print(selectedTime ?? "")
         } else if collectionView == self.reasonToEatCollectionView{
             let cell = collectionView.cellForItem(at: indexPath) as! ReasonToEatCollectionViewCell
