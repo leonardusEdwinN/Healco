@@ -251,8 +251,6 @@ extension JournalViewController : UICollectionViewDataSource{
                 //masuk ke halaman detail
                 /*let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
                 let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
-                vc.selectedFood = self.selectedFood
-                vc.imageHasilPhoto = self.imageHasilFoto
                 vc.modalPresentationStyle = .pageSheet
                 self.present(vc, animated: true, completion: nil)*/
             }
@@ -370,6 +368,24 @@ extension JournalViewController{
             print(error)
         }
         return data
+    }
+    
+    func getFoodFromCoreDataByName(name: String) -> FoodModel2{
+        var food: FoodModel2 = FoodModel2()
+        let foodsCoreData: [NSManagedObject] = fetchValueFromCoreData()
+        for(i) in foodsCoreData.indices{
+            if(name == foodsCoreData[i].value(forKeyPath: "foodName") as! String){
+                food.foodName = foodsCoreData[i].value(forKeyPath: "foodName") as? String
+                food.foodDescription = foodsCoreData[i].value(forKeyPath: "foodDescription") as? String
+                food.foodCalories = foodsCoreData[i].value(forKeyPath: "foodCalories") as? Double
+                food.foodFat = foodsCoreData[i].value(forKeyPath: "foodFat") as? Double
+                food.foodCarbohydrate = foodsCoreData[i].value(forKeyPath: "foodCarbohydrate") as? Double
+                food.foodProtein = foodsCoreData[i].value(forKeyPath: "foodProtein") as? Double
+                food.foodSodium = foodsCoreData[i].value(forKeyPath: "foodSodium") as? Double
+                food.foodSaturatedFat = foodsCoreData[i].value(forKeyPath: "foodSaturatedFat") as? Double
+            }
+        }
+        return food
     }
 }
 
