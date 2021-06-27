@@ -29,7 +29,7 @@ class HasilFotoVC: UIViewController {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
             print("Camera was able to capture a frame:", Date())
 
-            guard let model = try? VNCoreMLModel(for:  Food101().model) else{return}
+        guard let model = try? VNCoreMLModel(for: Food101(configuration: MLModelConfiguration.init()).model) else{return}
                    guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {return}
 
                    let request = VNCoreMLRequest(model: model) { (finishedReq, err) in

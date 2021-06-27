@@ -11,13 +11,12 @@ import CoreData
 
 class JournalViewController : UIViewController{
     
-    
-    
     @IBOutlet weak var imageAddJournal: UIImageView!
     @IBOutlet weak var viewEmptyJournal: UIView!
     @IBOutlet weak var labelPieChartDetail: UILabel!
     @IBOutlet weak var labelPieChartPercentage: UILabel!
     @IBOutlet weak var stackPieChart: UIStackView!
+    @IBOutlet weak var stackNoChartData: UIStackView!
     @IBOutlet weak var buttonChangeDate: UIButton!
     @IBOutlet weak var collectionViewPhotoGallery: UICollectionView!
     @IBOutlet weak var viewSlideShowGallery: UIView!
@@ -28,8 +27,6 @@ class JournalViewController : UIViewController{
     @IBOutlet weak var labelUnhealthy: UILabel!
     @IBOutlet weak var labelHealthy: UILabel!
     @IBOutlet weak var labelDate: UILabel!
-    //    var barChartView = BarChartView()
-    //Pie Chart
     var pieChartView = PieChartView()
     
     //Photo Gallery
@@ -63,25 +60,18 @@ class JournalViewController : UIViewController{
         super.viewDidLoad()
         getDate()
         
-        
-        
         // add tap gesture to image
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.goToFoodRecog))
 
         imageAddJournal.isUserInteractionEnabled = true
         imageAddJournal.addGestureRecognizer(tapGestureRecognizer)
-        // foodData
-        //        buttonAddJournal.layer.cornerRadius = 13.5
-        //        buttonAddJournal.imageView?.tintColor = UIColor.white
         buttonChangeDate.layer.cornerRadius = 13.5
         buttonChangeDate.layer.masksToBounds = true
         
         //pieChart
         pieChartView.delegate = self
         
-        
         // UIcollectionview
-        //galleryPhoto
         collectionViewPhotoGallery.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
         collectionViewPhotoGallery.delegate = self
         collectionViewPhotoGallery.dataSource = self
@@ -106,23 +96,22 @@ class JournalViewController : UIViewController{
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         let formattedDate = format.string(from: date)
-        print("tanggal : \(formattedDate)")
         fetchData = myFetchRequestByDate(date: formattedDate)
         
         for(i) in fetchData.indices{
-            print("Tanggal: \(fetchData[i].value(forKeyPath: "dateTaken") as! String)")
             let status = fetchData[i].value(forKeyPath: "foodStatus") as? String
             
             carouselData.append(Photo(image: UIImage(data: fetchData[i].value(forKeyPath: "foodPhoto") as! Data)!, title: "\(fetchData[i].value(forKeyPath: "foodName") as! String)", description: "\(fetchData[i].value(forKeyPath: "foodDescription") as! String)", status: status!))
+            
             if(status == "Healthy"){
-                //count_healthy = fetchData.count
                 count_healthy += 1
-            }else if status == "Common"{
+            } else if status == "Common"{
                 count_common += 1
-            } else{
+            } else {
                 count_unhealthy += 1
             }
         }
+        
         labelHealthy.text = "\(count_healthy) Healthy"
         labelCommon.text = "\(count_common) Common"
         labelUnhealthy.text = "\(count_unhealthy) Unhealthy"
@@ -137,17 +126,20 @@ class JournalViewController : UIViewController{
             
             labelPieChartPercentage.text = "\( round((Double(count_common) / Double(totalData)) * 100))%"
             labelPieChartDetail.text = "Common"
-        }else{
-            
+        } else {
             labelPieChartPercentage.text = "\( round((Double(count_unhealthy) / Double(totalData)) * 100))%"
             labelPieChartDetail.text = "Unhealthy"
         }
         
-        
-        print("data : \(carouselData.count)")
-        if(carouselData.isEmpty){
+        if (carouselData.isEmpty){
+            stackNoChartData.isHidden = false
+            stackPieChart.isHidden = true
+            pieChartView.isHidden = true
             viewEmptyJournal.isHidden = false
-        }else{
+        } else {
+            stackNoChartData.isHidden = true
+            stackPieChart.isHidden = false
+            pieChartView.isHidden = false
             viewEmptyJournal.isHidden = true
         }
     }
@@ -205,7 +197,6 @@ class JournalViewController : UIViewController{
         dateFormatter.timeStyle = .none
         
         if let date = sender?.date {
-            print("Picked the date \(dateFormatter.string(from: date))")
             labelDate.text = dateFormatter.string(from: date)
             datePicker.removeFromSuperview()
             toolBar.removeFromSuperview()
@@ -220,7 +211,6 @@ class JournalViewController : UIViewController{
            let foodRecogVC = segue.destination as? FoodRecogVC {
             foodRecogVC.modalPresentationStyle = .fullScreen
         }
-        
     }
     
     func foodStatusChange(){
@@ -260,11 +250,10 @@ extension JournalViewController : UICollectionViewDataSource{
             
             
             return cell
-        }else if collectionView == self.collectionViewPhotoGallery{
+        } else if collectionView == self.collectionViewPhotoGallery{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryPhotoCell", for: indexPath) as! GalleryPhotoCollectionViewCell
             
             if(indexPath.item == 0){
-                
                 cell.photoGalleryView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
             }
             
@@ -277,22 +266,17 @@ extension JournalViewController : UICollectionViewDataSource{
         
     }
     
-
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //print(carouselData.count)
-        //print(fetchData.count)
         let date = Date()
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         let formattedDate = format.string(from: date)
-        print("tanggal : \(formattedDate)")
         fetchData = myFetchRequestByDate(date: formattedDate)
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
             cell.changeUpdate()
         }else if collectionView == self.collectionViewPhotoGallery{
-            let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
+//            let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
 //            if(indexPath.item == 0){
 //                //pindah ke halaman foodRecog
 //                performSegue(withIdentifier: "goToFoodRecog", sender: self)
@@ -379,34 +363,31 @@ extension JournalViewController : ChartViewDelegate{
         pieChartView.holeRadiusPercent = 0.7
         pieChartView.transparentCircleRadiusPercent = 0.0
         pieChartView.drawHoleEnabled = true
-        
+        pieChartView.holeColor = .systemBackground
         
         // hides center text
         pieChartView.drawCenterTextEnabled = true
         pieChartView.legend.enabled = false
         pieChartView.drawEntryLabelsEnabled = false
         pieChartView.entryLabelColor = .clear
-        pieChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
+        pieChartView.animate(xAxisDuration: 1.5)
         pieChartView.setExtraOffsets(left: -15, top: -15, right: -15, bottom: -15)
-        
         
         viewPieChart.addSubview(pieChartView)
         pieChartView.addSubview(stackPieChart)
+        
+        let set = PieChartDataSet(entries: dataEntries)
+        set.setColors(UIColor(red: 0.09, green: 0.54, blue: 0.38, alpha: 1.00), UIColor(red: 0.09, green: 0.84, blue: 0.58, alpha: 1.00), UIColor.red)
+        let data = PieChartData(dataSet: set)
         
         //append data to pie chart
         dataEntries.append( PieChartDataEntry(value: Double(count_healthy)))
         dataEntries.append( PieChartDataEntry(value: Double(count_common)))
         dataEntries.append( PieChartDataEntry(value: Double(count_unhealthy)))
         
-        let set = PieChartDataSet(entries: dataEntries)
-        let data = PieChartData(dataSet: set)
         data.setDrawValues(false)
         pieChartView.data = data
         
-        
-//        set.colors = ChartColorTemplates.joyful()
-        
-        set.colors = [UIColor(red: 0.09, green: 0.54, blue: 0.38, alpha: 1.00), UIColor(red: 0.09, green: 0.84, blue: 0.58, alpha: 1.00), UIColor.red]
     }
 }
 

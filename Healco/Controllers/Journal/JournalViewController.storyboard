@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,13 +31,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday, 11 June 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNo-Ge-pso">
-                                <rect key="frame" x="20" y="195" width="181" height="30"/>
+                                <rect key="frame" x="20" y="195" width="181" height="31"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbc-bG-i0T">
-                                <rect key="frame" x="0.0" y="230" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="231" width="414" height="200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfi-i0-j03">
                                         <rect key="frame" x="35" y="20" width="160" height="160"/>
@@ -59,13 +59,39 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="A5q-Rz-YL5">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noChart" translatesAutoresizingMaskIntoConstraints="NO" id="CNC-JK-zuf">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="130"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="130" id="jb7-0P-QLn"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Chart Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTM-05-gnm">
+                                                        <rect key="frame" x="29" y="130" width="102" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="CNC-JK-zuf" firstAttribute="leading" secondItem="A5q-Rz-YL5" secondAttribute="leading" id="EBf-yY-6Bv"/>
+                                                    <constraint firstItem="CNC-JK-zuf" firstAttribute="top" secondItem="A5q-Rz-YL5" secondAttribute="top" id="VcX-Fm-FWd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="CNC-JK-zuf" secondAttribute="trailing" id="qvX-yV-el2"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="R9Z-Nr-vSW" firstAttribute="centerY" secondItem="wfi-i0-j03" secondAttribute="centerY" id="5Po-27-0kn"/>
                                             <constraint firstAttribute="height" constant="160" id="PkJ-Fw-vWz"/>
                                             <constraint firstItem="R9Z-Nr-vSW" firstAttribute="centerX" secondItem="wfi-i0-j03" secondAttribute="centerX" id="THl-vN-J2r"/>
+                                            <constraint firstAttribute="bottom" secondItem="A5q-Rz-YL5" secondAttribute="bottom" id="csf-np-rxn"/>
                                             <constraint firstAttribute="width" constant="160" id="eN8-0o-FIX"/>
+                                            <constraint firstItem="A5q-Rz-YL5" firstAttribute="leading" secondItem="wfi-i0-j03" secondAttribute="leading" id="hYU-9L-w26"/>
+                                            <constraint firstAttribute="trailing" secondItem="A5q-Rz-YL5" secondAttribute="trailing" id="qKa-hK-kWX"/>
+                                            <constraint firstItem="A5q-Rz-YL5" firstAttribute="top" secondItem="wfi-i0-j03" secondAttribute="top" id="uXF-s0-UP6"/>
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-icon" translatesAutoresizingMaskIntoConstraints="NO" id="v1V-6H-QCu">
@@ -140,10 +166,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IeJ-bi-RqK">
-                                <rect key="frame" x="120" y="465" width="294" height="397"/>
+                                <rect key="frame" x="120" y="466" width="294" height="396"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ckr-OE-2q0">
-                                        <rect key="frame" x="0.0" y="0.0" width="294" height="397"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="396"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="30" minimumInteritemSpacing="20" id="7tn-bM-g53">
                                             <size key="itemSize" width="200" height="200"/>
@@ -169,10 +195,11 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1i-Yi-x2y">
-                                <rect key="frame" x="341" y="195" width="53" height="30"/>
+                                <rect key="frame" x="340" y="195" width="54" height="31"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="15"/>
                                 <state key="normal" title="Change">
-                                    <color key="titleColor" red="0.25098039220000001" green="0.53725490200000003" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" systemColor="linkColor"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonChangeDateClicked:" destination="ulW-PN-eXr" eventType="touchUpInside" id="f1I-Yn-Wdv"/>
@@ -193,20 +220,20 @@
                                 <cells/>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today Food Journal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hym-QD-riW">
-                                <rect key="frame" x="20" y="430" width="374" height="25"/>
+                                <rect key="frame" x="20" y="431" width="374" height="25"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-icon-with-bg_2" translatesAutoresizingMaskIntoConstraints="NO" id="jD2-2W-XJF">
-                                <rect key="frame" x="20" y="583.5" width="100" height="100"/>
+                                <rect key="frame" x="20" y="584" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="cV0-27-xl9"/>
                                     <constraint firstAttribute="height" constant="100" id="dct-tM-xhs"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hti-AK-0WO">
-                                <rect key="frame" x="139" y="508.5" width="250" height="250"/>
+                                <rect key="frame" x="139" y="509" width="250" height="250"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noJournal" translatesAutoresizingMaskIntoConstraints="NO" id="tGf-3m-4rp">
                                         <rect key="frame" x="5" y="0.0" width="240" height="150"/>
@@ -247,7 +274,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tKH-Fa-Ui4"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="bNo-Ge-pso" firstAttribute="leading" secondItem="tKH-Fa-Ui4" secondAttribute="leading" constant="20" id="1Pu-TK-YbX"/>
                             <constraint firstItem="v1i-Yi-x2y" firstAttribute="top" secondItem="WQl-xB-zdf" secondAttribute="bottom" constant="15" id="292-kD-wbQ"/>
@@ -287,6 +314,7 @@
                         <outlet property="labelPieChartDetail" destination="kS6-I8-y4N" id="UTI-Xp-6nS"/>
                         <outlet property="labelPieChartPercentage" destination="R6E-P0-rSs" id="tK1-q0-qYA"/>
                         <outlet property="labelUnhealthy" destination="dvx-og-wN4" id="YVp-va-2ca"/>
+                        <outlet property="stackNoChartData" destination="A5q-Rz-YL5" id="NZx-os-Vow"/>
                         <outlet property="stackPieChart" destination="R9Z-Nr-vSW" id="hMg-jX-lGc"/>
                         <outlet property="viewEmptyJournal" destination="Hti-AK-0WO" id="hxX-s1-a6p"/>
                         <outlet property="viewPieChart" destination="wfi-i0-j03" id="Ae7-NI-Y73"/>
@@ -313,10 +341,14 @@
     <resources>
         <image name="add-icon-with-bg_2" width="62.5" height="62.5"/>
         <image name="common-icon" width="62.5" height="62.5"/>
-        <image name="header-left" width="213.5" height="69.5"/>
+        <image name="header-left" width="213.5" height="57.5"/>
         <image name="healthy-icon" width="62.5" height="62.5"/>
-        <image name="noJournal" width="1112" height="806"/>
+        <image name="noChart" width="247.5" height="174"/>
+        <image name="noJournal" width="321" height="248.5"/>
         <image name="unhealthy-icon" width="62.5" height="62.5"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
