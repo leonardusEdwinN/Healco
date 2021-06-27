@@ -161,8 +161,8 @@ class JournalViewController : UIViewController{
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .full
         dateFormatter.timeStyle = .none
-        
-        let result = dateFormatter.string(from: date)
+        //let weekday = Calendar.current.component(.weekday, from: Date())
+        let result = dateFormatter.string(from: Date())
         labelDate.text = result
     }
     
