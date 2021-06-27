@@ -254,31 +254,31 @@ extension JournalViewController : UICollectionViewDataSource{
 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //print(carouselData.count)
+        //print(fetchData.count)
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let formattedDate = format.string(from: date)
+        print("tanggal : \(formattedDate)")
+        fetchData = myFetchRequestByDate(date: formattedDate)
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
             cell.changeUpdate()
         }else if collectionView == self.collectionViewPhotoGallery{
             let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
-            let date = Date()
-            let format = DateFormatter()
-            format.dateFormat = "yyyy-MM-dd"
-            let formattedDate = format.string(from: date)
-            print("tanggal : \(formattedDate)")
-            fetchData = myFetchRequestByDate(date: formattedDate)
             if(indexPath.item == 0){
                 //pindah ke halaman foodRecog
                 performSegue(withIdentifier: "goToFoodRecog", sender: self)
-            }else{
+            }else if indexPath.item > 0 && indexPath.item <= fetchData.count {
                 //masuk ke halaman detail
-                if let status = fetchData[indexPath.item].value(forKeyPath:"foodStatus") as? String{
-                    if status == "Healthy"{
-                        labelHealthy.text = status
-                    } else if status == "Common"{
-                        labelCommon.text = status
-                    } else if status == "Unhealthy"{
-                        labelUnhealthy.text = status
-                    }
-                }
+                let food = getFoodFromCoreDataByName(name: fetchData[indexPath.item - 1].value(forKeyPath: "foodName") as! String)
+                let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
+                let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
+                vc.selectedFood = food
+                vc.imageHasilPhoto = UIImage(data: fetchData[indexPath.item - 1].value(forKeyPath: "foodPhoto") as! Data)
+                vc.modalPresentationStyle = .pageSheet
+                self.present(vc, animated: true, completion: nil)
             }
         }
     }
@@ -419,6 +419,24 @@ extension JournalViewController{
             print(error)
         }
         return data
+    }
+    
+    func getFoodFromCoreDataByName(name: String) -> FoodModel2{
+        var food: FoodModel2 = FoodModel2()
+        let foodsCoreData: [NSManagedObject] = fetchValueFromCoreData()
+        for(i) in foodsCoreData.indices{
+            if(name == foodsCoreData[i].value(forKeyPath: "foodName") as! String){
+                food.foodName = foodsCoreData[i].value(forKeyPath: "foodName") as? String
+                food.foodDescription = foodsCoreData[i].value(forKeyPath: "foodDescription") as? String
+                food.foodCalories = foodsCoreData[i].value(forKeyPath: "foodCalories") as? Double
+                food.foodFat = foodsCoreData[i].value(forKeyPath: "foodFat") as? Double
+                food.foodCarbohydrate = foodsCoreData[i].value(forKeyPath: "foodCarbohydrate") as? Double
+                food.foodProtein = foodsCoreData[i].value(forKeyPath: "foodProtein") as? Double
+                food.foodSodium = foodsCoreData[i].value(forKeyPath: "foodSodium") as? Double
+                food.foodSaturatedFat = foodsCoreData[i].value(forKeyPath: "foodSaturatedFat") as? Double
+            }
+        }
+        return food
     }
 }
 
