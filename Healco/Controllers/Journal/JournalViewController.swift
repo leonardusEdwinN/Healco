@@ -235,17 +235,17 @@ extension JournalViewController : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //print(carouselData.count)
         //print(fetchData.count)
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd"
+        let formattedDate = format.string(from: date)
+        print("tanggal : \(formattedDate)")
+        fetchData = myFetchRequestByDate(date: formattedDate)
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
             cell.changeUpdate()
         }else if collectionView == self.collectionViewPhotoGallery{
             let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
-            let date = Date()
-            let format = DateFormatter()
-            format.dateFormat = "yyyy-MM-dd"
-            let formattedDate = format.string(from: date)
-            print("tanggal : \(formattedDate)")
-            fetchData = myFetchRequestByDate(date: formattedDate)
             if(indexPath.item == 0){
                 //pindah ke halaman foodRecog
                 performSegue(withIdentifier: "goToFoodRecog", sender: self)
