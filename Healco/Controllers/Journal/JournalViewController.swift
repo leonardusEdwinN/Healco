@@ -293,16 +293,18 @@ extension JournalViewController : UICollectionViewDataSource{
             cell.changeUpdate()
         }else if collectionView == self.collectionViewPhotoGallery{
             let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
-            if(indexPath.item == 0){
-                //pindah ke halaman foodRecog
-                performSegue(withIdentifier: "goToFoodRecog", sender: self)
-            }else if indexPath.item > 0 && indexPath.item <= fetchData.count {
+//            if(indexPath.item == 0){
+//                //pindah ke halaman foodRecog
+//                performSegue(withIdentifier: "goToFoodRecog", sender: self)
+//            }else
+            
+            if  indexPath.item <= fetchData.count {
                 //masuk ke halaman detail
-                let food = getFoodFromCoreDataByName(name: fetchData[indexPath.item - 1].value(forKeyPath: "foodName") as! String)
+                let food = getFoodFromCoreDataByName(name: fetchData[indexPath.item].value(forKeyPath: "foodName") as! String)
                 let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
                 let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
                 vc.selectedFood = food
-                vc.imageHasilPhoto = UIImage(data: fetchData[indexPath.item - 1].value(forKeyPath: "foodPhoto") as! Data)
+                vc.imageHasilPhoto = UIImage(data: fetchData[indexPath.item].value(forKeyPath: "foodPhoto") as! Data)
                 vc.modalPresentationStyle = .pageSheet
                 self.present(vc, animated: true, completion: nil)
             }
