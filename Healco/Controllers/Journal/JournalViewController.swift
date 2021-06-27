@@ -249,10 +249,13 @@ extension JournalViewController : UICollectionViewDataSource{
                 performSegue(withIdentifier: "goToFoodRecog", sender: self)
             }else{
                 //masuk ke halaman detail
-                /*let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
+                var food = getFoodFromCoreDataByName(name: fetchData[indexPath.item].value(forKeyPath: "foodName") as! String)
+                let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
                 let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
+                vc.selectedFood = food
+                vc.imageHasilPhoto = UIImage(data: fetchData[indexPath.item].value(forKeyPath: "foodPhoto") as! Data)
                 vc.modalPresentationStyle = .pageSheet
-                self.present(vc, animated: true, completion: nil)*/
+                self.present(vc, animated: true, completion: nil)
             }
         }
     }
