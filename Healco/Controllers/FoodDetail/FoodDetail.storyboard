@@ -34,9 +34,9 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header-left" translatesAutoresizingMaskIntoConstraints="NO" id="aCZ-T6-qU2">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="120"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="KXr-dC-TR8"/>
+                                    <constraint firstAttribute="height" constant="110" id="KXr-dC-TR8"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MEx-Si-cYE">
@@ -83,7 +83,7 @@
                                     <constraint firstAttribute="height" constant="30" id="khi-5Q-eIO"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="arrow.backward" catalog="system">
+                                <state key="normal" image="xmark" catalog="system">
                                     <color key="titleColor" red="0.9619950518" green="0.98372834070000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
@@ -119,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHg-yg-Ve2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1827.6923076923076" y="40.521327014218009"/>
+            <point key="canvasLocation" x="1748" y="-80"/>
         </scene>
         <!--Food Detail View Controller-->
         <scene sceneID="CrG-wx-aQu">
@@ -137,9 +137,9 @@
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header-left" translatesAutoresizingMaskIntoConstraints="NO" id="mdO-ek-qdF">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="120"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="110"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="xgc-Ve-QuD"/>
+                                    <constraint firstAttribute="height" constant="110" id="xgc-Ve-QuD"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLW-zA-Yrb">
@@ -412,7 +412,7 @@
                                     <constraint firstAttribute="height" constant="30" id="mku-zj-OsO"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="arrow.backward" catalog="system"/>
+                                <state key="normal" image="xmark" catalog="system"/>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="jgR-un-cvJ" eventType="touchUpInside" id="Qt1-1c-sry"/>
                                 </connections>
@@ -456,7 +456,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvZ-pi-OrQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3241.5384615384614" y="-99.526066350710892"/>
+            <point key="canvasLocation" x="2526" y="-80"/>
         </scene>
         <!--JournalViewController-->
         <scene sceneID="rW5-HV-I7K">
@@ -466,14 +466,14 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrZ-Rq-rPq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4364" y="-281"/>
+            <point key="canvasLocation" x="3220" y="-268"/>
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="brooke-lark-nBtmglfY0HU-unsplash" width="375" height="421"/>
         <image name="header-left" width="213.66667175292969" height="69.666664123535156"/>
         <image name="healthy-icon" width="62.333332061767578" height="62.333332061767578"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

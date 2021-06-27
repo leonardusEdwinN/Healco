@@ -24,29 +24,28 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="p1" translatesAutoresizingMaskIntoConstraints="NO" id="aWo-nd-eZL">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addIcon" translatesAutoresizingMaskIntoConstraints="NO" id="aWo-nd-eZL">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="oGK-69-A8O"/>
                             <constraint firstAttribute="width" constant="200" id="p9L-h7-yxP"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iez-5J-ius">
-                        <rect key="frame" x="5" y="210" width="190" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iez-5J-ius">
+                        <rect key="frame" x="5" y="215" width="190" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="86l-QQ-NSW"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmi-zd-PXF">
-                        <rect key="frame" x="5" y="235" width="190" height="50"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Lorem Ipsum is " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmi-zd-PXF">
+                        <rect key="frame" x="5" y="240" width="190" height="45"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="bgU-SS-dCz"/>
+                            <constraint firstAttribute="height" constant="45" id="gee-jE-fuL"/>
                         </constraints>
-                        <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
-                        <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="12"/>
+                        <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -57,7 +56,7 @@
                 <constraint firstItem="aWo-nd-eZL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1kQ-11-0CK"/>
                 <constraint firstAttribute="trailing" secondItem="Vmi-zd-PXF" secondAttribute="trailing" constant="5" id="2fM-mS-r9Z"/>
                 <constraint firstAttribute="trailing" secondItem="Iez-5J-ius" secondAttribute="trailing" constant="5" id="OtC-lK-ZkF"/>
-                <constraint firstItem="Iez-5J-ius" firstAttribute="top" secondItem="aWo-nd-eZL" secondAttribute="bottom" constant="10" id="Qa9-Za-gaM"/>
+                <constraint firstItem="Iez-5J-ius" firstAttribute="top" secondItem="aWo-nd-eZL" secondAttribute="bottom" constant="15" id="Qa9-Za-gaM"/>
                 <constraint firstItem="Iez-5J-ius" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="V5W-fS-cpf"/>
                 <constraint firstItem="Vmi-zd-PXF" firstAttribute="top" secondItem="Iez-5J-ius" secondAttribute="bottom" constant="5" id="We5-Yd-dKz"/>
                 <constraint firstItem="Iez-5J-ius" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="b5H-Kv-r5v"/>
@@ -76,6 +75,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="p1" width="5472" height="3648"/>
+        <image name="addIcon" width="62.5" height="62.5"/>
     </resources>
 </document>
