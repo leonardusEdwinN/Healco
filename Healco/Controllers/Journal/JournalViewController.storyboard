@@ -313,7 +313,7 @@
     <resources>
         <image name="add-icon-with-bg_2" width="62.5" height="62.5"/>
         <image name="common-icon" width="62.5" height="62.5"/>
-        <image name="header-left" width="213.5" height="69.5"/>
+        <image name="header-left" width="213.5" height="57.5"/>
         <image name="healthy-icon" width="62.5" height="62.5"/>
         <image name="noJournal" width="1112" height="806"/>
         <image name="unhealthy-icon" width="62.5" height="62.5"/>

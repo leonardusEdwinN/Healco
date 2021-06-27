@@ -39,6 +39,7 @@ class JournalViewController : UIViewController{
     
     // Weekly CollectionCell
     var date = ["11 Jun", "12 Jun","13 Jun", "14 Jun","15 Jun", "16 Jun", "17 Jun"]
+    //let emoji = [""]
     var selectedBefore : IndexPath!
     
     //properties
@@ -62,8 +63,8 @@ class JournalViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         getDate()
-        
-        
+        getArrangedDateInOneWeek()
+        //deleteRequest()
         
         // add tap gesture to image
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.goToFoodRecog))
@@ -126,9 +127,11 @@ class JournalViewController : UIViewController{
         labelHealthy.text = "\(count_healthy) Healthy"
         labelCommon.text = "\(count_common) Common"
         labelUnhealthy.text = "\(count_unhealthy) Unhealthy"
-        
         let totalData = count_healthy + count_common + count_unhealthy
-        if(count_healthy > count_common && count_healthy > count_unhealthy){
+        if(count_healthy == 0 && count_common == 0 && count_unhealthy == 0){
+            labelPieChartPercentage.text = "0%"
+            labelPieChartDetail.text = ""
+        } else if(count_healthy > count_common && count_healthy > count_unhealthy){
             //makan sehat
             labelPieChartPercentage.text = "\( round((Double(count_healthy) / Double(totalData)) * 100))%"
             labelPieChartDetail.text = "Healthy"
@@ -458,6 +461,14 @@ extension JournalViewController{
             }
         }
         return food
+    }
+    
+    func getArrangedDateInOneWeek(){
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let dayOfWeek = calendar.component(.weekday, from: today)
+        print("Hari: \(today)")
+        print("Hari apa: \(dayOfWeek)")
     }
 }
 

@@ -111,7 +111,7 @@ class FoodDetailViewController: UIViewController {
             print(selectedFeel ?? "")
             print(selectedTime ?? "")
             print(selectedReason ?? "")
-            getSelectedDataIntoCoreData(time: selectedTime!, feel: selectedFeel!, reason: selectedReason!)
+            getSelectedDataIntoCoreData(time: selectedTime ?? "", feel: selectedFeel ?? "", reason: selectedReason ?? "")
             
             /*let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
             let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
