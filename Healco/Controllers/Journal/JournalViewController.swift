@@ -53,14 +53,17 @@ class JournalViewController : UIViewController{
     
     var fetchData: [NSManagedObject] = []
     
+    
+    var count_healthy: Int = 0
+    var count_common: Int = 0
+    var count_unhealthy: Int = 0
+    var dataEntries : [PieChartDataEntry] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getDate()
-        if(carouselData.isEmpty){
-            viewEmptyJournal.isHidden = false
-        }else{
-            viewEmptyJournal.isHidden = true
-        }
+        
+        
         
         // add tap gesture to image
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.goToFoodRecog))
@@ -105,13 +108,12 @@ class JournalViewController : UIViewController{
         let formattedDate = format.string(from: date)
         print("tanggal : \(formattedDate)")
         fetchData = myFetchRequestByDate(date: formattedDate)
-        var count_healthy: Int = 0
-        var count_common: Int = 0
-        var count_unhealthy: Int = 0
+        
         for(i) in fetchData.indices{
-            carouselData.append(Photo(image: UIImage(data: fetchData[i].value(forKeyPath: "foodPhoto") as! Data)!, title: "Record", description: "\(fetchData[i].value(forKeyPath: "foodDescription") as! String)"))
             print("Tanggal: \(fetchData[i].value(forKeyPath: "dateTaken") as! String)")
-            var status = fetchData[i].value(forKeyPath: "foodStatus") as? String
+            let status = fetchData[i].value(forKeyPath: "foodStatus") as? String
+            
+            carouselData.append(Photo(image: UIImage(data: fetchData[i].value(forKeyPath: "foodPhoto") as! Data)!, title: "\(fetchData[i].value(forKeyPath: "foodName") as! String)", description: "\(fetchData[i].value(forKeyPath: "foodDescription") as! String)", status: status!))
             if(status == "Healthy"){
                 //count_healthy = fetchData.count
                 count_healthy += 1
@@ -124,6 +126,30 @@ class JournalViewController : UIViewController{
         labelHealthy.text = "\(count_healthy) Healthy"
         labelCommon.text = "\(count_common) Common"
         labelUnhealthy.text = "\(count_unhealthy) Unhealthy"
+        
+        let totalData = count_healthy + count_common + count_unhealthy
+        if(count_healthy > count_common && count_healthy > count_unhealthy){
+            //makan sehat
+            labelPieChartPercentage.text = "\( round((Double(count_healthy) / Double(totalData)) * 100))%"
+            labelPieChartDetail.text = "Healthy"
+        }else if(count_common > count_healthy && count_common > count_unhealthy){
+            //common
+            
+            labelPieChartPercentage.text = "\( round((Double(count_common) / Double(totalData)) * 100))%"
+            labelPieChartDetail.text = "Common"
+        }else{
+            
+            labelPieChartPercentage.text = "\( round((Double(count_unhealthy) / Double(totalData)) * 100))%"
+            labelPieChartDetail.text = "Unhealthy"
+        }
+        
+        
+        print("data : \(carouselData.count)")
+        if(carouselData.isEmpty){
+            viewEmptyJournal.isHidden = false
+        }else{
+            viewEmptyJournal.isHidden = true
+        }
     }
     
     
@@ -348,11 +374,6 @@ extension JournalViewController : ChartViewDelegate{
         super.viewDidLayoutSubviews()
         pieChartView.frame = CGRect(x: 0, y: 0, width: viewPieChart.frame.size.width, height: viewPieChart.frame.size.height)
         
-//        let myAttribute = [ NSAttributedString.Key.font: UIFont(name: "Quicksand-Bold", size: 20.0)! ]
-//        let myAttrString = NSAttributedString(string: "66 % \n Health", attributes: myAttribute)
-//
-//        pieChartView.centerAttributedText = myAttrString
-        
         pieChartView.holeRadiusPercent = 0.7
         pieChartView.transparentCircleRadiusPercent = 0.0
         pieChartView.drawHoleEnabled = true
@@ -367,25 +388,23 @@ extension JournalViewController : ChartViewDelegate{
         pieChartView.setExtraOffsets(left: -15, top: -15, right: -15, bottom: -15)
         
         
-        
-        
         viewPieChart.addSubview(pieChartView)
         pieChartView.addSubview(stackPieChart)
         
+        //append data to pie chart
+        dataEntries.append( PieChartDataEntry(value: Double(count_healthy)))
+        dataEntries.append( PieChartDataEntry(value: Double(count_common)))
+        dataEntries.append( PieChartDataEntry(value: Double(count_unhealthy)))
         
-        
-        var entries = [ChartDataEntry]()
-        
-        for x in 1..<3{
-            entries.append(ChartDataEntry(x: Double(x), y: Double(x)))
-        }
-        
-        let set = PieChartDataSet(entries: entries)
-        set.colors = [UIColor(red: 0.09, green: 0.54, blue: 0.38, alpha: 1.00), UIColor.red]
-        
+        let set = PieChartDataSet(entries: dataEntries)
         let data = PieChartData(dataSet: set)
         data.setDrawValues(false)
         pieChartView.data = data
+        
+        
+//        set.colors = ChartColorTemplates.joyful()
+        
+        set.colors = [UIColor(red: 0.09, green: 0.54, blue: 0.38, alpha: 1.00), UIColor(red: 0.09, green: 0.84, blue: 0.58, alpha: 1.00), UIColor.red]
     }
 }
 
