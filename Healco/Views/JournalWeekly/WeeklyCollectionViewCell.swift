@@ -31,15 +31,20 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
     
     func setUI(dateText : String){
         self.labelDate.text = dateText
-        imageIcon.image = UIImage(systemName: "heart")
+        imageIcon.image = UIImage(systemName: "circle.fill")
     }
     
-    func changeUpdate(){
+    func changeUpdate(status: String){
 //        print("CELL : \(selectedCell) :: isselected \(isSelected)")
-        if(isSelected){
+        if(status == "Healthy"){
             imageIcon.image = UIImage(systemName: "heart.fill")
+            imageIcon.tintColor = .red
+        }else if (status == "Unhealthy"){
+            imageIcon.image = UIImage(systemName: "hand.thumbsdown.fill")
+            imageIcon.tintColor = .red
         }else{
-            imageIcon.image = UIImage(systemName: "heart")
+            imageIcon.image = UIImage(systemName: "circle.fill")
+            imageIcon.tintColor = .secondaryLabel
         }
         
 //        delegate?.reloadCell()

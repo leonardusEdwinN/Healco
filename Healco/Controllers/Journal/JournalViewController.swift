@@ -35,7 +35,8 @@ class JournalViewController : UIViewController{
     var picTakenDetail: UIImage!
     
     // Weekly CollectionCell
-    var date = ["11 Jun", "12 Jun","13 Jun", "14 Jun","15 Jun", "16 Jun", "17 Jun"]
+    var date : [String] = []
+    var dateForDataBase : [String] = []
     var selectedBefore : IndexPath!
     
     //properties
@@ -62,7 +63,7 @@ class JournalViewController : UIViewController{
         
         // add tap gesture to image
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.goToFoodRecog))
-
+        
         imageAddJournal.isUserInteractionEnabled = true
         imageAddJournal.addGestureRecognizer(tapGestureRecognizer)
         buttonChangeDate.layer.cornerRadius = 13.5
@@ -91,6 +92,21 @@ class JournalViewController : UIViewController{
         collectionViewWeekly.delegate = self
         collectionViewWeekly.dataSource = self
         collectionViewWeekly.allowsMultipleSelection = false
+        
+        let weekday = Calendar.current.component(.weekday, from: Date())
+        print(weekday)
+        for n in (1...weekday - 1).reversed(){
+            date.append(calweeksDates2(when: -n))
+            dateForDataBase.append(calweeksDates(when: -n))
+            print(-n)
+        }
+        date.append(calweeksDates2(when: 0))
+        dateForDataBase.append(calweeksDates(when: 0))
+        for n in weekday - 1...5{
+            date.append(calweeksDates2(when: n))
+            dateForDataBase.append(calweeksDates(when: n))
+            print(n)
+        }
         
         let date = Date()
         let format = DateFormatter()
@@ -213,6 +229,55 @@ class JournalViewController : UIViewController{
         }
     }
     
+    func calweeksDates(when: Int) -> String {
+        var  result = ""
+        let lastWeekDate = Calendar.current.date(byAdding: .day, value: when, to: Date())!
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "id_ID")
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let lastWeekDateString = dateFormatter.string(from: lastWeekDate)
+        result = lastWeekDateString
+        return result
+    }
+    
+    func calweeksDates2(when : Int) -> String {
+        var  result = ""
+        let lastWeekDate = Calendar.current.date(byAdding: .day, value: when, to: Date())!
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "id_ID")
+        dateFormatter.dateFormat = "MMM dd"
+        let lastWeekDateString = dateFormatter.string(from: lastWeekDate)
+        result = lastWeekDateString
+        return result
+    }
+    
+    func checkHeatlhy(tanggal: String) -> String {
+        var data : [String] = []
+        
+        for(i) in fetchData.indices{
+            //print("Tanggal: \(fetchData[i].value(forKeyPath: "dateTaken") as! String)")
+            if ((fetchData[i].value(forKeyPath: "dateTaken") as? String) != nil && fetchData[i].value(forKey: "dateTaken") as? String == tanggal){
+                data.append(fetchData[i].value(forKeyPath: "foodStatus") as? String ?? "")
+            }else{
+                return ""
+            }
+        }
+        
+        let healthy = data.lazy.filter{x in x == "Healthy" }.count
+        //let common = data.lazy.filter{x in x == "Common" }.count
+        let unhealthy = data.lazy.filter{x in x == "Unhealthy" }.count
+        
+        if (healthy  > unhealthy){
+            return "Healthy"
+        }else if (healthy < unhealthy){
+            return "Unhealthy"
+        }else if (healthy == 0 && unhealthy == 0 ){
+            return ""
+        }else {
+            return "Unhealthy"
+        }
+    }
+    
     func foodStatusChange(){
         
     }
@@ -239,15 +304,16 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
-//            let numberOfCell = 7
-//           let cellSpecing = 20
-//               if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-//                layout.itemSize = CGSize(width: (Int(UIScreen.main.bounds.width) - (cellSpecing * (numberOfCell + 1))) / numberOfCell, height: 50)
-//                    layout.invalidateLayout()
-//                }
+            //            let numberOfCell = 7
+            //           let cellSpecing = 20
+            //               if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            //                layout.itemSize = CGSize(width: (Int(UIScreen.main.bounds.width) - (cellSpecing * (numberOfCell + 1))) / numberOfCell, height: 50)
+            //                    layout.invalidateLayout()
+            //                }
             
             cell.setUI(dateText: date[indexPath.item])
-            
+            let mystatus = checkHeatlhy(tanggal: dateForDataBase[indexPath.row])
+            cell.changeUpdate(status: mystatus)
             
             return cell
         } else if collectionView == self.collectionViewPhotoGallery{
@@ -274,13 +340,14 @@ extension JournalViewController : UICollectionViewDataSource{
         fetchData = myFetchRequestByDate(date: formattedDate)
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
-            cell.changeUpdate()
+            let mystatus = checkHeatlhy(tanggal: dateForDataBase[indexPath.row])
+            cell.changeUpdate(status: mystatus)
         }else if collectionView == self.collectionViewPhotoGallery{
-//            let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
-//            if(indexPath.item == 0){
-//                //pindah ke halaman foodRecog
-//                performSegue(withIdentifier: "goToFoodRecog", sender: self)
-//            }else
+            //            let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
+            //            if(indexPath.item == 0){
+            //                //pindah ke halaman foodRecog
+            //                performSegue(withIdentifier: "goToFoodRecog", sender: self)
+            //            }else
             
             if  indexPath.item <= fetchData.count {
                 //masuk ke halaman detail
@@ -294,10 +361,12 @@ extension JournalViewController : UICollectionViewDataSource{
             }
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
-            cell.changeUpdate()
+            let mystatus = checkHeatlhy(tanggal: dateForDataBase[indexPath.row])
+            cell.changeUpdate(status: mystatus)
         }
     }
     
@@ -380,6 +449,7 @@ extension JournalViewController : ChartViewDelegate{
         set.setColors(UIColor(red: 0.09, green: 0.54, blue: 0.38, alpha: 1.00), UIColor(red: 0.09, green: 0.84, blue: 0.58, alpha: 1.00), UIColor.red)
         let data = PieChartData(dataSet: set)
         
+        dataEntries.removeAll()
         //append data to pie chart
         dataEntries.append( PieChartDataEntry(value: Double(count_healthy)))
         dataEntries.append( PieChartDataEntry(value: Double(count_common)))
@@ -394,9 +464,9 @@ extension JournalViewController : ChartViewDelegate{
 extension JournalViewController{
     func fetchValueFromCoreData()->[NSManagedObject]{
         var data: [NSManagedObject] = []
-
+        
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
-
+        
         let managedContext = appDelegate!.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Foods")
         do{
@@ -414,7 +484,7 @@ extension JournalViewController{
         let myRequest = NSFetchRequest<NSManagedObject>(entityName: "Foods")
         let managedContext = moc!.persistentContainer.viewContext
         myRequest.predicate = NSPredicate(format: "dateTaken CONTAINS[cd] %@", date)
-
+        
         do{
             try data = managedContext.fetch(myRequest)
         } catch let error{
