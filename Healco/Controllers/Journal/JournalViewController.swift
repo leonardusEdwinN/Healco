@@ -249,15 +249,12 @@ extension JournalViewController : UICollectionViewDataSource{
                 performSegue(withIdentifier: "goToFoodRecog", sender: self)
             }else{
                 //masuk ke halaman detail
-                if let status = fetchData[indexPath.item].value(forKeyPath:"foodStatus") as? String{
-                    if status == "Healthy"{
-                        labelHealthy.text = status
-                    } else if status == "Common"{
-                        labelCommon.text = status
-                    } else if status == "Unhealthy"{
-                        labelUnhealthy.text = status
-                    }
-                }
+                /*let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
+                let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
+                vc.selectedFood = self.selectedFood
+                vc.imageHasilPhoto = self.imageHasilFoto
+                vc.modalPresentationStyle = .pageSheet
+                self.present(vc, animated: true, completion: nil)*/
             }
         }
     }
