@@ -183,11 +183,11 @@ public func addDataToFoodCoreData(){
  }
 
 func putDataIntoArray()->[FoodModel]{
-    let foodData: [NSManagedObject] = fetchDataFromFoodCoreData()
-    var array: [FoodModel] = []
-    for(i) in foodData.indices{
+//    let foodData: [NSManagedObject] = fetchDataFromFoodCoreData()
+    let array: [FoodModel] = []
+//    for(i) in foodData.indices{
          /*array.append(FoodModel(foodName: foodData[i].value(forKeyPath: "foodName") as? String, foodDescription: foodData[i].value(forKeyPath: "foodDescription" ) as? String, foodCalories: foodData[i].value(forKeyPath: "foodCalories") as? Double, foodFat: foodData[i].value(forKeyPath: "foodFat") as? Double, foodCarbohydrate: foodData[i].value(forKeyPath: "foodCarbohydrate") as? Double, foodProtein: foodData[i].value(forKeyPath: "foodProtein") as? Double, foodStatus: foodData[i].value(forKeyPath: "foodStatus") as? String))*/
-    }
+//    }
     return array
 }
 

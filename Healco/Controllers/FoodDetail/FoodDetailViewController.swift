@@ -66,10 +66,20 @@ class FoodDetailViewController: UIViewController {
         reasonToEatCollectionView.delegate = self
         reasonToEatCollectionView.dataSource = self
         
-        
         feelWhenEatCollectionView.register(UINib(nibName: "FeelToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "feelToEatCell")
         feelWhenEatCollectionView.delegate = self
         feelWhenEatCollectionView.dataSource = self
+        
+        if let layout = timeToEatCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.estimatedItemSize = CGSize(width: view.frame.width, height: 100)
+            layout.itemSize = UICollectionViewFlowLayout.automaticSize
+        }
+        
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        layout.itemSize = CGSize(width: 100, height: 30)
+//        layout.scrollDirection = .horizontal
+//
+//        timeToEatCollectionView.collectionViewLayout = layout
         
         buttonSubmit.layer.cornerRadius = 15
         
@@ -145,7 +155,6 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         return 0
         
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         

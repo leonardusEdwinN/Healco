@@ -34,5 +34,4 @@ class TimeToEatCollectionViewCell: UICollectionViewCell {
             
         }
     }
-
 }
