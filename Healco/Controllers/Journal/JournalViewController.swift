@@ -27,6 +27,7 @@ class JournalViewController : UIViewController{
     @IBOutlet weak var labelKaloriText: UILabel!
     @IBOutlet weak var labelKalori: UILabel!
     @IBOutlet weak var labelSatuanKalori: UILabel!
+    @IBOutlet weak var progressViewKalori: UIProgressView!
     
     //Karbohidrat
     @IBOutlet weak var labelKarbohidratValue: UILabel!
@@ -73,13 +74,13 @@ class JournalViewController : UIViewController{
     
     var fetchData: [NSManagedObject] = []
     
-    //progressBar
-    private let progressView : UIProgressView = {
-        let progressView = UIProgressView(progressViewStyle: .bar)
-        progressView.trackTintColor = .gray
-        progressView.progressTintColor = .green
-        return progressView
-    }()
+//    //progressBar
+//    private let progressView : UIProgressView = {
+//        let progressView = UIProgressView(progressViewStyle: .bar)
+//        progressView.trackTintColor = .gray
+//        progressView.progressTintColor = .green
+//        return progressView
+//    }()
     
     
     override func viewDidLoad() {
@@ -87,9 +88,15 @@ class JournalViewController : UIViewController{
         
         viewJournalHeader.layer.cornerRadius = 30
         viewKarbohidrat.layer.cornerRadius = 15
+        viewKarbohidrat.dropShadow()
         viewProtein.layer.cornerRadius = 15
+        viewProtein.dropShadow()
         viewLemak.layer.cornerRadius = 15
+        viewLemak.dropShadow()
         viewKalori.layer.cornerRadius = 15
+        viewKalori.dropShadow()
+        
+        progressViewKalori.transform = progressViewKalori.transform.scaledBy(x: 1, y: 5)
         
         //weekly
         collectionViewWeekly.register(UINib.init(nibName: "WeeklyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "weeklyCollectionViewCell")

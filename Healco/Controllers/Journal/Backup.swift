@@ -93,8 +93,8 @@
 //
 //        //weekly
 //        collectionViewWeekly.register(UINib.init(nibName: "WeeklyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "weeklyCollectionViewCell")
-//        collectionViewWeekly.delegate = self
-//        collectionViewWeekly.dataSource = self
+////        collectionViewWeekly.delegate = self
+////        collectionViewWeekly.dataSource = self
 //        collectionViewWeekly.allowsMultipleSelection = false
 //
 //        let weekday = Calendar.current.component(.weekday, from: Date())
@@ -429,40 +429,40 @@
 //}
 //
 //extension JournalViewController : ChartViewDelegate{
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        pieChartView.frame = CGRect(x: 0, y: 0, width: viewPieChart.frame.size.width, height: viewPieChart.frame.size.height)
-//
-//        pieChartView.holeRadiusPercent = 0.7
-//        pieChartView.transparentCircleRadiusPercent = 0.0
-//        pieChartView.drawHoleEnabled = true
-//        pieChartView.holeColor = .systemBackground
-//
-//        // hides center text
-//        pieChartView.drawCenterTextEnabled = true
-//        pieChartView.legend.enabled = false
-//        pieChartView.drawEntryLabelsEnabled = false
-//        pieChartView.entryLabelColor = .clear
-//        pieChartView.animate(xAxisDuration: 1.5)
-//        pieChartView.setExtraOffsets(left: -15, top: -15, right: -15, bottom: -15)
-//
-//        viewPieChart.addSubview(pieChartView)
-//        pieChartView.addSubview(stackPieChart)
-//
-//        let set = PieChartDataSet(entries: dataEntries)
-//        set.setColors(UIColor(red: 0.09, green: 0.54, blue: 0.38, alpha: 1.00), UIColor(red: 0.09, green: 0.84, blue: 0.58, alpha: 1.00), UIColor.red)
-//        let data = PieChartData(dataSet: set)
-//
-//        dataEntries.removeAll()
-//        //append data to pie chart
-//        dataEntries.append( PieChartDataEntry(value: Double(count_healthy)))
-//        dataEntries.append( PieChartDataEntry(value: Double(count_common)))
-//        dataEntries.append( PieChartDataEntry(value: Double(count_unhealthy)))
-//
-//        data.setDrawValues(false)
-//        pieChartView.data = data
-//
-//    }
+////    override func viewDidLayoutSubviews() {
+////        super.viewDidLayoutSubviews()
+////        pieChartView.frame = CGRect(x: 0, y: 0, width: viewPieChart.frame.size.width, height: viewPieChart.frame.size.height)
+////
+////        pieChartView.holeRadiusPercent = 0.7
+////        pieChartView.transparentCircleRadiusPercent = 0.0
+////        pieChartView.drawHoleEnabled = true
+////        pieChartView.holeColor = .systemBackground
+////
+////        // hides center text
+////        pieChartView.drawCenterTextEnabled = true
+////        pieChartView.legend.enabled = false
+////        pieChartView.drawEntryLabelsEnabled = false
+////        pieChartView.entryLabelColor = .clear
+////        pieChartView.animate(xAxisDuration: 1.5)
+////        pieChartView.setExtraOffsets(left: -15, top: -15, right: -15, bottom: -15)
+////
+////        viewPieChart.addSubview(pieChartView)
+////        pieChartView.addSubview(stackPieChart)
+////
+////        let set = PieChartDataSet(entries: dataEntries)
+////        set.setColors(UIColor(red: 0.09, green: 0.54, blue: 0.38, alpha: 1.00), UIColor(red: 0.09, green: 0.84, blue: 0.58, alpha: 1.00), UIColor.red)
+////        let data = PieChartData(dataSet: set)
+////
+////        dataEntries.removeAll()
+////        //append data to pie chart
+////        dataEntries.append( PieChartDataEntry(value: Double(count_healthy)))
+////        dataEntries.append( PieChartDataEntry(value: Double(count_common)))
+////        dataEntries.append( PieChartDataEntry(value: Double(count_unhealthy)))
+////
+////        data.setDrawValues(false)
+////        pieChartView.data = data
+////
+////    }
 //}
 //
 //extension JournalViewController{

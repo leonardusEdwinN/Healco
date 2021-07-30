@@ -416,7 +416,6 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="CMh-Av-8re" firstAttribute="leading" secondItem="kTA-Aw-IGl" secondAttribute="leading" constant="20" id="0Fk-uL-N3g"/>
                                             <constraint firstItem="hHy-Uy-Scn" firstAttribute="top" secondItem="dui-Ur-pQT" secondAttribute="bottom" constant="5" id="1xs-L5-byq"/>
@@ -481,7 +480,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Ee8-9G-TCh"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XrM-39-vyv" firstAttribute="top" secondItem="H0I-6B-ayo" secondAttribute="bottom" id="CuP-SW-4cS"/>
                             <constraint firstItem="H0I-6B-ayo" firstAttribute="trailing" secondItem="Ee8-9G-TCh" secondAttribute="trailing" id="I4N-KO-qaf"/>
@@ -519,6 +518,7 @@
                         <outlet property="labelSarapan" destination="CMh-Av-8re" id="PHX-LF-CxI"/>
                         <outlet property="labelSatuanKalori" destination="YtJ-Tk-lTR" id="JWQ-6C-Oj4"/>
                         <outlet property="labelSnack" destination="dui-Ur-pQT" id="vGz-hp-2or"/>
+                        <outlet property="progressViewKalori" destination="GEl-rh-RcX" id="mDW-4n-5k1"/>
                         <outlet property="viewJournalHeader" destination="H0I-6B-ayo" id="Ii0-QY-013"/>
                         <outlet property="viewKalori" destination="Tlo-K9-Cgm" id="6yh-EP-MJm"/>
                         <outlet property="viewKarbohidrat" destination="cha-ar-dzi" id="Pi1-2a-Yax"/>
