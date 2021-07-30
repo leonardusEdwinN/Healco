@@ -94,18 +94,15 @@ class JournalViewController : UIViewController{
         collectionViewWeekly.allowsMultipleSelection = false
         
         let weekday = Calendar.current.component(.weekday, from: Date())
-        print(weekday)
         for n in (1...weekday - 1).reversed(){
             date.append(calweeksDates2(when: -n))
             dateForDataBase.append(calweeksDates(when: -n))
-            print(-n)
         }
         date.append(calweeksDates2(when: 0))
         dateForDataBase.append(calweeksDates(when: 0))
-        for n in weekday - 1...5{
+        for n in weekday - 1...6{
             date.append(calweeksDates2(when: n))
             dateForDataBase.append(calweeksDates(when: n))
-            print(n)
         }
         
         let date = Date()

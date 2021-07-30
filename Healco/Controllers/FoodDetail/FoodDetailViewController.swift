@@ -96,7 +96,7 @@ class FoodDetailViewController: UIViewController {
         switch(self.selectedFood.foodStatus){
         case "Healthy":
             foodStatusImageView.image = UIImage(named: "healthy-icon")
-            foodCaloriesLabel.textColor = UIColor.green
+            foodCaloriesLabel.textColor = UIColor(red: 0.09, green: 0.54, blue: 0.38, alpha: 1.00)
             break
         case "Common":
             foodStatusImageView.image = UIImage(named: "common-icon")
@@ -109,26 +109,19 @@ class FoodDetailViewController: UIViewController {
         default:
             break
         }
-        foodCaloriesLabel.text = String(self.selectedFood.foodCalories) + "kal"
+        foodCaloriesLabel.text = String(self.selectedFood.foodCalories) + "cal"
         foodFatLabel.text = String(self.selectedFood.foodFat) + "g"
         foodCarbohydrateLabel.text = String(self.selectedFood.foodCarbohydrate) + "g"
         foodProteinLabel.text = String(self.selectedFood.foodProtein) + "g"
     }
     
     @IBAction func buttonSubmit_Pressed(_ sender: Any) {
-        if (selectedReason != "" || selectedTime != "" || selectedFeel != ""){
+        if (selectedReason != nil || selectedTime != nil || selectedFeel != nil){
             // get nilai2 tersebut ke dalam CoreData
-            print(selectedFeel ?? "")
-            print(selectedTime ?? "")
-            print(selectedReason ?? "")
             getSelectedDataIntoCoreData(time: selectedTime!, feel: selectedFeel!, reason: selectedReason!)
-            
-            /*let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
-            navigationController?.pushViewController(vc, animated: true)*/
         }
         else{
-            print("Kosong!")
+            getSelectedDataIntoCoreData(time: "", feel: "", reason: "")
         }
     }
     
