@@ -83,7 +83,6 @@ extension UIImage {
     }
 }
 
-
 extension UIView {
     func dropShadow(scale: Bool = true) {
         layer.masksToBounds = false

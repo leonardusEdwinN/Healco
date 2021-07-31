@@ -74,14 +74,6 @@ class JournalViewController : UIViewController{
     
     var fetchData: [NSManagedObject] = []
     
-//    //progressBar
-//    private let progressView : UIProgressView = {
-//        let progressView = UIProgressView(progressViewStyle: .bar)
-//        progressView.trackTintColor = .gray
-//        progressView.progressTintColor = .green
-//        return progressView
-//    }()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,36 +88,52 @@ class JournalViewController : UIViewController{
         viewKalori.layer.cornerRadius = 15
         viewKalori.dropShadow()
         
-        progressViewKalori.transform = progressViewKalori.transform.scaledBy(x: 1, y: 5)
+        progressViewKalori.transform = progressViewKalori.transform.scaledBy(x: 1, y: 3)
         
         //weekly
         collectionViewWeekly.register(UINib.init(nibName: "WeeklyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "weeklyCollectionViewCell")
         collectionViewWeekly.delegate = self
         collectionViewWeekly.dataSource = self
-        
         collectionViewWeekly.allowsMultipleSelection = false
         
+        //sarapan
+        collectionViewSarapan.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewSarapan.delegate = self
+        collectionViewSarapan.dataSource = self
+        collectionViewMakanSiang.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewMakanSiang.delegate = self
+        collectionViewMakanSiang.dataSource = self
+        collectionViewMakanMalam.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewMakanMalam.delegate = self
+        collectionViewMakanMalam.dataSource = self
+        collectionViewSnack.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewSnack.delegate = self
+        collectionViewSnack.dataSource = self
+        
+        let calendarDate = Date.today()
+        print("DATE \(calendarDate)")
+        
         let weekday = Calendar.current.component(.weekday, from: Date())
-        print(weekday)
-        for n in (1...weekday - 1).reversed(){
-            date.append(calweeksDates2(when: -n))
-            dateForDataBase.append(calweeksDates(when: -n))
-            print(-n)
-        }
-        date.append(calweeksDates2(when: 0))
-        dateForDataBase.append(calweeksDates(when: 0))
-        for n in weekday - 1...5{
-            date.append(calweeksDates2(when: n))
-            dateForDataBase.append(calweeksDates(when: n))
-            print(n)
-        }
-        
-        let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd"
-        let formattedDate = format.string(from: date)
-        fetchData = myFetchRequestByDate(date: formattedDate)
-        
+        print("weekday : \(weekday)")
+//        for n in (1...weekday - 1).reversed(){
+//            date.append(calweeksDates2(when: -n))
+//            dateForDataBase.append(calweeksDates(when: -n))
+//            print(-n)
+//        }
+//        date.append(calweeksDates2(when: 0))
+//        dateForDataBase.append(calweeksDates(when: 0))
+//        for n in weekday - 1...5{
+//            date.append(calweeksDates2(when: n))
+//            dateForDataBase.append(calweeksDates(when: n))
+//            print(n)
+//        }
+//
+//        let date = Date()
+//        let format = DateFormatter()
+//        format.dateFormat = "yyyy-MM-dd"
+//        let formattedDate = format.string(from: date)
+//        print("FORMATTED DATE : \(formattedDate)")
+//        fetchData = myFetchRequestByDate(date: formattedDate)
     }
     
     
@@ -177,6 +185,7 @@ class JournalViewController : UIViewController{
             toolBar.removeFromSuperview()
         }
     }
+    
     @objc func goToFoodRecog() {
         performSegue(withIdentifier: "goToFoodRecog", sender: self)
     }
@@ -210,32 +219,6 @@ class JournalViewController : UIViewController{
         return result
     }
     
-//    func checkHeatlhy(tanggal: String) -> String {
-//        var data : [String] = []
-//
-//        for(i) in fetchData.indices{
-//            //print("Tanggal: \(fetchData[i].value(forKeyPath: "dateTaken") as! String)")
-//            if ((fetchData[i].value(forKeyPath: "dateTaken") as? String) != nil && fetchData[i].value(forKey: "dateTaken") as? String == tanggal){
-//                data.append(fetchData[i].value(forKeyPath: "foodStatus") as? String ?? "")
-//            }else{
-//                return ""
-//            }
-//        }
-//
-//        let healthy = data.lazy.filter{x in x == "Healthy" }.count
-//        //let common = data.lazy.filter{x in x == "Common" }.count
-//        let unhealthy = data.lazy.filter{x in x == "Unhealthy" }.count
-//
-//        if (healthy  > unhealthy){
-//            return "Healthy"
-//        }else if (healthy < unhealthy){
-//            return "Unhealthy"
-//        }else if (healthy == 0 && unhealthy == 0 ){
-//            return ""
-//        }else {
-//            return "Unhealthy"
-//        }
-//    }
     
 }
 // MARK : - UICollectionViewDataSource
@@ -246,7 +229,15 @@ extension JournalViewController : UICollectionViewDataSource{
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionViewWeekly {
-            return date.count
+            return 6
+        }else  if collectionView == self.collectionViewSarapan {
+            return 5
+        }else  if collectionView == self.collectionViewMakanSiang {
+            return 1
+        }else  if collectionView == self.collectionViewMakanMalam {
+            return 2
+        }else  if collectionView == self.collectionViewSnack {
+            return 3
         }
         return 0
     }
@@ -256,8 +247,12 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
-            cell.setUI(dateText: date[indexPath.item])
+//            cell.setUI(dateText: date[indexPath.item])
 
+            return cell
+        }else  {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryPhotoCell", for: indexPath) as! GalleryPhotoCollectionViewCell
+            
             return cell
         }
 
@@ -273,6 +268,7 @@ extension JournalViewController : UICollectionViewDataSource{
         fetchData = myFetchRequestByDate(date: formattedDate)
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
+//            cell.changeUpdate()
         }
     }
 

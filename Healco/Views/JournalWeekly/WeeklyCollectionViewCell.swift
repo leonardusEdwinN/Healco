@@ -37,11 +37,16 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
     
     func setUI(dateText : String){
         self.labelHari.text = "Sel"
-        self.labelTanggal.text = "27"
+        self.labelTanggal.text = "02"
     }
     
-    func changeUpdate(status: String){
-//        print("CELL : \(selectedCell) :: isselected \(isSelected)")
+    func changeUpdate(){
+        print("CELL :: isselected \(isSelected)")
+        if(isSelected){
+            viewOuter.backgroundColor = .green
+        }else{
+            viewOuter.backgroundColor = .white
+        }
 //        if(status == "Healthy"){
 //            imageIcon.image = UIImage(systemName: "heart.fill")
 //            imageIcon.tintColor = .red

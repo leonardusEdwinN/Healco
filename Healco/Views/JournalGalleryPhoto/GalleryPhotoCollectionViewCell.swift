@@ -10,33 +10,27 @@ import UIKit
 class GalleryPhotoCollectionViewCell: UICollectionViewCell {
 
     
-    @IBOutlet weak var photoGalleryView: UIImageView!
+    @IBOutlet weak var viewPhotoGallery: UIView!
+    @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var labelTitleGalleryPhoto: UILabel!
-    @IBOutlet weak var labelDescriptionGalleryPhoto: UILabel!
-    
-//    var photo: Photo! {
-//        didSet{
-//            self.updateUI()
-//        }
-//    }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.labelDescriptionGalleryPhoto.sizeToFit()
-        // Initialization code
+        
+        viewPhotoGallery.layer.cornerRadius = 15
+        viewPhotoGallery.layer.masksToBounds = true
+        photoView.layer.cornerRadius = 15
+        photoView.layer.masksToBounds = true
+        labelTitleGalleryPhoto.layer.cornerRadius = 15
+        labelTitleGalleryPhoto.layer.masksToBounds = true
+
     }
     
     func setUI(dataPhoto : Photo){
         self.labelTitleGalleryPhoto.text = dataPhoto.title
-        self.labelDescriptionGalleryPhoto.text = dataPhoto.description
-        self.photoGalleryView.image = dataPhoto.image
+        self.photoView.image = dataPhoto.image
         
         
-        self.photoGalleryView.layer.cornerRadius = 15
-        self.photoGalleryView.layer.masksToBounds = true
-        self.contentView.layer.cornerRadius = 15
-        self.contentView.layer.masksToBounds = true
     }
     
     
