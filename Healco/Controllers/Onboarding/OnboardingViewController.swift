@@ -31,9 +31,9 @@ class OnboardingViewController: UIViewController {
         super.viewDidLoad()
 
         slides = [
-            OnboardingSlide(title: "Knowing Healthy Meal", description: "Capture your meal and get to know if its nutrition good or not", image: UIImage(named: "onboarding-image-1")!),
-            OnboardingSlide(title: "Do Food Diary", description: "By doing food diary, you’ll help yourself to track what’s wrong in your food consumption.", image: UIImage(named: "onboarding-image-2")!),
-            OnboardingSlide(title: "Improve habit", description: "We will give you summary from your diary to improve your habit", image: UIImage(named: "onboarding-image-3")!)
+            OnboardingSlide(title: "Ketahui Makananmu", description: "Cekrek, cekrek, ambil foto dan dapatkan informasi nutrisi yang ada di makanan kamu.", image: UIImage(named: "onboarding-image-1")!),
+            OnboardingSlide(title: "Yuk Bikin Diary!", description: "Nge-diary apa yang kamu makan terbukti menurunkan berat badan lho, tentunya dengan memperbaiki setelah tahu yang salah ya.", image: UIImage(named: "onboarding-image-2")!),
+            OnboardingSlide(title: "Perbaiki Pola Makan", description: "Nah, nge-diary apa yang kamu makan bakalan ngebantu untuk memperbaiki pola makan supaya sehat lho.", image: UIImage(named: "onboarding-image-3")!)
         ]
         
         pageControl.numberOfPages = slides.count
@@ -44,9 +44,13 @@ class OnboardingViewController: UIViewController {
     
     @IBAction func btn_next_click(_ sender: Any) {
         if currentPage == slides.count - 1 {
-            let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil);
-
-            let viewController = storyboard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController;
+//            let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil);
+//
+//            let viewController = storyboard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController;
+            
+                let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
+    
+                let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
             viewController.modalTransitionStyle = .crossDissolve
             viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: true, completion: nil)
