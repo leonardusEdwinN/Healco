@@ -17,12 +17,25 @@ class GalleryPhotoCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        viewPhotoGallery.layer.cornerRadius = 15
-        viewPhotoGallery.layer.masksToBounds = true
         photoView.layer.cornerRadius = 15
         photoView.layer.masksToBounds = true
         labelTitleGalleryPhoto.layer.cornerRadius = 15
         labelTitleGalleryPhoto.layer.masksToBounds = true
+        
+//        viewPhotoGallery.dropShadow()
+        
+        self.contentView.layer.cornerRadius = 15
+        self.contentView.layer.borderWidth = 1.0
+        self.contentView.layer.borderColor = UIColor.clear.cgColor
+        self.contentView.layer.masksToBounds = true
+
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOpacity = 0.2
+        self.layer.masksToBounds = false
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
+        
 
     }
     

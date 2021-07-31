@@ -79,6 +79,7 @@ class JournalViewController : UIViewController{
         super.viewDidLoad()
         
         viewJournalHeader.layer.cornerRadius = 30
+        
         viewKarbohidrat.layer.cornerRadius = 15
         viewKarbohidrat.dropShadow()
         viewProtein.layer.cornerRadius = 15

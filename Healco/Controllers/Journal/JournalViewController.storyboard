@@ -23,10 +23,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Journal View Controller-->
+        <!--View Controller-->
         <scene sceneID="uwB-PJ-50H">
             <objects>
-                <viewController storyboardIdentifier="JournalViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ulW-PN-eXr" customClass="JournalViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="ulW-PN-eXr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IXG-of-v22">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,9 +51,6 @@
                                         <state key="normal" image="calendar" catalog="system">
                                             <color key="titleColor" name="PaleYellow"/>
                                         </state>
-                                        <connections>
-                                            <action selector="buttonChangeDateClicked:" destination="ulW-PN-eXr" eventType="touchUpInside" id="f1I-Yn-Wdv"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" name="AvocadoGreen"/>
@@ -92,10 +89,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buttonChangeDate" destination="v1i-Yi-x2y" id="8ZH-ha-H6u"/>
-                        <outlet property="collectionViewWeekly" destination="WQl-xB-zdf" id="1pD-sa-uI0"/>
-                        <outlet property="labelJournalTitle" destination="4Xc-dZ-cVf" id="Oxj-sg-3BA"/>
-                        <outlet property="viewJournalHeader" destination="iaq-PA-8gR" id="CRi-8Q-vfQ"/>
                         <segue destination="dE0-bt-RLc" kind="show" identifier="goToFoodRecog" id="Ajc-hW-cF5"/>
                     </connections>
                 </viewController>

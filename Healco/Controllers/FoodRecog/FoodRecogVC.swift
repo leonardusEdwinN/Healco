@@ -248,11 +248,11 @@ class FoodRecogVC: UIViewController {
 //        navigationController?.pushViewController(vc, animated: true)
 //    }
     
-    @IBAction func BackToMain(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
-        navigationController?.pushViewController(vc, animated: true)
-    }
+//    @IBAction func BackToMain(_ sender: Any) {
+//        let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
+//        let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //
