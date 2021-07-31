@@ -10,6 +10,23 @@ import UIKit
 import AVKit
 import Vision
 
+
+struct profile {
+    //in year
+    var age : Float
+    //male or female
+    var gender : Gender
+    // in cm
+    var height : Float
+    //in kg
+    var weight : Float
+}
+
+enum Gender {
+    case male
+    case female
+}
+
 class FoodRecogVC: UIViewController {
     
 //    //capture Session
@@ -86,7 +103,17 @@ class FoodRecogVC: UIViewController {
 //        VNImageRequestHandler(cgImage: <#T##CGImage#>, options: <#T##[VNImageOption : Any]#>)
     }
     
-    
+    //BMR calculation
+    private func BMR(profile : profile) -> Float{
+        var bmrScore : Float?
+        
+        if profile.gender == .male {
+            bmrScore = 88.362 + (13.397 * profile.weight) + (4.799 * profile.height) - (5.677 * profile.age)
+        }else{
+            bmrScore = 447.593 + (9.247 * profile.weight) + (3.098 * profile.height) - (4.330 * profile.age)
+        }
+        return bmrScore ?? 0.0
+    }
     
     //presentation Action sheet
     private func PresentActionSheet(){
@@ -289,3 +316,5 @@ extension FoodRecogVC : UIImagePickerControllerDelegate, UINavigationControllerD
         picker.dismiss(animated: true , completion: nil)
     }
 }
+
+
