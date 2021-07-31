@@ -133,11 +133,11 @@ class FoodDetailViewController: UIViewController {
     }
     
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "goToJournalVC"){
-            let vc = segue.destination as? JournalViewController
+//        if(segue.identifier == "goToJournalVC"){
+//            let vc = segue.destination as? JournalViewController
 //            vc?.picTakenDetail = imageHasilPhoto
-            vc?.modalPresentationStyle = .fullScreen
-        }
+//            vc?.modalPresentationStyle = .fullScreen
+//        }
     }
 }
 
