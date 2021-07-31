@@ -44,9 +44,13 @@ class OnboardingViewController: UIViewController {
     
     @IBAction func btn_next_click(_ sender: Any) {
         if currentPage == slides.count - 1 {
-            let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil);
-
-            let viewController = storyboard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController;
+//            let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil);
+//
+//            let viewController = storyboard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController;
+            
+                let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
+    
+                let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
             viewController.modalTransitionStyle = .crossDissolve
             viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: true, completion: nil)

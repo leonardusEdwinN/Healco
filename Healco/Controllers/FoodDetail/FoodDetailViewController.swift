@@ -135,7 +135,7 @@ class FoodDetailViewController: UIViewController {
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "goToJournalVC"){
             let vc = segue.destination as? JournalViewController
-            vc?.picTakenDetail = imageHasilPhoto
+//            vc?.picTakenDetail = imageHasilPhoto
             vc?.modalPresentationStyle = .fullScreen
         }
     }
