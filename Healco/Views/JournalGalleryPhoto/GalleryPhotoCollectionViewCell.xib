@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Quicksand-Bold.ttf">
+            <string>Quicksand-Bold</string>
+        </array>
+        <array key="Quicksand-Regular.ttf">
+            <string>Quicksand-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="galleryPhotoCell" id="gTV-IL-0wX" customClass="GalleryPhotoCollectionViewCell" customModule="Healco" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brooke-lark-nBtmglfY0HU-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="aWo-nd-eZL">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="oGK-69-A8O"/>
+                            <constraint firstAttribute="width" constant="200" id="p9L-h7-yxP"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                <real key="value" value="1.5700000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iez-5J-ius">
+                        <rect key="frame" x="5" y="215" width="190" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="86l-QQ-NSW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Lorem Ipsum is " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmi-zd-PXF">
+                        <rect key="frame" x="5" y="240" width="190" height="45"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="gee-jE-fuL"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="aWo-nd-eZL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="1kQ-11-0CK"/>
+                <constraint firstAttribute="trailing" secondItem="Vmi-zd-PXF" secondAttribute="trailing" constant="5" id="2fM-mS-r9Z"/>
+                <constraint firstAttribute="trailing" secondItem="Iez-5J-ius" secondAttribute="trailing" constant="5" id="OtC-lK-ZkF"/>
+                <constraint firstItem="Iez-5J-ius" firstAttribute="top" secondItem="aWo-nd-eZL" secondAttribute="bottom" constant="15" id="Qa9-Za-gaM"/>
+                <constraint firstItem="Iez-5J-ius" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="V5W-fS-cpf"/>
+                <constraint firstItem="Vmi-zd-PXF" firstAttribute="top" secondItem="Iez-5J-ius" secondAttribute="bottom" constant="5" id="We5-Yd-dKz"/>
+                <constraint firstItem="Iez-5J-ius" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="b5H-Kv-r5v"/>
+                <constraint firstAttribute="trailing" secondItem="aWo-nd-eZL" secondAttribute="trailing" id="iWT-LG-3Rz"/>
+                <constraint firstAttribute="bottom" secondItem="Vmi-zd-PXF" secondAttribute="bottom" constant="15" id="k20-8b-754"/>
+                <constraint firstItem="Vmi-zd-PXF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="wld-pc-xmG"/>
+                <constraint firstItem="aWo-nd-eZL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zZZ-U8-BgY"/>
+            </constraints>
+            <size key="customSize" width="349" height="320"/>
+            <connections>
+                <outlet property="labelDescriptionGalleryPhoto" destination="Vmi-zd-PXF" id="i0c-Rc-sMh"/>
+                <outlet property="labelTitleGalleryPhoto" destination="Iez-5J-ius" id="JUu-a4-gsg"/>
+                <outlet property="photoGalleryView" destination="aWo-nd-eZL" id="wDm-xo-xB2"/>
+            </connections>
+            <point key="canvasLocation" x="353.62318840579712" y="231.02678571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="brooke-lark-nBtmglfY0HU-unsplash" width="375" height="421"/>
+    </resources>
+</document>
