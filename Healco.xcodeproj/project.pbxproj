@@ -43,6 +43,8 @@
 		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
 		EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */; };
 		EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */; };
+		EF6E516626B52D5C008F7A9F /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF6E516526B52D5C008F7A9F /* Login.storyboard */; };
+		EF6E516A26B5352D008F7A9F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6E516926B5352D008F7A9F /* LoginViewController.swift */; };
 		EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB9682267F08CF00C23BA2 /* FoodModel.swift */; };
 		EFB219732686EE07007BC2F3 /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFB219712686EE07007BC2F3 /* Healco.xcdatamodeld */; };
 		EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */; };
@@ -89,6 +91,8 @@
 		9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.debug.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.debug.xcconfig"; sourceTree = "<group>"; };
 		EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodDetail.storyboard; sourceTree = "<group>"; };
 		EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNameViewController.swift; sourceTree = "<group>"; };
+		EF6E516526B52D5C008F7A9F /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		EF6E516926B5352D008F7A9F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EFAB9682267F08CF00C23BA2 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		EFB219722686EE07007BC2F3 /* Healco.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Healco.xcdatamodel; sourceTree = "<group>"; };
 		EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 		13970EFF2678A70900B6F11D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EF6E516426B52D49008F7A9F /* Login */,
 				139398B12680C211004915C9 /* FoodDetail */,
 				4434291C267C27CC00A85983 /* Onboarding */,
 				13492D54267F021E00843181 /* HasilFoto */,
@@ -322,6 +327,15 @@
 				926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		EF6E516426B52D49008F7A9F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EF6E516526B52D5C008F7A9F /* Login.storyboard */,
+				EF6E516926B5352D008F7A9F /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,6 +411,7 @@
 				1394FF5D267AEC8E0062813A /* Quicksand-Regular.ttf in Resources */,
 				1394FF5E267AEC8E0062813A /* Quicksand-Bold.ttf in Resources */,
 				44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */,
+				EF6E516626B52D5C008F7A9F /* Login.storyboard in Resources */,
 				137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */,
 				1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */,
 				138C84812685A0B8008E5C2C /* ReasonToEatCollectionViewCell.xib in Resources */,
@@ -458,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF6E516A26B5352D008F7A9F /* LoginViewController.swift in Sources */,
 				139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */,
 				138C847B26859C4D008E5C2C /* TimeToEatCollectionViewCell.swift in Sources */,
 				139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */,
