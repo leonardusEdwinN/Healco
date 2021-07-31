@@ -384,6 +384,14 @@ extension JournalViewController{
         }
         return food
     }
+    
+    func getArrangedDateInOneWeek(){
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let dayOfWeek = calendar.component(.weekday, from: today)
+        print("Hari: \(today)")
+        print("Hari apa: \(dayOfWeek)")
+    }
 }
 
 
