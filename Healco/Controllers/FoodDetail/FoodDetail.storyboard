@@ -22,7 +22,7 @@
         <!--Food Name View Controller-->
         <scene sceneID="Yfk-CQ-G9z">
             <objects>
-                <viewController storyboardIdentifier="FoodNameViewController" id="tOG-QD-UPg" customClass="FoodNameViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodNameViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="tOG-QD-UPg" customClass="FoodNameViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t5Z-7y-OEz">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
