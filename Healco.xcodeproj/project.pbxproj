@@ -40,8 +40,6 @@
 		44342927267C2BA800A85983 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */; };
 		44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4434292F267C3FDC00A85983 /* Onboarding.storyboard */; };
 		44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */; };
-		44B48C8626B4011D009ECAA9 /* CapmealModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44B48C8426B4011D009ECAA9 /* CapmealModel.xcdatamodeld */; };
-		44B48C8926B40160009ECAA9 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B48C8826B40160009ECAA9 /* CoreData.swift */; };
 		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
 		EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */; };
 		EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */; };
@@ -86,8 +84,6 @@
 		44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		4434292F267C3FDC00A85983 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
-		44B48C8526B4011D009ECAA9 /* CapmealModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CapmealModel.xcdatamodel; sourceTree = "<group>"; };
-		44B48C8826B40160009ECAA9 /* CoreData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Healco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.release.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.release.xcconfig"; sourceTree = "<group>"; };
 		9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.debug.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,11 +156,7 @@
 		137A0B612670CE2B00543CCF /* Healco */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< Updated upstream
 				1394B2612689A579004A706C /* Healco.entitlements */,
-=======
-				44B48C8326B400D3009ECAA9 /* CoreData */,
->>>>>>> Stashed changes
 				13492D55267F022E00843181 /* Helpers */,
 				1394FF53267AEC3D0062813A /* Fonts */,
 				13970EFF2678A70900B6F11D /* Controllers */,
@@ -313,15 +305,6 @@
 				4434292F267C3FDC00A85983 /* Onboarding.storyboard */,
 			);
 			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		44B48C8326B400D3009ECAA9 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				44B48C8826B40160009ECAA9 /* CoreData.swift */,
-				44B48C8426B4011D009ECAA9 /* CapmealModel.xcdatamodeld */,
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		49D385FB5606C38EC4F15509 /* Frameworks */ = {
@@ -486,9 +469,7 @@
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
 				13492D57267F030600843181 /* Food101.mlmodel in Sources */,
 				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
-				44B48C8626B4011D009ECAA9 /* CapmealModel.xcdatamodeld in Sources */,
 				EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */,
-				44B48C8926B40160009ECAA9 /* CoreData.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				138C84852685CD8B008E5C2C /* FeelToEatCollectionViewCell.swift in Sources */,
 				221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */,
@@ -719,16 +700,6 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		44B48C8426B4011D009ECAA9 /* CapmealModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				44B48C8526B4011D009ECAA9 /* CapmealModel.xcdatamodel */,
-			);
-			currentVersion = 44B48C8526B4011D009ECAA9 /* CapmealModel.xcdatamodel */;
-			path = CapmealModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		EFB219712686EE07007BC2F3 /* Healco.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
