@@ -20,6 +20,7 @@ struct FoodDataSearch {
 
 class FoodNameViewController: UIViewController {
     
+    var tooMuch: String = ""
     var isSearching: Bool = false
     //    var foodNames: [String] = []
     var foods: [NSManagedObject] = []
@@ -202,45 +203,56 @@ extension FoodNameViewController {
         var ifCommmon : Int = 0
         var ifUnhealthy : Int = 0
         var HealthyStat : HealthyStatus!
+        var highIngredient: String = ""
         
         if foodModel.foodFat <= 3.0 {
             ifHealthy += 1
         }else if foodModel.foodFat > 3.0 && foodModel.foodFat <= 17.5 {
             ifCommmon += 1
+            highIngredient += ", quite a lot of fat"
         }else {
             ifUnhealthy += 1
+            highIngredient += ", many fat"
         }
         
         if foodModel.foodProtein <= 25.0 {
             ifHealthy += 1
         }else if foodModel.foodProtein > 25.0 && foodModel.foodProtein <= 56 {
             ifCommmon += 1
+            highIngredient += ", quite a lot of protein"
         }else {
             ifUnhealthy += 1
+            highIngredient += ", too much protein"
         }
         
         if foodModel.foodSodium <= 140.0 {
             ifHealthy += 1
         }else if foodModel.foodSodium > 140 && foodModel.foodSodium <= 400 {
             ifCommmon += 1
+            highIngredient += ", quite a lot of sodium"
         }else {
             ifUnhealthy += 1
+            highIngredient += ", high sodium"
         }
         
         if foodModel.foodSaturatedFat <= 1.5 {
             ifHealthy += 1
-        }else if foodModel.foodSaturatedFat > 1.5 && foodModel.foodSaturatedFat <= 5 {
+        } else if foodModel.foodSaturatedFat > 1.5 && foodModel.foodSaturatedFat <= 5 {
             ifCommmon += 1
-        }else {
+            highIngredient += ", quite a lot of saturated fat"
+        } else {
             ifUnhealthy += 1
+            highIngredient += ", high saturated fat"
         }
         
         if foodModel.foodCarbohydrate <= 65 {
             ifHealthy += 1
         }else if foodModel.foodCarbohydrate > 65 && foodModel.foodCarbohydrate <= 90 {
             ifCommmon += 1
+            highIngredient += ", quite a lot of carbohydrate"
         }else {
             ifUnhealthy += 1
+            highIngredient += ", too much carbohydrate"
         }
         
         
@@ -254,23 +266,31 @@ extension FoodNameViewController {
             HealthyStat = HealthyStatus.healthy
         }
         
-        if ifUnhealthy > 2 {
+        if ifHealthy == 5 {
+            HealthyStat = HealthyStatus.healthy
+            tooMuch = "You have found very healthy food!"
+        } else if ifUnhealthy > 1 && highIngredient.contains("saturated fat") {
             HealthyStat = HealthyStatus.unhealthy
-        }else if ifCommmon > 2 && ifUnhealthy < 2 {
+        } else if ifUnhealthy == 1 && ifHealthy > 2 {
             HealthyStat = HealthyStatus.common
-        }else if ifHealthy >= 2 && ifCommmon >= 2 {
+        } else if ifCommmon > 2 && ifUnhealthy > 1 {
+            HealthyStat = HealthyStatus.unhealthy
+        } else if ifHealthy >= 2 && ifCommmon < 3 {
             HealthyStat = HealthyStatus.healthy
-        }else {
-            HealthyStat = HealthyStatus.healthy
+        } else {
+            HealthyStat = HealthyStatus.common
         }
         
+        if !highIngredient.isEmpty {
+            tooMuch = "This food contains\(highIngredient)"
+        }
+                
         return HealthyStat ?? HealthyStatus.common
     }
     
     func getFood(idFood : String){
         fatSecretClient.getFood(id: idFood) { food in
             guard let servingsFood = food.servings?[0] else { return }
-            
             
             let data = FoodModel2(foodName: food.name, foodDescription: "", foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0)
             
@@ -279,11 +299,11 @@ extension FoodNameViewController {
             
             switch foodStatus{
             case "Healthy":
-                description = "You eat healthy food, Keep it going !"
+                description = "You eat healthy food, Keep it going! \(self.tooMuch)"
             case "Common":
-                description = "Not bad"
+                description = "You can eat this, but dont eat too much! \(self.tooMuch)"
             case "Unhealthy":
-                description = "Don't eat unhealthy food to much"
+                description = "Please don't eat unhealthy food too much! \(self.tooMuch)"
             default:
                 print("ERROR")
             }
