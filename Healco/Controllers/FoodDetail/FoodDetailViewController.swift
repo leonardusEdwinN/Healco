@@ -13,6 +13,7 @@ class FoodDetailViewController: UIViewController {
     //    var selectedData : FoodDataSearch?
     var porsiMakanan: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 , 10]
     var satuanPorsi: [String] = ["gr", "pcs", "cup"]
+    var informasiMakanan: [String] = ["Karbohidrat", "Protein"]
     var selectedFood : FoodModel2!
     var timeToEatArray : [String] = ["Breakfast","Lunch","Dinner", "Snack"]
     var reasonToEatArray : [String] = ["It was time", "Hungry", "Social", "Bored", "Stressed", "Loved taste", "Other"]
