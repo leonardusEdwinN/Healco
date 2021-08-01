@@ -27,14 +27,11 @@ class FoodDetailViewController: UIViewController {
      @IBOutlet weak var foodFatLabel: UILabel!
      @IBOutlet weak var foodCarbohydrateLabel: UILabel!
      @IBOutlet weak var foodProteinLabel: UILabel!*/
-    @IBOutlet weak var backButton: UIButton!
+ 
     @IBOutlet weak var imagePhoto: UIImageView!
     @IBOutlet weak var foodNameLabel: UILabel!
-    
     @IBOutlet weak var viewDescription: UIView!
-    @IBOutlet weak var foodStatusImageView: UIImageView!
     @IBOutlet weak var foodDescriptionLabel: UILabel!
-    
     @IBOutlet weak var viewDetailFood: UIView!
     @IBOutlet weak var foodCaloriesLabel: UILabel!
     @IBOutlet weak var foodFatLabel: UILabel!
@@ -52,12 +49,12 @@ class FoodDetailViewController: UIViewController {
     
     @IBOutlet weak var buttonSubmit: UIButton!
     
-    @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    @objc func btnEdit_Pressed(){}
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ubah", style: .plain, target: self, action: #selector(btnEdit_Pressed))
+        
         imagePhoto.image = imageHasilPhoto
         timeToEatCollectionView.register(UINib(nibName: "TimeToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeToEatCell")
         timeToEatCollectionView.delegate = self
@@ -98,15 +95,15 @@ class FoodDetailViewController: UIViewController {
         //calculate food statusnya
         switch(self.selectedFood.foodStatus){
         case "Healthy":
-            foodStatusImageView.image = UIImage(named: "healthy-icon")
+           // foodStatusImageView.image = UIImage(named: "healthy-icon")
             foodCaloriesLabel.textColor = UIColor.green
             break
         case "Common":
-            foodStatusImageView.image = UIImage(named: "common-icon")
+            //foodStatusImageView.image = UIImage(named: "common-icon")
             foodCaloriesLabel.textColor = UIColor.orange
             break
         case "Unhealthy":
-            foodStatusImageView.image = UIImage(named: "unhealthy-icon")
+            //foodStatusImageView.image = UIImage(named: "unhealthy-icon")
             foodCaloriesLabel.textColor = UIColor.red
             break
         default:

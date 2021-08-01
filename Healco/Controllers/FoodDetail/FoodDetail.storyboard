@@ -393,19 +393,6 @@
                                     <constraint firstAttribute="bottom" secondItem="N1m-0s-D5v" secondAttribute="bottom" id="xwH-yI-qYr"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xnv-hV-W2y">
-                                <rect key="frame" x="330" y="30" width="30" height="30"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="Dj3-15-QX9"/>
-                                    <constraint firstAttribute="height" constant="30" id="mku-zj-OsO"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="xmark" catalog="system"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="jgR-un-cvJ" eventType="touchUpInside" id="Qt1-1c-sry"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nyJ-dG-45V"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
@@ -414,8 +401,6 @@
                             <constraint firstAttribute="bottom" secondItem="sLW-zA-Yrb" secondAttribute="bottom" id="342-zB-r4C"/>
                             <constraint firstItem="sLW-zA-Yrb" firstAttribute="top" secondItem="K4y-Vc-5wL" secondAttribute="bottom" id="DD6-Ye-Ypz"/>
                             <constraint firstItem="sLW-zA-Yrb" firstAttribute="leading" secondItem="nyJ-dG-45V" secondAttribute="leading" id="LHu-TZ-UV7"/>
-                            <constraint firstItem="Xnv-hV-W2y" firstAttribute="top" secondItem="nyJ-dG-45V" secondAttribute="top" constant="30" id="Oy8-P7-7uT"/>
-                            <constraint firstItem="nyJ-dG-45V" firstAttribute="trailing" secondItem="Xnv-hV-W2y" secondAttribute="trailing" constant="30" id="cIe-bR-2qf"/>
                             <constraint firstItem="mdO-ek-qdF" firstAttribute="top" secondItem="nyJ-dG-45V" secondAttribute="top" id="dhR-4Q-jbA"/>
                             <constraint firstItem="mdO-ek-qdF" firstAttribute="trailing" secondItem="nyJ-dG-45V" secondAttribute="trailing" id="jKK-En-1Lc"/>
                             <constraint firstItem="K4y-Vc-5wL" firstAttribute="top" secondItem="nyJ-dG-45V" secondAttribute="top" constant="25" id="mo3-TY-izT"/>
@@ -427,7 +412,6 @@
                     <navigationItem key="navigationItem" id="xNF-1E-g7r"/>
                     <size key="freeformSize" width="390" height="1300"/>
                     <connections>
-                        <outlet property="backButton" destination="Xnv-hV-W2y" id="qun-1r-VHj"/>
                         <outlet property="buttonSubmit" destination="DdX-jd-Rhs" id="kVk-wf-orB"/>
                         <outlet property="feelWhenEatCollectionView" destination="DZ8-Se-GdG" id="Dki-s8-dz0"/>
                         <outlet property="foodCaloriesLabel" destination="rew-7H-VJU" id="A06-8k-JBR"/>
