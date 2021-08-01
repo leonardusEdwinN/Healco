@@ -16,8 +16,8 @@ class FoodDetailViewController: UIViewController {
     var informasiMakanan: [String] = ["Karbohidrat", "Protein"]
     var selectedFood : FoodModel2!
     var timeToEatArray : [String] = ["Breakfast","Lunch","Dinner", "Snack"]
-    var reasonToEatArray : [String] = ["It was time", "Hungry", "Social", "Bored", "Stressed", "Loved taste", "Other"]
-    var feelWhenEatArray : [String] = ["😆", "😭", "😰", "😧", "😠", "🥱"]
+    var reasonToEatArray : [String] = ["Gak Ada", "Ada Acara", "Nongkrong", "Nonton", "Belajar", "Kerja"]
+    var feelWhenEatArray : [String] = ["😃 Biasa Aja", "😆 Bahagia", "😢 Sedih", "😫 Galau", "🤯 Stress", "😡 Marah"]
     var imageHasilPhoto : UIImage!
     
     /*@IBOutlet weak var foodStatusImageView: UIImageView!
