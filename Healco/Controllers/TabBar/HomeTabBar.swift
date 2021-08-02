@@ -46,11 +46,18 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
 
         // Menu Button Touch Action
         @objc func menuButtonAction(sender: UIButton) {
-            self.selectedIndex = 2   //to select the middle tab. use "1" if you have only 3 tabs.
+//            self.selectedIndex = 2   //to select the middle tab. use "1" if you have only 3 tabs.
             print("YUHU")
-//            performSegue(withIdentifier: "goToFoodRecog", sender: self)
+            performSegue(withIdentifier: "goToFoodRecog", sender: self.tabBarController)
             
         }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToFoodRecog",
+           let foodRecogVC = segue.destination as? FoodRecogVC {
+            foodRecogVC.modalPresentationStyle = .fullScreen
+        }
+    }
     
 
 }

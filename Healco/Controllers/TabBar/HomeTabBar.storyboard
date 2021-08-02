@@ -34,6 +34,7 @@
                     <connections>
                         <segue destination="o6y-fl-t8Q" kind="relationship" relationship="viewControllers" id="0MF-Zz-CL8"/>
                         <segue destination="K5l-X8-4Vb" kind="relationship" relationship="viewControllers" id="dpH-mS-5lK"/>
+                        <segue destination="rvm-bw-jPF" kind="show" identifier="goToFoodRecog" id="Xqf-hM-cQV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81E-B6-lYQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -492,7 +493,6 @@
                         <outlet property="viewKarbohidrat" destination="cha-ar-dzi" id="Pi1-2a-Yax"/>
                         <outlet property="viewLemak" destination="31J-OP-EiN" id="rJb-CC-T2s"/>
                         <outlet property="viewProtein" destination="FxJ-P4-nXd" id="4G5-Vs-MYB"/>
-                        <segue destination="rvm-bw-jPF" kind="show" identifier="goToFoodRecog" id="rz9-fS-Gu1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MKX-0b-WPH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -507,7 +507,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHm-lo-hZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1349" y="-826"/>
+            <point key="canvasLocation" x="-496" y="-609"/>
         </scene>
     </scenes>
     <designables>
