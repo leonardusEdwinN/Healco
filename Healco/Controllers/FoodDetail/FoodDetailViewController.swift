@@ -8,8 +8,7 @@
 import UIKit
 import CoreData
 
-class FoodDetailViewController: UIViewController {
-    
+class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     //    var selectedData : FoodDataSearch?
     var porsiMakanan: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 , 10]
     var satuanPorsi: [String] = ["gr", "pcs", "cup"]
@@ -37,8 +36,7 @@ class FoodDetailViewController: UIViewController {
     @IBOutlet weak var foodFatLabel: UILabel!
     @IBOutlet weak var foodCarbohydrateLabel: UILabel!
     @IBOutlet weak var foodProteinLabel: UILabel!
-    
-    
+    @IBOutlet weak var porsiPickerView: UIPickerView!
     @IBOutlet weak var reasonToEatCollectionView: UICollectionView!
     @IBOutlet weak var timeToEatCollectionView: UICollectionView!
     @IBOutlet weak var feelWhenEatCollectionView: UICollectionView!
@@ -47,13 +45,16 @@ class FoodDetailViewController: UIViewController {
     var selectedTime: String?
     var selectedFeel: String?
     
-    @IBOutlet weak var buttonSubmit: UIButton!
     
     @objc func btnEdit_Pressed(){}
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ubah", style: .plain, target: self, action: #selector(btnEdit_Pressed))
+        
+        porsiPickerView.dataSource = self
+        porsiPickerView.delegate = self
+        
         
         imagePhoto.image = imageHasilPhoto
         timeToEatCollectionView.register(UINib(nibName: "TimeToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeToEatCell")
@@ -81,7 +82,7 @@ class FoodDetailViewController: UIViewController {
 //
 //        timeToEatCollectionView.collectionViewLayout = layout
         
-        buttonSubmit.layer.cornerRadius = 15
+        //buttonSubmit.layer.cornerRadius = 15
         
         setData()
         //getSelectedDataIntoCoreData() // masukin data selectedFood ke CoreData
@@ -115,7 +116,7 @@ class FoodDetailViewController: UIViewController {
         foodProteinLabel.text = String(self.selectedFood.foodProtein) + "g"
     }
     
-    @IBAction func buttonSubmit_Pressed(_ sender: Any) {
+    /*@IBAction func buttonSubmit_Pressed(_ sender: Any) {
         if (selectedReason != "" || selectedTime != "" || selectedFeel != ""){
             // get nilai2 tersebut ke dalam CoreData
             print(selectedFeel ?? "")
@@ -130,7 +131,7 @@ class FoodDetailViewController: UIViewController {
         else{
             print("Kosong!")
         }
-    }
+    }*/
     
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if(segue.identifier == "goToJournalVC"){
@@ -217,6 +218,24 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
             selectedReason = ""
             selectedFeel = ""
         }
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
+            return porsiMakanan.count
+        }
+        return satuanPorsi.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0{
+            return String(porsiMakanan[row])
+        }
+        return satuanPorsi[row]
     }
     
     func getSelectedDataIntoCoreData(time: String, feel: String, reason: String){

@@ -11,9 +11,6 @@
         <array key="Quicksand-Bold.ttf">
             <string>Quicksand-Bold</string>
         </array>
-        <array key="Quicksand-Medium.ttf">
-            <string>Quicksand-Medium</string>
-        </array>
         <array key="Quicksand-Regular.ttf">
             <string>Quicksand-Regular</string>
         </array>
@@ -146,7 +143,7 @@
                                 <rect key="frame" x="0.0" y="319" width="390" height="981"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1m-0s-D5v">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="849"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oJz-kx-Ydb">
                                                 <rect key="frame" x="0.0" y="0.0" width="390" height="1300"/>
@@ -232,7 +229,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snL-ih-wTa">
-                                                        <rect key="frame" x="30" y="227.66666666666663" width="330" height="447"/>
+                                                        <rect key="frame" x="30" y="227.66666666666663" width="330" height="1738.3333333333335"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kapan Makannya?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGW-74-Glx">
                                                                 <rect key="frame" x="20" y="20" width="290" height="20"/>
@@ -283,23 +280,8 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdX-jd-Rhs">
-                                                                <rect key="frame" x="115" y="357" width="100" height="40"/>
-                                                                <color key="backgroundColor" red="0.25098039220000001" green="0.53725490200000003" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="100" id="83N-j0-cJN"/>
-                                                                    <constraint firstAttribute="height" constant="40" id="Ne9-I8-eke"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="15"/>
-                                                                <state key="normal" title="Submit">
-                                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="buttonSubmit_Pressed:" destination="jgR-un-cvJ" eventType="touchUpInside" id="Idd-XB-nW7"/>
-                                                                </connections>
-                                                            </button>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DZ8-Se-GdG">
-                                                                <rect key="frame" x="15" y="282" width="300" height="50"/>
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DZ8-Se-GdG">
+                                                                <rect key="frame" x="20" y="286" width="300" height="50"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="u9t-LG-zDv"/>
@@ -312,6 +294,17 @@
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
                                                             </collectionView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EYP-lj-QPw">
+                                                                <rect key="frame" x="144" y="353" width="42" height="21"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CBq-lK-OD6">
+                                                                <rect key="frame" x="0.0" y="382" width="330" height="162"/>
+                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                            </pickerView>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
@@ -319,8 +312,6 @@
                                                             <constraint firstAttribute="trailing" secondItem="DZ8-Se-GdG" secondAttribute="trailing" constant="15" id="6pv-JP-dpl"/>
                                                             <constraint firstItem="pGW-74-Glx" firstAttribute="centerX" secondItem="snL-ih-wTa" secondAttribute="centerX" id="9k3-f6-ho3"/>
                                                             <constraint firstAttribute="trailing" secondItem="eOT-fK-qBC" secondAttribute="trailing" constant="15" id="CkG-Gm-2dU"/>
-                                                            <constraint firstItem="DdX-jd-Rhs" firstAttribute="centerX" secondItem="snL-ih-wTa" secondAttribute="centerX" id="GZL-Kw-ONw"/>
-                                                            <constraint firstItem="DdX-jd-Rhs" firstAttribute="top" secondItem="DZ8-Se-GdG" secondAttribute="bottom" constant="25" id="Ihh-Ma-f5v"/>
                                                             <constraint firstItem="DZ8-Se-GdG" firstAttribute="top" secondItem="eOT-fK-qBC" secondAttribute="bottom" constant="15" id="QkM-ZL-r8Y"/>
                                                             <constraint firstAttribute="trailing" secondItem="IcG-x1-K8h" secondAttribute="trailing" constant="15" id="SbR-TQ-qLV"/>
                                                             <constraint firstItem="eOT-fK-qBC" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="15" id="ULv-dM-tCi"/>
@@ -332,7 +323,6 @@
                                                             <constraint firstItem="DZ8-Se-GdG" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="15" id="fYq-Hi-dge"/>
                                                             <constraint firstItem="IcG-x1-K8h" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="15" id="g3f-oc-hus"/>
                                                             <constraint firstAttribute="trailing" secondItem="pGW-74-Glx" secondAttribute="trailing" constant="20" id="hyO-15-NJ5"/>
-                                                            <constraint firstAttribute="bottom" secondItem="DdX-jd-Rhs" secondAttribute="bottom" constant="50" id="k9d-ti-uqF"/>
                                                             <constraint firstAttribute="trailing" secondItem="BnN-Kw-wYQ" secondAttribute="trailing" constant="20" id="kiN-xJ-9f7"/>
                                                             <constraint firstItem="BnN-Kw-wYQ" firstAttribute="leading" secondItem="snL-ih-wTa" secondAttribute="leading" constant="20" id="orM-Wq-Zjc"/>
                                                             <constraint firstItem="BnN-Kw-wYQ" firstAttribute="top" secondItem="Kdw-Yt-aak" secondAttribute="bottom" constant="15" id="tSU-ls-tQ8"/>
@@ -412,7 +402,6 @@
                     <navigationItem key="navigationItem" id="xNF-1E-g7r"/>
                     <size key="freeformSize" width="390" height="1300"/>
                     <connections>
-                        <outlet property="buttonSubmit" destination="DdX-jd-Rhs" id="kVk-wf-orB"/>
                         <outlet property="feelWhenEatCollectionView" destination="DZ8-Se-GdG" id="Dki-s8-dz0"/>
                         <outlet property="foodCaloriesLabel" destination="rew-7H-VJU" id="A06-8k-JBR"/>
                         <outlet property="foodCarbohydrateLabel" destination="z30-oe-fiw" id="BdW-1M-fgx"/>
@@ -421,6 +410,7 @@
                         <outlet property="foodNameLabel" destination="udo-Lm-ulA" id="RMW-Na-UAm"/>
                         <outlet property="foodProteinLabel" destination="zHC-nV-wIO" id="S8J-eQ-FF2"/>
                         <outlet property="imagePhoto" destination="K4y-Vc-5wL" id="gww-m2-koD"/>
+                        <outlet property="porsiPickerView" destination="CBq-lK-OD6" id="pRI-qq-o7R"/>
                         <outlet property="reasonToEatCollectionView" destination="IcG-x1-K8h" id="6TS-Zx-6nn"/>
                         <outlet property="timeToEatCollectionView" destination="Kdw-Yt-aak" id="qFy-wA-vpB"/>
                         <outlet property="viewDescription" destination="mhv-nO-D5t" id="IjU-lk-iqY"/>
@@ -429,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvZ-pi-OrQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2526" y="-80"/>
+            <point key="canvasLocation" x="2524.6153846153848" y="-80.33175355450237"/>
         </scene>
     </scenes>
     <resources>
