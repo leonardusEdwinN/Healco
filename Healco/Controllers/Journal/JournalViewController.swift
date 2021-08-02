@@ -6,12 +6,14 @@
 //
 
 import Foundation
-import Charts
+//import Charts
 import CoreData
+import UIKit
 
 class JournalViewController : UIViewController{
     
     
+    @IBOutlet weak var addJournalButton: UIButton!
     //Header
     @IBOutlet weak var viewJournalHeader: UIView!
     @IBOutlet weak var labelJournalTitle: UILabel!
@@ -394,5 +396,3 @@ extension JournalViewController{
         print("Hari apa: \(dayOfWeek)")
     }
 }
-
-
