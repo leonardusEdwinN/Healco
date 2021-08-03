@@ -51,8 +51,10 @@
 		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
 		EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */; };
 		EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */; };
+		EF72E07526B7E0ED00A95923 /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF72E07326B7E0ED00A95923 /* Healco.xcdatamodeld */; };
+		EF886DB626B940540039CFAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF886DB526B940540039CFAC /* LoginViewController.swift */; };
+		EF886DB826B940650039CFAC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF886DB726B940650039CFAC /* Login.storyboard */; };
 		EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB9682267F08CF00C23BA2 /* FoodModel.swift */; };
-		EFB219732686EE07007BC2F3 /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFB219712686EE07007BC2F3 /* Healco.xcdatamodeld */; };
 		EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,8 +107,10 @@
 		9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.debug.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.debug.xcconfig"; sourceTree = "<group>"; };
 		EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodDetail.storyboard; sourceTree = "<group>"; };
 		EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNameViewController.swift; sourceTree = "<group>"; };
+		EF72E07426B7E0ED00A95923 /* Healco.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Healco.xcdatamodel; sourceTree = "<group>"; };
+		EF886DB526B940540039CFAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF886DB726B940650039CFAC /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EFAB9682267F08CF00C23BA2 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
-		EFB219722686EE07007BC2F3 /* Healco.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Healco.xcdatamodel; sourceTree = "<group>"; };
 		EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,8 +158,8 @@
 		137A0B562670CE2B00543CCF = {
 			isa = PBXGroup;
 			children = (
-				EFB219712686EE07007BC2F3 /* Healco.xcdatamodeld */,
 				1315B9C426B53BC10030C84A /* CapmealModel.xcdatamodeld */,
+				EF72E07326B7E0ED00A95923 /* Healco.xcdatamodeld */,
 				137A0B612670CE2B00543CCF /* Healco */,
 				137A0B602670CE2B00543CCF /* Products */,
 				68300107CC7A5F6FCEACC122 /* Pods */,
@@ -281,6 +285,7 @@
 		13970EFF2678A70900B6F11D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EF886DB426B940190039CFAC /* Login */,
 				13B3EC6D26B2B4D700870C20 /* Profile */,
 				13B3EC6826B2AE5F00870C20 /* TabBar */,
 				139398B12680C211004915C9 /* FoodDetail */,
@@ -364,6 +369,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EF886DB426B940190039CFAC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EF886DB526B940540039CFAC /* LoginViewController.swift */,
+				EF886DB726B940650039CFAC /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -437,6 +451,7 @@
 				1394FF5C267AEC8E0062813A /* Quicksand-Medium.ttf in Resources */,
 				1394FF5D267AEC8E0062813A /* Quicksand-Regular.ttf in Resources */,
 				1394FF5E267AEC8E0062813A /* Quicksand-Bold.ttf in Resources */,
+				EF886DB826B940650039CFAC /* Login.storyboard in Resources */,
 				44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */,
 				137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */,
 				1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */,
@@ -500,14 +515,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF886DB626B940540039CFAC /* LoginViewController.swift in Sources */,
 				139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */,
 				13495F4026B42FCE0051EE32 /* DateExtension.swift in Sources */,
 				138C847B26859C4D008E5C2C /* TimeToEatCollectionViewCell.swift in Sources */,
 				139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */,
-				EFB219732686EE07007BC2F3 /* Healco.xcdatamodeld in Sources */,
 				138C84802685A0B8008E5C2C /* ReasonToEatCollectionViewCell.swift in Sources */,
 				1394FF67267AEFE20062813A /* WeeklyCollectionViewCell.swift in Sources */,
 				4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */,
+				EF72E07526B7E0ED00A95923 /* Healco.xcdatamodeld in Sources */,
 				EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
 				13492D57267F030600843181 /* Food101.mlmodel in Sources */,
@@ -758,13 +774,14 @@
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
-		EFB219712686EE07007BC2F3 /* Healco.xcdatamodeld */ = {
+		EF72E07326B7E0ED00A95923 /* Healco.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				EFB219722686EE07007BC2F3 /* Healco.xcdatamodel */,
+				EF72E07426B7E0ED00A95923 /* Healco.xcdatamodel */,
 			);
-			currentVersion = EFB219722686EE07007BC2F3 /* Healco.xcdatamodel */;
-			path = Healco.xcdatamodeld;
+			currentVersion = EF72E07426B7E0ED00A95923 /* Healco.xcdatamodel */;
+			name = Healco.xcdatamodeld;
+			path = "../../../Dropbox (DeveloperAcademy-ID)/MC3 - SMILE/Healco.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
