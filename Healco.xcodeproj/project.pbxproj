@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1315B9C626B53BC10030C84A /* CapmealModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C426B53BC10030C84A /* CapmealModel.xcdatamodeld */; };
 		1315B9C826B53BE40030C84A /* CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C726B53BE40030C84A /* CoreDataClass.swift */; };
+		1315B9CA26B5595B0030C84A /* CustomizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C926B5595B0030C84A /* CustomizedTabBar.swift */; };
+		1315B9CC26B7D8CB0030C84A /* RoundedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */; };
+		1315B9D426B7F8A80030C84A /* NutritionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9D226B7F8A80030C84A /* NutritionCollectionViewCell.swift */; };
+		1315B9D526B7F8A80030C84A /* NutritionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */; };
 		13492D57267F030600843181 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 13492D56267F030600843181 /* Food101.mlmodel */; };
 		13495F4026B42FCE0051EE32 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13495F3F26B42FCE0051EE32 /* DateExtension.swift */; };
 		135551C826B944AC006CA0C3 /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 135551C626B944AC006CA0C3 /* Healco.xcdatamodeld */; };
@@ -61,6 +65,10 @@
 /* Begin PBXFileReference section */
 		1315B9C526B53BC10030C84A /* CapmealModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CapmealModel.xcdatamodel; sourceTree = "<group>"; };
 		1315B9C726B53BE40030C84A /* CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataClass.swift; sourceTree = "<group>"; };
+		1315B9C926B5595B0030C84A /* CustomizedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedTabBar.swift; sourceTree = "<group>"; };
+		1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTabBar.swift; sourceTree = "<group>"; };
+		1315B9D226B7F8A80030C84A /* NutritionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCollectionViewCell.swift; sourceTree = "<group>"; };
+		1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionCollectionViewCell.xib; sourceTree = "<group>"; };
 		13492D56267F030600843181 /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
 		13495F3F26B42FCE0051EE32 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		135551C726B944AC006CA0C3 /* Healco.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Healco.xcdatamodel; sourceTree = "<group>"; };
@@ -127,6 +135,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1315B9CD26B7F69C0030C84A /* JournalNutrition */ = {
+			isa = PBXGroup;
+			children = (
+				1315B9D226B7F8A80030C84A /* NutritionCollectionViewCell.swift */,
+				1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */,
+			);
+			path = JournalNutrition;
+			sourceTree = "<group>";
+		};
 		13492D53267F020800843181 /* FoodRecog */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +168,8 @@
 				1315B9C726B53BE40030C84A /* CoreDataClass.swift */,
 				221A0BC4267B60B00042A94A /* Extention.swift */,
 				13495F3F26B42FCE0051EE32 /* DateExtension.swift */,
+				1315B9C926B5595B0030C84A /* CustomizedTabBar.swift */,
+				1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -273,6 +292,7 @@
 		13970EFE2678A70300B6F11D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1315B9CD26B7F69C0030C84A /* JournalNutrition */,
 				138C84822685CD71008E5C2C /* FeelWhenEat */,
 				138C847D2685A093008E5C2C /* ReasonToEat */,
 				138C847626859C20008E5C2C /* TimeToEat */,
@@ -462,6 +482,7 @@
 				221A0BBD267B321D0042A94A /* HasilFoto.storyboard in Resources */,
 				138C847C26859C4D008E5C2C /* TimeToEatCollectionViewCell.xib in Resources */,
 				EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */,
+				1315B9D526B7F8A80030C84A /* NutritionCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +522,7 @@
 				139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */,
 				13495F4026B42FCE0051EE32 /* DateExtension.swift in Sources */,
 				138C847B26859C4D008E5C2C /* TimeToEatCollectionViewCell.swift in Sources */,
+				1315B9CC26B7D8CB0030C84A /* RoundedTabBar.swift in Sources */,
 				139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */,
 				138C84802685A0B8008E5C2C /* ReasonToEatCollectionViewCell.swift in Sources */,
 				1394FF67267AEFE20062813A /* WeeklyCollectionViewCell.swift in Sources */,
@@ -511,6 +533,7 @@
 				13B3EC7126B2B4F500870C20 /* ProfileViewController.swift in Sources */,
 				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
 				1315B9C626B53BC10030C84A /* CapmealModel.xcdatamodeld in Sources */,
+				1315B9CA26B5595B0030C84A /* CustomizedTabBar.swift in Sources */,
 				EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				138C84852685CD8B008E5C2C /* FeelToEatCollectionViewCell.swift in Sources */,
@@ -522,6 +545,7 @@
 				135551C826B944AC006CA0C3 /* Healco.xcdatamodeld in Sources */,
 				44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */,
 				EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */,
+				1315B9D426B7F8A80030C84A /* NutritionCollectionViewCell.swift in Sources */,
 				44342927267C2BA800A85983 /* OnboardingCollectionViewCell.swift in Sources */,
 				13970F042678A7DF00B6F11D /* JournalViewController.swift in Sources */,
 			);
@@ -665,6 +689,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Healco/Healco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9P49UTYHH6;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -672,6 +697,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = id.SMILE.Capmeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -688,6 +714,7 @@
 				CODE_SIGN_ENTITLEMENTS = Healco/Healco.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9P49UTYHH6;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
@@ -695,6 +722,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = id.SMILE.Capmeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

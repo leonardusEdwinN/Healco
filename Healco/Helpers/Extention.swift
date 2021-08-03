@@ -81,6 +81,12 @@ extension UIImage {
 
         return nil
     }
+    
+//    func setImageColor(color: UIColor) {
+//      let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
+//      self.image = templateImage
+//      self.tintColor = color
+//    }
 }
 
 extension UIView {
@@ -92,5 +98,13 @@ extension UIView {
         layer.shadowRadius = 2
         layer.shouldRasterize = true
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+}
+
+extension UIImage {
+    public static func imageWithRenderingModeAlwaysTemplate(named: String) -> UIImage? {
+        let image = UIImage(named: named)?.withRenderingMode(.alwaysTemplate)
+        let imageView = UIImageView(image: image)
+        return imageView.image
     }
 }
