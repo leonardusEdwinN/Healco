@@ -77,6 +77,8 @@ class JournalViewController : UIViewController{
     
     var fetchData: [NSManagedObject] = []
     
+    //create imagepicker viewcontroller
+    private var imagePickerControler =  UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,33 +126,35 @@ class JournalViewController : UIViewController{
     
     @IBAction func buttonChangeDateClicked(_ sender: UIButton) {
         
-        datePicker = UIDatePicker.init()
-        datePicker.backgroundColor = UIColor.white
+//        datePicker = UIDatePicker.init()
+//        datePicker.backgroundColor = UIColor.white
+//
+//        datePicker.autoresizingMask = .flexibleWidth
+//        datePicker.datePickerMode = .date
+//
+//        datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
+//        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 150, width: UIScreen.main.bounds.size.width, height: 150)
+//        self.view.addSubview(datePicker)
+//
+//        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 150, width: UIScreen.main.bounds.size.width, height: 50))
+//        toolBar.barStyle = .default
+//
+//        let topBarTitleLabel = UILabel.init(frame: (CGRect.init(origin: CGPoint.init(x: 0.0, y: 0.0), size: CGSize.init(width: 0.0, height: 0.0))))
+//        topBarTitleLabel.text = "Change Date"
+//        topBarTitleLabel.sizeToFit()
+//        topBarTitleLabel.backgroundColor = UIColor.clear
+//        topBarTitleLabel.textColor = UIColor.gray
+//        topBarTitleLabel.textAlignment = NSTextAlignment.center
+//        let topBarButtonItemTitleLabel = UIBarButtonItem.init(customView: topBarTitleLabel)
+//
+//        let buttonCancel = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(self.onCancelButtonClick))
+//        let flexibleBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+//        self.toolBar.setItems([flexibleBarButtonItem, topBarButtonItemTitleLabel, flexibleBarButtonItem, buttonCancel], animated: false)
+//        self.toolBar.setNeedsLayout()
+//        toolBar.sizeToFit()
+//        self.view.addSubview(toolBar)
         
-        datePicker.autoresizingMask = .flexibleWidth
-        datePicker.datePickerMode = .date
-        
-        datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
-        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 150, width: UIScreen.main.bounds.size.width, height: 150)
-        self.view.addSubview(datePicker)
-        
-        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 150, width: UIScreen.main.bounds.size.width, height: 50))
-        toolBar.barStyle = .default
-        
-        let topBarTitleLabel = UILabel.init(frame: (CGRect.init(origin: CGPoint.init(x: 0.0, y: 0.0), size: CGSize.init(width: 0.0, height: 0.0))))
-        topBarTitleLabel.text = "Change Date"
-        topBarTitleLabel.sizeToFit()
-        topBarTitleLabel.backgroundColor = UIColor.clear
-        topBarTitleLabel.textColor = UIColor.gray
-        topBarTitleLabel.textAlignment = NSTextAlignment.center
-        let topBarButtonItemTitleLabel = UIBarButtonItem.init(customView: topBarTitleLabel)
-        
-        let buttonCancel = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(self.onCancelButtonClick))
-        let flexibleBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        self.toolBar.setItems([flexibleBarButtonItem, topBarButtonItemTitleLabel, flexibleBarButtonItem, buttonCancel], animated: false)
-        self.toolBar.setNeedsLayout()
-        toolBar.sizeToFit()
-        self.view.addSubview(toolBar)
+        PresentActionSheet()
     }
     
     @objc func onCancelButtonClick() {
@@ -204,7 +208,71 @@ class JournalViewController : UIViewController{
         return result
     }
     
+    //presentation Action sheet
+    private func PresentActionSheet(){
+        
+        
+        let actionSheet = UIAlertController(title: "Select Photo", message: "Choose", preferredStyle: .actionSheet)
+        
+        //button 1
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default){ (action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                self.imagePickerControler.sourceType = .photoLibrary
+                self.imagePickerControler.delegate = self
+                self.imagePickerControler.allowsEditing = true
+                self.present(self.imagePickerControler, animated: true, completion: nil)
+            }else{
+                fatalError("Photo library not avaliable")
+            }
+        }
+        
+        //button 2
+        let CameraAction = UIAlertAction(title: "Camera", style: .default){ (action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                self.imagePickerControler.sourceType = .camera
+                self.imagePickerControler.delegate = self
+                self.imagePickerControler.allowsEditing = true
+                self.present(self.imagePickerControler, animated: true, completion: nil)
+            }
+            else{
+                fatalError("Camera not Avaliable")
+            }
+            
+        }
+        
+        //button 3
+        let cancel = UIAlertAction(title: "Cancel", style:.cancel, handler: nil)
+        
+        actionSheet.addAction(libraryAction)
+        actionSheet.addAction(CameraAction)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
+}
+
+extension JournalViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            
+            //picker.dismiss(animated: true, completion: nil)
+            
+            //go to another viewcontroller
+            let storyboard : UIStoryboard = UIStoryboard(name: "FoodDetail", bundle: nil)
+            let VC  = storyboard.instantiateViewController(withIdentifier: "FoodNameViewController") as! FoodNameViewController
+            
+            //parsing image to  another view
+            VC.imageHasilFoto = uiImage
+            VC.modalPresentationStyle = .fullScreen
+            picker.present(VC, animated: true, completion: nil)
+            
+
+        }
+    }
     
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true , completion: nil)
+    }
 }
 // MARK : - UICollectionViewDataSource
 extension JournalViewController : UICollectionViewDataSource{

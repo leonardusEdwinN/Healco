@@ -15,6 +15,7 @@
 		1315B9D526B7F8A80030C84A /* NutritionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */; };
 		13492D57267F030600843181 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 13492D56267F030600843181 /* Food101.mlmodel */; };
 		13495F4026B42FCE0051EE32 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13495F3F26B42FCE0051EE32 /* DateExtension.swift */; };
+		135551C826B944AC006CA0C3 /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 135551C626B944AC006CA0C3 /* Healco.xcdatamodeld */; };
 		137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B622670CE2B00543CCF /* AppDelegate.swift */; };
 		137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B642670CE2B00543CCF /* SceneDelegate.swift */; };
 		137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B6E2670CE2C00543CCF /* Assets.xcassets */; };
@@ -37,7 +38,7 @@
 		139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */; };
 		139AD0A12679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */; };
 		139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD0AA2679F70E00954DB2 /* Photo.swift */; };
-		13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 13A11C75268324E200FA1545 /* FatSecretSwift */; };
+		13A11C76268324E200FA1545 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 13A11C75268324E200FA1545 /* SwiftPackageProductDependency */; };
 		13B3EC6726B2ABBE00870C20 /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B3EC6626B2ABBE00870C20 /* Backup.swift */; };
 		13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B3EC6926B2AE6F00870C20 /* HomeTabBar.swift */; };
 		13B3EC6C26B2AE7F00870C20 /* HomeTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B3EC6B26B2AE7F00870C20 /* HomeTabBar.storyboard */; };
@@ -55,8 +56,9 @@
 		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
 		EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */; };
 		EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */; };
+		EF886DB626B940540039CFAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF886DB526B940540039CFAC /* LoginViewController.swift */; };
+		EF886DB826B940650039CFAC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF886DB726B940650039CFAC /* Login.storyboard */; };
 		EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB9682267F08CF00C23BA2 /* FoodModel.swift */; };
-		EFB219732686EE07007BC2F3 /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFB219712686EE07007BC2F3 /* Healco.xcdatamodeld */; };
 		EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,7 @@
 		1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionCollectionViewCell.xib; sourceTree = "<group>"; };
 		13492D56267F030600843181 /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
 		13495F3F26B42FCE0051EE32 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		135551C726B944AC006CA0C3 /* Healco.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Healco.xcdatamodel; sourceTree = "<group>"; };
 		137A0B5F2670CE2B00543CCF /* Healco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137A0B622670CE2B00543CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		137A0B642670CE2B00543CCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,8 +116,9 @@
 		9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.debug.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.debug.xcconfig"; sourceTree = "<group>"; };
 		EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodDetail.storyboard; sourceTree = "<group>"; };
 		EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNameViewController.swift; sourceTree = "<group>"; };
+		EF886DB526B940540039CFAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF886DB726B940650039CFAC /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EFAB9682267F08CF00C23BA2 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
-		EFB219722686EE07007BC2F3 /* Healco.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Healco.xcdatamodel; sourceTree = "<group>"; };
 		EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,7 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */,
+				13A11C76268324E200FA1545 /* BuildFile in Frameworks */,
 				B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,8 +177,8 @@
 		137A0B562670CE2B00543CCF = {
 			isa = PBXGroup;
 			children = (
-				EFB219712686EE07007BC2F3 /* Healco.xcdatamodeld */,
 				1315B9C426B53BC10030C84A /* CapmealModel.xcdatamodeld */,
+				135551C626B944AC006CA0C3 /* Healco.xcdatamodeld */,
 				137A0B612670CE2B00543CCF /* Healco */,
 				137A0B602670CE2B00543CCF /* Products */,
 				68300107CC7A5F6FCEACC122 /* Pods */,
@@ -301,6 +305,7 @@
 		13970EFF2678A70900B6F11D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EF886DB426B940190039CFAC /* Login */,
 				13B3EC6D26B2B4D700870C20 /* Profile */,
 				13B3EC6826B2AE5F00870C20 /* TabBar */,
 				139398B12680C211004915C9 /* FoodDetail */,
@@ -384,6 +389,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		EF886DB426B940190039CFAC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EF886DB526B940540039CFAC /* LoginViewController.swift */,
+				EF886DB726B940650039CFAC /* Login.storyboard */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -402,7 +416,7 @@
 			);
 			name = Healco;
 			packageProductDependencies = (
-				13A11C75268324E200FA1545 /* FatSecretSwift */,
+				13A11C75268324E200FA1545 /* SwiftPackageProductDependency */,
 			);
 			productName = Healco;
 			productReference = 137A0B5F2670CE2B00543CCF /* Healco.app */;
@@ -432,7 +446,7 @@
 			);
 			mainGroup = 137A0B562670CE2B00543CCF;
 			packageReferences = (
-				13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */,
+				13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 137A0B602670CE2B00543CCF /* Products */;
 			projectDirPath = "";
@@ -456,6 +470,7 @@
 				1394FF5C267AEC8E0062813A /* Quicksand-Medium.ttf in Resources */,
 				1394FF5D267AEC8E0062813A /* Quicksand-Regular.ttf in Resources */,
 				1394FF5E267AEC8E0062813A /* Quicksand-Bold.ttf in Resources */,
+				EF886DB826B940650039CFAC /* Login.storyboard in Resources */,
 				44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */,
 				137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */,
 				1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */,
@@ -503,12 +518,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF886DB626B940540039CFAC /* LoginViewController.swift in Sources */,
 				139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */,
 				13495F4026B42FCE0051EE32 /* DateExtension.swift in Sources */,
 				138C847B26859C4D008E5C2C /* TimeToEatCollectionViewCell.swift in Sources */,
 				1315B9CC26B7D8CB0030C84A /* RoundedTabBar.swift in Sources */,
 				139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */,
-				EFB219732686EE07007BC2F3 /* Healco.xcdatamodeld in Sources */,
 				138C84802685A0B8008E5C2C /* ReasonToEatCollectionViewCell.swift in Sources */,
 				1394FF67267AEFE20062813A /* WeeklyCollectionViewCell.swift in Sources */,
 				4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */,
@@ -527,6 +542,7 @@
 				1315B9C826B53BE40030C84A /* CoreDataClass.swift in Sources */,
 				13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */,
 				221A0BC5267B60B00042A94A /* Extention.swift in Sources */,
+				135551C826B944AC006CA0C3 /* Healco.xcdatamodeld in Sources */,
 				44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */,
 				EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */,
 				1315B9D426B7F8A80030C84A /* NutritionCollectionViewCell.swift in Sources */,
@@ -739,7 +755,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */ = {
+		13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NicholasBellucci/FatSecretSwift.git";
 			requirement = {
@@ -750,9 +766,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		13A11C75268324E200FA1545 /* FatSecretSwift */ = {
+		13A11C75268324E200FA1545 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */;
+			package = 13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */;
 			productName = FatSecretSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
@@ -768,13 +784,14 @@
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
-		EFB219712686EE07007BC2F3 /* Healco.xcdatamodeld */ = {
+		135551C626B944AC006CA0C3 /* Healco.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				EFB219722686EE07007BC2F3 /* Healco.xcdatamodel */,
+				135551C726B944AC006CA0C3 /* Healco.xcdatamodel */,
 			);
-			currentVersion = EFB219722686EE07007BC2F3 /* Healco.xcdatamodel */;
-			path = Healco.xcdatamodeld;
+			currentVersion = 135551C726B944AC006CA0C3 /* Healco.xcdatamodel */;
+			name = Healco.xcdatamodeld;
+			path = "../../../../Dropbox (DeveloperAcademy-ID)/MC3 - SMILE/Healco.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

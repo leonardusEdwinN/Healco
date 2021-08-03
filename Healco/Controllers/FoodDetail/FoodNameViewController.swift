@@ -30,10 +30,14 @@ class FoodNameViewController: UIViewController {
     //    var selectedData : FoodDataSearch?
     var selectedFood = FoodModel2()
     
+    var isSearchAPI : Bool = false
     @IBOutlet weak var imagePhoto: UIImageView!
     @IBOutlet weak var buttonBack: UIButton!
-    @IBOutlet weak var foodSearchBar: UISearchBar!
+    //@IBOutlet weak var foodSearchBar: UISearchBar!
+    @IBOutlet weak var rearchAPI: UISearchBar!
     @IBOutlet weak var foodNameTableView: UITableView!
+    @IBOutlet weak var judulJenisFood: UILabel!
+    @IBOutlet weak var judulSearchFood: UILabel!
     
     
     override func viewDidLoad() {
@@ -42,7 +46,6 @@ class FoodNameViewController: UIViewController {
         /*
          Method di bawah ini hanya untuk masukin test data, nanti diremove aja waktu mau gabungin, atau diubah ke data dari API
          */
-        
         //add imagephoto ke jurnal
         imagePhoto.image = imageHasilFoto
         
@@ -62,7 +65,8 @@ class FoodNameViewController: UIViewController {
         
         // ==================
         
-        foodSearchBar.delegate = self
+        rearchAPI.delegate = self
+        
         foodNameTableView.dataSource = self
         foodNameTableView.delegate = self
         //
@@ -91,6 +95,14 @@ class FoodNameViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func buttonSearchPressed(_ sender: Any) {
+        if rearchAPI.text != "" {
+            search(searchName: rearchAPI.text ?? "")
+        }else{
+            
+        }
+    }
+    
     private func analyzeImage (image: UIImage?){
         guard let buffer = image?.resize(size: CGSize(width: 299, height: 299))?
                 .getCVPixelBuffer() else {
@@ -107,6 +119,8 @@ class FoodNameViewController: UIViewController {
             let foodName = text.replacingOccurrences(of: "_", with: " ")
             print("nama makanannya ", foodName)
             search(searchName: foodName)
+            judulJenisFood.text = "Pilih Jenis \(foodName)"
+            judulSearchFood.text = "Bukan \(foodName)"
         }
         catch {
             print(error.localizedDescription)
@@ -174,6 +188,17 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
         }
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if rearchAPI.text != "" {
+            foodData.removeAll()
+            search(searchName: rearchAPI.text ?? "")
+            dismissKeyboard()
+            isSearching = false
+            print("search")
+        }else{
+            
+        }
+    }
     //    override func viewDidAppear(_ animated: Bool) {
     //        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil);
     //        let viewController = storyboard.instantiateViewController(withIdentifier: "Onboarding") as! OnboardingViewController;
@@ -303,5 +328,18 @@ extension FoodNameViewController {
         }
         
         
+    }
+}
+
+// Put this piece of code anywhere you like
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
