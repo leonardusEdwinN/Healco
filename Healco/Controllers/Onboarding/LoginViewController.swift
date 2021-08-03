@@ -11,7 +11,19 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     let gender: [String] = ["", "Pria", "Wanita"]
     var genderTerpilih: String = ""
     
+    
+    @IBOutlet weak var namaTextField: UITextField!
+    @IBOutlet weak var umurTextField: UITextField!
+    @IBOutlet weak var tinggiBadanTextField: UITextField!
+    @IBOutlet weak var beratBadanTextField: UITextField!
+    @IBOutlet weak var waktuSarapanTextField: UITextField!
+    @IBOutlet weak var waktuSiangTextField: UITextField!
+    @IBOutlet weak var waktuMalamTextField: UITextField!
     @IBOutlet weak var genderPickerView: UIPickerView!
+    
+    // function buat CoreData
+    let data = CoreData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,11 +32,12 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
 
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
+        
+        /* let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
         viewController.modalTransitionStyle = .crossDissolve
         viewController.modalPresentationStyle = .fullScreen
-        self.present(viewController, animated: true, completion: nil)
+        self.present(viewController, animated: true, completion: nil) */
     }
 }
 
