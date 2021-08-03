@@ -34,7 +34,7 @@
 		139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */; };
 		139AD0A12679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */; };
 		139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD0AA2679F70E00954DB2 /* Photo.swift */; };
-		13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 13A11C75268324E200FA1545 /* FatSecretSwift */; };
+		13A11C76268324E200FA1545 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 13A11C75268324E200FA1545 /* SwiftPackageProductDependency */; };
 		13B3EC6726B2ABBE00870C20 /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B3EC6626B2ABBE00870C20 /* Backup.swift */; };
 		13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B3EC6926B2AE6F00870C20 /* HomeTabBar.swift */; };
 		13B3EC6C26B2AE7F00870C20 /* HomeTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B3EC6B26B2AE7F00870C20 /* HomeTabBar.storyboard */; };
@@ -119,7 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */,
+				13A11C76268324E200FA1545 /* BuildFile in Frameworks */,
 				B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,7 +389,6 @@
 				137A0B5B2670CE2B00543CCF /* Sources */,
 				137A0B5C2670CE2B00543CCF /* Frameworks */,
 				137A0B5D2670CE2B00543CCF /* Resources */,
-				440735CEF247ED521019EC9F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -397,7 +396,7 @@
 			);
 			name = Healco;
 			packageProductDependencies = (
-				13A11C75268324E200FA1545 /* FatSecretSwift */,
+				13A11C75268324E200FA1545 /* SwiftPackageProductDependency */,
 			);
 			productName = Healco;
 			productReference = 137A0B5F2670CE2B00543CCF /* Healco.app */;
@@ -427,7 +426,7 @@
 			);
 			mainGroup = 137A0B562670CE2B00543CCF;
 			packageReferences = (
-				13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */,
+				13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 137A0B602670CE2B00543CCF /* Products */;
 			projectDirPath = "";
@@ -469,23 +468,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		440735CEF247ED521019EC9F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Healco/Pods-Healco-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Healco/Pods-Healco-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Healco/Pods-Healco-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7BA0C6E673C47AE669915A9E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -745,7 +727,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */ = {
+		13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NicholasBellucci/FatSecretSwift.git";
 			requirement = {
@@ -756,9 +738,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		13A11C75268324E200FA1545 /* FatSecretSwift */ = {
+		13A11C75268324E200FA1545 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */;
+			package = 13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */;
 			productName = FatSecretSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
