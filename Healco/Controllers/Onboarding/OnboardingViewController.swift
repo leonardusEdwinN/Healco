@@ -48,9 +48,8 @@ class OnboardingViewController: UIViewController {
 //
 //            let viewController = storyboard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController;
             
-                let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
-    
-                let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil);
+            let viewController = storyboard.instantiateViewController(withIdentifier: "OnboardingLogin")
             viewController.modalTransitionStyle = .crossDissolve
             viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: true, completion: nil)

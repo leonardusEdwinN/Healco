@@ -13,6 +13,9 @@
         <array key="Quicksand-Bold.ttf">
             <string>Quicksand-Bold</string>
         </array>
+        <array key="Quicksand-Medium.ttf">
+            <string>Quicksand-Medium</string>
+        </array>
         <array key="Quicksand-Regular.ttf">
             <string>Quicksand-Regular</string>
         </array>
@@ -71,7 +74,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swk-dr-TEZ">
-                                                <rect key="frame" x="314" y="58" width="49" height="34"/>
+                                                <rect key="frame" x="314" y="59" width="49" height="32"/>
                                                 <color key="backgroundColor" name="AvocadoGreen"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="49" id="xCY-a3-KVG"/>
@@ -499,7 +502,6 @@
         <image name="brooke-lark-nBtmglfY0HU-unsplash" width="375" height="421"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="header-left" width="213.66667175292969" height="57.333332061767578"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="AvocadoGreen">
             <color red="0.37999999523162842" green="0.55000001192092896" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
