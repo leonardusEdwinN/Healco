@@ -61,6 +61,7 @@ class JournalViewController : UIViewController{
     
     // Weekly CollectionCell
     var date : [String] = []
+    var dayString : [String] = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"]
     var dateForDataBase : [String] = []
     var selectedBefore : IndexPath!
     
@@ -80,44 +81,21 @@ class JournalViewController : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewJournalHeader.layer.cornerRadius = 30
         
-        viewKarbohidrat.layer.cornerRadius = 15
-        viewKarbohidrat.dropShadow()
-        viewProtein.layer.cornerRadius = 15
-        viewProtein.dropShadow()
-        viewLemak.layer.cornerRadius = 15
-        viewLemak.dropShadow()
-        viewKalori.layer.cornerRadius = 15
-        viewKalori.dropShadow()
+        self.getWidthViewNutrition()
+        self.getDateArray()
+        self.createUI()
         
-        progressViewKalori.transform = progressViewKalori.transform.scaledBy(x: 1, y: 3)
         
-        //weekly
-        collectionViewWeekly.register(UINib.init(nibName: "WeeklyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "weeklyCollectionViewCell")
-        collectionViewWeekly.delegate = self
-        collectionViewWeekly.dataSource = self
-        collectionViewWeekly.allowsMultipleSelection = false
         
-        //sarapan
-        collectionViewSarapan.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
-        collectionViewSarapan.delegate = self
-        collectionViewSarapan.dataSource = self
-        collectionViewMakanSiang.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
-        collectionViewMakanSiang.delegate = self
-        collectionViewMakanSiang.dataSource = self
-        collectionViewMakanMalam.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
-        collectionViewMakanMalam.delegate = self
-        collectionViewMakanMalam.dataSource = self
-        collectionViewSnack.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
-        collectionViewSnack.delegate = self
-        collectionViewSnack.dataSource = self
         
-        let calendarDate = Date.today()
-        print("DATE \(calendarDate)")
         
-        let weekday = Calendar.current.component(.weekday, from: Date())
-        print("weekday : \(weekday)")
+        
+        
+        
+        
+//        let weekday = Calendar.current.component(.weekday, from: Date())
+//        print("weekday : \(weekday)")
 //        for n in (1...weekday - 1).reversed(){
 //            date.append(calweeksDates2(when: -n))
 //            dateForDataBase.append(calweeksDates(when: -n))
@@ -138,6 +116,9 @@ class JournalViewController : UIViewController{
 //        print("FORMATTED DATE : \(formattedDate)")
 //        fetchData = myFetchRequestByDate(date: formattedDate)
     }
+    
+    
+    
     
     
     
@@ -200,6 +181,7 @@ class JournalViewController : UIViewController{
         }
     }
     
+    
     func calweeksDates(when: Int) -> String {
         var  result = ""
         let lastWeekDate = Calendar.current.date(byAdding: .day, value: when, to: Date())!
@@ -232,7 +214,7 @@ extension JournalViewController : UICollectionViewDataSource{
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionViewWeekly {
-            return 6
+            return 7
         }else  if collectionView == self.collectionViewSarapan {
             return 5
         }else  if collectionView == self.collectionViewMakanSiang {
@@ -250,7 +232,7 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
-//            cell.setUI(dateText: date[indexPath.item])
+            cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item])// unteuk set data
 
             return cell
         }else  {
@@ -283,16 +265,24 @@ extension JournalViewController : UICollectionViewDataSource{
 
 }
 
-//extension JournalViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        var widthCell : CGSize = CGSize(width: 100, height: 100)
-//        if collectionView == self.collectionViewWeekly {
-//            widthCell = CGSize(width: 80, height: 60)
-//        }
-//
-//        return widthCell
-//    }
-//}
+extension JournalViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var widthCell : CGSize = CGSize(width: 100, height: 100)
+        if collectionView == self.collectionViewWeekly {
+            let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+                  layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+                  layout.minimumInteritemSpacing = 0
+                  layout.minimumLineSpacing = 0
+                  layout.invalidateLayout()
+
+                  widthCell =  CGSize(width: self.view.frame.width / 8 , height:70) // Set your item size here
+        }else{
+            widthCell =  CGSize(width: 125 , height:150)
+        }
+
+        return widthCell
+    }
+}
 
 
 // MARK : - UICollectionViewDelegate
@@ -394,5 +384,87 @@ extension JournalViewController{
         let dayOfWeek = calendar.component(.weekday, from: today)
         print("Hari: \(today)")
         print("Hari apa: \(dayOfWeek)")
+    }
+}
+
+
+//extension to get date
+extension JournalViewController{
+    func getDateArray(){
+        let theCalendar     = Calendar.current
+        var dayComponent    = DateComponents()
+        dayComponent.day    = 1 // For removing one day (yesterday): -1
+        
+        let calendarDate = Date()
+        print("DATE \(calendarDate)")
+        
+        var tanggal : Date?
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        print("DATA : \(formatter.string(from: calendarDate))")
+        for indexOfDate in 0..<7 {
+            
+            if(indexOfDate == 0) {
+                tanggal = calendarDate.startOfWeek
+            }
+//            print("index : \(indexOfDate) :: TANGGAL : \(tanggal)")
+            formatter.dateFormat = "dd"
+            let tanggalPrint = formatter.string(from: tanggal!)
+            date.append(tanggalPrint)
+
+            tanggal = theCalendar.date(byAdding: dayComponent, to: tanggal!)//tambahin lagi 1 hari
+        }
+    }
+}
+
+
+//extension for UI
+extension JournalViewController{
+    func createUI(){
+        
+        //view nutrition
+        viewJournalHeader.layer.cornerRadius = 30
+        viewKarbohidrat.layer.cornerRadius = 15
+        viewKarbohidrat.dropShadow()
+        viewProtein.layer.cornerRadius = 15
+        viewProtein.dropShadow()
+        viewLemak.layer.cornerRadius = 15
+        viewLemak.dropShadow()
+        viewKalori.layer.cornerRadius = 15
+        viewKalori.dropShadow()
+        
+        //progressbar
+        progressViewKalori.transform = progressViewKalori.transform.scaledBy(x: 1, y: 3)
+        
+        //weekly
+        collectionViewWeekly.register(UINib.init(nibName: "WeeklyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "weeklyCollectionViewCell")
+        collectionViewWeekly.delegate = self
+        collectionViewWeekly.dataSource = self
+        collectionViewWeekly.allowsMultipleSelection = false
+        
+        //sarapan
+        collectionViewSarapan.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewSarapan.delegate = self
+        collectionViewSarapan.dataSource = self
+        collectionViewMakanSiang.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewMakanSiang.delegate = self
+        collectionViewMakanSiang.dataSource = self
+        collectionViewMakanMalam.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewMakanMalam.delegate = self
+        collectionViewMakanMalam.dataSource = self
+        collectionViewSnack.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewSnack.delegate = self
+        collectionViewSnack.dataSource = self
+    }
+    
+    func getWidthViewNutrition(){
+        let width = UIScreen.main.bounds.size.width
+        let rightLeftInset = 60 //(left : 20, right : 20, jarak : 10*2)
+        
+        let calculate = (Int(width) - rightLeftInset) / 3
+        Swift.print("caclulate width : \(calculate)")
+        self.viewKarbohidrat.frame.size.width = CGFloat(calculate)
+        self.viewProtein.frame.size.width = CGFloat(calculate)
+        self.viewLemak.frame.size.width = CGFloat(calculate)
     }
 }

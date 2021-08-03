@@ -30,14 +30,15 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
         labelTanggal.layer.cornerRadius = labelTanggal.frame.size.width / 2
         labelTanggal.layer.masksToBounds = true
         
-        viewOuter.layer.cornerRadius = 5
+        viewOuter.layer.cornerRadius = 10
         viewOuter.layer.masksToBounds = true
         // Initialization code
     }
     
-    func setUI(dateText : String){
-        self.labelHari.text = "Sel"
-        self.labelTanggal.text = "02"
+    func setUI(dateText : String, dayString : String){
+        //dayString untuk hari, dateText untuk tanggal
+        self.labelHari.text = dayString
+        self.labelTanggal.text = dateText
     }
     
     func changeUpdate(){
