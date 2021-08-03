@@ -32,12 +32,18 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
 
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
-        
-        /* let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
-        let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
-        viewController.modalTransitionStyle = .crossDissolve
-        viewController.modalPresentationStyle = .fullScreen
-        self.present(viewController, animated: true, completion: nil) */
+        do{
+            //data.addProfile(nama_pengguna: namaTextField.text!, gender: genderTerpilih, tanggalLahir: <#T##Date#>, tinggiBadan: <#T##Int32#>, beratBadan: <#T##Double#>)
+            /* let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
+            let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
+            viewController.modalTransitionStyle = .crossDissolve
+            viewController.modalPresentationStyle = .fullScreen
+            self.present(viewController, animated: true, completion: nil) */
+        }
+        catch{
+            
+        }
+       
     }
 }
 
