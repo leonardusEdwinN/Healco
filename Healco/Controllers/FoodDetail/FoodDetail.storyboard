@@ -181,6 +181,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Gu9-1r-7jT"/>
                     <connections>
+                        <outlet property="JournalHeader" destination="aNN-k7-6Hi" id="gha-M4-Kaa"/>
                         <outlet property="buttonBack" destination="zfn-Rl-5hN" id="RLl-HG-rfk"/>
                         <outlet property="foodNameTableView" destination="7BX-E5-XjY" id="bJ5-k1-QOD"/>
                         <outlet property="imagePhoto" destination="G31-iQ-mMA" id="pEA-uU-Dyt"/>
