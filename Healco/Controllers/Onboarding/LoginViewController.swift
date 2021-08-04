@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     let gender: [String] = ["", "Pria", "Wanita"]
     var genderTerpilih: String = ""
+    var tipeMakan: String = ""
     
     // function buat CoreData
     let data = CoreData()
@@ -85,6 +86,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func sarapanSwitch_Turned(_ sender: UISwitch) {
         if(sender.isOn){
             sarapanTextField.isHidden = false
+            //tipeMakan = sender.title!
         }
         else{
             sarapanTextField.isHidden = true
@@ -94,6 +96,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func makanSiangSwitch_Turned(_ sender: UISwitch) {
         if sender.isOn{
             makanSiangTextField.isHidden = false
+            //tipeMakan = sender.title!
         }
         else{
             makanSiangTextField.isHidden = true
@@ -103,6 +106,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func makanMalamSwitch_Turned(_ sender: UISwitch) {
         if sender.isOn{
             makanMalamTextField.isHidden = false
+            //tipeMakan = sender.title!
         }
         else{
             makanMalamTextField.isHidden = true
