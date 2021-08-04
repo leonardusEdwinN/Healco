@@ -154,7 +154,7 @@ class CoreData {
     
     func fetchProfile() -> ProfileEntity?{
         do {
-            return try context.fetch(NSFetchRequest<ProfileEntity>(entityName: "ProfileEntity"))[0]
+            return try context.fetch(NSFetchRequest<ProfileEntity>(entityName: "ProfileEntity")).first
         } catch let error {
             print("Error nih pas ngambil data jurnalnya, nih detailnya \(error)")
             return nil
@@ -162,24 +162,26 @@ class CoreData {
     }
     
     func addProfile(nama_pengguna: String, gender: String, tanggalLahir: Date,
-                    tinggiBadan: Int32, beratBadan: Double){
+                    tinggiBadan: Int32, beratBadan: Double, umur: Int32){
         let profile = ProfileEntity(context: context)
         profile.nama_pengguna = nama_pengguna
         profile.gender = gender
         profile.tanggal_lahir = tanggalLahir
         profile.tinggi_badan = tinggiBadan
         profile.berat_badan = beratBadan
+        profile.umur = umur
         
         saveData()
     }
     
     func changeProfile(profile: ProfileEntity, nama_pengguna: String, gender: String, tanggalLahir: Date,
-                       tinggiBadan: Int32, beratBadan: Double){
+                       tinggiBadan: Int32, beratBadan: Double, umur: Int32){
         profile.nama_pengguna = nama_pengguna
         profile.gender = gender
         profile.tanggal_lahir = tanggalLahir
         profile.tinggi_badan = tinggiBadan
         profile.berat_badan = beratBadan
+        profile.umur = umur
         
         saveData()
     }

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1315B9C626B53BC10030C84A /* CapmealModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C426B53BC10030C84A /* CapmealModel.xcdatamodeld */; };
 		1315B9C826B53BE40030C84A /* CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C726B53BE40030C84A /* CoreDataClass.swift */; };
 		1315B9CA26B5595B0030C84A /* CustomizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C926B5595B0030C84A /* CustomizedTabBar.swift */; };
 		1315B9CC26B7D8CB0030C84A /* RoundedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */; };
@@ -38,7 +37,7 @@
 		139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */; };
 		139AD0A12679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */; };
 		139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD0AA2679F70E00954DB2 /* Photo.swift */; };
-		13A11C76268324E200FA1545 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 13A11C75268324E200FA1545 /* SwiftPackageProductDependency */; };
+		13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 13A11C75268324E200FA1545 /* FatSecretSwift */; };
 		13B3EC6726B2ABBE00870C20 /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B3EC6626B2ABBE00870C20 /* Backup.swift */; };
 		13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B3EC6926B2AE6F00870C20 /* HomeTabBar.swift */; };
 		13B3EC6C26B2AE7F00870C20 /* HomeTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B3EC6B26B2AE7F00870C20 /* HomeTabBar.storyboard */; };
@@ -54,6 +53,9 @@
 		44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4434292F267C3FDC00A85983 /* Onboarding.storyboard */; };
 		44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */; };
 		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
+		BF3F431F26BB0F5200E33840 /* genderPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F431E26BB0F5200E33840 /* genderPickerViewController.swift */; };
+		BF3F432126BB129000E33840 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F432026BB129000E33840 /* ProfileCell.swift */; };
+		BF3F432326BB1C2E00E33840 /* CapmealModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C426B53BC10030C84A /* CapmealModel.xcdatamodeld */; };
 		EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */; };
 		EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */; };
 		EF886DB626B940540039CFAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF886DB526B940540039CFAC /* LoginViewController.swift */; };
@@ -114,6 +116,8 @@
 		45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Healco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.release.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.release.xcconfig"; sourceTree = "<group>"; };
 		9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.debug.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.debug.xcconfig"; sourceTree = "<group>"; };
+		BF3F431E26BB0F5200E33840 /* genderPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = genderPickerViewController.swift; sourceTree = "<group>"; };
+		BF3F432026BB129000E33840 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodDetail.storyboard; sourceTree = "<group>"; };
 		EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNameViewController.swift; sourceTree = "<group>"; };
 		EF886DB526B940540039CFAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13A11C76268324E200FA1545 /* BuildFile in Frameworks */,
+				13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */,
 				B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +354,8 @@
 			children = (
 				13B3EC6E26B2B4E400870C20 /* Profile.storyboard */,
 				13B3EC7026B2B4F500870C20 /* ProfileViewController.swift */,
+				BF3F431E26BB0F5200E33840 /* genderPickerViewController.swift */,
+				BF3F432026BB129000E33840 /* ProfileCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -416,7 +422,7 @@
 			);
 			name = Healco;
 			packageProductDependencies = (
-				13A11C75268324E200FA1545 /* SwiftPackageProductDependency */,
+				13A11C75268324E200FA1545 /* FatSecretSwift */,
 			);
 			productName = Healco;
 			productReference = 137A0B5F2670CE2B00543CCF /* Healco.app */;
@@ -446,7 +452,7 @@
 			);
 			mainGroup = 137A0B562670CE2B00543CCF;
 			packageReferences = (
-				13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */,
+				13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */,
 			);
 			productRefGroup = 137A0B602670CE2B00543CCF /* Products */;
 			projectDirPath = "";
@@ -519,6 +525,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF886DB626B940540039CFAC /* LoginViewController.swift in Sources */,
+				BF3F431F26BB0F5200E33840 /* genderPickerViewController.swift in Sources */,
 				139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */,
 				13495F4026B42FCE0051EE32 /* DateExtension.swift in Sources */,
 				138C847B26859C4D008E5C2C /* TimeToEatCollectionViewCell.swift in Sources */,
@@ -532,13 +539,13 @@
 				13492D57267F030600843181 /* Food101.mlmodel in Sources */,
 				13B3EC7126B2B4F500870C20 /* ProfileViewController.swift in Sources */,
 				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
-				1315B9C626B53BC10030C84A /* CapmealModel.xcdatamodeld in Sources */,
 				1315B9CA26B5595B0030C84A /* CustomizedTabBar.swift in Sources */,
 				EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				138C84852685CD8B008E5C2C /* FeelToEatCollectionViewCell.swift in Sources */,
 				221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */,
 				13B3EC6726B2ABBE00870C20 /* Backup.swift in Sources */,
+				BF3F432326BB1C2E00E33840 /* CapmealModel.xcdatamodeld in Sources */,
 				1315B9C826B53BE40030C84A /* CoreDataClass.swift in Sources */,
 				13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */,
 				221A0BC5267B60B00042A94A /* Extention.swift in Sources */,
@@ -546,6 +553,7 @@
 				44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */,
 				EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */,
 				1315B9D426B7F8A80030C84A /* NutritionCollectionViewCell.swift in Sources */,
+				BF3F432126BB129000E33840 /* ProfileCell.swift in Sources */,
 				44342927267C2BA800A85983 /* OnboardingCollectionViewCell.swift in Sources */,
 				13970F042678A7DF00B6F11D /* JournalViewController.swift in Sources */,
 			);
@@ -690,7 +698,7 @@
 				CODE_SIGN_ENTITLEMENTS = Healco/Healco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9P49UTYHH6;
+				DEVELOPMENT_TEAM = YD9YX88UD4;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -715,7 +723,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9P49UTYHH6;
+				DEVELOPMENT_TEAM = YD9YX88UD4;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -755,7 +763,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */ = {
+		13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NicholasBellucci/FatSecretSwift.git";
 			requirement = {
@@ -766,9 +774,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		13A11C75268324E200FA1545 /* SwiftPackageProductDependency */ = {
+		13A11C75268324E200FA1545 /* FatSecretSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */;
+			package = 13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */;
 			productName = FatSecretSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
