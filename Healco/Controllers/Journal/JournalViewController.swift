@@ -346,7 +346,19 @@ extension JournalViewController : UICollectionViewDataSource{
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
         }
     }
-
+    
+    //BMR calculation
+    private func BMR(profile : profile) -> Float{
+        var bmrScore : Float?
+        
+        if profile.gender == .male {
+            bmrScore = 88.362 + (13.397 * profile.weight) + (4.799 * profile.height) - (5.677 * profile.age)
+        }else{
+            bmrScore = 447.593 + (9.247 * profile.weight) + (3.098 * profile.height) - (4.330 * profile.age)
+        }
+        return bmrScore ?? 0.0
+    }
+    
 }
 
 //extension JournalViewController: UICollectionViewDelegateFlowLayout {
