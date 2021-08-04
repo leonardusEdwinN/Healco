@@ -49,6 +49,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
 
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
+        //let tglHariIni = Date()
         let formatTglLahir = DateFormatter()
         formatTglLahir.dateFormat = "yyyy-MM-dd"
         let tglLahir = formatTglLahir.date(from: tglLahirTextField.text!)!
@@ -71,10 +72,10 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         switch(sender.tag){
         case 1:
             genderTerpilih = (sender.titleLabel?.text)!
-            print("gender: \(sender.titleLabel?.text ?? "")")
+            print("gender: \(genderTerpilih)")
         case 2:
             genderTerpilih = (sender.titleLabel?.text)!
-            print("gender: \(sender.titleLabel?.text ?? "")")
+            print("gender: \(genderTerpilih)")
         default:
             break
         }
