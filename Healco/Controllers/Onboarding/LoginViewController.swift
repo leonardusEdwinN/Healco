@@ -11,24 +11,41 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     let gender: [String] = ["", "Pria", "Wanita"]
     var genderTerpilih: String = ""
     
-    
-    @IBOutlet weak var namaTextField: UITextField!
-    @IBOutlet weak var umurTextField: UITextField!
-    @IBOutlet weak var tinggiBadanTextField: UITextField!
-    @IBOutlet weak var beratBadanTextField: UITextField!
-    @IBOutlet weak var waktuSarapanTextField: UITextField!
-    @IBOutlet weak var waktuSiangTextField: UITextField!
-    @IBOutlet weak var waktuMalamTextField: UITextField!
-    @IBOutlet weak var genderPickerView: UIPickerView!
-    
     // function buat CoreData
     let data = CoreData()
+    
+    @IBOutlet weak var namaTextField: UITextField!
+    @IBOutlet weak var tglLahirTextField: UITextField!
+    @IBOutlet weak var tinggiBadanTextField: UITextField!
+    @IBOutlet weak var beratBadanTextField: UITextField!
+    @IBOutlet weak var sarapanTextField: UITextField!
+    @IBOutlet weak var makanSiangTextField: UITextField!
+    @IBOutlet weak var makanMalamTextField: UITextField!
+    @IBOutlet weak var sarapanSwitch: UISwitch!
+    @IBOutlet weak var makanSiangSwitch: UISwitch!
+    @IBOutlet weak var makanMalamSwitch: UISwitch!
+    @IBOutlet weak var priaKelaminButton: UIButton!
+    @IBOutlet weak var wanitaKelaminButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        genderPickerView.dataSource = self
-        genderPickerView.delegate = self
+        // addBottomBorder untuk memberikan border bawah pada objek TextField
+        namaTextField.addBottomBorder()
+        tglLahirTextField.addBottomBorder()
+        tinggiBadanTextField.addBottomBorder()
+        beratBadanTextField.addBottomBorder()
+        
+        // memasukkan func untuk kelamin
+        priaKelaminButton.addTarget(self, action: #selector(self.buttonKelamin_Tapped), for: .touchUpInside)
+        wanitaKelaminButton.addTarget(self, action: #selector(self.buttonKelamin_Tapped), for:.touchUpInside)
+        
+        // hide semua textfield waktu
+        sarapanTextField.isHidden = true
+        makanSiangTextField.isHidden = true
+        makanMalamTextField.isHidden = true
+        //genderPickerView.dataSource = self
+        //genderPickerView.delegate = self
     }
 
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
@@ -44,6 +61,18 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
         }
        
+    }
+    
+    @objc func buttonKelamin_Tapped(_ sender: UIButton){
+        _ = sender.tag
+        switch(sender.tag){
+        case 1:
+            genderTerpilih = (sender.titleLabel?.text)!
+        case 2:
+            genderTerpilih = (sender.titleLabel?.text)!
+        default:
+            break
+        }
     }
 }
 
@@ -62,5 +91,15 @@ extension LoginViewController{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         genderTerpilih = gender[row]
+    }
+}
+
+extension UITextField {
+    func addBottomBorder(){
+        let bottomLine = CALayer()
+        bottomLine.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
+        bottomLine.backgroundColor = UIColor.green.cgColor
+        borderStyle = .none
+        layer.addSublayer(bottomLine)
     }
 }
