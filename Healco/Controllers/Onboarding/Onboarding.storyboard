@@ -207,7 +207,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IdV-0W-Qsl">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="format yyyy-MM-dd (cth: 2021-07-01)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IdV-0W-Qsl">
                                 <rect key="frame" x="21" y="270" width="353" height="34"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -248,6 +248,9 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lxt-ha-Zjp">
                                 <rect key="frame" x="319" y="481.66666666666669" width="51" height="31.000000000000057"/>
+                                <connections>
+                                    <action selector="sarapanSwitch_Turned:" destination="irq-J7-Ssd" eventType="valueChanged" id="mCp-2A-iPy"/>
+                                </connections>
                             </switch>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s3h-RN-mqm">
                                 <rect key="frame" x="271" y="521" width="97" height="34"/>
@@ -263,8 +266,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5fD-uB-VQt">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5fD-uB-VQt">
                                 <rect key="frame" x="317" y="568" width="51" height="31"/>
+                                <connections>
+                                    <action selector="makanSiangSwitch_Turned:" destination="irq-J7-Ssd" eventType="valueChanged" id="6Vp-cd-ro5"/>
+                                </connections>
                             </switch>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tZx-G9-gwj">
                                 <rect key="frame" x="271" y="607" width="97" height="34"/>
@@ -277,8 +283,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0W7-bp-aZV">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0W7-bp-aZV">
                                 <rect key="frame" x="315" y="658" width="52" height="31"/>
+                                <connections>
+                                    <action selector="makanMalamSwitch_Turned:" destination="irq-J7-Ssd" eventType="valueChanged" id="9x4-JI-E2D"/>
+                                </connections>
                             </switch>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hsV-ia-D7N">
                                 <rect key="frame" x="268" y="697" width="97" height="34"/>

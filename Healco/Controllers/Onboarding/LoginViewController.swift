@@ -49,18 +49,21 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
 
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
+        let formatTglLahir = DateFormatter()
+        formatTglLahir.dateFormat = "yyyy-MM-dd"
+        let tglLahir = formatTglLahir.date(from: tglLahirTextField.text!)!
+        let converter = NumberFormatter()
+        converter.numberStyle = .decimal
+        let berat = converter.number(from: beratBadanTextField.text!) as? Double ?? 0.0
         do{
-            //data.addProfile(nama_pengguna: namaTextField.text!, gender: genderTerpilih, tanggalLahir: <#T##Date#>, tinggiBadan: <#T##Int32#>, beratBadan: <#T##Double#>)
+            data.addProfile(nama_pengguna: namaTextField.text ?? "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text!) ?? 0 , beratBadan: berat)
+            print("Berhasil!")
             let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
             let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
             viewController.modalTransitionStyle = .crossDissolve
             viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: true, completion: nil) 
         }
-        catch{
-            
-        }
-       
     }
     
     @objc func buttonKelamin_Tapped(_ sender: UIButton){
@@ -68,12 +71,43 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         switch(sender.tag){
         case 1:
             genderTerpilih = (sender.titleLabel?.text)!
+            print("gender: \(sender.titleLabel?.text ?? "")")
         case 2:
             genderTerpilih = (sender.titleLabel?.text)!
+            print("gender: \(sender.titleLabel?.text ?? "")")
         default:
             break
         }
     }
+    
+    
+    @IBAction func sarapanSwitch_Turned(_ sender: UISwitch) {
+        if(sender.isOn){
+            sarapanTextField.isHidden = false
+        }
+        else{
+            sarapanTextField.isHidden = true
+        }
+    }
+    
+    @IBAction func makanSiangSwitch_Turned(_ sender: UISwitch) {
+        if sender.isOn{
+            makanSiangTextField.isHidden = false
+        }
+        else{
+            makanSiangTextField.isHidden = true
+        }
+    }
+    
+    @IBAction func makanMalamSwitch_Turned(_ sender: UISwitch) {
+        if sender.isOn{
+            makanMalamTextField.isHidden = false
+        }
+        else{
+            makanMalamTextField.isHidden = true
+        }
+    }
+    
 }
 
 extension LoginViewController{
