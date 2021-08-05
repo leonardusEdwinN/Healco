@@ -38,8 +38,7 @@
 		139AD0A02679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */; };
 		139AD0A12679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */; };
 		139AD0AB2679F70E00954DB2 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139AD0AA2679F70E00954DB2 /* Photo.swift */; };
-		13A11C76268324E200FA1545 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 13A11C75268324E200FA1545 /* SwiftPackageProductDependency */; };
-		13B3EC6726B2ABBE00870C20 /* Backup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B3EC6626B2ABBE00870C20 /* Backup.swift */; };
+		13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 13A11C75268324E200FA1545 /* FatSecretSwift */; };
 		13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B3EC6926B2AE6F00870C20 /* HomeTabBar.swift */; };
 		13B3EC6C26B2AE7F00870C20 /* HomeTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B3EC6B26B2AE7F00870C20 /* HomeTabBar.storyboard */; };
 		13B3EC6F26B2B4E400870C20 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B3EC6E26B2B4E400870C20 /* Profile.storyboard */; };
@@ -97,7 +96,6 @@
 		139AD09E2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		139AD09F2679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryPhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		139AD0AA2679F70E00954DB2 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		13B3EC6626B2ABBE00870C20 /* Backup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backup.swift; sourceTree = "<group>"; };
 		13B3EC6926B2AE6F00870C20 /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		13B3EC6B26B2AE7F00870C20 /* HomeTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTabBar.storyboard; sourceTree = "<group>"; };
 		13B3EC6E26B2B4E400870C20 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -127,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13A11C76268324E200FA1545 /* BuildFile in Frameworks */,
+				13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */,
 				B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,7 +320,6 @@
 			children = (
 				13970F032678A7DF00B6F11D /* JournalViewController.swift */,
 				13970F052678A7F200B6F11D /* JournalViewController.storyboard */,
-				13B3EC6626B2ABBE00870C20 /* Backup.swift */,
 			);
 			path = Journal;
 			sourceTree = "<group>";
@@ -416,7 +413,7 @@
 			);
 			name = Healco;
 			packageProductDependencies = (
-				13A11C75268324E200FA1545 /* SwiftPackageProductDependency */,
+				13A11C75268324E200FA1545 /* FatSecretSwift */,
 			);
 			productName = Healco;
 			productReference = 137A0B5F2670CE2B00543CCF /* Healco.app */;
@@ -446,7 +443,7 @@
 			);
 			mainGroup = 137A0B562670CE2B00543CCF;
 			packageReferences = (
-				13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */,
+				13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */,
 			);
 			productRefGroup = 137A0B602670CE2B00543CCF /* Products */;
 			projectDirPath = "";
@@ -538,7 +535,6 @@
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				138C84852685CD8B008E5C2C /* FeelToEatCollectionViewCell.swift in Sources */,
 				221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */,
-				13B3EC6726B2ABBE00870C20 /* Backup.swift in Sources */,
 				1315B9C826B53BE40030C84A /* CoreDataClass.swift in Sources */,
 				13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */,
 				221A0BC5267B60B00042A94A /* Extention.swift in Sources */,
@@ -755,7 +751,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */ = {
+		13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/NicholasBellucci/FatSecretSwift.git";
 			requirement = {
@@ -766,9 +762,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		13A11C75268324E200FA1545 /* SwiftPackageProductDependency */ = {
+		13A11C75268324E200FA1545 /* FatSecretSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 13A11C74268324E200FA1545 /* RemoteSwiftPackageReference */;
+			package = 13A11C74268324E200FA1545 /* XCRemoteSwiftPackageReference "FatSecretSwift" */;
 			productName = FatSecretSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

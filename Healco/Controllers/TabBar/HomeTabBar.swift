@@ -11,6 +11,9 @@ import UIKit
 
 class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
     
+    //create imagepicker viewcontroller
+    private var imagePickerControler =  UIImagePickerController()
+    
     required init(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)!
         }
@@ -48,9 +51,53 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
         @objc func menuButtonAction(sender: UIButton) {
 //            self.selectedIndex = 2   //to select the middle tab. use "1" if you have only 3 tabs.
             print("YUHU")
-            performSegue(withIdentifier: "goToFoodRecog", sender: self.tabBarController)
+            PresentActionSheet()
+
+//            performSegue(withIdentifier: "goToFoodRecog", sender: self.tabBarController)
             
         }
+    
+    //presentation Action sheet
+    private func PresentActionSheet(){
+        
+        
+        let actionSheet = UIAlertController(title: "Select Photo", message: "Choose", preferredStyle: .actionSheet)
+        
+        //button 1
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default){ (action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                self.imagePickerControler.sourceType = .photoLibrary
+                self.imagePickerControler.delegate = self
+                self.imagePickerControler.allowsEditing = true
+                self.present(self.imagePickerControler, animated: true, completion: nil)
+            }else{
+                fatalError("Photo library not avaliable")
+            }
+        }
+        
+        //button 2
+        let CameraAction = UIAlertAction(title: "Camera", style: .default){ (action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                self.imagePickerControler.sourceType = .camera
+                self.imagePickerControler.delegate = self
+                self.imagePickerControler.allowsEditing = true
+                self.present(self.imagePickerControler, animated: true, completion: nil)
+            }
+            else{
+                fatalError("Camera not Avaliable")
+            }
+            
+        }
+        
+        //button 3
+        let cancel = UIAlertAction(title: "Cancel", style:.cancel, handler: nil)
+        
+        actionSheet.addAction(libraryAction)
+        actionSheet.addAction(CameraAction)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true, completion: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToFoodRecog",
@@ -60,6 +107,30 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
     }
     
 
+}
+
+extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            
+            //picker.dismiss(animated: true, completion: nil)
+            
+            //go to another viewcontroller
+            let storyboard : UIStoryboard = UIStoryboard(name: "FoodDetail", bundle: nil)
+            let VC  = storyboard.instantiateViewController(withIdentifier: "FoodNameViewController") as! FoodNameViewController
+            
+            //parsing image to  another view
+            VC.imageHasilFoto = uiImage
+            VC.modalPresentationStyle = .fullScreen
+            picker.present(VC, animated: true, completion: nil)
+            
+
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true , completion: nil)
+    }
 }
 
 

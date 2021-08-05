@@ -12,6 +12,7 @@ import UIKit
 
 class JournalViewController : UIViewController{
     
+    @IBOutlet weak var viewScrolling: UIView!
     
     @IBOutlet weak var addJournalButton: UIButton!
     //Header
@@ -64,6 +65,7 @@ class JournalViewController : UIViewController{
     var dayString : [String] = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"]
     var dateForDataBase : [String] = []
     var selectedBefore : IndexPath!
+    var selectedDate : String = ""
     
     //properties
     let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
@@ -72,30 +74,20 @@ class JournalViewController : UIViewController{
     private var startingScrollingOffset = CGPoint.zero
     
     //datepicker
-    var toolBar = UIToolbar()
+//    var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
     
     var fetchData: [NSManagedObject] = []
     
-    //create imagepicker viewcontroller
-    private var imagePickerControler =  UIImagePickerController()
+//    //create imagepicker viewcontroller
+//    private var imagePickerControler =  UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.getWidthViewNutrition()
         self.getDateArray()
         self.createUI()
-        
-        
-        
-        
-        
-        
-        
-        
-        
 //        let weekday = Calendar.current.component(.weekday, from: Date())
 //        print("weekday : \(weekday)")
 //        for n in (1...weekday - 1).reversed(){
@@ -117,6 +109,16 @@ class JournalViewController : UIViewController{
 //        let formattedDate = format.string(from: date)
 //        print("FORMATTED DATE : \(formattedDate)")
 //        fetchData = myFetchRequestByDate(date: formattedDate)
+        let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(backgroundTap(gesture:)));
+       viewScrolling.addGestureRecognizer(gestureRecognizer)
+
+           
+
+       
+    }
+    
+    @objc  func backgroundTap(gesture : UITapGestureRecognizer) {
+        datePicker.removeFromSuperview()
     }
     
     
@@ -154,11 +156,27 @@ class JournalViewController : UIViewController{
 //        toolBar.sizeToFit()
 //        self.view.addSubview(toolBar)
         
-        PresentActionSheet()
+        
+        
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.preferredDatePickerStyle = .inline
+        datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
+
+        datePicker.backgroundColor = .secondarySystemBackground
+        self.view.addSubview(datePicker)
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        datePicker.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        datePicker.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
+        
+        
+        
     }
     
-    @objc func onCancelButtonClick() {
-        toolBar.removeFromSuperview()
+
+
+    @objc func onDoneButtonClick() {
+//        toolBar.removeFromSuperview()
         datePicker.removeFromSuperview()
     }
     
@@ -169,22 +187,26 @@ class JournalViewController : UIViewController{
         
         if let date = sender?.date {
 //            labelDate.text = dateFormatter.string(from: date)
+            print("TANGGAL SELECTED : \(dateFormatter.string(from: date))")
+            self.selectedDate = dateFormatter.string(from: date)
             datePicker.removeFromSuperview()
-            toolBar.removeFromSuperview()
+//            toolBar.removeFromSuperview()
         }
     }
     
-    @objc func goToFoodRecog() {
-        performSegue(withIdentifier: "goToFoodRecog", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToFoodRecog",
-           let foodRecogVC = segue.destination as? FoodRecogVC {
-            foodRecogVC.modalPresentationStyle = .fullScreen
-        }
-    }
-    
+//
+//
+//    @objc func goToFoodRecog() {
+//        performSegue(withIdentifier: "goToFoodRecog", sender: self)
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToFoodRecog",
+//           let foodRecogVC = segue.destination as? FoodRecogVC {
+//            foodRecogVC.modalPresentationStyle = .fullScreen
+//        }
+//    }
+//
     
     func calweeksDates(when: Int) -> String {
         var  result = ""
@@ -208,72 +230,10 @@ class JournalViewController : UIViewController{
         return result
     }
     
-    //presentation Action sheet
-    private func PresentActionSheet(){
-        
-        
-        let actionSheet = UIAlertController(title: "Select Photo", message: "Choose", preferredStyle: .actionSheet)
-        
-        //button 1
-        let libraryAction = UIAlertAction(title: "Photo Library", style: .default){ (action: UIAlertAction) in
-            if UIImagePickerController.isSourceTypeAvailable(.camera){
-                self.imagePickerControler.sourceType = .photoLibrary
-                self.imagePickerControler.delegate = self
-                self.imagePickerControler.allowsEditing = true
-                self.present(self.imagePickerControler, animated: true, completion: nil)
-            }else{
-                fatalError("Photo library not avaliable")
-            }
-        }
-        
-        //button 2
-        let CameraAction = UIAlertAction(title: "Camera", style: .default){ (action: UIAlertAction) in
-            if UIImagePickerController.isSourceTypeAvailable(.camera){
-                self.imagePickerControler.sourceType = .camera
-                self.imagePickerControler.delegate = self
-                self.imagePickerControler.allowsEditing = true
-                self.present(self.imagePickerControler, animated: true, completion: nil)
-            }
-            else{
-                fatalError("Camera not Avaliable")
-            }
-            
-        }
-        
-        //button 3
-        let cancel = UIAlertAction(title: "Cancel", style:.cancel, handler: nil)
-        
-        actionSheet.addAction(libraryAction)
-        actionSheet.addAction(CameraAction)
-        actionSheet.addAction(cancel)
-        
-        present(actionSheet, animated: true, completion: nil)
-    }
-}
-
-extension JournalViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            
-            //picker.dismiss(animated: true, completion: nil)
-            
-            //go to another viewcontroller
-            let storyboard : UIStoryboard = UIStoryboard(name: "FoodDetail", bundle: nil)
-            let VC  = storyboard.instantiateViewController(withIdentifier: "FoodNameViewController") as! FoodNameViewController
-            
-            //parsing image to  another view
-            VC.imageHasilFoto = uiImage
-            VC.modalPresentationStyle = .fullScreen
-            picker.present(VC, animated: true, completion: nil)
-            
-
-        }
-    }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true , completion: nil)
-    }
 }
+
+
 // MARK : - UICollectionViewDataSource
 extension JournalViewController : UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -300,7 +260,22 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
-            cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item])// unteuk set data
+            let tanggalHariIni = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd"
+            formatter.locale = Locale(identifier: "id_ID")
+            let tanggalCell = formatter.string(from: tanggalHariIni)
+            
+            print("PERBANDINGAN : \(tanggalCell) :: \(date[indexPath.item])")
+            tanggalCell == date[indexPath.item] ? print("SAME DATE") : print("WRONG DATE")
+            if(tanggalCell == date[indexPath.item]){
+//                cell.viewOuter.backgroundColor = .green
+                cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item],isToday: true)
+            }else{
+                cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item],isToday: false)
+            }
+            
+//            cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item])// unteuk set data
 
             return cell
         }else  {
@@ -355,45 +330,7 @@ extension JournalViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK : - UICollectionViewDelegate
 extension JournalViewController : UICollectionViewDelegate, UIScrollViewDelegate{
-    
-    //    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    //      startingScrollingOffset = scrollView.contentOffset
-    //    }
-    //
-    //    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-    //        let layout = self.collectionViewPhotoGallery.collectionViewLayout as! UICollectionViewFlowLayout
-    //        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
-    //        print(cellWidthIncludingSpacing)
-    //
-    //        var offset = targetContentOffset.pointee
-    //        let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
-    //        let roundedIndex = round(index)
-    //        print(roundedIndex)
-    //
-    //        offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: scrollView.contentInset.top)
-    //
-    //        targetContentOffset.pointee = offset
-    ////            let pageWidht:CGFloat = 200.0 + 30.0
-    ////            let currentOffset = scrollView.contentOffset.x
-    ////            let targetOffset = CGFloat(targetContentOffset.pointee.x)
-    ////            var newTargetOffset:CGFloat = 0.0
-    ////
-    ////            if targetOffset > currentOffset {
-    ////                newTargetOffset = CGFloat(ceilf(Float((currentOffset / pageWidht) * pageWidht)))
-    ////            }
-    ////            else {
-    ////                newTargetOffset = CGFloat(floorf(Float((currentOffset / pageWidht) * pageWidht)))
-    ////            }
-    ////
-    ////            if newTargetOffset < 0.0 {
-    ////                newTargetOffset = 0.0
-    ////            }
-    ////            else if newTargetOffset > scrollView.contentSize.width {
-    ////                newTargetOffset = scrollView.contentSize.width
-    ////            }
-    ////            targetContentOffset.pointee = CGPoint(x: newTargetOffset, y: 0.0)
-    //
-    //    }
+
 }
 
 extension JournalViewController{
@@ -477,6 +414,7 @@ extension JournalViewController{
             }
 //            print("index : \(indexOfDate) :: TANGGAL : \(tanggal)")
             formatter.dateFormat = "dd"
+            formatter.locale = Locale(identifier: "id_ID")
             let tanggalPrint = formatter.string(from: tanggal!)
             date.append(tanggalPrint)
 
