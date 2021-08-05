@@ -113,8 +113,9 @@ class JournalViewController : UIViewController{
 //       viewScrolling.addGestureRecognizer(gestureRecognizer)
 
            
-
-       
+        let data = CoreDataClass()
+        let profile = data.fetchProfile()
+        profile?.nama_pengguna
     }
     
     @objc  func backgroundTap(gesture : UITapGestureRecognizer) {
