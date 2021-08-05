@@ -15,7 +15,6 @@
 		1315B9D526B7F8A80030C84A /* NutritionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */; };
 		13492D57267F030600843181 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 13492D56267F030600843181 /* Food101.mlmodel */; };
 		13495F4026B42FCE0051EE32 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13495F3F26B42FCE0051EE32 /* DateExtension.swift */; };
-		135551C826B944AC006CA0C3 /* Healco.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 135551C626B944AC006CA0C3 /* Healco.xcdatamodeld */; };
 		137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B622670CE2B00543CCF /* AppDelegate.swift */; };
 		137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B642670CE2B00543CCF /* SceneDelegate.swift */; };
 		137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 137A0B6E2670CE2C00543CCF /* Assets.xcassets */; };
@@ -69,7 +68,6 @@
 		1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionCollectionViewCell.xib; sourceTree = "<group>"; };
 		13492D56267F030600843181 /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
 		13495F3F26B42FCE0051EE32 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
-		135551C726B944AC006CA0C3 /* Healco.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Healco.xcdatamodel; sourceTree = "<group>"; };
 		137A0B5F2670CE2B00543CCF /* Healco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		137A0B622670CE2B00543CCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		137A0B642670CE2B00543CCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				1315B9C426B53BC10030C84A /* CapmealModel.xcdatamodeld */,
-				135551C626B944AC006CA0C3 /* Healco.xcdatamodeld */,
 				137A0B612670CE2B00543CCF /* Healco */,
 				137A0B602670CE2B00543CCF /* Products */,
 				68300107CC7A5F6FCEACC122 /* Pods */,
@@ -526,7 +523,6 @@
 				1315B9C826B53BE40030C84A /* CoreDataClass.swift in Sources */,
 				13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */,
 				221A0BC5267B60B00042A94A /* Extention.swift in Sources */,
-				135551C826B944AC006CA0C3 /* Healco.xcdatamodeld in Sources */,
 				44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */,
 				EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */,
 				1315B9D426B7F8A80030C84A /* NutritionCollectionViewCell.swift in Sources */,
@@ -674,7 +670,7 @@
 				CODE_SIGN_ENTITLEMENTS = Healco/Healco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9P49UTYHH6;
+				DEVELOPMENT_TEAM = Y4SYN8VK49;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -699,7 +695,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9P49UTYHH6;
+				DEVELOPMENT_TEAM = Y4SYN8VK49;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -765,17 +761,6 @@
 			);
 			currentVersion = 1315B9C526B53BC10030C84A /* CapmealModel.xcdatamodel */;
 			path = CapmealModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		135551C626B944AC006CA0C3 /* Healco.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				135551C726B944AC006CA0C3 /* Healco.xcdatamodel */,
-			);
-			currentVersion = 135551C726B944AC006CA0C3 /* Healco.xcdatamodel */;
-			name = Healco.xcdatamodeld;
-			path = "../../../../Dropbox (DeveloperAcademy-ID)/MC3 - SMILE/Healco.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

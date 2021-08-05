@@ -57,10 +57,10 @@
                                                     <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="D9C-G7-BTs">
-                                                    <rect key="frame" x="0.0" y="441" width="410" height="137"/>
+                                                    <rect key="frame" x="0.0" y="441" width="410" height="132.66666666666663"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Dolor Sit Amet hjghjg" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMN-j1-7nB">
-                                                            <rect key="frame" x="22.666666666666657" y="0.0" width="365" height="60"/>
+                                                            <rect key="frame" x="33" y="0.0" width="344" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="XA6-aB-uew"/>
                                                             </constraints>
@@ -68,7 +68,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consectetur adipisicing elit. Lorem ipsum dolor sit amet. Consectetur adipisicing elit. Lorem ipsum dolor sit amet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPf-mx-wNJ">
-                                                            <rect key="frame" x="15" y="73" width="380" height="64"/>
+                                                            <rect key="frame" x="15" y="73" width="380" height="59.666666666666657"/>
                                                             <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="17"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                                             <nil key="highlightedColor"/>
@@ -207,39 +207,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="format yyyy-MM-dd (cth: 2021-07-01)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IdV-0W-Qsl">
-                                <rect key="frame" x="21" y="269.33333333333331" width="353" height="34"/>
-                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tinggi Badan:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g6-Xn-Qlm">
-                                <rect key="frame" x="21" y="313.33333333333331" width="112" height="21.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tinggi Badan:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g6-Xn-Qlm">
+                                <rect key="frame" x="21" y="289" width="112" height="21.333333333333314"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dalam cm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fez-FW-U1h">
-                                <rect key="frame" x="21" y="342.66666666666669" width="353" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dalam cm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fez-FW-U1h">
+                                <rect key="frame" x="271" y="289" width="107" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berat Badan:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvv-Y0-V8w">
-                                <rect key="frame" x="21" y="384.66666666666669" width="107" height="21.333333333333314"/>
+                                <rect key="frame" x="21" y="340" width="107" height="21.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dalam kg" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k7U-QX-7Tb">
-                                <rect key="frame" x="21" y="414" width="353" height="35.333333333333314"/>
+                                <rect key="frame" x="271" y="340" width="103" height="35"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kapan waktu makanmu?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFU-DT-bmE">
-                                <rect key="frame" x="21" y="457.33333333333331" width="202" height="21.333333333333314"/>
-                                <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sarapan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-b5-siP">
                                 <rect key="frame" x="21" y="486.66666666666669" width="67" height="21.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
@@ -299,18 +290,38 @@
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                 <state key="normal" title="Wanita"/>
                             </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjA-O7-J7E">
+                                <rect key="frame" x="149" y="240" width="241" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="649852508.95485497">
+                                    <!--2021-08-05 10:35:08 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                    <!--2037-12-31 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePicker_Changed:" destination="irq-J7-Ssd" eventType="valueChanged" id="1vf-oq-PgQ"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kapan waktu makanmu?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFU-DT-bmE">
+                                <rect key="frame" x="21" y="412" width="202" height="21.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s76-M3-nCa"/>
                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                         <constraints>
                             <constraint firstItem="PIm-A8-cTl" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="19" id="0bb-oj-f4t"/>
                             <constraint firstItem="hsV-ia-D7N" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="268" id="0bv-aK-DIJ"/>
-                            <constraint firstItem="Fez-FW-U1h" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="1VJ-T4-WC5"/>
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="hxC-8y-juc" secondAttribute="trailing" constant="253" id="3tN-8x-0QC"/>
                             <constraint firstItem="5fD-uB-VQt" firstAttribute="leading" secondItem="PIm-A8-cTl" secondAttribute="trailing" constant="196" id="5yB-rj-PWU"/>
                             <constraint firstItem="tZx-G9-gwj" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="271" id="6jQ-Ms-rR0"/>
                             <constraint firstAttribute="bottom" secondItem="vMd-pa-eUC" secondAttribute="bottom" constant="164" id="6n5-3b-P8V"/>
-                            <constraint firstItem="Fez-FW-U1h" firstAttribute="top" secondItem="7g6-Xn-Qlm" secondAttribute="bottom" constant="8" symbolic="YES" id="6oF-Wk-33J"/>
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="5fD-uB-VQt" secondAttribute="trailing" constant="24" id="8vd-qy-iUO"/>
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="nla-gI-PDk" secondAttribute="trailing" constant="260" id="AIf-GJ-t2C"/>
                             <constraint firstItem="IHI-fy-L11" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="BJE-Tu-hkV"/>
@@ -320,7 +331,7 @@
                             <constraint firstItem="vMd-pa-eUC" firstAttribute="top" secondItem="0W7-bp-aZV" secondAttribute="top" id="Dkq-fQ-4df"/>
                             <constraint firstItem="nla-gI-PDk" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="DuW-nn-VTu"/>
                             <constraint firstItem="Wjd-fy-LjX" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="EFP-6S-OP7"/>
-                            <constraint firstItem="2Fg-b5-siP" firstAttribute="top" secondItem="gFU-DT-bmE" secondAttribute="bottom" constant="8" symbolic="YES" id="F45-GE-Gux"/>
+                            <constraint firstItem="2Fg-b5-siP" firstAttribute="top" secondItem="gFU-DT-bmE" secondAttribute="bottom" constant="53.333333333333371" id="F45-GE-Gux"/>
                             <constraint firstItem="k7U-QX-7Tb" firstAttribute="trailing" secondItem="XYS-9S-iDX" secondAttribute="trailing" id="FFT-Ie-8EP"/>
                             <constraint firstItem="XYS-9S-iDX" firstAttribute="top" secondItem="nla-gI-PDk" secondAttribute="bottom" constant="8" symbolic="YES" id="FrQ-iz-gq5"/>
                             <constraint firstItem="lxt-ha-Zjp" firstAttribute="leading" secondItem="2Fg-b5-siP" secondAttribute="trailing" constant="231" id="FxY-g8-vR3"/>
@@ -330,19 +341,16 @@
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="k7U-QX-7Tb" secondAttribute="trailing" constant="16" id="KeZ-fo-Rdd"/>
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="sAR-Lt-9yv" secondAttribute="trailing" constant="253" id="L9x-bl-Npx"/>
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="s3h-RN-mqm" secondAttribute="trailing" constant="22" id="NQV-9W-8E7"/>
-                            <constraint firstItem="k7U-QX-7Tb" firstAttribute="top" secondItem="Bvv-Y0-V8w" secondAttribute="bottom" constant="8" symbolic="YES" id="O2N-xH-j6z"/>
+                            <constraint firstItem="k7U-QX-7Tb" firstAttribute="top" secondItem="Bvv-Y0-V8w" secondAttribute="bottom" constant="-21.333333333333314" id="O2N-xH-j6z"/>
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="IHI-fy-L11" secondAttribute="trailing" constant="116" id="Qkj-wC-ZQt"/>
                             <constraint firstItem="nla-gI-PDk" firstAttribute="top" secondItem="IHI-fy-L11" secondAttribute="bottom" constant="8" symbolic="YES" id="RJY-PR-m3K"/>
                             <constraint firstItem="5fD-uB-VQt" firstAttribute="top" secondItem="s3h-RN-mqm" secondAttribute="bottom" constant="13" id="ROm-BD-eOG"/>
                             <constraint firstItem="0W7-bp-aZV" firstAttribute="leading" secondItem="vMd-pa-eUC" secondAttribute="trailing" constant="178" id="SL3-BL-H7E"/>
                             <constraint firstAttribute="bottom" secondItem="s3h-RN-mqm" secondAttribute="bottom" constant="289" id="T4U-u8-O5F"/>
-                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="7g6-Xn-Qlm" secondAttribute="trailing" constant="257" id="Th5-Sm-hcc"/>
                             <constraint firstItem="YJ2-6h-cze" firstAttribute="top" secondItem="hsV-ia-D7N" secondAttribute="bottom" constant="33" id="U5e-2X-pbT"/>
                             <constraint firstItem="2Fg-b5-siP" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="Wky-gz-Opb"/>
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="hsV-ia-D7N" secondAttribute="trailing" constant="25" id="WuV-sE-FAf"/>
-                            <constraint firstItem="k7U-QX-7Tb" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="YJ8-W6-gfa"/>
-                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="IdV-0W-Qsl" secondAttribute="trailing" constant="16" id="YbD-au-X8F"/>
-                            <constraint firstItem="7g6-Xn-Qlm" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="Yce-vr-SLr"/>
+                            <constraint firstItem="k7U-QX-7Tb" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="271" id="YJ8-W6-gfa"/>
                             <constraint firstItem="5fD-uB-VQt" firstAttribute="leading" secondItem="PIm-A8-cTl" secondAttribute="trailing" constant="196" id="ZMj-9a-IPI"/>
                             <constraint firstItem="hxC-8y-juc" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="Zhq-cx-Eth"/>
                             <constraint firstItem="hxC-8y-juc" firstAttribute="top" secondItem="sAR-Lt-9yv" secondAttribute="bottom" constant="8" id="bjN-dL-mRQ"/>
@@ -351,7 +359,7 @@
                             <constraint firstItem="YJ2-6h-cze" firstAttribute="centerX" secondItem="ZgA-RO-XCY" secondAttribute="centerX" id="ccI-NB-VEC"/>
                             <constraint firstItem="YJ2-6h-cze" firstAttribute="top" secondItem="vMd-pa-eUC" secondAttribute="bottom" constant="84" id="cyO-1E-3ZT"/>
                             <constraint firstItem="YJ2-6h-cze" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="110" id="eZT-0B-36C"/>
-                            <constraint firstItem="gFU-DT-bmE" firstAttribute="top" secondItem="k7U-QX-7Tb" secondAttribute="bottom" constant="8" symbolic="YES" id="emJ-zM-zp6"/>
+                            <constraint firstItem="gFU-DT-bmE" firstAttribute="top" secondItem="k7U-QX-7Tb" secondAttribute="bottom" constant="37" id="emJ-zM-zp6"/>
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="gFU-DT-bmE" secondAttribute="trailing" constant="167" id="emt-7s-lU0"/>
                             <constraint firstItem="nla-gI-PDk" firstAttribute="top" secondItem="ZgA-RO-XCY" secondAttribute="top" constant="101" id="fI4-fn-XOS"/>
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="tZx-G9-gwj" secondAttribute="trailing" constant="22" id="fmI-y0-t9L"/>
@@ -366,17 +374,13 @@
                             <constraint firstItem="vMd-pa-eUC" firstAttribute="centerX" secondItem="Bvv-Y0-V8w" secondAttribute="centerX" constant="3.5" id="lk4-je-myb"/>
                             <constraint firstItem="tZx-G9-gwj" firstAttribute="top" secondItem="5fD-uB-VQt" secondAttribute="bottom" constant="8" symbolic="YES" id="nz4-7m-DXy"/>
                             <constraint firstItem="sAR-Lt-9yv" firstAttribute="leading" secondItem="wPB-fK-x3j" secondAttribute="trailing" constant="29" id="p2z-Gq-c3r"/>
-                            <constraint firstItem="IdV-0W-Qsl" firstAttribute="top" secondItem="hxC-8y-juc" secondAttribute="bottom" constant="8" symbolic="YES" id="p88-eB-qfN"/>
                             <constraint firstItem="wPB-fK-x3j" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="qJJ-U5-HQZ"/>
                             <constraint firstItem="s3h-RN-mqm" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="271" id="rr7-0r-x5d"/>
                             <constraint firstItem="hxC-8y-juc" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="sBh-ZF-SXH"/>
                             <constraint firstItem="hxC-8y-juc" firstAttribute="top" secondItem="ZgA-RO-XCY" secondAttribute="top" constant="240" id="tnF-sX-4jw"/>
-                            <constraint firstItem="Bvv-Y0-V8w" firstAttribute="top" secondItem="Fez-FW-U1h" secondAttribute="bottom" constant="8" symbolic="YES" id="uv7-ut-3SX"/>
-                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="Fez-FW-U1h" secondAttribute="trailing" constant="16" id="vA9-Lm-Ct6"/>
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="0W7-bp-aZV" secondAttribute="trailing" constant="25" id="vc1-rv-Ljl"/>
                             <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="hxC-8y-juc" secondAttribute="trailing" constant="253" id="vgI-Q8-8OW"/>
-                            <constraint firstItem="IdV-0W-Qsl" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="yvo-7M-m66"/>
-                            <constraint firstItem="k7U-QX-7Tb" firstAttribute="top" secondItem="ZgA-RO-XCY" secondAttribute="top" constant="414" id="zB4-Va-bMZ"/>
+                            <constraint firstItem="k7U-QX-7Tb" firstAttribute="top" secondItem="ZgA-RO-XCY" secondAttribute="top" constant="340" id="zB4-Va-bMZ"/>
                             <constraint firstItem="vMd-pa-eUC" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="19" id="zbx-Ku-4vb"/>
                         </constraints>
                     </view>
@@ -391,7 +395,7 @@
                         <outlet property="priaKelaminButton" destination="wPB-fK-x3j" id="geH-GE-Ldn"/>
                         <outlet property="sarapanSwitch" destination="lxt-ha-Zjp" id="O4o-fl-8f6"/>
                         <outlet property="sarapanTextField" destination="s3h-RN-mqm" id="hNK-0e-0Pw"/>
-                        <outlet property="tglLahirTextField" destination="IdV-0W-Qsl" id="AaN-A8-DnR"/>
+                        <outlet property="tglLahirDatePicker" destination="DjA-O7-J7E" id="7Sl-6C-IaY"/>
                         <outlet property="tinggiBadanTextField" destination="Fez-FW-U1h" id="Pnd-gS-Tvi"/>
                         <outlet property="wanitaKelaminButton" destination="sAR-Lt-9yv" id="z7j-fm-M5U"/>
                     </connections>
