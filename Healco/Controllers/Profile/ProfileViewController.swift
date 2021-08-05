@@ -2,7 +2,7 @@
 //  ProfileViewController.swift
 //  Profile
 //
-//  Created by Rinaldi LNU on 03/08/21.
+//  Created by Rian on 03/08/21.
 //
 
 import UIKit
