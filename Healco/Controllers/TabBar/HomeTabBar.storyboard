@@ -142,24 +142,24 @@
                                                     <constraint firstAttribute="bottom" secondItem="GEl-rh-RcX" secondAttribute="bottom" constant="15" id="wex-dQ-f7C"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="31J-OP-EiN">
-                                                <rect key="frame" x="284" y="200" width="110" height="60"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31J-OP-EiN">
+                                                <rect key="frame" x="289" y="200" width="105" height="60"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-OJ-K2y">
-                                                        <rect key="frame" x="10" y="10" width="90" height="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-OJ-K2y">
+                                                        <rect key="frame" x="10" y="10" width="85" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="hKM-Nf-EiU"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Lemak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ym-h3-bcU">
-                                                        <rect key="frame" x="10" y="30" width="90" height="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lemak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ym-h3-bcU">
+                                                        <rect key="frame" x="10" y="30" width="85" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="8yJ-L7-VVN"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -174,26 +174,27 @@
                                                     <constraint firstItem="HEc-OJ-K2y" firstAttribute="leading" secondItem="31J-OP-EiN" secondAttribute="leading" constant="10" id="f3n-Zx-DmU"/>
                                                     <constraint firstAttribute="bottom" secondItem="5Ym-h3-bcU" secondAttribute="bottom" constant="10" id="omS-lL-ju3"/>
                                                     <constraint firstAttribute="height" constant="60" id="rTL-jt-xvB"/>
+                                                    <constraint firstAttribute="width" constant="105" id="wHZ-By-MP2"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cha-ar-dzi">
-                                                <rect key="frame" x="20" y="200" width="134" height="60"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cha-ar-dzi">
+                                                <rect key="frame" x="20" y="200" width="105" height="60"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yl5-cH-NNb">
-                                                        <rect key="frame" x="10" y="10" width="114" height="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yl5-cH-NNb">
+                                                        <rect key="frame" x="10" y="10" width="85" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="pe0-mA-7zQ"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Karbohidrat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdI-a4-rew">
-                                                        <rect key="frame" x="10" y="30" width="114" height="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Karbohidrat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DdI-a4-rew">
+                                                        <rect key="frame" x="10" y="30" width="85" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="600-8O-T3O"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -201,6 +202,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="Yl5-cH-NNb" firstAttribute="leading" secondItem="cha-ar-dzi" secondAttribute="leading" constant="10" id="5Tw-7x-OVj"/>
+                                                    <constraint firstAttribute="width" constant="105" id="Ooq-1e-VVa"/>
                                                     <constraint firstAttribute="height" constant="60" id="UWP-eb-INq"/>
                                                     <constraint firstItem="DdI-a4-rew" firstAttribute="top" secondItem="Yl5-cH-NNb" secondAttribute="bottom" id="e8C-yX-lc4"/>
                                                     <constraint firstAttribute="bottom" secondItem="DdI-a4-rew" secondAttribute="bottom" constant="10" id="htJ-vw-TOq"/>
@@ -210,24 +212,24 @@
                                                     <constraint firstAttribute="trailing" secondItem="Yl5-cH-NNb" secondAttribute="trailing" constant="10" id="uJq-K8-70J"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FxJ-P4-nXd">
-                                                <rect key="frame" x="164" y="200" width="110" height="60"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxJ-P4-nXd">
+                                                <rect key="frame" x="154.5" y="200" width="105" height="60"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvf-IS-O1i">
-                                                        <rect key="frame" x="10" y="10" width="90" height="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvf-IS-O1i">
+                                                        <rect key="frame" x="10" y="10" width="85" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="2vk-ev-aO7"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="18"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Protein" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZV-a4-wn0">
-                                                        <rect key="frame" x="10" y="30" width="90" height="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZV-a4-wn0">
+                                                        <rect key="frame" x="10" y="30" width="85" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="YFe-n1-X63"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -236,6 +238,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="hvf-IS-O1i" secondAttribute="trailing" constant="10" id="2nm-kf-IyL"/>
                                                     <constraint firstItem="RZV-a4-wn0" firstAttribute="top" secondItem="hvf-IS-O1i" secondAttribute="bottom" id="Hq6-OE-VzZ"/>
+                                                    <constraint firstAttribute="width" constant="105" id="JgF-NN-eaf"/>
                                                     <constraint firstItem="hvf-IS-O1i" firstAttribute="top" secondItem="FxJ-P4-nXd" secondAttribute="top" constant="10" id="RiD-md-vmt"/>
                                                     <constraint firstAttribute="trailing" secondItem="RZV-a4-wn0" secondAttribute="trailing" constant="10" id="ezF-lO-SVH"/>
                                                     <constraint firstAttribute="bottom" secondItem="RZV-a4-wn0" secondAttribute="bottom" constant="10" id="m6x-yR-lnv"/>
@@ -367,10 +370,11 @@
                                             <constraint firstAttribute="trailing" secondItem="hHy-Uy-Scn" secondAttribute="trailing" id="UcJ-eQ-NX7"/>
                                             <constraint firstItem="IjD-Bk-xAO" firstAttribute="leading" secondItem="kTA-Aw-IGl" secondAttribute="leading" constant="20" id="VRZ-sW-eKg"/>
                                             <constraint firstItem="0aD-OK-h28" firstAttribute="top" secondItem="cha-ar-dzi" secondAttribute="bottom" constant="10" id="VZ4-l2-ROV"/>
-                                            <constraint firstItem="FxJ-P4-nXd" firstAttribute="leading" secondItem="cha-ar-dzi" secondAttribute="trailing" constant="10" id="XDp-zj-UrR"/>
+                                            <constraint firstItem="FxJ-P4-nXd" firstAttribute="leading" secondItem="cha-ar-dzi" secondAttribute="trailing" priority="750" constant="10" id="XDp-zj-UrR"/>
                                             <constraint firstAttribute="trailing" secondItem="CMh-Av-8re" secondAttribute="trailing" constant="20" id="Xft-fv-K8e"/>
                                             <constraint firstItem="31J-OP-EiN" firstAttribute="top" secondItem="Tlo-K9-Cgm" secondAttribute="bottom" constant="10" id="XrI-xa-MwI"/>
                                             <constraint firstAttribute="trailing" secondItem="2N2-6h-z29" secondAttribute="trailing" id="YY7-tq-YTZ"/>
+                                            <constraint firstItem="FxJ-P4-nXd" firstAttribute="centerX" secondItem="kTA-Aw-IGl" secondAttribute="centerX" id="Yjh-rW-kqZ"/>
                                             <constraint firstAttribute="trailing" secondItem="P7D-lt-LQi" secondAttribute="trailing" constant="20" id="Zgk-ci-goQ"/>
                                             <constraint firstItem="IjD-Bk-xAO" firstAttribute="top" secondItem="AeN-qE-Ub2" secondAttribute="bottom" constant="5" id="atp-9K-pwP"/>
                                             <constraint firstItem="AeN-qE-Ub2" firstAttribute="leading" secondItem="kTA-Aw-IGl" secondAttribute="leading" constant="20" id="c6M-kh-erz"/>
@@ -386,7 +390,7 @@
                                             <constraint firstAttribute="bottom" secondItem="hHy-Uy-Scn" secondAttribute="bottom" constant="10" id="kto-xm-Nom"/>
                                             <constraint firstItem="0aD-OK-h28" firstAttribute="leading" secondItem="kTA-Aw-IGl" secondAttribute="leading" constant="20" id="m2Y-TQ-kR5"/>
                                             <constraint firstItem="2N2-6h-z29" firstAttribute="leading" secondItem="kTA-Aw-IGl" secondAttribute="leading" constant="20" id="nFi-4I-nr1"/>
-                                            <constraint firstItem="31J-OP-EiN" firstAttribute="leading" secondItem="FxJ-P4-nXd" secondAttribute="trailing" constant="10" id="ofv-CA-dEP"/>
+                                            <constraint firstItem="31J-OP-EiN" firstAttribute="leading" secondItem="FxJ-P4-nXd" secondAttribute="trailing" priority="750" constant="10" id="ofv-CA-dEP"/>
                                             <constraint firstAttribute="trailing" secondItem="Tlo-K9-Cgm" secondAttribute="trailing" constant="20" id="qPv-rg-J0e"/>
                                             <constraint firstItem="dui-Ur-pQT" firstAttribute="top" secondItem="IjD-Bk-xAO" secondAttribute="bottom" constant="5" id="quL-SR-bQ7"/>
                                             <constraint firstAttribute="trailing" secondItem="AeN-qE-Ub2" secondAttribute="trailing" constant="20" id="svg-Mc-4m3"/>
