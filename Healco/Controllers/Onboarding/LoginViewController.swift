@@ -7,16 +7,18 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
     let gender: [String] = ["", "Pria", "Wanita"]
     var genderTerpilih: String = ""
     var tipeMakan: String = ""
+    var tglLahir = Date()
     
     // function buat CoreData
     let data = CoreData()
     
     @IBOutlet weak var namaTextField: UITextField!
-    @IBOutlet weak var tglLahirTextField: UITextField!
+    //@IBOutlet weak var tglLahirTextField: UITextField!
+    @IBOutlet weak var tglLahirDatePicker: UIDatePicker!
     @IBOutlet weak var tinggiBadanTextField: UITextField!
     @IBOutlet weak var beratBadanTextField: UITextField!
     @IBOutlet weak var sarapanTextField: UITextField!
@@ -30,10 +32,13 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // buat nge-hide keyboard
+        hideKeyboardWhenTappedAround()
+        
         // addBottomBorder untuk memberikan border bawah pada objek TextField
         namaTextField.addBottomBorder()
-        tglLahirTextField.addBottomBorder()
+        //tglLahirTextField.addBottomBorder()
         tinggiBadanTextField.addBottomBorder()
         beratBadanTextField.addBottomBorder()
         
@@ -50,26 +55,26 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         // menjadikan keyboard menjadi numeric
         tinggiBadanTextField.keyboardType = .numberPad
-        beratBadanTextField.keyboardType = .numberPad
+        beratBadanTextField.keyboardType = .decimalPad
     }
     
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
-        //let tglHariIni = Date()
-        let formatTglLahir = DateFormatter()
-        formatTglLahir.dateFormat = "yyyy-MM-dd"
-        let tglLahir = formatTglLahir.date(from: tglLahirTextField.text!)!
+        //let tglLahirTerpilih = tglLahirDatePicker.date
+        //let formatTglLahir = DateFormatter()
+        //formatTglLahir.dateFormat = "yyyy-MM-dd"
         let converter = NumberFormatter()
         converter.numberStyle = .decimal
+        converter.groupingSeparator = "."
+        converter.decimalSeparator = ","
+        converter.locale = Locale(identifier: "id-ID")
         let berat = converter.number(from: beratBadanTextField.text!) as? Double ?? 0.0
-        do{
-            data.addProfile(nama_pengguna: namaTextField.text ?? "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text!) ?? 0 , beratBadan: berat)
-            print("Berhasil!")
-            let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
-            let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
-            viewController.modalTransitionStyle = .crossDissolve
-            viewController.modalPresentationStyle = .fullScreen
-            self.present(viewController, animated: true, completion: nil) 
-        }
+        data.addProfile(nama_pengguna: namaTextField.text ?? "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text!)! , beratBadan: berat)
+        print("Berhasil!")
+        let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
+        let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
+        viewController.modalTransitionStyle = .crossDissolve
+        viewController.modalPresentationStyle = .fullScreen
+        self.present(viewController, animated: true, completion: nil)
     }
     
     @objc func buttonKelamin_Tapped(_ sender: UIButton){
@@ -117,6 +122,9 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
     
+    @IBAction func datePicker_Changed(_ sender: Any) {
+        tglLahir = tglLahirDatePicker.date
+    }
 }
 
 extension LoginViewController{
@@ -134,15 +142,6 @@ extension LoginViewController{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         genderTerpilih = gender[row]
-    }
-    
-    func hideKeyboard(){
-        let tapAround: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
-        view.addGestureRecognizer(tapAround)
-    }
-    
-    @objc override func dismissKeyboard() {
-        view.endEditing(true)
     }
 }
 
