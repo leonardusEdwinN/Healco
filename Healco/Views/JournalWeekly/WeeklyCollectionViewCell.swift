@@ -35,10 +35,12 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func setUI(dateText : String, dayString : String){
+    func setUI(dateText : String, dayString : String, isToday : Bool){
         //dayString untuk hari, dateText untuk tanggal
         self.labelHari.text = dayString
         self.labelTanggal.text = dateText
+        self.viewOuter.backgroundColor = isToday ? UIColor(named: "AvocadoGreen")  :  .white
+        
     }
     
     func changeUpdate(){

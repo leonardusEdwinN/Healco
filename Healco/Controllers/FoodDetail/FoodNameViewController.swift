@@ -31,6 +31,7 @@ class FoodNameViewController: UIViewController {
     var selectedFood = FoodModel2()
     
     var isSearchAPI : Bool = false
+    
     @IBOutlet weak var JournalHeader: UIView!
     @IBOutlet weak var imagePhoto: UIImageView!
     @IBOutlet weak var buttonBack: UIButton!
@@ -70,8 +71,6 @@ class FoodNameViewController: UIViewController {
         
         foodNameTableView.dataSource = self
         foodNameTableView.delegate = self
-        
-        //edit journal header
         JournalHeader.layer.cornerRadius = 30
         //
         //        self.foodData.insert(FoodDataSearch(foodName: "DUmmy", foodId: "1"), at: 0)
