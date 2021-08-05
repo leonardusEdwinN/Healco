@@ -118,7 +118,6 @@ class JournalViewController : UIViewController{
     }
     
     @objc  func backgroundTap(gesture : UITapGestureRecognizer) {
-//        datePicker.resignFirstResponder() // or view.endEditing(true)
         datePicker.removeFromSuperview()
     }
     
@@ -163,11 +162,7 @@ class JournalViewController : UIViewController{
         datePicker.preferredDatePickerStyle = .inline
         datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
 
-//        datePicker.frame = CGRect(x:0, y:250, width:100, height:50)
         datePicker.backgroundColor = .secondarySystemBackground
-//        // you probably don't want to set background color as black
-//        datePicker.backgroundColor = .white
-
         self.view.addSubview(datePicker)
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -176,32 +171,10 @@ class JournalViewController : UIViewController{
         
         
         
-//        toolBar = UIToolbar(frame: CGRect(x: 0, y: (self.view.bounds.size.height - datePicker.bounds.size.height) - 150, width: UIScreen.main.bounds.size.width, height: 50))
-//        let topBarTitleLabel = UILabel.init(frame: (CGRect.init(origin: CGPoint.init(x: 0.0, y: 0.0), size: CGSize.init(width: 0.0, height: 0.0))))
-//        topBarTitleLabel.text = "Change Date"
-////        topBarTitleLabel.sizeToFit()
-//        topBarTitleLabel.backgroundColor = UIColor.clear
-//        topBarTitleLabel.textColor = UIColor.gray
-//        topBarTitleLabel.textAlignment = NSTextAlignment.center
-//        let topBarButtonItemTitleLabel = UIBarButtonItem.init(customView: topBarTitleLabel)
-//
-////        let buttonCancel = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(self.onDoneButtonClick))
-//        let buttonDone = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtonClick))
-//        let flexibleBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-//        self.toolBar.setItems([flexibleBarButtonItem, topBarButtonItemTitleLabel, flexibleBarButtonItem, buttonDone], animated: false)
-//        self.view.addSubview(toolBar)
-        
-        
     }
     
 
 
-    
-//    @objc func onCancelButtonClick() {
-//        toolBar.removeFromSuperview()
-//        datePicker.removeFromSuperview()
-//    }
-    
     @objc func onDoneButtonClick() {
 //        toolBar.removeFromSuperview()
         datePicker.removeFromSuperview()
@@ -221,46 +194,19 @@ class JournalViewController : UIViewController{
         }
     }
     
-    //presentation Action sheet
-    private func PresentActionSheet(datePicker : UIDatePicker){
-        
-        
-        let actionSheet = UIAlertController(title: "Select Photo", message: "", preferredStyle: .actionSheet)
-        
-        
-        //button 2
-        let ChangeDate = UIAlertAction(title: "Camera", style: .default){ (action: UIAlertAction) in
-            datePicker.datePickerMode = UIDatePicker.Mode.date
-            datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
-            let pickerSize : CGSize = datePicker.sizeThatFits(CGSize.zero)
-            datePicker.frame = CGRect(x:0.0, y:250, width:pickerSize.width, height:460)
-    //        datePicker.backgroundColor = UIColor(named: "MangoJuice")
-            // you probably don't want to set background color as black
-            datePicker.backgroundColor = .black
-            self.view.addSubview(datePicker)
-            
-        }
-        
-        //button 3
-        let cancel = UIAlertAction(title: "Cancel", style:.cancel, handler: nil)
-        
-        actionSheet.addAction(ChangeDate)
-        actionSheet.addAction(cancel)
-        
-        present(actionSheet, animated: true, completion: nil)
-    }
-    
-    @objc func goToFoodRecog() {
-        performSegue(withIdentifier: "goToFoodRecog", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToFoodRecog",
-           let foodRecogVC = segue.destination as? FoodRecogVC {
-            foodRecogVC.modalPresentationStyle = .fullScreen
-        }
-    }
-    
+//
+//
+//    @objc func goToFoodRecog() {
+//        performSegue(withIdentifier: "goToFoodRecog", sender: self)
+//    }
+//
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "goToFoodRecog",
+//           let foodRecogVC = segue.destination as? FoodRecogVC {
+//            foodRecogVC.modalPresentationStyle = .fullScreen
+//        }
+//    }
+//
     
     func calweeksDates(when: Int) -> String {
         var  result = ""
@@ -314,7 +260,7 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
-            var tanggalHariIni = Date()
+            let tanggalHariIni = Date()
             let formatter = DateFormatter()
             formatter.dateFormat = "dd"
             formatter.locale = Locale(identifier: "id_ID")
@@ -384,45 +330,7 @@ extension JournalViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK : - UICollectionViewDelegate
 extension JournalViewController : UICollectionViewDelegate, UIScrollViewDelegate{
-    
-    //    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    //      startingScrollingOffset = scrollView.contentOffset
-    //    }
-    //
-    //    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-    //        let layout = self.collectionViewPhotoGallery.collectionViewLayout as! UICollectionViewFlowLayout
-    //        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
-    //        print(cellWidthIncludingSpacing)
-    //
-    //        var offset = targetContentOffset.pointee
-    //        let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
-    //        let roundedIndex = round(index)
-    //        print(roundedIndex)
-    //
-    //        offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: scrollView.contentInset.top)
-    //
-    //        targetContentOffset.pointee = offset
-    ////            let pageWidht:CGFloat = 200.0 + 30.0
-    ////            let currentOffset = scrollView.contentOffset.x
-    ////            let targetOffset = CGFloat(targetContentOffset.pointee.x)
-    ////            var newTargetOffset:CGFloat = 0.0
-    ////
-    ////            if targetOffset > currentOffset {
-    ////                newTargetOffset = CGFloat(ceilf(Float((currentOffset / pageWidht) * pageWidht)))
-    ////            }
-    ////            else {
-    ////                newTargetOffset = CGFloat(floorf(Float((currentOffset / pageWidht) * pageWidht)))
-    ////            }
-    ////
-    ////            if newTargetOffset < 0.0 {
-    ////                newTargetOffset = 0.0
-    ////            }
-    ////            else if newTargetOffset > scrollView.contentSize.width {
-    ////                newTargetOffset = scrollView.contentSize.width
-    ////            }
-    ////            targetContentOffset.pointee = CGPoint(x: newTargetOffset, y: 0.0)
-    //
-    //    }
+
 }
 
 extension JournalViewController{
