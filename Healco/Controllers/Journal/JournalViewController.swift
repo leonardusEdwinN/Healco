@@ -74,7 +74,7 @@ class JournalViewController : UIViewController{
     private var startingScrollingOffset = CGPoint.zero
     
     //datepicker
-    var toolBar = UIToolbar()
+//    var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
     
     var fetchData: [NSManagedObject] = []
@@ -109,6 +109,17 @@ class JournalViewController : UIViewController{
 //        let formattedDate = format.string(from: date)
 //        print("FORMATTED DATE : \(formattedDate)")
 //        fetchData = myFetchRequestByDate(date: formattedDate)
+        let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(backgroundTap(gesture:)));
+       viewScrolling.addGestureRecognizer(gestureRecognizer)
+
+           
+
+       
+    }
+    
+    @objc  func backgroundTap(gesture : UITapGestureRecognizer) {
+//        datePicker.resignFirstResponder() // or view.endEditing(true)
+        datePicker.removeFromSuperview()
     }
     
     
@@ -150,7 +161,6 @@ class JournalViewController : UIViewController{
         
         datePicker.datePickerMode = UIDatePicker.Mode.date
         datePicker.preferredDatePickerStyle = .inline
-        datePicker.datePickerStyle = UIDatePickerStyle(rawValue: <#T##Int#>)
         datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
 
 //        datePicker.frame = CGRect(x:0, y:250, width:100, height:50)
@@ -193,7 +203,7 @@ class JournalViewController : UIViewController{
 //    }
     
     @objc func onDoneButtonClick() {
-        toolBar.removeFromSuperview()
+//        toolBar.removeFromSuperview()
         datePicker.removeFromSuperview()
     }
     
