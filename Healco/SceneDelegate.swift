@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let launchedBefore = UserDefaults.standard.bool(forKey: "hasLaunched")
 //        let launchStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-//        let mainStoryboard = UIStoryboard(name: "JournalViewController", bundle: nil)
+//        let mainStoryboard = UIStoryboard(name: "HomeTabBar", bundle: nil)
 //        var vc: UIViewController
 //        if launchedBefore {
 //            vc = mainStoryboard.instantiateViewController(identifier: "JournalViewController")
@@ -30,7 +30,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        UserDefaults.standard.set(true, forKey: "hasLaunched")
 //        self.window?.rootViewController = vc
         //guard let _ = (scene as? UIWindowScene) else { return }
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
