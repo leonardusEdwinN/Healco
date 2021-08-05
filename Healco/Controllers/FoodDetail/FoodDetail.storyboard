@@ -42,7 +42,7 @@
                                 <rect key="frame" x="0.0" y="319" width="390" height="525"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7BX-E5-XjY">
-                                        <rect key="frame" x="0.0" y="33.333333333333314" width="390" height="321"/>
+                                        <rect key="frame" x="0.0" y="35" width="390" height="321"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="321" id="VGk-ju-6sQ"/>
@@ -59,20 +59,20 @@
                                         </prototypes>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sd4-3N-lsn">
-                                        <rect key="frame" x="0.0" y="354.33333333333337" width="390" height="170.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="356" width="390" height="169"/>
                                         <subviews>
                                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="3Et-Mc-afg">
-                                                <rect key="frame" x="15" y="53.333333333333258" width="280" height="51"/>
+                                                <rect key="frame" x="15" y="55" width="280" height="51"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judul" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dhs-2b-SYN">
-                                                <rect key="frame" x="15" y="14.999999999999998" width="360" height="23.333333333333329"/>
+                                                <rect key="frame" x="15" y="15" width="360" height="25"/>
                                                 <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swk-dr-TEZ">
-                                                <rect key="frame" x="305" y="61" width="75" height="36"/>
+                                                <rect key="frame" x="305" y="62.666666666666629" width="75" height="36"/>
                                                 <color key="backgroundColor" name="AvocadoGreen"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="6CC-6U-rYY"/>
@@ -100,7 +100,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih Makanan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al8-xj-XIf">
-                                        <rect key="frame" x="25" y="4.9999999999999982" width="340" height="23.333333333333329"/>
+                                        <rect key="frame" x="25" y="5" width="340" height="25"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -140,7 +140,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih Makanan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcU-MM-dUF">
-                                        <rect key="frame" x="141.66666666666666" y="64.666666666666671" width="106.66666666666666" height="20"/>
+                                        <rect key="frame" x="139.66666666666666" y="64" width="110.66666666666666" height="21.333333333333329"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -224,49 +224,49 @@
                                                         <rect key="frame" x="30" y="152.66666666666669" width="330" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rew-7H-VJU">
-                                                                <rect key="frame" x="15.000000000000004" y="5" width="44.333333333333343" height="21"/>
+                                                                <rect key="frame" x="15" y="5.0000000000000018" width="48" height="22.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUa-iP-R3l">
-                                                                <rect key="frame" x="15.333333333333336" y="31" width="44" height="14"/>
+                                                                <rect key="frame" x="17" y="32.666666666666515" width="44" height="15"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="12"/>
                                                                 <color key="textColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAB-Xi-c15">
-                                                                <rect key="frame" x="79.333333333333329" y="5" width="44.333333333333329" height="21"/>
+                                                                <rect key="frame" x="83" y="5.0000000000000018" width="48" height="22.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z30-oe-fiw">
-                                                                <rect key="frame" x="143.66666666666666" y="5" width="107" height="21"/>
+                                                                <rect key="frame" x="151" y="5.0000000000000018" width="96" height="22.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carbohydrate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7g-Zp-lJB">
-                                                                <rect key="frame" x="160.33333333333334" y="31" width="73.666666666666657" height="14"/>
+                                                                <rect key="frame" x="160.33333333333334" y="32.666666666666515" width="77.333333333333343" height="15"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="12"/>
                                                                 <color key="textColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zHC-nV-wIO">
-                                                                <rect key="frame" x="270.66666666666669" y="5" width="44.333333333333314" height="21"/>
+                                                                <rect key="frame" x="267" y="5.0000000000000018" width="48" height="22.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoQ-Tm-N5g">
-                                                                <rect key="frame" x="273.33333333333331" y="31" width="39" height="14"/>
+                                                                <rect key="frame" x="271.66666666666669" y="32.666666666666515" width="39" height="15"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="12"/>
                                                                 <color key="textColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9II-WS-iVw">
-                                                                <rect key="frame" x="92.666666666666671" y="31" width="18" height="14"/>
+                                                                <rect key="frame" x="98" y="32.666666666666515" width="18" height="15"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="12"/>
                                                                 <color key="textColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
@@ -512,20 +512,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brooke-lark-nBtmglfY0HU-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="dY1-dX-Bix">
-                                <rect key="frame" x="0.0" y="25" width="390" height="250"/>
+                                <rect key="frame" x="0.0" y="100" width="390" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="390" id="R8e-LF-1VG"/>
                                     <constraint firstAttribute="height" constant="250" id="sn7-hP-6Vi"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2b4-hQ-uAC">
-                                <rect key="frame" x="0.0" y="275" width="390" height="515"/>
+                                <rect key="frame" x="0.0" y="350" width="390" height="440"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H15-bb-NKR">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="515"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="440"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYW-kj-vNZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="1407"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="1454.6666666666667"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yoghurt with Fruitswithout fruits" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPO-eE-uIT">
                                                         <rect key="frame" x="30" y="25" width="330" height="60"/>
@@ -537,22 +537,22 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBi-lL-KfU">
-                                                        <rect key="frame" x="0.0" y="297" width="390" height="1095"/>
+                                                        <rect key="frame" x="0.0" y="298.33333333333337" width="390" height="1141.333333333333"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Berapa Banyak ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJO-dp-3lD">
-                                                                <rect key="frame" x="20" y="20" width="350" height="23.333333333333329"/>
+                                                                <rect key="frame" x="20" y="20" width="350" height="25"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hiq-bu-ztu">
-                                                                <rect key="frame" x="15" y="48.333333333333371" width="360" height="180"/>
+                                                                <rect key="frame" x="15" y="50" width="360" height="180"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="180" id="Uon-5q-W1y"/>
                                                                 </constraints>
                                                             </pickerView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kapan Makannya ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0A-J7-hpq">
-                                                                <rect key="frame" x="20" y="243.33333333333337" width="350" height="20"/>
+                                                                <rect key="frame" x="20" y="245" width="350" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="ynv-lx-3EZ"/>
                                                                 </constraints>
@@ -561,50 +561,50 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moodnya Gimana?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPb-Ro-Nzq">
-                                                                <rect key="frame" x="20" y="443.33333333333337" width="350" height="23.333333333333314"/>
+                                                                <rect key="frame" x="20" y="444.99999999999989" width="350" height="25"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="uMZ-ZE-gKx">
-                                                                <rect key="frame" x="15" y="278.33333333333337" width="360" height="150"/>
+                                                                <rect key="frame" x="15" y="280" width="360" height="150"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="150" id="j6Z-we-P4G"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ack-os-Iob">
-                                                                    <size key="itemSize" width="122" height="44"/>
+                                                                    <size key="itemSize" width="125" height="30"/>
                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    <inset key="sectionInset" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
                                                             </collectionView>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XHs-pP-CJ3">
-                                                                <rect key="frame" x="15" y="685" width="360" height="150"/>
+                                                                <rect key="frame" x="15" y="689.99999999999989" width="360" height="150"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="150" id="p07-fe-K4D"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O41-Lb-LQv">
-                                                                    <size key="itemSize" width="122" height="44"/>
+                                                                    <size key="itemSize" width="125" height="30"/>
                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    <inset key="sectionInset" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
                                                             </collectionView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agw-Q4-QdI">
-                                                                <rect key="frame" x="0.0" y="850" width="390" height="245"/>
+                                                                <rect key="frame" x="0.0" y="919.99999999999989" width="390" height="221.33333333333337"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrisi Makananmu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21P-zG-O4d">
-                                                                        <rect key="frame" x="25" y="25" width="340" height="20"/>
+                                                                        <rect key="frame" x="25" y="25" width="340" height="21.333333333333329"/>
                                                                         <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5G-bP-MXd">
-                                                                        <rect key="frame" x="20" y="60" width="150" height="60"/>
+                                                                        <rect key="frame" x="20" y="61.333333333333485" width="150" height="60"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kalori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTO-PD-Evr">
                                                                                 <rect key="frame" x="10" y="34" width="130" height="21"/>
@@ -613,7 +613,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 cal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RY-OK-q7S">
-                                                                                <rect key="frame" x="15" y="10" width="120" height="20"/>
+                                                                                <rect key="frame" x="15" y="9.9999999999999982" width="120" height="21.333333333333329"/>
                                                                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -633,7 +633,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONv-e2-bH4">
-                                                                        <rect key="frame" x="215" y="60" width="150" height="60"/>
+                                                                        <rect key="frame" x="215" y="61.333333333333485" width="150" height="60"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Karbohidrat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CZ0-Qp-uQx">
                                                                                 <rect key="frame" x="10" y="34" width="130" height="21"/>
@@ -642,7 +642,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50gr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axs-Mb-acB">
-                                                                                <rect key="frame" x="15" y="10" width="120" height="20"/>
+                                                                                <rect key="frame" x="15" y="9.9999999999999982" width="120" height="21.333333333333329"/>
                                                                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -662,7 +662,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9M6-kx-gW7">
-                                                                        <rect key="frame" x="215" y="135" width="150" height="60"/>
+                                                                        <rect key="frame" x="215" y="136.33333333333348" width="150" height="60"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lemak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7g-0v-Woz">
                                                                                 <rect key="frame" x="10" y="34" width="130" height="21"/>
@@ -671,7 +671,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20gr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJK-re-GdD">
-                                                                                <rect key="frame" x="15" y="10" width="120" height="20"/>
+                                                                                <rect key="frame" x="15" y="9.9999999999999982" width="120" height="21.333333333333329"/>
                                                                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -691,7 +691,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPk-Vm-xaz">
-                                                                        <rect key="frame" x="20" y="135" width="150" height="60"/>
+                                                                        <rect key="frame" x="20" y="136.33333333333348" width="150" height="60"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Oi-7Z-JkR">
                                                                                 <rect key="frame" x="10" y="34" width="130" height="21"/>
@@ -700,7 +700,7 @@
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8gr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1z-jV-u4e">
-                                                                                <rect key="frame" x="15" y="10" width="120" height="20"/>
+                                                                                <rect key="frame" x="15" y="9.9999999999999982" width="120" height="21.333333333333329"/>
                                                                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -728,43 +728,58 @@
                                                                     <constraint firstAttribute="trailing" secondItem="ONv-e2-bH4" secondAttribute="trailing" constant="25" id="KJv-l1-18a"/>
                                                                     <constraint firstItem="21P-zG-O4d" firstAttribute="top" secondItem="agw-Q4-QdI" secondAttribute="top" constant="25" id="Pkq-is-Gmp"/>
                                                                     <constraint firstItem="9M6-kx-gW7" firstAttribute="leading" secondItem="WPk-Vm-xaz" secondAttribute="trailing" priority="750" constant="45" id="R27-Y1-CiV"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="WPk-Vm-xaz" secondAttribute="bottom" constant="50" id="Rps-xk-7FT"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="9M6-kx-gW7" secondAttribute="bottom" constant="50" id="SHZ-CG-fgx"/>
                                                                     <constraint firstItem="g5G-bP-MXd" firstAttribute="leading" secondItem="agw-Q4-QdI" secondAttribute="leading" constant="20" id="Tm5-Tb-T5a"/>
                                                                     <constraint firstItem="9M6-kx-gW7" firstAttribute="top" secondItem="ONv-e2-bH4" secondAttribute="bottom" constant="15" id="XRp-0l-2hz"/>
                                                                     <constraint firstItem="ONv-e2-bH4" firstAttribute="top" secondItem="21P-zG-O4d" secondAttribute="bottom" constant="15" id="Y6F-0L-En0"/>
                                                                     <constraint firstItem="g5G-bP-MXd" firstAttribute="top" secondItem="21P-zG-O4d" secondAttribute="bottom" constant="15" id="Z1B-M6-ehs"/>
                                                                     <constraint firstItem="WPk-Vm-xaz" firstAttribute="leading" secondItem="agw-Q4-QdI" secondAttribute="leading" constant="20" id="f6X-ns-F4U"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="WPk-Vm-xaz" secondAttribute="bottom" constant="25" id="jVu-x1-SPn"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="9M6-kx-gW7" secondAttribute="bottom" constant="25" id="mHX-ul-vXH"/>
                                                                     <constraint firstItem="ONv-e2-bH4" firstAttribute="leading" secondItem="g5G-bP-MXd" secondAttribute="trailing" priority="750" id="osE-iy-s6g"/>
                                                                     <constraint firstItem="21P-zG-O4d" firstAttribute="leading" secondItem="agw-Q4-QdI" secondAttribute="leading" constant="25" id="qOT-6x-GGP"/>
                                                                 </constraints>
                                                             </view>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="iaV-ny-HBS">
-                                                                <rect key="frame" x="15" y="481.66666666666674" width="360" height="150"/>
+                                                                <rect key="frame" x="15" y="484.99999999999989" width="360" height="150"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="150" id="4gD-Tv-UTd"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SDU-7H-yyP">
-                                                                    <size key="itemSize" width="122" height="44"/>
+                                                                    <size key="itemSize" width="125" height="30"/>
                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    <inset key="sectionInset" minX="25" minY="0.0" maxX="25" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells/>
                                                             </collectionView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lagi Ngapain Pas Makan ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43L-YS-PwG">
-                                                                <rect key="frame" x="20" y="646.66666666666674" width="350" height="23.333333333333371"/>
+                                                                <rect key="frame" x="20" y="649.99999999999989" width="350" height="25"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="20"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6k5-XJ-0hW">
+                                                                <rect key="frame" x="20" y="854.99999999999989" width="350" height="50"/>
+                                                                <color key="backgroundColor" name="PinkBerry"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="I4r-wL-Ray"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
+                                                                <state key="normal" title="Hapus">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="buttonHappusPressed:" destination="cgL-tV-Hkb" eventType="touchUpInside" id="w3G-J0-Ult"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="MPb-Ro-Nzq" firstAttribute="leading" secondItem="SBi-lL-KfU" secondAttribute="leading" constant="20" id="3Dg-bQ-qjc"/>
                                                             <constraint firstItem="MPb-Ro-Nzq" firstAttribute="top" secondItem="uMZ-ZE-gKx" secondAttribute="bottom" constant="15" id="4Vk-yq-5CB"/>
                                                             <constraint firstAttribute="trailing" secondItem="43L-YS-PwG" secondAttribute="trailing" constant="20" id="77x-il-LLW"/>
+                                                            <constraint firstAttribute="trailing" secondItem="6k5-XJ-0hW" secondAttribute="trailing" constant="20" id="7Sq-ob-KtS"/>
                                                             <constraint firstItem="agw-Q4-QdI" firstAttribute="leading" secondItem="SBi-lL-KfU" secondAttribute="leading" id="Gu5-Hj-fLx"/>
                                                             <constraint firstItem="iaV-ny-HBS" firstAttribute="top" secondItem="MPb-Ro-Nzq" secondAttribute="bottom" constant="15" id="HOb-79-GH6"/>
                                                             <constraint firstAttribute="trailing" secondItem="MPb-Ro-Nzq" secondAttribute="trailing" constant="20" id="JmZ-kp-t3K"/>
@@ -775,6 +790,7 @@
                                                             <constraint firstItem="F0A-J7-hpq" firstAttribute="centerX" secondItem="SBi-lL-KfU" secondAttribute="centerX" id="T1M-1n-5J1"/>
                                                             <constraint firstItem="F0A-J7-hpq" firstAttribute="top" secondItem="Hiq-bu-ztu" secondAttribute="bottom" constant="15" id="WeB-SE-tBQ"/>
                                                             <constraint firstItem="IJO-dp-3lD" firstAttribute="top" secondItem="SBi-lL-KfU" secondAttribute="top" constant="20" id="XEA-Tw-iOq"/>
+                                                            <constraint firstItem="agw-Q4-QdI" firstAttribute="top" secondItem="6k5-XJ-0hW" secondAttribute="bottom" constant="15" id="XpH-Fj-Aeq"/>
                                                             <constraint firstItem="IJO-dp-3lD" firstAttribute="leading" secondItem="SBi-lL-KfU" secondAttribute="leading" constant="20" id="byR-TZ-ALm"/>
                                                             <constraint firstAttribute="trailing" secondItem="uMZ-ZE-gKx" secondAttribute="trailing" constant="15" id="cF7-hT-o9V"/>
                                                             <constraint firstAttribute="trailing" secondItem="Hiq-bu-ztu" secondAttribute="trailing" constant="15" id="cTo-WH-mzK"/>
@@ -784,35 +800,36 @@
                                                             <constraint firstItem="uMZ-ZE-gKx" firstAttribute="top" secondItem="F0A-J7-hpq" secondAttribute="bottom" constant="15" id="gka-Ob-iKd"/>
                                                             <constraint firstAttribute="trailing" secondItem="agw-Q4-QdI" secondAttribute="trailing" id="hSv-ca-V1s"/>
                                                             <constraint firstAttribute="trailing" secondItem="XHs-pP-CJ3" secondAttribute="trailing" constant="15" id="hTD-Eu-tQq"/>
-                                                            <constraint firstItem="agw-Q4-QdI" firstAttribute="top" secondItem="XHs-pP-CJ3" secondAttribute="bottom" constant="15" id="iGQ-dd-j28"/>
+                                                            <constraint firstItem="6k5-XJ-0hW" firstAttribute="leading" secondItem="SBi-lL-KfU" secondAttribute="leading" constant="20" id="hzZ-ec-k0l"/>
                                                             <constraint firstItem="XHs-pP-CJ3" firstAttribute="top" secondItem="43L-YS-PwG" secondAttribute="bottom" constant="15" id="m0p-rX-cwb"/>
                                                             <constraint firstAttribute="trailing" secondItem="F0A-J7-hpq" secondAttribute="trailing" constant="20" id="oI7-a1-AR5"/>
                                                             <constraint firstAttribute="bottom" secondItem="agw-Q4-QdI" secondAttribute="bottom" id="rH6-Ys-cFj"/>
                                                             <constraint firstItem="F0A-J7-hpq" firstAttribute="leading" secondItem="SBi-lL-KfU" secondAttribute="leading" constant="20" id="s27-6N-5Mz"/>
+                                                            <constraint firstItem="6k5-XJ-0hW" firstAttribute="top" secondItem="XHs-pP-CJ3" secondAttribute="bottom" constant="15" id="vgv-xA-3Bn"/>
                                                             <constraint firstItem="Hiq-bu-ztu" firstAttribute="leading" secondItem="SBi-lL-KfU" secondAttribute="leading" constant="15" id="vnF-NJ-XWV"/>
                                                             <constraint firstItem="43L-YS-PwG" firstAttribute="leading" secondItem="SBi-lL-KfU" secondAttribute="leading" constant="20" id="yN4-Wo-Xvq"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bub-bd-EYc">
-                                                        <rect key="frame" x="0.0" y="107" width="390" height="190"/>
+                                                        <rect key="frame" x="0.0" y="107.00000000000001" width="390" height="191.33333333333337"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrisi Makananmu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2FD-m4-LIO">
-                                                                <rect key="frame" x="25" y="0.0" width="340" height="20"/>
+                                                                <rect key="frame" x="25" y="0.0" width="340" height="21.333333333333332"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Js3-ev-MaH">
-                                                                <rect key="frame" x="20" y="35" width="150" height="60"/>
+                                                                <rect key="frame" x="20" y="36.333333333333314" width="150" height="60"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kalori" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9h-PM-Zld">
-                                                                        <rect key="frame" x="10" y="34" width="130" height="21"/>
+                                                                        <rect key="frame" x="10" y="34.000000000000057" width="130" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 cal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UME-XI-a9a">
-                                                                        <rect key="frame" x="15" y="10" width="120" height="20"/>
+                                                                        <rect key="frame" x="15" y="9.9999999999999982" width="120" height="21.333333333333329"/>
                                                                         <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -832,16 +849,16 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNs-q0-ReD">
-                                                                <rect key="frame" x="215" y="35" width="150" height="60"/>
+                                                                <rect key="frame" x="215" y="36.333333333333314" width="150" height="60"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Karbohidrat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWR-TH-dWv">
-                                                                        <rect key="frame" x="10" y="34" width="130" height="21"/>
+                                                                        <rect key="frame" x="10" y="34.000000000000057" width="130" height="21"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50gr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFI-oB-Dea">
-                                                                        <rect key="frame" x="15" y="10" width="120" height="20"/>
+                                                                        <rect key="frame" x="15" y="9.9999999999999982" width="120" height="21.333333333333329"/>
                                                                         <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -861,7 +878,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cf0-oI-zSi">
-                                                                <rect key="frame" x="215" y="110" width="150" height="60"/>
+                                                                <rect key="frame" x="215" y="111.33333333333337" width="150" height="60"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lemak" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5m-9F-deW">
                                                                         <rect key="frame" x="10" y="34" width="130" height="21"/>
@@ -870,7 +887,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20gr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXp-tC-LDa">
-                                                                        <rect key="frame" x="15" y="10" width="120" height="20"/>
+                                                                        <rect key="frame" x="15" y="9.9999999999999982" width="120" height="21.333333333333329"/>
                                                                         <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -890,7 +907,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6p-Gr-tho">
-                                                                <rect key="frame" x="20" y="110" width="150" height="60"/>
+                                                                <rect key="frame" x="20" y="111.33333333333337" width="150" height="60"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKE-KA-Lhu">
                                                                         <rect key="frame" x="10" y="34" width="130" height="21"/>
@@ -899,7 +916,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8gr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8Q-5a-IYB">
-                                                                        <rect key="frame" x="15" y="10" width="120" height="20"/>
+                                                                        <rect key="frame" x="15" y="9.9999999999999982" width="120" height="21.333333333333329"/>
                                                                         <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -993,7 +1010,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pilih Makanan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDX-77-ZId">
-                                        <rect key="frame" x="141.66666666666666" y="45" width="106.66666666666666" height="20"/>
+                                        <rect key="frame" x="139.66666666666666" y="44.333333333333336" width="110.66666666666666" height="21.333333333333336"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1032,12 +1049,13 @@
                             <constraint firstItem="dY1-dX-Bix" firstAttribute="leading" secondItem="4Jb-Do-fkD" secondAttribute="leading" id="f3r-aW-nc7"/>
                             <constraint firstItem="WMm-ef-075" firstAttribute="leading" secondItem="4Jb-Do-fkD" secondAttribute="leading" id="o9k-TC-Ozg"/>
                             <constraint firstAttribute="trailing" secondItem="WMm-ef-075" secondAttribute="trailing" id="sls-Sf-YJI"/>
-                            <constraint firstItem="dY1-dX-Bix" firstAttribute="top" secondItem="4Jb-Do-fkD" secondAttribute="top" constant="25" id="x3H-gT-bha"/>
+                            <constraint firstItem="dY1-dX-Bix" firstAttribute="top" secondItem="4Jb-Do-fkD" secondAttribute="top" constant="100" id="x3H-gT-bha"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZYT-DE-c81"/>
                     <connections>
                         <outlet property="buttonBack" destination="vnt-s5-7Gr" id="uWG-Vl-MTv"/>
+                        <outlet property="buttonHapus" destination="6k5-XJ-0hW" id="qoH-8L-Erh"/>
                         <outlet property="buttonSimpanOrUbah" destination="vS8-9s-Sf5" id="K3o-ll-UzC"/>
                         <outlet property="feelWhenEatCollectionView" destination="iaV-ny-HBS" id="4qc-14-kTQ"/>
                         <outlet property="foodNameLabel" destination="DPO-eE-uIT" id="aEL-Ny-VjR"/>
@@ -1093,6 +1111,9 @@
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <namedColor name="AvocadoGreen">
             <color red="0.37999999523162842" green="0.55000001192092896" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PinkBerry">
+            <color red="0.84999999999999998" green="0.35999999999999999" blue="0.39000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
