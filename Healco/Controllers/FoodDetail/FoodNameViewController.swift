@@ -130,22 +130,23 @@ class FoodNameViewController: UIViewController {
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if let vc = segue.destination as? FoodDetailViewController{
-//
-//            if(segue.identifier == "goToDetailVC"){
-//                //                if isSearching{
-//                //                    vc.foodId = filteredFoodNames[selectedRow]
-//                //                }
-//                //                else{
-//                vc.selectedFood = selectedFood
-//                //                }
-//                vc.modalPresentationStyle = .pageSheet
-//            }
-//
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? FoodDetailViewController{
+            if(segue.identifier == "goToDetailVC"){
+                
+                
+                //                if isSearching{
+                //                    vc.foodId = filteredFoodNames[selectedRow]
+                //                }
+                //                else{
+                vc.selectedFood = selectedFood
+                vc.statusSave = true
+                //                }
+                vc.modalPresentationStyle = .pageSheet
+            }
+
+        }
+    }
 }
 
 extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate{

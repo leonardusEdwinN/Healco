@@ -24,12 +24,13 @@ class ReasonToEatCollectionViewCell: UICollectionViewCell {
     }
     
     func changeUpdate(){
+        
         if(isSelected){
-            self.viewReasonToEat.backgroundColor = UIColor(red: 0.38, green: 0.58, blue: 0.29, alpha: 1.00)
+            self.viewReasonToEat.backgroundColor = UIColor(named: "AvocadoGreen")
             self.labelReasonToEat.textColor = .white
         }else{
-            self.viewReasonToEat.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.98, alpha: 1.00)
-            self.labelReasonToEat.textColor = UIColor(red: 0.55, green: 0.55, blue: 0.55, alpha: 1.00)
+            self.viewReasonToEat.backgroundColor = UIColor(named: "MangoYoghurt")
+            self.labelReasonToEat.textColor = UIColor(named: "StateUnactiveText")
             
         }
     }

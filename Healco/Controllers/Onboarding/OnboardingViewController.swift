@@ -41,13 +41,13 @@ class OnboardingViewController: UIViewController {
         collectionView.delegate = self
     }
     
-    
+    //--Kelny Verision
     @IBAction func btn_next_click(_ sender: Any) {
         if currentPage == slides.count - 1 {
 //            let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil);
 //
 //            let viewController = storyboard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController;
-            
+
             let storyboard = UIStoryboard(name: "Onboarding", bundle: nil);
             let viewController = storyboard.instantiateViewController(withIdentifier: "OnboardingLogin")
             viewController.modalTransitionStyle = .crossDissolve
@@ -60,6 +60,22 @@ class OnboardingViewController: UIViewController {
             collectionView.isPagingEnabled = true
         }
     }
+    
+//    @IBAction func btn_next_click(_ sender: Any) {
+//        if currentPage == slides.count - 1 {
+//                let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
+//
+//                let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
+//            viewController.modalTransitionStyle = .crossDissolve
+//            viewController.modalPresentationStyle = .fullScreen
+//            self.present(viewController, animated: true, completion: nil)
+//        } else {
+//            currentPage += 1
+//            collectionView.isPagingEnabled = false
+//            collectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: .centeredHorizontally, animated: true)
+//            collectionView.isPagingEnabled = true
+//        }
+//    }
     
     
 }
