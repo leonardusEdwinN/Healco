@@ -47,8 +47,12 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         makanMalamTextField.isHidden = true
         //genderPickerView.dataSource = self
         //genderPickerView.delegate = self
+        
+        // menjadikan keyboard menjadi numeric
+        tinggiBadanTextField.keyboardType = .numberPad
+        beratBadanTextField.keyboardType = .numberPad
     }
-
+    
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
         //let tglHariIni = Date()
         let formatTglLahir = DateFormatter()
@@ -86,7 +90,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func sarapanSwitch_Turned(_ sender: UISwitch) {
         if(sender.isOn){
             sarapanTextField.isHidden = false
-            //tipeMakan = sender.title!
+            tipeMakan = "Sarapan"
         }
         else{
             sarapanTextField.isHidden = true
@@ -96,7 +100,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func makanSiangSwitch_Turned(_ sender: UISwitch) {
         if sender.isOn{
             makanSiangTextField.isHidden = false
-            //tipeMakan = sender.title!
+            tipeMakan = "Makan Siang"
         }
         else{
             makanSiangTextField.isHidden = true
@@ -106,7 +110,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func makanMalamSwitch_Turned(_ sender: UISwitch) {
         if sender.isOn{
             makanMalamTextField.isHidden = false
-            //tipeMakan = sender.title!
+            tipeMakan = "Makan Malam"
         }
         else{
             makanMalamTextField.isHidden = true
@@ -130,6 +134,15 @@ extension LoginViewController{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         genderTerpilih = gender[row]
+    }
+    
+    func hideKeyboard(){
+        let tapAround: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
+        view.addGestureRecognizer(tapAround)
+    }
+    
+    @objc override func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
 
