@@ -56,7 +56,6 @@
 		EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */; };
 		EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */; };
 		EF886DB626B940540039CFAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF886DB526B940540039CFAC /* LoginViewController.swift */; };
-		EF886DB826B940650039CFAC /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF886DB726B940650039CFAC /* Login.storyboard */; };
 		EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB9682267F08CF00C23BA2 /* FoodModel.swift */; };
 		EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -115,7 +114,6 @@
 		EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodDetail.storyboard; sourceTree = "<group>"; };
 		EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNameViewController.swift; sourceTree = "<group>"; };
 		EF886DB526B940540039CFAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		EF886DB726B940650039CFAC /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		EFAB9682267F08CF00C23BA2 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -303,7 +301,6 @@
 		13970EFF2678A70900B6F11D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EF886DB426B940190039CFAC /* Login */,
 				13B3EC6D26B2B4D700870C20 /* Profile */,
 				13B3EC6826B2AE5F00870C20 /* TabBar */,
 				139398B12680C211004915C9 /* FoodDetail */,
@@ -365,6 +362,7 @@
 				4434291D267C281900A85983 /* OnboardingViewController.swift */,
 				44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */,
 				4434292F267C3FDC00A85983 /* Onboarding.storyboard */,
+				EF886DB526B940540039CFAC /* LoginViewController.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -384,15 +382,6 @@
 				926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		EF886DB426B940190039CFAC /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				EF886DB526B940540039CFAC /* LoginViewController.swift */,
-				EF886DB726B940650039CFAC /* Login.storyboard */,
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,7 +456,6 @@
 				1394FF5C267AEC8E0062813A /* Quicksand-Medium.ttf in Resources */,
 				1394FF5D267AEC8E0062813A /* Quicksand-Regular.ttf in Resources */,
 				1394FF5E267AEC8E0062813A /* Quicksand-Bold.ttf in Resources */,
-				EF886DB826B940650039CFAC /* Login.storyboard in Resources */,
 				44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */,
 				137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */,
 				1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */,
