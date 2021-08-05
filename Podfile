@@ -7,6 +7,6 @@ target 'Healco' do
 
   # Pods for Healco
 
-pod 'Charts'
+#pod 'Charts'
 
 end

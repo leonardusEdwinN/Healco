@@ -110,9 +110,9 @@
             filePath = "Healco/Controllers/Journal/JournalViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "431"
-            endingLineNumber = "431"
-            landmarkName = "myFetchRequestByDate(date:)"
+            startingLineNumber = "443"
+            endingLineNumber = "443"
+            landmarkName = "getFoodFromCoreDataByName(name:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -126,10 +126,10 @@
             filePath = "Healco/Controllers/Journal/JournalViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "457"
-            endingLineNumber = "457"
-            landmarkName = "getArrangedDateInOneWeek()"
-            landmarkType = "7">
+            startingLineNumber = "469"
+            endingLineNumber = "469"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -142,8 +142,8 @@
             filePath = "Healco/Controllers/Journal/JournalViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "456"
-            endingLineNumber = "456"
+            startingLineNumber = "468"
+            endingLineNumber = "468"
             landmarkName = "JournalViewController"
             landmarkType = "21">
          </BreakpointContent>
