@@ -12,6 +12,7 @@ import UIKit
 
 class JournalViewController : UIViewController{
     
+    @IBOutlet weak var viewScrolling: UIView!
     
     @IBOutlet weak var addJournalButton: UIButton!
     //Header
@@ -64,6 +65,7 @@ class JournalViewController : UIViewController{
     var dayString : [String] = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"]
     var dateForDataBase : [String] = []
     var selectedBefore : IndexPath!
+    var selectedDate : String = ""
     
     //properties
     let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
@@ -77,25 +79,15 @@ class JournalViewController : UIViewController{
     
     var fetchData: [NSManagedObject] = []
     
-    //create imagepicker viewcontroller
-    private var imagePickerControler =  UIImagePickerController()
+//    //create imagepicker viewcontroller
+//    private var imagePickerControler =  UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.getWidthViewNutrition()
         self.getDateArray()
         self.createUI()
-        
-        
-        
-        
-        
-        
-        
-        
-        
 //        let weekday = Calendar.current.component(.weekday, from: Date())
 //        print("weekday : \(weekday)")
 //        for n in (1...weekday - 1).reversed(){
@@ -154,10 +146,53 @@ class JournalViewController : UIViewController{
 //        toolBar.sizeToFit()
 //        self.view.addSubview(toolBar)
         
-        PresentActionSheet()
+        
+        
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.preferredDatePickerStyle = .inline
+        datePicker.datePickerStyle = UIDatePickerStyle(rawValue: <#T##Int#>)
+        datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
+
+//        datePicker.frame = CGRect(x:0, y:250, width:100, height:50)
+        datePicker.backgroundColor = .secondarySystemBackground
+//        // you probably don't want to set background color as black
+//        datePicker.backgroundColor = .white
+
+        self.view.addSubview(datePicker)
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        datePicker.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        datePicker.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
+        
+        
+        
+//        toolBar = UIToolbar(frame: CGRect(x: 0, y: (self.view.bounds.size.height - datePicker.bounds.size.height) - 150, width: UIScreen.main.bounds.size.width, height: 50))
+//        let topBarTitleLabel = UILabel.init(frame: (CGRect.init(origin: CGPoint.init(x: 0.0, y: 0.0), size: CGSize.init(width: 0.0, height: 0.0))))
+//        topBarTitleLabel.text = "Change Date"
+////        topBarTitleLabel.sizeToFit()
+//        topBarTitleLabel.backgroundColor = UIColor.clear
+//        topBarTitleLabel.textColor = UIColor.gray
+//        topBarTitleLabel.textAlignment = NSTextAlignment.center
+//        let topBarButtonItemTitleLabel = UIBarButtonItem.init(customView: topBarTitleLabel)
+//
+////        let buttonCancel = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(self.onDoneButtonClick))
+//        let buttonDone = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtonClick))
+//        let flexibleBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+//        self.toolBar.setItems([flexibleBarButtonItem, topBarButtonItemTitleLabel, flexibleBarButtonItem, buttonDone], animated: false)
+//        self.view.addSubview(toolBar)
+        
+        
     }
     
-    @objc func onCancelButtonClick() {
+
+
+    
+//    @objc func onCancelButtonClick() {
+//        toolBar.removeFromSuperview()
+//        datePicker.removeFromSuperview()
+//    }
+    
+    @objc func onDoneButtonClick() {
         toolBar.removeFromSuperview()
         datePicker.removeFromSuperview()
     }
@@ -169,9 +204,40 @@ class JournalViewController : UIViewController{
         
         if let date = sender?.date {
 //            labelDate.text = dateFormatter.string(from: date)
+            print("TANGGAL SELECTED : \(dateFormatter.string(from: date))")
+            self.selectedDate = dateFormatter.string(from: date)
             datePicker.removeFromSuperview()
-            toolBar.removeFromSuperview()
+//            toolBar.removeFromSuperview()
         }
+    }
+    
+    //presentation Action sheet
+    private func PresentActionSheet(datePicker : UIDatePicker){
+        
+        
+        let actionSheet = UIAlertController(title: "Select Photo", message: "", preferredStyle: .actionSheet)
+        
+        
+        //button 2
+        let ChangeDate = UIAlertAction(title: "Camera", style: .default){ (action: UIAlertAction) in
+            datePicker.datePickerMode = UIDatePicker.Mode.date
+            datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
+            let pickerSize : CGSize = datePicker.sizeThatFits(CGSize.zero)
+            datePicker.frame = CGRect(x:0.0, y:250, width:pickerSize.width, height:460)
+    //        datePicker.backgroundColor = UIColor(named: "MangoJuice")
+            // you probably don't want to set background color as black
+            datePicker.backgroundColor = .black
+            self.view.addSubview(datePicker)
+            
+        }
+        
+        //button 3
+        let cancel = UIAlertAction(title: "Cancel", style:.cancel, handler: nil)
+        
+        actionSheet.addAction(ChangeDate)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true, completion: nil)
     }
     
     @objc func goToFoodRecog() {
@@ -208,72 +274,10 @@ class JournalViewController : UIViewController{
         return result
     }
     
-    //presentation Action sheet
-    private func PresentActionSheet(){
-        
-        
-        let actionSheet = UIAlertController(title: "Select Photo", message: "Choose", preferredStyle: .actionSheet)
-        
-        //button 1
-        let libraryAction = UIAlertAction(title: "Photo Library", style: .default){ (action: UIAlertAction) in
-            if UIImagePickerController.isSourceTypeAvailable(.camera){
-                self.imagePickerControler.sourceType = .photoLibrary
-                self.imagePickerControler.delegate = self
-                self.imagePickerControler.allowsEditing = true
-                self.present(self.imagePickerControler, animated: true, completion: nil)
-            }else{
-                fatalError("Photo library not avaliable")
-            }
-        }
-        
-        //button 2
-        let CameraAction = UIAlertAction(title: "Camera", style: .default){ (action: UIAlertAction) in
-            if UIImagePickerController.isSourceTypeAvailable(.camera){
-                self.imagePickerControler.sourceType = .camera
-                self.imagePickerControler.delegate = self
-                self.imagePickerControler.allowsEditing = true
-                self.present(self.imagePickerControler, animated: true, completion: nil)
-            }
-            else{
-                fatalError("Camera not Avaliable")
-            }
-            
-        }
-        
-        //button 3
-        let cancel = UIAlertAction(title: "Cancel", style:.cancel, handler: nil)
-        
-        actionSheet.addAction(libraryAction)
-        actionSheet.addAction(CameraAction)
-        actionSheet.addAction(cancel)
-        
-        present(actionSheet, animated: true, completion: nil)
-    }
-}
-
-extension JournalViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            
-            //picker.dismiss(animated: true, completion: nil)
-            
-            //go to another viewcontroller
-            let storyboard : UIStoryboard = UIStoryboard(name: "FoodDetail", bundle: nil)
-            let VC  = storyboard.instantiateViewController(withIdentifier: "FoodNameViewController") as! FoodNameViewController
-            
-            //parsing image to  another view
-            VC.imageHasilFoto = uiImage
-            VC.modalPresentationStyle = .fullScreen
-            picker.present(VC, animated: true, completion: nil)
-            
-
-        }
-    }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true , completion: nil)
-    }
 }
+
+
 // MARK : - UICollectionViewDataSource
 extension JournalViewController : UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -300,7 +304,22 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
-            cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item])// unteuk set data
+            var tanggalHariIni = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd"
+            formatter.locale = Locale(identifier: "id_ID")
+            let tanggalCell = formatter.string(from: tanggalHariIni)
+            
+            print("PERBANDINGAN : \(tanggalCell) :: \(date[indexPath.item])")
+            tanggalCell == date[indexPath.item] ? print("SAME DATE") : print("WRONG DATE")
+            if(tanggalCell == date[indexPath.item]){
+//                cell.viewOuter.backgroundColor = .green
+                cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item],isToday: true)
+            }else{
+                cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item],isToday: false)
+            }
+            
+//            cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item])// unteuk set data
 
             return cell
         }else  {
@@ -477,6 +496,7 @@ extension JournalViewController{
             }
 //            print("index : \(indexOfDate) :: TANGGAL : \(tanggal)")
             formatter.dateFormat = "dd"
+            formatter.locale = Locale(identifier: "id_ID")
             let tanggalPrint = formatter.string(from: tanggal!)
             date.append(tanggalPrint)
 
