@@ -109,8 +109,8 @@ class JournalViewController : UIViewController{
 //        let formattedDate = format.string(from: date)
 //        print("FORMATTED DATE : \(formattedDate)")
 //        fetchData = myFetchRequestByDate(date: formattedDate)
-        let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(backgroundTap(gesture:)));
-       viewScrolling.addGestureRecognizer(gestureRecognizer)
+//        let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(backgroundTap(gesture:)));
+//       viewScrolling.addGestureRecognizer(gestureRecognizer)
 
            
         let data = CoreDataClass()
@@ -201,13 +201,12 @@ class JournalViewController : UIViewController{
 //        performSegue(withIdentifier: "goToFoodRecog", sender: self)
 //    }
 //
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "goToFoodRecog",
-//           let foodRecogVC = segue.destination as? FoodRecogVC {
-//            foodRecogVC.modalPresentationStyle = .fullScreen
-//        }
-//    }
-//
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToDetailJournal",
+           let detailJournalVC = segue.destination as? FoodDetailViewController {
+            detailJournalVC.statusEdit = true
+        }
+    }
     
     func calweeksDates(when: Int) -> String {
         var  result = ""
@@ -290,15 +289,44 @@ extension JournalViewController : UICollectionViewDataSource{
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd"
-        let formattedDate = format.string(from: date)
-        fetchData = myFetchRequestByDate(date: formattedDate)
-        if collectionView == self.collectionViewWeekly {
+//        let date = Date()
+//        let format = DateFormatter()
+//        format.dateFormat = "yyyy-MM-dd"
+//        let formattedDate = format.string(from: date)
+//        fetchData = myFetchRequestByDate(date: formattedDate)
+        
+        switch collectionView {
+        case self.collectionViewWeekly:
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
-//            cell.changeUpdate()
+            print("WEEKLY CELL SELECTED \(indexPath.item)")
+            break
+        case self.collectionViewSarapan:
+            let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
+            print("SOMETHING CLICKED from sarapan")
+            performSegue(withIdentifier: "goToDetailJournal", sender: self)
+            break
+        case self.collectionViewMakanSiang:
+            let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
+            print("SOMETHING CLICKED FROM SIANG")
+            performSegue(withIdentifier: "goToDetailJournal", sender: self)
+            break
+        case self.collectionViewMakanMalam:
+            let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
+            break
+        case self.collectionViewSnack:
+            let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
+            break
+        default:
+            print("CANNOT SELECT")
         }
+//        if collectionView == self.collectionViewWeekly {
+//            let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
+////            cell.changeUpdate()
+//        }else{
+//            let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
+//            print("SOMETHING CLICKED")
+//            performSegue(withIdentifier: "goToDetailJournal", sender: self)
+//        }
     }
 
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

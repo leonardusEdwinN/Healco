@@ -97,6 +97,7 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var labelLemakValueBottom: UILabel!
     //===========
     
+    @IBOutlet weak var buttonHapus: UIButton!
     
 //    @IBOutlet weak var viewDescription: UIView!
 //    @IBOutlet weak var foodDescriptionLabel: UILabel!
@@ -110,7 +111,7 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var selectedReason: String?
     var selectedTime: String?
     var selectedFeel: String?
-    var statusSave: Bool = true // untuk button status
+    var statusEdit: Bool = false // untuk button status
     
     
     
@@ -120,21 +121,40 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         pickerviewPorsi.dataSource = self
         pickerviewPorsi.delegate = self
+        print("status Edit : \(statusEdit)")
+        print("status food : \(selectedFood)")
         
-        if(statusSave){
+        if(statusEdit){
+            self.buttonSimpanOrUbah.setTitle("Ubah", for: .normal)
+            self.viewTopNutrition.isHidden = false
+            self.viewBottomNutrition.isHidden = true
+            self.buttonHapus.isHidden = false
+            
+            
+            viewBottomNutrition.translatesAutoresizingMaskIntoConstraints = false
+            viewBottomNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            viewTopNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = false
+            
+            
+            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
+            buttonHapus.heightAnchor.constraint(equalToConstant: 0).isActive = false
+            
+        }else{
+            
             self.buttonSimpanOrUbah.setTitle("Simpan", for: .normal)
             self.viewTopNutrition.isHidden = true
             self.viewBottomNutrition.isHidden = false
             
+            self.buttonHapus.isHidden = true
+            
             viewTopNutrition.translatesAutoresizingMaskIntoConstraints = false
             viewTopNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = true
-        }else{
-            self.buttonSimpanOrUbah.setTitle("Ubah", for: .normal)
-            self.viewTopNutrition.isHidden = false
-            self.viewBottomNutrition.isHidden = true
+            viewBottomNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = false
             
-            viewBottomNutrition.translatesAutoresizingMaskIntoConstraints = false
-            viewBottomNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            
+            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
+            buttonHapus.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            
         }
         
         
@@ -150,6 +170,8 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     @IBAction func buttonSimpanPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "goToHome", sender: sender)
+    }
+    @IBAction func buttonHappusPressed(_ sender: Any) {
     }
     
     
@@ -191,24 +213,26 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         viewLemakBottom.dropShadow()
         viewProteinBottom.layer.cornerRadius = 15
         viewProteinBottom.dropShadow()
+        
+        buttonHapus.layer.cornerRadius = 15
     }
     
     
     func setData(){
-        foodNameLabel.text = self.selectedFood.foodName
+//        foodNameLabel.text = self.selectedFood.foodName
         
         
-        imagePhoto.image = imageHasilPhoto
-        
-        labelKaloriValueTop.text = String(self.selectedFood.foodCalories) + "kal"
-        labelLemakValueTop.text = String(self.selectedFood.foodFat) + "gr"
-        labelKarbohidratValueTop.text = String(self.selectedFood.foodCarbohydrate) + "gr"
-        labelProteinValueTop.text = String(self.selectedFood.foodProtein) + "gr"
-        
-        labelKaloriValueBottom.text = String(self.selectedFood.foodCalories) + "kal"
-         labelLemakValueBottom.text = String(self.selectedFood.foodFat) + "gr"
-         labelKarbohidratValueBottom.text = String(self.selectedFood.foodCarbohydrate) + "gr"
-         labelProteinValueBottom.text = String(self.selectedFood.foodProtein) + "gr"
+//        imagePhoto.image = imageHasilPhoto
+//
+//        labelKaloriValueTop.text = String(self.selectedFood.foodCalories) + "kal"
+//        labelLemakValueTop.text = String(self.selectedFood.foodFat) + "gr"
+//        labelKarbohidratValueTop.text = String(self.selectedFood.foodCarbohydrate) + "gr"
+//        labelProteinValueTop.text = String(self.selectedFood.foodProtein) + "gr"
+//
+//        labelKaloriValueBottom.text = String(self.selectedFood.foodCalories) + "kal"
+//         labelLemakValueBottom.text = String(self.selectedFood.foodFat) + "gr"
+//         labelKarbohidratValueBottom.text = String(self.selectedFood.foodCarbohydrate) + "gr"
+//         labelProteinValueBottom.text = String(self.selectedFood.foodProtein) + "gr"
     }
     
     /*@IBAction func buttonSubmit_Pressed(_ sender: Any) {
@@ -229,11 +253,10 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }*/
     
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if(segue.identifier == "goToJournalVC"){
-//            let vc = segue.destination as? JournalViewController
-//            vc?.picTakenDetail = imageHasilPhoto
-//            vc?.modalPresentationStyle = .fullScreen
-//        }
+        if(segue.identifier == "goToHome"){
+            let vc = segue.destination as? HomeTabBar
+            vc?.modalPresentationStyle = .fullScreen
+        }
     }
     
     //BMR calculation
