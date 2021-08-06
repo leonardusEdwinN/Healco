@@ -28,7 +28,7 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
         func setupMiddleButton() {
 
             let middleBtn = UIButton(frame: CGRect(x: (self.view.bounds.width / 2)-25, y: -20, width: 50, height: 50))
-            let gradient = CAGradientLayer()
+            //let gradient = CAGradientLayer()
 
 //            gradient.frame = middleBtn.bounds
 //            gradient.colors = [UIColor.gray.cgColor, UIColor.green.cgColor]
