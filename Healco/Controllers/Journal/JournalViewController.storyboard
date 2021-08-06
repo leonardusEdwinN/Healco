@@ -115,28 +115,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday, 11 June 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHF-gt-5Pb">
-                                <rect key="frame" x="20" y="195" width="181" height="31"/>
+                                <rect key="frame" x="20" y="195" width="186.5" height="30"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VUf-fe-FCq">
-                                <rect key="frame" x="0.0" y="231" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="230" width="414" height="200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="74V-Ar-t3e">
                                         <rect key="frame" x="35" y="20" width="160" height="160"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qof-g4-T21">
-                                                <rect key="frame" x="53" y="52.5" width="54" height="55"/>
+                                                <rect key="frame" x="50.5" y="54.5" width="59.5" height="51.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLo-In-WV1">
-                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="35"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="33"/>
                                                         <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="28"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Healthy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fA7-8m-Yzp">
-                                                        <rect key="frame" x="0.0" y="36" width="54" height="19"/>
+                                                        <rect key="frame" x="0.0" y="34" width="59.5" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -153,7 +153,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Chart Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjb-N8-iVf">
-                                                        <rect key="frame" x="29" y="130" width="102" height="30"/>
+                                                        <rect key="frame" x="32" y="130" width="96.5" height="30"/>
                                                         <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -179,7 +179,7 @@
                                         </constraints>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-icon" translatesAutoresizingMaskIntoConstraints="NO" id="bHf-K5-uYz">
-                                        <rect key="frame" x="260" y="76.5" width="24" height="24"/>
+                                        <rect key="frame" x="260" y="74.5" width="24" height="24"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="e9a-v1-Fhe"/>
@@ -187,7 +187,7 @@
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="healthy-icon" translatesAutoresizingMaskIntoConstraints="NO" id="vLD-U6-TuY">
-                                        <rect key="frame" x="260" y="37.5" width="24" height="24"/>
+                                        <rect key="frame" x="260" y="37" width="24" height="24"/>
                                         <color key="tintColor" red="0.38823529410000002" green="0.58431372550000005" blue="0.29411764709999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="QOt-PN-fcZ"/>
@@ -195,7 +195,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Common" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUI-WM-kN5">
-                                        <rect key="frame" x="294" y="79" width="100" height="19"/>
+                                        <rect key="frame" x="294" y="77.5" width="100" height="17.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="jxz-eV-doB"/>
                                         </constraints>
@@ -204,7 +204,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Healthy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cbl-uu-pca">
-                                        <rect key="frame" x="294" y="40" width="100" height="19"/>
+                                        <rect key="frame" x="294" y="40" width="100" height="17.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="spI-Ls-jQg"/>
                                         </constraints>
@@ -213,7 +213,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Unhealthy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaI-YX-Btp">
-                                        <rect key="frame" x="294" y="118" width="100" height="19"/>
+                                        <rect key="frame" x="294" y="115" width="100" height="17.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="itN-eZ-EmF"/>
                                         </constraints>
@@ -222,7 +222,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unhealthy-icon" translatesAutoresizingMaskIntoConstraints="NO" id="5u0-R9-zSu">
-                                        <rect key="frame" x="260" y="115.5" width="24" height="24"/>
+                                        <rect key="frame" x="260" y="112" width="24" height="24"/>
                                         <color key="tintColor" red="1" green="0.38732031259999999" blue="0.38156584869999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="J3P-N4-coL"/>
@@ -250,10 +250,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7BQ-SA-hze">
-                                <rect key="frame" x="120" y="466" width="294" height="396"/>
+                                <rect key="frame" x="120" y="463.5" width="294" height="398.5"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-Sz-lGH">
-                                        <rect key="frame" x="0.0" y="0.0" width="294" height="396"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="398.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="30" minimumInteritemSpacing="20" id="NbQ-ub-4ag">
                                             <size key="itemSize" width="200" height="200"/>
@@ -273,7 +273,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIs-VD-Fbx">
-                                <rect key="frame" x="340" y="195" width="54" height="31"/>
+                                <rect key="frame" x="341" y="195" width="53" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="15"/>
                                 <state key="normal" title="Change">
@@ -298,20 +298,20 @@
                                 <cells/>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today Food Journal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9D-fx-e7F">
-                                <rect key="frame" x="20" y="431" width="374" height="25"/>
+                                <rect key="frame" x="20" y="430" width="374" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add-icon-with-bg_2" translatesAutoresizingMaskIntoConstraints="NO" id="fDl-Ny-Fbl">
-                                <rect key="frame" x="20" y="584" width="100" height="100"/>
+                                <rect key="frame" x="20" y="583" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="95t-e4-wPj"/>
                                     <constraint firstAttribute="width" constant="100" id="Xyg-EB-phN"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A99-S4-2X4">
-                                <rect key="frame" x="139" y="509" width="250" height="250"/>
+                                <rect key="frame" x="139" y="508" width="250" height="250"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noJournal" translatesAutoresizingMaskIntoConstraints="NO" id="MUl-UT-nE1">
                                         <rect key="frame" x="5" y="0.0" width="240" height="150"/>
@@ -321,13 +321,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Add Journal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq1-Xj-3jb">
-                                        <rect key="frame" x="15" y="160" width="220" height="21.5"/>
+                                        <rect key="frame" x="15" y="160" width="220" height="20"/>
                                         <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Today's journal is Empty, Click &quot;+&quot; to add" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZa-ST-9sC">
-                                        <rect key="frame" x="15" y="191.5" width="220" height="48.5"/>
+                                        <rect key="frame" x="15" y="190" width="220" height="50"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                         <nil key="highlightedColor"/>
@@ -354,7 +354,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ringkasan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axj-Ld-ScP">
-                                        <rect key="frame" x="25" y="39.5" width="364" height="31.5"/>
+                                        <rect key="frame" x="25" y="40.5" width="364" height="29.5"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -399,26 +399,6 @@
                             <constraint firstItem="d1D-u4-Bz4" firstAttribute="trailing" secondItem="VUf-fe-FCq" secondAttribute="trailing" id="z4T-po-3JM"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="buttonChangeDate" destination="BIs-VD-Fbx" id="rqP-fN-YM9"/>
-                        <outlet property="collectionViewPhotoGallery" destination="xxQ-Sz-lGH" id="ZUG-Qa-p74"/>
-                        <outlet property="collectionViewWeekly" destination="Eoe-a4-ibg" id="vaI-wh-xdn"/>
-                        <outlet property="imageAddJournal" destination="fDl-Ny-Fbl" id="Lv1-Er-okT"/>
-                        <outlet property="labelCommon" destination="tUI-WM-kN5" id="0za-Zu-Yjz"/>
-                        <outlet property="labelDate" destination="jHF-gt-5Pb" id="vKl-gh-jJB"/>
-                        <outlet property="labelHealthy" destination="Cbl-uu-pca" id="kSR-Zs-bDj"/>
-                        <outlet property="labelJournalTitle" destination="axj-Ld-ScP" id="zYf-dl-mpF"/>
-                        <outlet property="labelPieChartDetail" destination="fA7-8m-Yzp" id="3GK-2G-VGl"/>
-                        <outlet property="labelPieChartPercentage" destination="mLo-In-WV1" id="h9w-9o-wXh"/>
-                        <outlet property="labelUnhealthy" destination="AaI-YX-Btp" id="38d-ce-X92"/>
-                        <outlet property="stackNoChartData" destination="MN7-eR-1FH" id="irN-1r-8Lb"/>
-                        <outlet property="stackPieChart" destination="Qof-g4-T21" id="bbm-rv-PfK"/>
-                        <outlet property="viewEmptyJournal" destination="A99-S4-2X4" id="Q4S-BK-glw"/>
-                        <outlet property="viewJournalHeader" destination="VVC-MY-et5" id="jEv-Cd-K6e"/>
-                        <outlet property="viewPieChart" destination="74V-Ar-t3e" id="YZg-ST-wym"/>
-                        <outlet property="viewSlideShowGallery" destination="7BQ-SA-hze" id="nKV-8n-ZV2"/>
-                        <outlet property="viewSummary" destination="VUf-fe-FCq" id="UMQ-W0-6pp"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oZr-Rh-m2R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

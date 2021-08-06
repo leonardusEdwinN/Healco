@@ -16,7 +16,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var tglLahir = Date()
     
     // function buat CoreData
-//    let data = CoreData()
+    let data = CoreDataClass()
     
     // notification center
     let center = UNUserNotificationCenter.current()
