@@ -7,8 +7,9 @@
 
 import UIKit
 //import CoreData
+import UserNotifications
 
-class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UNUserNotificationCenterDelegate{
     let gender: [String] = ["", "Pria", "Wanita"]
     var genderTerpilih: String = ""
     var tipeMakan: String = ""
@@ -16,6 +17,9 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     // function buat CoreData
 //    let data = CoreData()
+    
+    // notification center
+    let center = UNUserNotificationCenter.current()
     
     @IBOutlet weak var namaTextField: UITextField!
     //@IBOutlet weak var tglLahirTextField: UITextField!
@@ -33,6 +37,8 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.center.delegate = self
         
         // buat nge-hide keyboard
         hideKeyboardWhenTappedAround()
@@ -143,6 +149,14 @@ extension LoginViewController{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         genderTerpilih = gender[row]
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .list, .sound])
     }
 }
 
