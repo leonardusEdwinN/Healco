@@ -11,15 +11,15 @@ import AVKit
 import Vision
 
 
-struct profile {
+struct Profile {
     //in year
-    var age : Float
+    var age : Int
     //male or female
     var gender : Gender
     // in cm
-    var height : Float
+    var height : Int
     //in kg
-    var weight : Float
+    var weight : Double
 }
 
 enum Gender {
@@ -103,17 +103,7 @@ class FoodRecogVC: UIViewController {
 //        VNImageRequestHandler(cgImage: <#T##CGImage#>, options: <#T##[VNImageOption : Any]#>)
     }
     
-    //BMR calculation
-    private func BMR(profile : profile) -> Float{
-        var bmrScore : Float?
-        
-        if profile.gender == .male {
-            bmrScore = 88.362 + (13.397 * profile.weight) + (4.799 * profile.height) - (5.677 * profile.age)
-        }else{
-            bmrScore = 447.593 + (9.247 * profile.weight) + (3.098 * profile.height) - (4.330 * profile.age)
-        }
-        return bmrScore ?? 0.0
-    }
+
     
     //presentation Action sheet
     private func PresentActionSheet(){

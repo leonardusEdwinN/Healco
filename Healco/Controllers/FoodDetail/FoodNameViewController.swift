@@ -100,7 +100,10 @@ class FoodNameViewController: UIViewController {
     
     @IBAction func buttonSearchPressed(_ sender: Any) {
         if rearchAPI.text != "" {
+            foodData.removeAll()
             search(searchName: rearchAPI.text ?? "")
+            dismissKeyboard()
+            isSearching = false
         }else{
             
         }
@@ -183,19 +186,19 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
 //        performSegue(withIdentifier: "goToDetailVC", sender: self)
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == "" {
-            isSearching = false
-            foodNameTableView.reloadData()
-        } else{
-            isSearching = true
-            //comment search function
-            //            filteredFoodNames = foodNames.filter{(name: String) -> Bool in return name.range(of: searchText, options:.caseInsensitive, range: nil, locale: nil) != nil}
-            //filteredFoodNames = foodData.filter({foodDa} -> Bool )
-            filteredFoodNames = foodData.lazy.filter { x in x.foodName.lowercased().contains(searchBar.text!.lowercased()) }
-            foodNameTableView.reloadData()
-        }
-    }
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchBar.text == "" {
+//            isSearching = false
+//            foodNameTableView.reloadData()
+//        } else{
+//            isSearching = true
+//            //comment search function
+//            //            filteredFoodNames = foodNames.filter{(name: String) -> Bool in return name.range(of: searchText, options:.caseInsensitive, range: nil, locale: nil) != nil}
+//            //filteredFoodNames = foodData.filter({foodDa} -> Bool )
+//            filteredFoodNames = foodData.lazy.filter { x in x.foodName.lowercased().contains(searchBar.text!.lowercased()) }
+//            foodNameTableView.reloadData()
+//        }
+//    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if rearchAPI.text != "" {
@@ -203,7 +206,6 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
             search(searchName: rearchAPI.text ?? "")
             dismissKeyboard()
             isSearching = false
-            print("search")
         }else{
             
         }
