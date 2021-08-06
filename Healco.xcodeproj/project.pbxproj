@@ -159,6 +159,7 @@
 		13492D55267F022E00843181 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1315B9C426B53BC10030C84A /* CapmealModel.xcdatamodeld */,
 				1315B9C726B53BE40030C84A /* CoreDataClass.swift */,
 				221A0BC4267B60B00042A94A /* Extention.swift */,
 				13495F3F26B42FCE0051EE32 /* DateExtension.swift */,
@@ -171,7 +172,6 @@
 		137A0B562670CE2B00543CCF = {
 			isa = PBXGroup;
 			children = (
-				1315B9C426B53BC10030C84A /* CapmealModel.xcdatamodeld */,
 				137A0B612670CE2B00543CCF /* Healco */,
 				137A0B602670CE2B00543CCF /* Products */,
 				68300107CC7A5F6FCEACC122 /* Pods */,
@@ -670,7 +670,7 @@
 				CODE_SIGN_ENTITLEMENTS = Healco/Healco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9P49UTYHH6;
+				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -695,7 +695,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9P49UTYHH6;
+				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (

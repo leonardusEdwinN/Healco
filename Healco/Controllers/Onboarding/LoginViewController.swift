@@ -14,7 +14,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var tglLahir = Date()
     
     // function buat CoreData
-    let data = CoreData()
+    let data = CoreDataClass()
     
     @IBOutlet weak var namaTextField: UITextField!
     //@IBOutlet weak var tglLahirTextField: UITextField!

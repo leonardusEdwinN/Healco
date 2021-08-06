@@ -14,8 +14,8 @@
             filePath = "Healco/Controllers/FoodRecog/FoodRecogVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "FoodRecogVC"
             landmarkType = "3">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "Healco/Controllers/FoodRecog/FoodRecogVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "FoodRecogVC"
             landmarkType = "3">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "Healco/Controllers/Journal/JournalViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "445"
-            endingLineNumber = "445"
+            startingLineNumber = "486"
+            endingLineNumber = "486"
             landmarkName = "getDateArray()"
             landmarkType = "7">
          </BreakpointContent>
@@ -126,8 +126,8 @@
             filePath = "Healco/Controllers/Journal/JournalViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "471"
-            endingLineNumber = "471"
+            startingLineNumber = "512"
+            endingLineNumber = "512"
             landmarkName = "createUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "Healco/Controllers/Journal/JournalViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "470"
-            endingLineNumber = "470"
+            startingLineNumber = "511"
+            endingLineNumber = "511"
             landmarkName = "JournalViewController"
             landmarkType = "21">
          </BreakpointContent>

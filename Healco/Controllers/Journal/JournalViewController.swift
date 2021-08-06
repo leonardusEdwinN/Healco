@@ -10,7 +10,14 @@ import Foundation
 import CoreData
 import UIKit
 
+
+
 class JournalViewController : UIViewController{
+    
+    //coredata
+    let data = CoreDataClass()
+    
+    var profile : Profile!
     
     @IBOutlet weak var viewScrolling: UIView!
     
@@ -88,6 +95,31 @@ class JournalViewController : UIViewController{
         self.getWidthViewNutrition()
         self.getDateArray()
         self.createUI()
+        
+        
+        // MARK: FOR BMR
+        let profileDummy = Profile(age: 15, gender: .male, height: 150, weight: 55.00)
+        //add data to profile
+        //let profileDataFetch = data.fetchProfile()
+        
+//        profile.age = calcAge(birthday: profileDataFetch?.tanggal_lahir ?? Date())
+//
+//        if ((profileDataFetch?.gender = "Pria") != nil) {
+//            profile.gender = .male
+//        }else{
+//            profile.gender = .female
+//        }
+//
+//        profile.weight = profileDataFetch?.berat_badan ?? 0.00
+//        profile.height = profileDataFetch?.tinggi_badan ?? 0
+        let bmr = BMR(profile: profileDummy)
+        let kaloriHariIni : Float = 900
+        let persentageBmr : Float = kaloriHariIni  / Float(bmr)
+        
+        //MARK: CHANGE FRONT END DATA CALORI
+        labelKalori.text = "\(Int(kaloriHariIni)) /\(bmr)"
+        progressViewKalori.setProgress( persentageBmr , animated: true)
+        
 //        let weekday = Calendar.current.component(.weekday, from: Date())
 //        print("weekday : \(weekday)")
 //        for n in (1...weekday - 1).reversed(){
@@ -112,17 +144,23 @@ class JournalViewController : UIViewController{
 //        let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(backgroundTap(gesture:)));
 //       viewScrolling.addGestureRecognizer(gestureRecognizer)
 
-           
-        let data = CoreDataClass()
-        let profile = data.fetchProfile()
-        profile?.nama_pengguna
     }
+    
+    func calcAge(birthday: Date) -> Int {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "MM/dd/yyyy"
+        // let birthdayDate = dateFormater.date(from: birthday)
+        let calendar: NSCalendar! = NSCalendar(calendarIdentifier: .gregorian)
+        let now = Date()
+        let calcAge = calendar.components(.year, from: birthday, to: now, options: [])
+        let age = calcAge.year
+        return age!
+    }
+    
     
     @objc  func backgroundTap(gesture : UITapGestureRecognizer) {
         datePicker.removeFromSuperview()
     }
-    
-    
     
     
     
@@ -336,15 +374,18 @@ extension JournalViewController : UICollectionViewDataSource{
     }
     
     //BMR calculation
-    private func BMR(profile : profile) -> Float{
-        var bmrScore : Float?
+    private func BMR(profile : Profile) -> Int{
+        var bmrScore : Float!
+        let weight : Float = Float(profile.weight)
+        let height : Float = Float(profile.height)
+        let age : Float = Float(profile.age)
         
         if profile.gender == .male {
-            bmrScore = 88.362 + (13.397 * profile.weight) + (4.799 * profile.height) - (5.677 * profile.age)
+            bmrScore = 88.362 + 13.397 * weight  + 4.799 * height  - 5.677 * age
         }else{
-            bmrScore = 447.593 + (9.247 * profile.weight) + (3.098 * profile.height) - (4.330 * profile.age)
+            bmrScore = 447.593 + 9.247 * weight  + 3.098 * height - 4.330 * age
         }
-        return bmrScore ?? 0.0
+        return Int(bmrScore ?? 0.0)
     }
     
 }
