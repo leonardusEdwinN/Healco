@@ -41,12 +41,12 @@
 		13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B3EC6926B2AE6F00870C20 /* HomeTabBar.swift */; };
 		13B3EC6C26B2AE7F00870C20 /* HomeTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B3EC6B26B2AE7F00870C20 /* HomeTabBar.storyboard */; };
 		13FF88A826BD1FC10008A888 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF88A426BD1FC00008A888 /* ProfileCell.swift */; };
-		13FF88A926BD1FC10008A888 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF88A526BD1FC00008A888 /* ProfileViewController.swift */; };
-		13FF88AA26BD1FC10008A888 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13FF88A626BD1FC00008A888 /* Profile.storyboard */; };
 		13FF88AB26BD1FC10008A888 /* genderPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF88A726BD1FC10008A888 /* genderPickerViewController.swift */; };
 		221A0BBD267B321D0042A94A /* HasilFoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221A0BBC267B321D0042A94A /* HasilFoto.storyboard */; };
 		221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A0BC2267B3B570042A94A /* HasilFotoVC.swift */; };
 		221A0BC5267B60B00042A94A /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A0BC4267B60B00042A94A /* Extention.swift */; };
+		221E9ABC26BD39C700FBBF20 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221E9ABB26BD39C700FBBF20 /* Profile.storyboard */; };
+		221E9ABE26BD39D200FBBF20 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221E9ABD26BD39D200FBBF20 /* ProfileViewController.swift */; };
 		2289F5CC2672218D00C118CD /* FoodRecog.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2289F5CB2672218D00C118CD /* FoodRecog.storyboard */; };
 		2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2289F5CD267222A900C118CD /* FoodRecogVC.swift */; };
 		4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4434291D267C281900A85983 /* OnboardingViewController.swift */; };
@@ -98,12 +98,12 @@
 		13B3EC6926B2AE6F00870C20 /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		13B3EC6B26B2AE7F00870C20 /* HomeTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTabBar.storyboard; sourceTree = "<group>"; };
 		13FF88A426BD1FC00008A888 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
-		13FF88A526BD1FC00008A888 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = "../../../../../../../Dropbox (DeveloperAcademy-ID)/MC3 - SMILE/untitled folder/Healco/Healco/Controllers/Profile/ProfileViewController.swift"; sourceTree = "<group>"; };
-		13FF88A626BD1FC00008A888 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Profile.storyboard; path = "../../../../../../../Dropbox (DeveloperAcademy-ID)/MC3 - SMILE/untitled folder/Healco/Healco/Controllers/Profile/Profile.storyboard"; sourceTree = "<group>"; };
 		13FF88A726BD1FC10008A888 /* genderPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genderPickerViewController.swift; sourceTree = "<group>"; };
 		221A0BBC267B321D0042A94A /* HasilFoto.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HasilFoto.storyboard; sourceTree = "<group>"; };
 		221A0BC2267B3B570042A94A /* HasilFotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasilFotoVC.swift; sourceTree = "<group>"; };
 		221A0BC4267B60B00042A94A /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
+		221E9ABB26BD39C700FBBF20 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		221E9ABD26BD39D200FBBF20 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2289F5CB2672218D00C118CD /* FoodRecog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodRecog.storyboard; sourceTree = "<group>"; };
 		2289F5CD267222A900C118CD /* FoodRecogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecogVC.swift; sourceTree = "<group>"; };
 		4434291D267C281900A85983 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -344,9 +344,9 @@
 			isa = PBXGroup;
 			children = (
 				13FF88A726BD1FC10008A888 /* genderPickerViewController.swift */,
-				13FF88A626BD1FC00008A888 /* Profile.storyboard */,
+				221E9ABB26BD39C700FBBF20 /* Profile.storyboard */,
+				221E9ABD26BD39D200FBBF20 /* ProfileViewController.swift */,
 				13FF88A426BD1FC00008A888 /* ProfileCell.swift */,
-				13FF88A526BD1FC00008A888 /* ProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -453,6 +453,7 @@
 			files = (
 				137A0B722670CE2C00543CCF /* LaunchScreen.storyboard in Resources */,
 				1394FF5F267AEC8E0062813A /* Quicksand-SemiBold.ttf in Resources */,
+				221E9ABC26BD39C700FBBF20 /* Profile.storyboard in Resources */,
 				1394FF68267AEFE20062813A /* WeeklyCollectionViewCell.xib in Resources */,
 				139AD0A12679C69D00954DB2 /* GalleryPhotoCollectionViewCell.xib in Resources */,
 				1394FF5C267AEC8E0062813A /* Quicksand-Medium.ttf in Resources */,
@@ -462,7 +463,6 @@
 				137A0B6F2670CE2C00543CCF /* Assets.xcassets in Resources */,
 				1394FF5B267AEC8E0062813A /* Quicksand-Light.ttf in Resources */,
 				138C84812685A0B8008E5C2C /* ReasonToEatCollectionViewCell.xib in Resources */,
-				13FF88AA26BD1FC10008A888 /* Profile.storyboard in Resources */,
 				138C84862685CD8B008E5C2C /* FeelToEatCollectionViewCell.xib in Resources */,
 				13970F062678A7F200B6F11D /* JournalViewController.storyboard in Resources */,
 				13B3EC6C26B2AE7F00870C20 /* HomeTabBar.storyboard in Resources */,
@@ -518,8 +518,8 @@
 				4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */,
 				EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */,
 				137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */,
+				221E9ABE26BD39D200FBBF20 /* ProfileViewController.swift in Sources */,
 				13492D57267F030600843181 /* Food101.mlmodel in Sources */,
-				13FF88A926BD1FC10008A888 /* ProfileViewController.swift in Sources */,
 				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
 				1315B9C626B53BC10030C84A /* CapmealModel.xcdatamodeld in Sources */,
 				1315B9CA26B5595B0030C84A /* CustomizedTabBar.swift in Sources */,
