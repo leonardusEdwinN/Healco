@@ -3,13 +3,20 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Quicksand-Bold.ttf">
+            <string>Quicksand-Bold</string>
+        </array>
         <array key="Quicksand-Medium.ttf">
             <string>Quicksand-Medium</string>
+        </array>
+        <array key="Quicksand-Regular.ttf">
+            <string>Quicksand-Regular</string>
         </array>
         <array key="Quicksand-SemiBold.ttf">
             <string>Quicksand-SemiBold</string>
@@ -50,10 +57,10 @@
                                                     <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="D9C-G7-BTs">
-                                                    <rect key="frame" x="0.0" y="441" width="410" height="137"/>
+                                                    <rect key="frame" x="0.0" y="441" width="410" height="132.66666666666663"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum Dolor Sit Amet hjghjg" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMN-j1-7nB">
-                                                            <rect key="frame" x="22.666666666666657" y="0.0" width="365" height="60"/>
+                                                            <rect key="frame" x="33" y="0.0" width="344" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="XA6-aB-uew"/>
                                                             </constraints>
@@ -61,7 +68,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consectetur adipisicing elit. Lorem ipsum dolor sit amet. Consectetur adipisicing elit. Lorem ipsum dolor sit amet." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPf-mx-wNJ">
-                                                            <rect key="frame" x="15" y="73" width="380" height="64"/>
+                                                            <rect key="frame" x="15" y="73" width="380" height="59.666666666666657"/>
                                                             <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="17"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor"/>
                                                             <nil key="highlightedColor"/>
@@ -148,6 +155,255 @@
             </objects>
             <point key="canvasLocation" x="1976.8115942028987" y="93.080357142857139"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Lnc-vH-9G1">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingLogin" modalPresentationStyle="fullScreen" id="irq-J7-Ssd" customClass="LoginViewController" customModule="Healco" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZgA-RO-XCY">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJ2-6h-cze">
+                                <rect key="frame" x="110" y="764" width="170" height="30"/>
+                                <color key="backgroundColor" red="0.18007952990000001" green="0.63381372319999996" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Masuk Yuk!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnMasuk_Tapped:" destination="irq-J7-Ssd" eventType="touchUpInside" id="SYX-qH-Vef"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukkan Datamu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHI-fy-L11">
+                                <rect key="frame" x="21" y="58" width="253" height="35"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama Kamu:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nla-gI-PDk">
+                                <rect key="frame" x="21" y="101" width="109" height="21.333333333333329"/>
+                                <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XYS-9S-iDX">
+                                <rect key="frame" x="21" y="130.33333333333334" width="353" height="34"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenis Kelamin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjd-fy-LjX">
+                                <rect key="frame" x="21" y="172.33333333333334" width="112" height="21.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPB-fK-x3j">
+                                <rect key="frame" x="21" y="198" width="31" height="34"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
+                                <state key="normal" title="Pria"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal Lahir:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxC-8y-juc">
+                                <rect key="frame" x="21" y="240" width="116" height="21.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tinggi Badan:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g6-Xn-Qlm">
+                                <rect key="frame" x="21" y="289" width="112" height="21.333333333333314"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dalam cm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fez-FW-U1h">
+                                <rect key="frame" x="271" y="289" width="107" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berat Badan:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvv-Y0-V8w">
+                                <rect key="frame" x="21" y="340" width="107" height="21.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dalam kg" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k7U-QX-7Tb">
+                                <rect key="frame" x="271" y="340" width="103" height="35"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sarapan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-b5-siP">
+                                <rect key="frame" x="21" y="486.66666666666669" width="67" height="21.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lxt-ha-Zjp">
+                                <rect key="frame" x="319" y="481.66666666666669" width="51" height="31.000000000000057"/>
+                                <connections>
+                                    <action selector="sarapanSwitch_Turned:" destination="irq-J7-Ssd" eventType="valueChanged" id="mCp-2A-iPy"/>
+                                </connections>
+                            </switch>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s3h-RN-mqm">
+                                <rect key="frame" x="271" y="521" width="97" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="t7O-dA-2GN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Siang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIm-A8-cTl">
+                                <rect key="frame" x="19" y="569.33333333333337" width="102" height="21.333333333333371"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5fD-uB-VQt">
+                                <rect key="frame" x="317" y="568" width="51" height="31"/>
+                                <connections>
+                                    <action selector="makanSiangSwitch_Turned:" destination="irq-J7-Ssd" eventType="valueChanged" id="6Vp-cd-ro5"/>
+                                </connections>
+                            </switch>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tZx-G9-gwj">
+                                <rect key="frame" x="271" y="607" width="97" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Malam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMd-pa-eUC">
+                                <rect key="frame" x="19" y="658.66666666666663" width="118" height="21.333333333333371"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0W7-bp-aZV">
+                                <rect key="frame" x="315" y="658.66666666666663" width="52" height="31"/>
+                                <connections>
+                                    <action selector="makanMalamSwitch_Turned:" destination="irq-J7-Ssd" eventType="valueChanged" id="9x4-JI-E2D"/>
+                                </connections>
+                            </switch>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hsV-ia-D7N">
+                                <rect key="frame" x="268" y="697" width="97" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAR-Lt-9yv">
+                                <rect key="frame" x="81" y="198" width="56" height="34"/>
+                                <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
+                                <state key="normal" title="Wanita"/>
+                            </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjA-O7-J7E">
+                                <rect key="frame" x="149" y="240" width="241" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="649852508.95485497">
+                                    <!--2021-08-05 10:35:08 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                    <!--2037-12-31 11:00:00 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePicker_Changed:" destination="irq-J7-Ssd" eventType="valueChanged" id="1vf-oq-PgQ"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kapan waktu makanmu?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFU-DT-bmE">
+                                <rect key="frame" x="21" y="412" width="202" height="21.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="s76-M3-nCa"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <constraints>
+                            <constraint firstItem="PIm-A8-cTl" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="19" id="0bb-oj-f4t"/>
+                            <constraint firstItem="hsV-ia-D7N" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="268" id="0bv-aK-DIJ"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="hxC-8y-juc" secondAttribute="trailing" constant="253" id="3tN-8x-0QC"/>
+                            <constraint firstItem="5fD-uB-VQt" firstAttribute="leading" secondItem="PIm-A8-cTl" secondAttribute="trailing" constant="196" id="5yB-rj-PWU"/>
+                            <constraint firstItem="tZx-G9-gwj" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="271" id="6jQ-Ms-rR0"/>
+                            <constraint firstAttribute="bottom" secondItem="vMd-pa-eUC" secondAttribute="bottom" constant="164" id="6n5-3b-P8V"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="5fD-uB-VQt" secondAttribute="trailing" constant="24" id="8vd-qy-iUO"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="nla-gI-PDk" secondAttribute="trailing" constant="260" id="AIf-GJ-t2C"/>
+                            <constraint firstItem="IHI-fy-L11" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="BJE-Tu-hkV"/>
+                            <constraint firstItem="nla-gI-PDk" firstAttribute="leading" secondItem="XYS-9S-iDX" secondAttribute="leading" id="Ch7-Xc-rm9"/>
+                            <constraint firstItem="gFU-DT-bmE" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="Cuu-oH-WGL"/>
+                            <constraint firstItem="Bvv-Y0-V8w" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="D38-dS-AGQ"/>
+                            <constraint firstItem="vMd-pa-eUC" firstAttribute="top" secondItem="0W7-bp-aZV" secondAttribute="top" id="Dkq-fQ-4df"/>
+                            <constraint firstItem="nla-gI-PDk" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="DuW-nn-VTu"/>
+                            <constraint firstItem="Wjd-fy-LjX" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="EFP-6S-OP7"/>
+                            <constraint firstItem="2Fg-b5-siP" firstAttribute="top" secondItem="gFU-DT-bmE" secondAttribute="bottom" constant="53.333333333333371" id="F45-GE-Gux"/>
+                            <constraint firstItem="k7U-QX-7Tb" firstAttribute="trailing" secondItem="XYS-9S-iDX" secondAttribute="trailing" id="FFT-Ie-8EP"/>
+                            <constraint firstItem="XYS-9S-iDX" firstAttribute="top" secondItem="nla-gI-PDk" secondAttribute="bottom" constant="8" symbolic="YES" id="FrQ-iz-gq5"/>
+                            <constraint firstItem="lxt-ha-Zjp" firstAttribute="leading" secondItem="2Fg-b5-siP" secondAttribute="trailing" constant="231" id="FxY-g8-vR3"/>
+                            <constraint firstItem="Wjd-fy-LjX" firstAttribute="top" secondItem="XYS-9S-iDX" secondAttribute="bottom" constant="8" symbolic="YES" id="GWM-Uz-QHG"/>
+                            <constraint firstItem="hxC-8y-juc" firstAttribute="top" secondItem="wPB-fK-x3j" secondAttribute="bottom" constant="8" symbolic="YES" id="Gz5-zU-26H"/>
+                            <constraint firstItem="lxt-ha-Zjp" firstAttribute="leading" secondItem="2Fg-b5-siP" secondAttribute="trailing" constant="231" id="Ium-Xn-6X5"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="k7U-QX-7Tb" secondAttribute="trailing" constant="16" id="KeZ-fo-Rdd"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="sAR-Lt-9yv" secondAttribute="trailing" constant="253" id="L9x-bl-Npx"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="s3h-RN-mqm" secondAttribute="trailing" constant="22" id="NQV-9W-8E7"/>
+                            <constraint firstItem="k7U-QX-7Tb" firstAttribute="top" secondItem="Bvv-Y0-V8w" secondAttribute="bottom" constant="-21.333333333333314" id="O2N-xH-j6z"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="IHI-fy-L11" secondAttribute="trailing" constant="116" id="Qkj-wC-ZQt"/>
+                            <constraint firstItem="nla-gI-PDk" firstAttribute="top" secondItem="IHI-fy-L11" secondAttribute="bottom" constant="8" symbolic="YES" id="RJY-PR-m3K"/>
+                            <constraint firstItem="5fD-uB-VQt" firstAttribute="top" secondItem="s3h-RN-mqm" secondAttribute="bottom" constant="13" id="ROm-BD-eOG"/>
+                            <constraint firstItem="0W7-bp-aZV" firstAttribute="leading" secondItem="vMd-pa-eUC" secondAttribute="trailing" constant="178" id="SL3-BL-H7E"/>
+                            <constraint firstAttribute="bottom" secondItem="s3h-RN-mqm" secondAttribute="bottom" constant="289" id="T4U-u8-O5F"/>
+                            <constraint firstItem="YJ2-6h-cze" firstAttribute="top" secondItem="hsV-ia-D7N" secondAttribute="bottom" constant="33" id="U5e-2X-pbT"/>
+                            <constraint firstItem="2Fg-b5-siP" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="Wky-gz-Opb"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="hsV-ia-D7N" secondAttribute="trailing" constant="25" id="WuV-sE-FAf"/>
+                            <constraint firstItem="k7U-QX-7Tb" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="271" id="YJ8-W6-gfa"/>
+                            <constraint firstItem="5fD-uB-VQt" firstAttribute="leading" secondItem="PIm-A8-cTl" secondAttribute="trailing" constant="196" id="ZMj-9a-IPI"/>
+                            <constraint firstItem="hxC-8y-juc" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="Zhq-cx-Eth"/>
+                            <constraint firstItem="hxC-8y-juc" firstAttribute="top" secondItem="sAR-Lt-9yv" secondAttribute="bottom" constant="8" id="bjN-dL-mRQ"/>
+                            <constraint firstItem="2Fg-b5-siP" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="c78-HX-Fuw"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="lxt-ha-Zjp" secondAttribute="trailing" constant="22" id="cBY-Ke-x0s"/>
+                            <constraint firstItem="YJ2-6h-cze" firstAttribute="centerX" secondItem="ZgA-RO-XCY" secondAttribute="centerX" id="ccI-NB-VEC"/>
+                            <constraint firstItem="YJ2-6h-cze" firstAttribute="top" secondItem="vMd-pa-eUC" secondAttribute="bottom" constant="84" id="cyO-1E-3ZT"/>
+                            <constraint firstItem="YJ2-6h-cze" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="110" id="eZT-0B-36C"/>
+                            <constraint firstItem="gFU-DT-bmE" firstAttribute="top" secondItem="k7U-QX-7Tb" secondAttribute="bottom" constant="37" id="emJ-zM-zp6"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="gFU-DT-bmE" secondAttribute="trailing" constant="167" id="emt-7s-lU0"/>
+                            <constraint firstItem="nla-gI-PDk" firstAttribute="top" secondItem="ZgA-RO-XCY" secondAttribute="top" constant="101" id="fI4-fn-XOS"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="tZx-G9-gwj" secondAttribute="trailing" constant="22" id="fmI-y0-t9L"/>
+                            <constraint firstItem="vMd-pa-eUC" firstAttribute="top" secondItem="PIm-A8-cTl" secondAttribute="bottom" constant="68" id="gfc-9o-JCT"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="Wjd-fy-LjX" secondAttribute="trailing" constant="257" id="h0t-F9-WcC"/>
+                            <constraint firstItem="lxt-ha-Zjp" firstAttribute="leading" secondItem="2Fg-b5-siP" secondAttribute="trailing" constant="231" id="hvk-zw-qpE"/>
+                            <constraint firstItem="sAR-Lt-9yv" firstAttribute="leading" secondItem="wPB-fK-x3j" secondAttribute="trailing" constant="29" id="i6N-S2-UAn"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="Bvv-Y0-V8w" secondAttribute="trailing" constant="262" id="i9O-Yc-TTp"/>
+                            <constraint firstItem="0W7-bp-aZV" firstAttribute="leading" secondItem="vMd-pa-eUC" secondAttribute="trailing" constant="178" id="im1-dl-Iqs"/>
+                            <constraint firstItem="2Fg-b5-siP" firstAttribute="centerY" secondItem="lxt-ha-Zjp" secondAttribute="centerY" id="kTS-Cu-PKT"/>
+                            <constraint firstItem="s3h-RN-mqm" firstAttribute="top" secondItem="lxt-ha-Zjp" secondAttribute="bottom" constant="8.3333333333332575" id="l4x-yU-6UO"/>
+                            <constraint firstItem="vMd-pa-eUC" firstAttribute="centerX" secondItem="Bvv-Y0-V8w" secondAttribute="centerX" constant="3.5" id="lk4-je-myb"/>
+                            <constraint firstItem="tZx-G9-gwj" firstAttribute="top" secondItem="5fD-uB-VQt" secondAttribute="bottom" constant="8" symbolic="YES" id="nz4-7m-DXy"/>
+                            <constraint firstItem="sAR-Lt-9yv" firstAttribute="leading" secondItem="wPB-fK-x3j" secondAttribute="trailing" constant="29" id="p2z-Gq-c3r"/>
+                            <constraint firstItem="wPB-fK-x3j" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="qJJ-U5-HQZ"/>
+                            <constraint firstItem="s3h-RN-mqm" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="271" id="rr7-0r-x5d"/>
+                            <constraint firstItem="hxC-8y-juc" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="21" id="sBh-ZF-SXH"/>
+                            <constraint firstItem="hxC-8y-juc" firstAttribute="top" secondItem="ZgA-RO-XCY" secondAttribute="top" constant="240" id="tnF-sX-4jw"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="0W7-bp-aZV" secondAttribute="trailing" constant="25" id="vc1-rv-Ljl"/>
+                            <constraint firstItem="s76-M3-nCa" firstAttribute="trailing" secondItem="hxC-8y-juc" secondAttribute="trailing" constant="253" id="vgI-Q8-8OW"/>
+                            <constraint firstItem="k7U-QX-7Tb" firstAttribute="top" secondItem="ZgA-RO-XCY" secondAttribute="top" constant="340" id="zB4-Va-bMZ"/>
+                            <constraint firstItem="vMd-pa-eUC" firstAttribute="leading" secondItem="s76-M3-nCa" secondAttribute="leading" constant="19" id="zbx-Ku-4vb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="stC-pV-bjL"/>
+                    <connections>
+                        <outlet property="beratBadanTextField" destination="k7U-QX-7Tb" id="Tiz-SV-zSL"/>
+                        <outlet property="makanMalamSwitch" destination="0W7-bp-aZV" id="rq3-GB-WKn"/>
+                        <outlet property="makanMalamTextField" destination="hsV-ia-D7N" id="wIG-qO-hl5"/>
+                        <outlet property="makanSiangSwitch" destination="5fD-uB-VQt" id="KNR-wW-ej2"/>
+                        <outlet property="makanSiangTextField" destination="tZx-G9-gwj" id="GXC-e6-hxX"/>
+                        <outlet property="namaTextField" destination="XYS-9S-iDX" id="pSZ-W3-QKS"/>
+                        <outlet property="priaKelaminButton" destination="wPB-fK-x3j" id="geH-GE-Ldn"/>
+                        <outlet property="sarapanSwitch" destination="lxt-ha-Zjp" id="O4o-fl-8f6"/>
+                        <outlet property="sarapanTextField" destination="s3h-RN-mqm" id="hNK-0e-0Pw"/>
+                        <outlet property="tglLahirDatePicker" destination="DjA-O7-J7E" id="7Sl-6C-IaY"/>
+                        <outlet property="tinggiBadanTextField" destination="Fez-FW-U1h" id="Pnd-gS-Tvi"/>
+                        <outlet property="wanitaKelaminButton" destination="sAR-Lt-9yv" id="z7j-fm-M5U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pWh-EP-Eim" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2987.6923076923076" y="92.417061611374407"/>
+        </scene>
     </scenes>
     <resources>
         <image name="onboarding-image-1" width="855" height="926"/>
@@ -159,6 +415,9 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

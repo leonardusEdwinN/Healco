@@ -135,19 +135,25 @@ class FoodNameViewController: UIViewController {
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //
-//        if let vc = segue.destination as? FoodDetailViewController{
-//
 //            if(segue.identifier == "goToDetailVC"){
+//                if let vc = segue.destination as? FoodDetailViewController{
+//
+//                    vc.selectedFood = selectedFood // how to passing multiple parameter in prepare
+//                    print("status kirim food : \(selectedFood)")
+//                    vc.statusEdit = false
+//                    vc.modalPresentationStyle = .pageSheet
+//                }
+//
 //                //                if isSearching{
 //                //                    vc.foodId = filteredFoodNames[selectedRow]
 //                //                }
 //                //                else{
-//                vc.selectedFood = selectedFood
+////                vc.selectedFood = selectedFood
 //                //                }
-//                vc.modalPresentationStyle = .pageSheet
+////                vc.modalPresentationStyle = .pageSheet
 //            }
 //
-//        }
+//
 //    }
 }
 
@@ -177,7 +183,7 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
         
         //        selectedData = FoodDataSearch(foodName: foodData[indexPath.row].foodName, foodId: foodData[indexPath.row].foodId)
         getFood(idFood: foodData[indexPath.row].foodId)
-        //        performSegue(withIdentifier: "goToDetailVC", sender: self)
+//        performSegue(withIdentifier: "goToDetailVC", sender: self)
     }
     
 //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -327,6 +333,7 @@ extension FoodNameViewController {
                 let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
                 vc.selectedFood = self.selectedFood
                 vc.imageHasilPhoto = self.imageHasilFoto
+                vc.statusEdit = false
                 vc.modalPresentationStyle = .pageSheet
                 self.present(vc, animated: true, completion: nil)
             }

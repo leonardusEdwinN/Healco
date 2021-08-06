@@ -27,38 +27,155 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
      @IBOutlet weak var foodCarbohydrateLabel: UILabel!
      @IBOutlet weak var foodProteinLabel: UILabel!*/
  
+    //headerView
+    @IBOutlet weak var viewHeaderFoodDetail: UIView!
+    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var buttonBack: UIButton!
     @IBOutlet weak var imagePhoto: UIImageView!
+    @IBOutlet weak var buttonSimpanOrUbah: UIButton!
+    
+    //journalingView
     @IBOutlet weak var foodNameLabel: UILabel!
-    @IBOutlet weak var viewDescription: UIView!
-    @IBOutlet weak var foodDescriptionLabel: UILabel!
-    @IBOutlet weak var viewDetailFood: UIView!
-    @IBOutlet weak var foodCaloriesLabel: UILabel!
-    @IBOutlet weak var foodFatLabel: UILabel!
-    @IBOutlet weak var foodCarbohydrateLabel: UILabel!
-    @IBOutlet weak var foodProteinLabel: UILabel!
+    
+    //Nutrisi Makananmu Top
+    //========
+    @IBOutlet weak var viewTopNutrition: UIView!
+    @IBOutlet weak var labelNutrisiMakananmuTop: UILabel!
+    //kal View Kalori
+    @IBOutlet weak var viewKaloriTop: UIView!
+    @IBOutlet weak var labelKaloriTextTop: UILabel!
+    @IBOutlet weak var labelKaloriValueTop: UILabel!
+    //kal View Karbohidrat
+    @IBOutlet weak var viewKarbohidratTop: UIView!
+    @IBOutlet weak var labelKarbohidratTextTop: UILabel!
+    @IBOutlet weak var labelKarbohidratValueTop: UILabel!
+    //kal View kalori
+    @IBOutlet weak var viewProteinTop: UIView!
+    @IBOutlet weak var labelProteinTextTop: UILabel!
+    @IBOutlet weak var labelProteinValueTop: UILabel!
+    //kal View kalori
+    @IBOutlet weak var viewLemakTop: UIView!
+    @IBOutlet weak var labelLemakTextTop: UILabel!
+    @IBOutlet weak var labelLemakValueTop: UILabel!
+    //===========
+    
+    
     @IBOutlet weak var porsiPickerView: UIPickerView!
-    @IBOutlet weak var reasonToEatCollectionView: UICollectionView!
+    
+    @IBOutlet weak var labelMakanBerapaBanyak: UILabel!
+    @IBOutlet weak var pickerviewPorsi: UIPickerView!
+    
+    @IBOutlet weak var labelKapanMakannya: UILabel!
     @IBOutlet weak var timeToEatCollectionView: UICollectionView!
+    
+    @IBOutlet weak var labelMoodnyaGimana: UILabel!
     @IBOutlet weak var feelWhenEatCollectionView: UICollectionView!
+    
+    @IBOutlet weak var labelLagiNgapainPasMakan: UILabel!
+    @IBOutlet weak var reasonToEatCollectionView: UICollectionView!
+    
+    
+    //Nutrisi Makananmu Bottom
+    //========
+    @IBOutlet weak var viewBottomNutrition: UIView!
+    @IBOutlet weak var labelNutrisiMakananmuBottom: UILabel!
+    //kal View Kalori
+    @IBOutlet weak var viewKaloriBottom: UIView!
+    @IBOutlet weak var labelKaloriTextBottom: UILabel!
+    @IBOutlet weak var labelKaloriValueBottom: UILabel!
+    //kal View Karbohidrat
+    @IBOutlet weak var viewKarbohidratBottom: UIView!
+    @IBOutlet weak var labelKarbohidratTextBottom: UILabel!
+    @IBOutlet weak var labelKarbohidratValueBottom: UILabel!
+    //kal View kalori
+    @IBOutlet weak var viewProteinBottom: UIView!
+    @IBOutlet weak var labelProteinTextBottom: UILabel!
+    @IBOutlet weak var labelProteinValueBottom: UILabel!
+    //kal View kalori
+    @IBOutlet weak var viewLemakBottom: UIView!
+    @IBOutlet weak var labelLemakTextBottom: UILabel!
+    @IBOutlet weak var labelLemakValueBottom: UILabel!
+    //===========
+    
+    @IBOutlet weak var buttonHapus: UIButton!
+    
+//    @IBOutlet weak var viewDescription: UIView!
+//    @IBOutlet weak var foodDescriptionLabel: UILabel!
+//    @IBOutlet weak var viewDetailFood: UIView!
+//    @IBOutlet weak var foodCaloriesLabel: UILabel!
+//    @IBOutlet weak var foodFatLabel: UILabel!
+//    @IBOutlet weak var foodCarbohydrateLabel: UILabel!
+//    @IBOutlet weak var foodProteinLabel: UILabel!
+   
     
     var selectedReason: String?
     var selectedTime: String?
     var selectedFeel: String?
+    var statusEdit: Bool = false // untuk button status
     
     
-    @objc func btnEdit_Pressed(){
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ubah", style: .plain, target: self, action: #selector(btnEdit_Pressed))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ubah", style: .plain, target: self, action: #selector(btnEdit_Pressed))
         
-        porsiPickerView.dataSource = self
-        porsiPickerView.delegate = self
+        pickerviewPorsi.dataSource = self
+        pickerviewPorsi.delegate = self
+        print("status Edit : \(statusEdit)")
+        print("status food : \(selectedFood)")
+        
+        if(statusEdit){
+            self.buttonSimpanOrUbah.setTitle("Ubah", for: .normal)
+            self.viewTopNutrition.isHidden = false
+            self.viewBottomNutrition.isHidden = true
+            self.buttonHapus.isHidden = false
+            
+            
+            viewBottomNutrition.translatesAutoresizingMaskIntoConstraints = false
+            viewBottomNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            viewTopNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = false
+            
+            
+            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
+            buttonHapus.heightAnchor.constraint(equalToConstant: 0).isActive = false
+            
+        }else{
+            
+            self.buttonSimpanOrUbah.setTitle("Simpan", for: .normal)
+            self.viewTopNutrition.isHidden = true
+            self.viewBottomNutrition.isHidden = false
+            
+            self.buttonHapus.isHidden = true
+            
+            viewTopNutrition.translatesAutoresizingMaskIntoConstraints = false
+            viewTopNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            viewBottomNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = false
+            
+            
+            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
+            buttonHapus.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            
+        }
         
         
-        imagePhoto.image = imageHasilPhoto
+        
+        setData()
+        settingUiToViewController()
+        registerCellToCollectionView()
+        //getSelectedDataIntoCoreData() // masukin data selectedFood ke CoreData
+    }
+    
+    @IBAction func buttonBackPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func buttonSimpanPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "goToHome", sender: sender)
+    }
+    @IBAction func buttonHappusPressed(_ sender: Any) {
+    }
+    
+    
+    func registerCellToCollectionView(){
         timeToEatCollectionView.register(UINib(nibName: "TimeToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeToEatCell")
         timeToEatCollectionView.delegate = self
         timeToEatCollectionView.dataSource = self
@@ -72,50 +189,50 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         feelWhenEatCollectionView.register(UINib(nibName: "FeelToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "feelToEatCell")
         feelWhenEatCollectionView.delegate = self
         feelWhenEatCollectionView.dataSource = self
+    }
+    
+    func settingUiToViewController(){
+        viewHeaderFoodDetail.layer.cornerRadius = 15
         
-        if let layout = timeToEatCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.estimatedItemSize = CGSize(width: view.frame.width, height: 100)
-            layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        }
         
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        layout.itemSize = CGSize(width: 100, height: 30)
-//        layout.scrollDirection = .horizontal
-//
-//        timeToEatCollectionView.collectionViewLayout = layout
+        viewKarbohidratTop.layer.cornerRadius = 15
+        viewKarbohidratTop.dropShadow()
+        viewKaloriTop.layer.cornerRadius = 15
+        viewKaloriTop.dropShadow()
+        viewProteinTop.layer.cornerRadius = 15
+        viewProteinTop.dropShadow()
+        viewLemakTop.layer.cornerRadius = 15
+        viewLemakTop.dropShadow()
         
-        //buttonSubmit.layer.cornerRadius = 15
         
-        setData()
-        //getSelectedDataIntoCoreData() // masukin data selectedFood ke CoreData
+        viewKarbohidratBottom.layer.cornerRadius = 15
+        viewKarbohidratBottom.dropShadow()
+        viewKaloriBottom.layer.cornerRadius = 15
+        viewKaloriBottom.dropShadow()
+        viewLemakBottom.layer.cornerRadius = 15
+        viewLemakBottom.dropShadow()
+        viewProteinBottom.layer.cornerRadius = 15
+        viewProteinBottom.dropShadow()
+        
+        buttonHapus.layer.cornerRadius = 15
     }
     
     
     func setData(){
-        foodNameLabel.text = self.selectedFood.foodName
-        foodDescriptionLabel.text = self.selectedFood.foodDescription
+//        foodNameLabel.text = self.selectedFood.foodName
         
-        //calculate food statusnya
-        switch(self.selectedFood.foodStatus){
-        case "Healthy":
-           // foodStatusImageView.image = UIImage(named: "healthy-icon")
-            foodCaloriesLabel.textColor = UIColor.green
-            break
-        case "Common":
-            //foodStatusImageView.image = UIImage(named: "common-icon")
-            foodCaloriesLabel.textColor = UIColor.orange
-            break
-        case "Unhealthy":
-            //foodStatusImageView.image = UIImage(named: "unhealthy-icon")
-            foodCaloriesLabel.textColor = UIColor.red
-            break
-        default:
-            break
-        }
-        foodCaloriesLabel.text = String(self.selectedFood.foodCalories) + "kal"
-        foodFatLabel.text = String(self.selectedFood.foodFat) + "g"
-        foodCarbohydrateLabel.text = String(self.selectedFood.foodCarbohydrate) + "g"
-        foodProteinLabel.text = String(self.selectedFood.foodProtein) + "g"
+        
+//        imagePhoto.image = imageHasilPhoto
+//
+//        labelKaloriValueTop.text = String(self.selectedFood.foodCalories) + "kal"
+//        labelLemakValueTop.text = String(self.selectedFood.foodFat) + "gr"
+//        labelKarbohidratValueTop.text = String(self.selectedFood.foodCarbohydrate) + "gr"
+//        labelProteinValueTop.text = String(self.selectedFood.foodProtein) + "gr"
+//
+//        labelKaloriValueBottom.text = String(self.selectedFood.foodCalories) + "kal"
+//         labelLemakValueBottom.text = String(self.selectedFood.foodFat) + "gr"
+//         labelKarbohidratValueBottom.text = String(self.selectedFood.foodCarbohydrate) + "gr"
+//         labelProteinValueBottom.text = String(self.selectedFood.foodProtein) + "gr"
     }
     
     /*@IBAction func buttonSubmit_Pressed(_ sender: Any) {
@@ -136,11 +253,10 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }*/
     
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if(segue.identifier == "goToJournalVC"){
-//            let vc = segue.destination as? JournalViewController
-//            vc?.picTakenDetail = imageHasilPhoto
-//            vc?.modalPresentationStyle = .fullScreen
-//        }
+        if(segue.identifier == "goToHome"){
+            let vc = segue.destination as? HomeTabBar
+            vc?.modalPresentationStyle = .fullScreen
+        }
     }
     
     //BMR calculation
@@ -233,6 +349,18 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
             selectedFeel = ""
         }
     }
+    
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+//
+//        let totalCellWidth = CellWidth * CellCount
+//        let totalSpacingWidth = CellSpacing * (CellCount - 1)
+//
+//        let leftInset = (collectionViewWidth - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+//        let rightInset = leftInset
+//
+//        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+//    }
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2

@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreData {
+class CoreDataClass {
     
     // MARK: Contoh Implementasi CoreData
     // let data = CoreData()
