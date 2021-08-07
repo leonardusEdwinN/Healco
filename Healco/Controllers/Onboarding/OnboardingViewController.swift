@@ -67,13 +67,13 @@ class OnboardingViewController: UIViewController {
     }
     
     func requestNotificationAuthorization(){
-        self.center.requestAuthorization(options: [.alert, .badge, .sound]){
+        center.requestAuthorization(options: [.alert, .badge, .sound]){
             (granted, error) in
             if granted{
                 print("Masuk")
             }
             else{
-                print("Oh tidak bisa!")
+                print("Dilarang~")
             }
         }
     }
