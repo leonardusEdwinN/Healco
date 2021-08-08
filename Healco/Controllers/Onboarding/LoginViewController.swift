@@ -18,6 +18,8 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     // function buat CoreData
     let data = CoreDataClass()
     
+    let center = UNUserNotificationCenter.current()
+    
     @IBOutlet weak var namaTextField: UITextField!
     //@IBOutlet weak var tglLahirTextField: UITextField!
     @IBOutlet weak var tglLahirDatePicker: UIDatePicker!
@@ -34,6 +36,8 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        notificationLoginScheduling()
+        center.delegate = self
         
         // buat nge-hide keyboard
         hideKeyboardWhenTappedAround()
@@ -127,6 +131,24 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func datePicker_Changed(_ sender: Any) {
         tglLahir = tglLahirDatePicker.date
     }
+    
+    func notificationLoginScheduling(){
+        let profil = data.fetchProfile()
+        let content = UNMutableNotificationContent()
+        if profil == nil {
+            content.title = "Login"
+            content.body = "Kamu masih belum login!"
+            content.sound = UNNotificationSound.default
+        }
+        else{
+            content.title = "Selamat datang!"
+            content.body = "Selamat datang kembali! Kamu dapat melihat jurnal harian makanan kamu!"
+            content.sound = UNNotificationSound.default
+        }
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let notifRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        center.add(notifRequest)
+    }
 }
 
 extension LoginViewController{
@@ -144,6 +166,14 @@ extension LoginViewController{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         genderTerpilih = gender[row]
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .list, .sound])
     }
 }
 

@@ -14,8 +14,6 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var btnNext: UIButton!
     
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    
     var indexPaths: IndexPath!
     
     var slides = [OnboardingSlide]()
@@ -33,7 +31,6 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // request notification
         slides = [
             OnboardingSlide(title: "Ketahui Makananmu", description: "Cekrek, cekrek, ambil foto dan dapatkan informasi nutrisi yang ada di makanan kamu.", image: UIImage(named: "onboarding-image-1")!),
             OnboardingSlide(title: "Yuk Bikin Diary!", description: "Nge-diary apa yang kamu makan terbukti menurunkan berat badan lho, tentunya dengan memperbaiki setelah tahu yang salah ya.", image: UIImage(named: "onboarding-image-2")!),

@@ -115,14 +115,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         }
     }
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        completionHandler()
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .list, .sound])
-    }
-    
     /* func notificationLoginScheduling(){
         let profil = data.fetchProfile()
         let content = UNMutableNotificationContent()
