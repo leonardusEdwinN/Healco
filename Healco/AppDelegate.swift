@@ -11,7 +11,7 @@ import FatSecretSwift
 import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenter {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -101,9 +101,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenter 
     
 }
 
-extension AppDelegate{
+extension AppDelegate: UNUserNotificationCenterDelegate{
     func requestNotificationAuthorization(){
-        center.requestAuthorization(options: [.alert, .badge, .sound]){
+        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]){
             (granted, error) in
             if granted{
                 print("Masuk")
