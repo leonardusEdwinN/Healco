@@ -9,8 +9,7 @@ import UIKit
 //import CoreData
 import UserNotifications
 
-class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UNUserNotificationCenterDelegate{
-    let gender: [String] = ["", "Pria", "Wanita"]
+class LoginViewController: UIViewController, UNUserNotificationCenterDelegate{
     var genderTerpilih: String = ""
     var tipeMakan: String = ""
     var tglLahir = Date()
@@ -152,22 +151,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 }
 
 extension LoginViewController{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return gender.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return gender[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        genderTerpilih = gender[row]
-    }
-    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         completionHandler()
     }
