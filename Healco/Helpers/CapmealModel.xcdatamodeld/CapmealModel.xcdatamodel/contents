@@ -25,6 +25,14 @@
         <attribute name="protein" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="journals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalEntity" inverseName="meal" inverseEntity="JournalEntity"/>
     </entity>
+    <entity name="NotificationEntity" representedClassName="NotificationEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="malamOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="malamTime" optional="YES" attributeType="String"/>
+        <attribute name="sarapanOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sarapanTime" optional="YES" attributeType="String"/>
+        <attribute name="siangOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="siangTime" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="ProfileEntity" representedClassName="ProfileEntity" syncable="YES" codeGenerationType="class">
         <attribute name="berat_badan" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="gender" optional="YES" attributeType="String"/>
@@ -37,5 +45,6 @@
         <element name="JournalEntity" positionX="-123.8551635742188" positionY="-250.5234985351562" width="128" height="134"/>
         <element name="MealEntity" positionX="381.865234375" positionY="-183.5227355957031" width="128" height="164"/>
         <element name="ProfileEntity" positionX="-182.9930419921875" positionY="180.0543823242188" width="128" height="104"/>
+        <element name="NotificationEntity" positionX="27" positionY="-90" width="128" height="119"/>
     </elements>
 </model>
