@@ -31,21 +31,27 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var priaKelaminButton: UIButton!
     @IBOutlet weak var wanitaKelaminButton: UIButton!
     
+    @IBOutlet weak var buttonMulai: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // buat nge-hide keyboard
         hideKeyboardWhenTappedAround()
         
+        //corner radius
+        
+        
         // addBottomBorder untuk memberikan border bawah pada objek TextField
-        namaTextField.addBottomBorder()
+//        namaTextField.addBottomBorder()
         //tglLahirTextField.addBottomBorder()
-        tinggiBadanTextField.addBottomBorder()
-        beratBadanTextField.addBottomBorder()
+//        tinggiBadanTextField.addBottomBorder()
+//        beratBadanTextField.addBottomBorder()
         
         // memasukkan func untuk kelamin
         priaKelaminButton.addTarget(self, action: #selector(self.buttonKelamin_Tapped), for: .touchUpInside)
         wanitaKelaminButton.addTarget(self, action: #selector(self.buttonKelamin_Tapped), for:.touchUpInside)
+        priaKelaminButton.layer.cornerRadius = 15
+        wanitaKelaminButton.layer.cornerRadius = 15
         
         // hide semua textfield waktu
         sarapanTextField.isHidden = true
@@ -57,6 +63,8 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         // menjadikan keyboard menjadi numeric
         tinggiBadanTextField.keyboardType = .numberPad
         beratBadanTextField.keyboardType = .decimalPad
+        
+        buttonMulai.layer.cornerRadius = 15
     }
     
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
@@ -83,9 +91,17 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         switch(sender.tag){
         case 1:
             genderTerpilih = (sender.titleLabel?.text)!
+            priaKelaminButton.backgroundColor = UIColor(named: "AvocadoGreen")
+            priaKelaminButton.setTitleColor(.white, for: .normal)
+            wanitaKelaminButton.backgroundColor = UIColor(named: "MangoYoghurt")
+            wanitaKelaminButton.setTitleColor(UIColor(named: "StateUnactiveText"), for: .normal)
             print("gender: \(genderTerpilih)")
         case 2:
             genderTerpilih = (sender.titleLabel?.text)!
+            wanitaKelaminButton.backgroundColor = UIColor(named: "AvocadoGreen")
+            wanitaKelaminButton.setTitleColor(.white, for: .normal)
+            priaKelaminButton.backgroundColor = UIColor(named: "MangoYoghurt")
+            priaKelaminButton.setTitleColor(UIColor(named: "StateUnactiveText"), for: .normal)
             print("gender: \(genderTerpilih)")
         default:
             break
