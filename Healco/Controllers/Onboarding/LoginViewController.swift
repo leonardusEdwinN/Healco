@@ -7,8 +7,9 @@
 
 import UIKit
 //import CoreData
+import UserNotifications
 
-class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource{
+class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UNUserNotificationCenterDelegate{
     let gender: [String] = ["", "Pria", "Wanita"]
     var genderTerpilih: String = ""
     var tipeMakan: String = ""
@@ -16,6 +17,9 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     // function buat CoreData
     let data = CoreDataClass()
+    
+    // notification center
+    let notificationCenter = UNUserNotificationCenter.current()
     
     @IBOutlet weak var namaTextField: UITextField!
     //@IBOutlet weak var tglLahirTextField: UITextField!
@@ -31,21 +35,23 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var priaKelaminButton: UIButton!
     @IBOutlet weak var wanitaKelaminButton: UIButton!
     
+    @IBOutlet weak var sarapanTimePicker: UIDatePicker!
     @IBOutlet weak var buttonMulai: UIButton!
+    @IBOutlet weak var makanSiangTimePicker: UIDatePicker!
+    @IBOutlet weak var makanMalamTimePicker: UIDatePicker!
+    
+    var timePicker = UIDatePicker()
+    var toolbar = UIToolbar()
     override func viewDidLoad() {
         super.viewDidLoad()
+        notificationCenter.delegate = self
         
+        // notification
+        notificationLoginScheduling()
         // buat nge-hide keyboard
         hideKeyboardWhenTappedAround()
         
-        //corner radius
-        
-        
-        // addBottomBorder untuk memberikan border bawah pada objek TextField
-//        namaTextField.addBottomBorder()
-        //tglLahirTextField.addBottomBorder()
-//        tinggiBadanTextField.addBottomBorder()
-//        beratBadanTextField.addBottomBorder()
+
         
         // memasukkan func untuk kelamin
         priaKelaminButton.addTarget(self, action: #selector(self.buttonKelamin_Tapped), for: .touchUpInside)
@@ -54,9 +60,17 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         wanitaKelaminButton.layer.cornerRadius = 15
         
         // hide semua textfield waktu
-        sarapanTextField.isHidden = true
-        makanSiangTextField.isHidden = true
-        makanMalamTextField.isHidden = true
+//        sarapanTextField.isHidden = true
+//        makanSiangTextField.isHidden = true
+//        makanMalamTextField.isHidden = true
+        sarapanTimePicker.datePickerMode = .time
+        sarapanTimePicker.isHidden = true
+        makanSiangTimePicker.datePickerMode = .time
+        makanSiangTimePicker.isHidden = true
+        makanMalamTimePicker.datePickerMode = .time
+        makanMalamTimePicker.isHidden = true
+        
+        
         //genderPickerView.dataSource = self
         //genderPickerView.delegate = self
         
@@ -65,6 +79,23 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         beratBadanTextField.keyboardType = .decimalPad
         
         buttonMulai.layer.cornerRadius = 15
+    }
+    
+
+
+    // Called when the date picker changes.
+
+    @objc func updateDateField(sender: UIDatePicker) {
+        sarapanTextField?.text = formatDateForDisplay(date: sender.date)
+    }
+
+
+    // Formats the date chosen with the date picker.
+
+    fileprivate func formatDateForDisplay(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy"
+        return formatter.string(from: date)
     }
     
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
@@ -77,7 +108,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         converter.decimalSeparator = ","
         converter.locale = Locale(identifier: "id-ID")
         let berat = converter.number(from: beratBadanTextField.text!) as? Double ?? 0.0
-//        data.addProfile(nama_pengguna: namaTextField.text ?? "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text!)! , beratBadan: berat)
+        //data.addProfile(nama_pengguna: namaTextField.text ?? "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text!) ?? 0 , beratBadan: berat)
         print("Berhasil!")
         let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
@@ -111,31 +142,37 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBAction func sarapanSwitch_Turned(_ sender: UISwitch) {
         if(sender.isOn){
-            sarapanTextField.isHidden = false
+//            sarapanTextField.isHidden = false
+            sarapanTimePicker.isHidden = false
             tipeMakan = "Sarapan"
         }
         else{
-            sarapanTextField.isHidden = true
+//            sarapanTextField.isHidden = true
+            sarapanTimePicker.isHidden = true
         }
     }
     
     @IBAction func makanSiangSwitch_Turned(_ sender: UISwitch) {
         if sender.isOn{
-            makanSiangTextField.isHidden = false
+//            makanSiangTextField.isHidden = false
+            makanSiangTimePicker.isHidden = false
             tipeMakan = "Makan Siang"
         }
         else{
-            makanSiangTextField.isHidden = true
+//            makanSiangTextField.isHidden = true
+            makanSiangTimePicker.isHidden = true
         }
     }
     
     @IBAction func makanMalamSwitch_Turned(_ sender: UISwitch) {
         if sender.isOn{
-            makanMalamTextField.isHidden = false
+//            makanMalamTextField.isHidden = false
+            makanMalamTimePicker.isHidden = false
             tipeMakan = "Makan Malam"
         }
         else{
-            makanMalamTextField.isHidden = true
+//            makanMalamTextField.isHidden = true
+            makanMalamTimePicker.isHidden = true
         }
     }
     
@@ -159,6 +196,32 @@ extension LoginViewController{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         genderTerpilih = gender[row]
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .list, .sound])
+    }
+    
+    func notificationLoginScheduling(){
+        let profil = data.fetchProfile()
+        let content = UNMutableNotificationContent()
+        if profil == nil {
+            content.title = "Login"
+            content.body = "Kamu masih belum login!"
+            content.sound = UNNotificationSound.default
+        }
+        else{
+            content.title = "Selamat datang!"
+            content.body = "Selamat datang kembali! Kamu dapat melihat jurnal harian makanan kamu!"
+            content.sound = UNNotificationSound.default
+        }
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let notifRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        notificationCenter.add(notifRequest)
     }
 }
 

@@ -12,13 +12,14 @@ import FatSecretSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    let notificationCenter = UNUserNotificationCenter.current()
+    
     enum Constants {
             static let apiKey = "3287f2b6314944eeae3bc378d7db2a97"
             static let apiSecret = "421d3e384cf84aea812e3f3789eb561a"
         }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         FatSecretCredentials.setConsumerKey(Constants.apiKey)
         FatSecretCredentials.setSharedSecret(Constants.apiSecret)
 
@@ -98,4 +99,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 }
-

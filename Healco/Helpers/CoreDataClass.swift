@@ -30,7 +30,7 @@ class CoreDataClass {
         }
     }
     
-    func fetchJournalBaseOnDay(tanggalWaktu: Date) -> [JournalEntity]{
+    func fetchJournalBaseOnDay(tanggalWaktu: Date) -> [JournalEntity]{ //Date() -> tipe datenya
         do {
             let request = NSFetchRequest<JournalEntity>(entityName: "JournalEntity")
             request.predicate = NSPredicate(format: "tanggalJam == %@", tanggalWaktu as NSDate)
@@ -52,7 +52,7 @@ class CoreDataClass {
         }
     }
     
-    // Ini Add Journal yang masih polos, gak pakai makanan yang udah kesimpen
+    // Ini Add Journal yang masih polos, gak pakai makanan yang udah kesimpen -> pake yang ini dulu gais
     
     func addJournal(lagiApa: String, perasaan: String, porsi: Double,
                     satuan: String, tanggalJam: Date, tipe: String,
@@ -108,7 +108,7 @@ class CoreDataClass {
         saveData()
     }
     
-    // MARK: Kalau yang disini function untuk meal yak..
+    // MARK: Kalau yang disini function untuk meal yak.. // belum di pake
     
     func addMeal(idMeal: String, nama: String, deskripsi: String, kalori: Int32,
                  karbohidrat: Int32, lemak: Int32, protein: Int32, gambar: Data) -> MealEntity{
@@ -193,6 +193,46 @@ class CoreDataClass {
         profile.tinggi_badan = tinggiBadan
         saveData()
     }
+    
+    // MARK: Ini Fungsi Untuk Ngatur Notifikasi Input Jurnal
+    
+    func fetchNotification() -> NotificationEntity? {
+        do {
+            return try context.fetch(NSFetchRequest<NotificationEntity>(entityName: "NotificationEntity"))[0]
+        } catch let error {
+            print("Error nih pas ngambil data notifikasinya, detailnya \(error)")
+            return nil
+        }
+    }
+    
+    func addNotif(sarapanOn: Bool, sarapanTime: String, siangOn: Bool,
+                  siangTime: String, malamOn: Bool, malamTime: String) {
+        let notif = NotificationEntity(context: context)
+        notif.sarapanOn = sarapanOn
+        notif.sarapanTime = sarapanTime
+        notif.siangOn = siangOn
+        notif.siangTime = siangTime
+        notif.malamOn = malamOn
+        notif.malamTime = malamTime
+        
+        saveData()
+    }
+    
+    func updateNotif(notifEntity: NotificationEntity, timeType: String, isOn: Bool, time: String){
+        if timeType == "Sarapan" {
+            notifEntity.sarapanOn = isOn
+            notifEntity.sarapanTime = time
+        } else if timeType == "Makan Siang" {
+            notifEntity.sarapanOn = isOn
+            notifEntity.sarapanTime = time
+        } else if timeType == "Makan Malam" {
+            notifEntity.sarapanOn = isOn
+            notifEntity.sarapanTime = time
+        }
+        
+        saveData()
+    }
+    
     
     // MARK: Yang terakhir, ini function buat core data secara umum
     
