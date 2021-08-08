@@ -196,7 +196,7 @@ class CoreDataClass {
     
     // MARK: Ini Fungsi Untuk Ngatur Notifikasi Input Jurnal
     
-    func fetchNotification() -> NotificationEntity {
+    func fetchNotification() -> NotificationEntity? {
         do {
             return try context.fetch(NSFetchRequest<NotificationEntity>(entityName: "NotificationEntity"))[0]
         } catch let error {

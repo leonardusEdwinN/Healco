@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FatSecretCredentials.setConsumerKey(Constants.apiKey)
         FatSecretCredentials.setSharedSecret(Constants.apiSecret)
-
+        
+        requestNotificationAuthorization()
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         // In project directory storyboard looks like Main.storyboard,
@@ -121,4 +122,22 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.banner, .list, .sound])
     }
+    
+    /* func notificationLoginScheduling(){
+        let profil = data.fetchProfile()
+        let content = UNMutableNotificationContent()
+        if profil == nil {
+            content.title = "Login"
+            content.body = "Kamu masih belum login!"
+            content.sound = UNNotificationSound.default
+        }
+        else{
+            content.title = "Selamat datang!"
+            content.body = "Selamat datang kembali! Kamu dapat melihat jurnal harian makanan kamu!"
+            content.sound = UNNotificationSound.default
+        }
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let notifRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        notificationCenter.add(notifRequest)
+    }*/
 }

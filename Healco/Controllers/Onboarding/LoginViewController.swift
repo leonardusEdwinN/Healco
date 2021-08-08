@@ -18,9 +18,6 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     // function buat CoreData
     let data = CoreDataClass()
     
-    // notification center
-    let notificationCenter = UNUserNotificationCenter.current()
-    
     @IBOutlet weak var namaTextField: UITextField!
     //@IBOutlet weak var tglLahirTextField: UITextField!
     @IBOutlet weak var tglLahirDatePicker: UIDatePicker!
@@ -37,10 +34,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        notificationCenter.delegate = self
         
-        // notification
-        notificationLoginScheduling()
         // buat nge-hide keyboard
         hideKeyboardWhenTappedAround()
         
@@ -76,7 +70,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         converter.decimalSeparator = ","
         converter.locale = Locale(identifier: "id-ID")
         let berat = converter.number(from: beratBadanTextField.text!) as? Double ?? 0.0
-        //data.addProfile(nama_pengguna: namaTextField.text ?? "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text!) ?? 0 , beratBadan: berat)
+        data.addProfile(nama_pengguna: namaTextField.text ?? "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text!) ?? 0 , beratBadan: berat)
         print("Berhasil!")
         let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
@@ -150,26 +144,6 @@ extension LoginViewController{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         genderTerpilih = gender[row]
-    }
-    
-    
-    
-    func notificationLoginScheduling(){
-        let profil = data.fetchProfile()
-        let content = UNMutableNotificationContent()
-        if profil == nil {
-            content.title = "Login"
-            content.body = "Kamu masih belum login!"
-            content.sound = UNNotificationSound.default
-        }
-        else{
-            content.title = "Selamat datang!"
-            content.body = "Selamat datang kembali! Kamu dapat melihat jurnal harian makanan kamu!"
-            content.sound = UNNotificationSound.default
-        }
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let notifRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        notificationCenter.add(notifRequest)
     }
 }
 
