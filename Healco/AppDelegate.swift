@@ -8,9 +8,10 @@
 import UIKit
 import CoreData
 import FatSecretSwift
+import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenter {
     var window: UIWindow?
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -98,4 +99,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+}
+
+extension AppDelegate{
+    func requestNotificationAuthorization(){
+        center.requestAuthorization(options: [.alert, .badge, .sound]){
+            (granted, error) in
+            if granted{
+                print("Masuk")
+            }
+            else{
+                print("Dilarang~")
+            }
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .list, .sound])
+    }
 }

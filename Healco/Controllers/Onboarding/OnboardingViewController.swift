@@ -14,6 +14,9 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var btnNext: UIButton!
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    let notificationCenter = appDelegate?.notificationCenter
+    
     var indexPaths: IndexPath!
     
     var slides = [OnboardingSlide]()
@@ -28,13 +31,11 @@ class OnboardingViewController: UIViewController {
         }
     }
     
-    let center = UNUserNotificationCenter.current()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // request notification
-        requestNotificationAuthorization()
+        appDelegate.requestNotificationAuthorization()
         slides = [
             OnboardingSlide(title: "Ketahui Makananmu", description: "Cekrek, cekrek, ambil foto dan dapatkan informasi nutrisi yang ada di makanan kamu.", image: UIImage(named: "onboarding-image-1")!),
             OnboardingSlide(title: "Yuk Bikin Diary!", description: "Nge-diary apa yang kamu makan terbukti menurunkan berat badan lho, tentunya dengan memperbaiki setelah tahu yang salah ya.", image: UIImage(named: "onboarding-image-2")!),
@@ -63,18 +64,6 @@ class OnboardingViewController: UIViewController {
             collectionView.isPagingEnabled = false
             collectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: .centeredHorizontally, animated: true)
             collectionView.isPagingEnabled = true
-        }
-    }
-    
-    func requestNotificationAuthorization(){
-        center.requestAuthorization(options: [.alert, .badge, .sound]){
-            (granted, error) in
-            if granted{
-                print("Masuk")
-            }
-            else{
-                print("Dilarang~")
-            }
         }
     }
     
