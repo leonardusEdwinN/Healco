@@ -80,8 +80,6 @@ class OnboardingViewController: UIViewController {
 //            collectionView.isPagingEnabled = true
 //        }
 //    }
-    
-    
 }
 
 extension OnboardingViewController: UICollectionViewDelegate {
