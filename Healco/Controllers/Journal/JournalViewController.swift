@@ -116,13 +116,13 @@ class JournalViewController : UIViewController{
         
         // MARK: FOR BMR
         let profileDataFetch = data.fetchProfile()
-        var profileDummy : Profile!
+        var profileDummy : Profile = Profile(age: 0, gender: .male, height: 0, weight: 0)
         
         if profileDataFetch.count != 0{
             profileDummy.age = calcAge(birthday: profileDataFetch[0].tanggal_lahir ?? Date())
 
-            
-            profileDummy.gender = profileDataFetch[0].gender == "Pria" ? .male : .female
+
+            profileDummy.gender = profileDataFetch[0].gender == "Pria" || profileDataFetch[0].gender == "" ? .male : .female
         
             profileDummy.height = Int(profileDataFetch[0].tinggi_badan)
         
