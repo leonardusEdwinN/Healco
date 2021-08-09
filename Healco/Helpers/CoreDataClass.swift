@@ -75,19 +75,19 @@ class CoreDataClass {
     
     // Nah kalau ini Add Journal yang ngambil makanan yang udah ada
     
-    func addJournal(lagiApa: String, perasaan: String, porsi: Double,
-                    satuan: String, tanggalJam: Date, tipe: String, meal: MealEntity){
-        let newJournal = JournalEntity(context: context)
-        newJournal.lagi_apa = lagiApa
-        newJournal.perasaan = perasaan
-        newJournal.porsi = porsi
-        newJournal.satuan = satuan
-        newJournal.tanggal_jam = tanggalJam
-        newJournal.tipe = tipe
-        newJournal.meal = meal
-        
-        saveData()
-    }
+//    func addJournal(lagiApa: String, perasaan: String, porsi: Double,
+//                    satuan: String, tanggalJam: Date, tipe: String, meal: MealEntity){
+//        let newJournal = JournalEntity(context: context)
+//        newJournal.lagi_apa = lagiApa
+//        newJournal.perasaan = perasaan
+//        newJournal.porsi = porsi
+//        newJournal.satuan = satuan
+//        newJournal.tanggal_jam = tanggalJam
+//        newJournal.tipe = tipe
+//        newJournal.meal = meal
+//
+//        saveData()
+//    }
     
     func updateJournal(journal: JournalEntity, lagiApa: String, perasaan: String, porsi: Double,
                        satuan: String, tanggalJam: Date, tipe: String, kalori: Int32){
@@ -152,12 +152,12 @@ class CoreDataClass {
     
     // MARK: Untuk ngambil data profile, ini function nya
     
-    func fetchProfile() -> ProfileEntity?{
+    func fetchProfile() -> [ProfileEntity]{
         do {
-            return try context.fetch(NSFetchRequest<ProfileEntity>(entityName: "ProfileEntity"))[0]
+            return try context.fetch(NSFetchRequest<ProfileEntity>(entityName: "ProfileEntity"))
         } catch let error {
             print("Error nih pas ngambil data jurnalnya, nih detailnya \(error)")
-            return nil
+            return []
         }
     }
     

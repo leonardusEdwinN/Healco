@@ -112,11 +112,13 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var selectedTime: String?
     var selectedFeel: String?
     var statusEdit: Bool = false // untuk button status
-    
+    var selectedPorsi : Int?
+    var selectedSatuan : String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ubah", style: .plain, target: self, action: #selector(btnEdit_Pressed))
         
         pickerviewPorsi.dataSource = self
@@ -170,7 +172,12 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     @IBAction func buttonSimpanPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "goToHome", sender: sender)
+        let data = CoreDataClass()
+
+        data.addJournal(lagiApa: "\(String(describing: selectedReason))", perasaan: "\(String(describing: selectedFeel))", porsi: Double(selectedPorsi ?? 0), satuan: "\(String(describing: selectedSatuan))", tanggalJam: Date(), tipe: "\(String(describing: selectedTime))", idMeal: selectedFood.foodStatus, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, kalori: Int32(selectedFood.foodCalories), karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: imageHasilPhoto.pngData() ?? Data())
     }
+    
+    
     @IBAction func buttonHappusPressed(_ sender: Any) {
     }
     
@@ -310,7 +317,8 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
             let cell = collectionView.cellForItem(at: indexPath) as! FeelToEatCollectionViewCell
             cell.changeUpdate()
             
-        }}
+    }}
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //collectionView.backgroundColor = UIColor.green
         //collectionView.layer.backgroundColor = CGColor.init(red: 0, green: 255, blue: 0, alpha: 1)
