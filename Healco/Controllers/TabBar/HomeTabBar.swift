@@ -139,38 +139,86 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
     }
     
     func notificationAlertScheduling(){
+        //notificationCenter.removeAllPendingNotificationRequests()
         let notif = data.fetchNotification()
         let content = UNMutableNotificationContent()
         let timeSystem = Date()
+        let formatterSekarang = DateFormatter()
+        formatterSekarang.dateFormat = "HH:mm"
+        let strWaktuSekarang = formatterSekarang.string(from: timeSystem)
+        let waktuSekarang = formatterSekarang.date(from: strWaktuSekarang)
+        print(formatterSekarang.string(from: waktuSekarang!))
         let calendarSekarang = Calendar.current
-        let jamSekarang = calendarSekarang.component(.hour, from: timeSystem)
-        let menitSekarang = calendarSekarang.component(.minute, from: timeSystem)
+        let jamSekarang = calendarSekarang.component(.hour, from: waktuSekarang!)
+        let menitSekarang = calendarSekarang.component(.minute, from: waktuSekarang!)
         var waktuComponent = DateComponents()
         waktuComponent.calendar = calendarSekarang
         waktuComponent.hour = jamSekarang
         waktuComponent.minute = menitSekarang
-        let strJamSekarang: String = "\(waktuComponent.hour ?? 0)" + ":" + "\(waktuComponent.minute ?? 0)"
+        //let strJamSekarang: String = "\(waktuComponent.hour ?? 0)" + ":" + "\(waktuComponent.minute ?? 0)"
         print("Jam: \(waktuComponent.hour ?? 0)" + " Menit: \(waktuComponent.minute ?? 0)")
-        let jamSarapan: String = notif?.value(forKeyPath: "sarapanTime") as? String ?? ""
-        let jamSiang: String = notif?.value(forKeyPath: "siangTime") as? String ?? ""
-        let jamMalam: String = notif?.value(forKeyPath: "malamTime") as? String ?? ""
-        print("Sarapan: " + jamSarapan)
-        print("Siang: " + jamSiang)
-        print("Malam: " + jamMalam)
-        if(strJamSekarang == notif?.value(forKeyPath: "sarapanTime") as? String){
+       // print(strJamSekarang)
+        let strJamSarapan: String = notif?.value(forKeyPath: "sarapanTime") as? String ?? ""
+        let strJamSiang: String = notif?.value(forKeyPath: "siangTime") as? String ?? ""
+        let strJamMalam: String = notif?.value(forKeyPath: "malamTime") as? String ?? ""
+        print("Sarapan: " + strJamSarapan)
+        print("Siang: " + strJamSiang)
+        print("Malam: " + strJamMalam)
+        /*let strStatusSarapan: Bool = notif?.value(forKeyPath: "sarapanOn") as? Bool ?? false
+        let strStatusSiang: Bool = notif?.value(forKeyPath: "siangOn") as? Bool ?? false
+        let strStatusMalam: Bool = notif?.value(forKeyPath: "malamOn") as? Bool ?? false
+        print("Sarapan on?" + String(strStatusSarapan))
+        print("Siang on?" +  String(strStatusSiang))
+        print("Malam on?" + String(strStatusMalam))*/
+        let tglFormatter = DateFormatter()
+        tglFormatter.dateFormat = "HH:mm"
+        let jamSarapan = tglFormatter.date(from: strJamSarapan)!
+        let jamSiang = tglFormatter.date(from: strJamSiang)!
+        let jamMalam = tglFormatter.date(from: strJamMalam)!
+        //let coba: Date = tglFormatter.date(from: strJamMalam)!
+        //print(tglFormatter.string(from: coba))
+        var waktuData = DateComponents()
+        waktuData.calendar = calendarSekarang
+        /*if(strJamSekarang == strJamSarapan){
+            let jamSarapan = tglFormatter.date(from: strJamSarapan)!
+            waktuData.hour = calendarSekarang.component(.hour, from: jamSarapan)
+            waktuData.minute = calendarSekarang.component(.minute, from: jamSarapan)
             content.title = "Jam Sarapan"
             content.body = "Hai! Sekarang waktunya sarapan! "
         }
-        else if (strJamSekarang == notif?.value(forKeyPath: "siangTime") as? String){
+        else if (strJamSekarang == strJamSiang){
+            let jamSiang = tglFormatter.date(from: strJamSiang)!
+            waktuData.hour = calendarSekarang.component(.hour, from: jamSiang)
+            waktuData.minute = calendarSekarang.component(.minute, from: jamSiang)
             content.title = "Jam Makan Siang"
             content.body = "Hai! Sekarang waktunya untuk makan siang! "
         }
-        else if (strJamSekarang == notif?.value(forKeyPath: "malamTime") as? String){
+        else if (strJamSekarang == strJamMalam){
+            let jamMalam = tglFormatter.date(from: strJamMalam)!
+            waktuData.hour = calendarSekarang.component(.hour, from: jamMalam)
+            waktuData.minute = calendarSekarang.component(.minute, from: jamMalam)
             content.title = "Jam Makan Malam"
             content.body = "Hai! Sekarang waktunya untuk makan malam! "
+        }*/
+        if(waktuSekarang == jamSarapan){
+            waktuData.hour = calendarSekarang.component(.hour, from: jamSarapan)
+            waktuData.minute = calendarSekarang.component(.minute, from: jamSarapan)
+        }
+        else if(waktuSekarang == jamSiang){
+            waktuData.hour = calendarSekarang.component(.hour, from: jamSiang)
+            waktuData.minute = calendarSekarang.component(.minute, from: jamSiang)
+        }
+        else if(waktuSekarang == jamMalam){
+            waktuData.hour = calendarSekarang.component(.hour, from: jamMalam)
+            waktuData.minute = calendarSekarang.component(.minute, from: jamMalam)
+        }
+        else{
+            waktuData.hour = calendarSekarang.component(.hour, from: Date())
+            waktuData.minute = calendarSekarang.component(.minute, from: Date())
         }
         content.body += "Ingat ya untuk mencatat makananmu ya!"
         content.sound = UNNotificationSound.default
+        print("Jam notification: \(waktuData.hour ?? 0)" + " dan menit notification: \(waktuData.minute ?? 0)")
         let trigger = UNCalendarNotificationTrigger(dateMatching: waktuComponent, repeats: true)
         let notifRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         notificationCenter.add(notifRequest)

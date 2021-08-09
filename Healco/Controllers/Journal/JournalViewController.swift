@@ -116,7 +116,7 @@ class JournalViewController : UIViewController{
         
         // MARK: FOR BMR
         let profileDataFetch = data.fetchProfile()
-        var profileDummy : Profile!
+        var profileDummy : Profile = Profile(age: 0, gender: .male, height: 0, weight: 0)
         
         if profileDataFetch.count != 0{
             profileDummy.age = calcAge(birthday: profileDataFetch[0].tanggal_lahir ?? Date())

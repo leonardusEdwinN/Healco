@@ -18,7 +18,6 @@ class LoginViewController: UIViewController{
     
     // function buat CoreData
     let data = CoreDataClass()
-    let center = UNUserNotificationCenter.current()
     
     @IBOutlet weak var namaTextField: UITextField!
     //@IBOutlet weak var tglLahirTextField: UITextField!
@@ -43,12 +42,10 @@ class LoginViewController: UIViewController{
     var toolbar = UIToolbar()
     override func viewDidLoad() {
         super.viewDidLoad()
-        center.delegate = self
         
         // buat nge-hide keyboard
         hideKeyboardWhenTappedAround()
         
-        //localLoginNotification()
         
         // memasukkan func untuk kelamin
         priaKelaminButton.addTarget(self, action: #selector(self.buttonKelamin_Tapped), for: .touchUpInside)
@@ -188,23 +185,6 @@ class LoginViewController: UIViewController{
     
     @IBAction func datePicker_Changed(_ sender: Any) {
         tglLahir = tglLahirDatePicker.date
-    }
-    
-    func localLoginNotification(){
-        let prof = data.fetchProfile()
-        let content = UNMutableNotificationContent()
-        if(prof != nil){
-            content.title = "Sudah Login"
-            content.body = "Berhasil!"
-        }
-        else{
-            content.title = "Belum Login"
-            content.body = "Lakukan sekarang!"
-        }
-        content.sound = UNNotificationSound.default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let register = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        center.add(register)
     }
 }
 
