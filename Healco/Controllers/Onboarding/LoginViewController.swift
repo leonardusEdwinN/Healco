@@ -64,16 +64,16 @@ class LoginViewController: UIViewController, UNUserNotificationCenterDelegate{
     }
     
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
-        //let tglLahirTerpilih = tglLahirDatePicker.date
-        //let formatTglLahir = DateFormatter()
-        //formatTglLahir.dateFormat = "yyyy-MM-dd"
+        let tglLahirTerpilih = tglLahirDatePicker.date
+        let formatTglLahir = DateFormatter()
+        formatTglLahir.dateFormat = "yyyy-MM-dd"
         let converter = NumberFormatter()
         converter.numberStyle = .decimal
         converter.groupingSeparator = "."
         converter.decimalSeparator = ","
         converter.locale = Locale(identifier: "id-ID")
         let berat = converter.number(from: beratBadanTextField.text!) as? Double ?? 0.0
-        data.addProfile(nama_pengguna: namaTextField.text ?? "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text!) ?? 0 , beratBadan: berat)
+        data.addProfile(nama_pengguna: namaTextField.text ?? "", gender: genderTerpilih, tanggalLahir: tglLahirTerpilih, tinggiBadan: Int32(tinggiBadanTextField.text!) ?? 0 , beratBadan: berat)
         print("Berhasil!")
         let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
