@@ -126,6 +126,80 @@ class CoreDataClass {
         return newMeal
     }
     
+    func sumKalori(tanggalJurnal: Date) -> Int32 {
+        var kaloriPerDay : Int32 = 0
+
+        // Bikin expression buat ngambil jumlah datanya
+
+        let expression = NSExpressionDescription()
+        expression.expression =  NSExpression(forFunction: "sum:", arguments:[NSExpression(forKeyPath: "kalori")])
+        expression.name = "kaloriPerDay";
+        expression.expressionResultType = NSAttributeType.doubleAttributeType
+
+        // Ambil dari JournalEntity berdasarkan tanggalnya deh
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "JournalEntity")
+        request.predicate = NSPredicate(format: "tanggal_jam == %@", tanggalJurnal as NSDate)
+        request.propertiesToFetch = [expression]
+        request.resultType = NSFetchRequestResultType.dictionaryResultType
+
+        // Nah, sekarang tinggal ambil aje penjumlahan kalorinya
+
+        do {
+            let results = try context.fetch(request)
+            let resultMap = results[0] as! [String:Double]
+            kaloriPerDay = Int32(resultMap["kaloriPerDay"]!)
+        } catch let error as NSError {
+            NSLog("Error pas ngejumlahin kalorinya: \(error.localizedDescription)")
+        }
+
+        return kaloriPerDay
+    }
+    
+    func getPercentage(macroNutrient: MacroNutrient, tanggalJurnal: Date) -> String {
+        let karbohidrat: Int32 = getSumOfMacroNutrient(macroNutrient: .karbohidrat, tanggalJurnal: tanggalJurnal)
+        let lemak : Int32 = getSumOfMacroNutrient(macroNutrient: .lemak, tanggalJurnal: tanggalJurnal)
+        let protein : Int32 = getSumOfMacroNutrient(macroNutrient: .protein, tanggalJurnal: tanggalJurnal)
+        let total : Int32 = karbohidrat + lemak + protein
+        var hasilnya : Int32 = 0
+                
+        switch macroNutrient {
+        case .karbohidrat:
+            hasilnya = karbohidrat / total * 100
+        case .lemak:
+            hasilnya = lemak / total * 100
+        case .protein:
+            hasilnya = protein / total * 100
+        }
+        
+        return "\(hasilnya)%"
+    }
+    
+    func getSumOfMacroNutrient(macroNutrient: MacroNutrient, tanggalJurnal: Date) -> Int32 {
+        var hasilnya : Int32 = 0
+        let keyPath = macroNutrient.rawValue.lowercased()
+        
+        let expression = NSExpressionDescription()
+        expression.expression =  NSExpression(forFunction: "sum:", arguments:[NSExpression(forKeyPath: keyPath)])
+        expression.name = "\(keyPath)PerDay";
+        expression.expressionResultType = NSAttributeType.doubleAttributeType
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "JournalEntity")
+        request.predicate = NSPredicate(format: "tanggal_jam == %@", tanggalJurnal as NSDate)
+        request.propertiesToFetch = [expression]
+        request.resultType = NSFetchRequestResultType.dictionaryResultType
+        
+        do {
+            let results = try context.fetch(request)
+            let resultMap = results[0] as! [String:Int32]
+            hasilnya = resultMap["\(keyPath)PerDay"]!
+        } catch let error as NSError {
+            NSLog("Error pas jumlahin \(keyPath): \(error.localizedDescription)")
+        }
+        
+        return hasilnya
+    }
+    
     // MARK: Nah, ada juga untuk nambah history.. Contohnya mau nambah perubahan berat badan, atau tinggi badan
     
     func addHistory(tipe: String, tanggal: Date, angka: Double){
@@ -264,4 +338,17 @@ class CoreDataManager {
             print("Ada masalah pas nyimpan data. Nih detailnya: \(error)")
         }
     }
+}
+
+enum TipeMakan : String {
+    case sarapan = "Sarapan"
+    case makanSiang = "Makan Siang"
+    case makanMalam = "Makan Malam"
+    case cemilan = "Cemilan"
+}
+
+enum MacroNutrient : String {
+    case karbohidrat = "Karbohidrat"
+    case lemak = "Lemak"
+    case protein = "Protein"
 }
