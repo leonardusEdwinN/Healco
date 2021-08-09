@@ -174,7 +174,7 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         self.performSegue(withIdentifier: "goToHome", sender: sender)
         let data = CoreDataClass()
 
-        data.addJournal(lagiApa: "\(String(describing: selectedReason))", perasaan: "\(String(describing: selectedFeel))", porsi: Double(selectedPorsi ?? 0), satuan: "\(String(describing: selectedSatuan))", tanggalJam: Date(), tipe: "\(String(describing: selectedTime))", idMeal: selectedFood.foodStatus, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, kalori: Int32(selectedFood.foodCalories), karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: imageHasilPhoto.pngData() ?? Data())
+        data.addJournal(lagiApa: "\(String(describing: selectedReason))", perasaan: "\(String(describing: selectedFeel))", porsi: Double(selectedPorsi ?? 0), satuan: "\(String(describing: selectedSatuan))", tanggalJam: Date(), tipe: "\(String(describing: selectedTime))", idMeal: selectedFood.foodStatus, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: imageHasilPhoto.pngData() ?? Data(), kaloriTotal: Int32(selectedFood.foodCalories), lemakTotal: 0, proteinTotal: 0, karbohidratTotal: 0)
     }
     
     

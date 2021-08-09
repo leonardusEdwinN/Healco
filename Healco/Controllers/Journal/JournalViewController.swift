@@ -116,6 +116,7 @@ class JournalViewController : UIViewController{
         
         // MARK: FOR BMR
         let profileDataFetch = data.fetchProfile()
+        let sumkalori = data.sumKalori(tanggalJurnal: tanggalHariIni)
         var profileDummy : Profile = Profile(age: 0, gender: .male, height: 0, weight: 0)
         
         if profileDataFetch.count != 0{
@@ -135,7 +136,8 @@ class JournalViewController : UIViewController{
 //        print("\(profileDummy.weight = profileDataFetch[0].berat_badan)")
         let bmr = BMR(profile: profileDummy)
         
-        let kaloriHariIni : Float = 20
+        let kaloriHariIni : Float = Float(sumkalori)
+        
         let persentageBmr : Float = kaloriHariIni  / Float(bmr)
         
         //MARK: CHANGE FRONT END DATA CALORI

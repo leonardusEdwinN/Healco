@@ -57,8 +57,8 @@ class CoreDataClass {
     func addJournal(lagiApa: String, perasaan: String, porsi: Double,
                     satuan: String, tanggalJam: Date, tipe: String,
                     // Ini parameter untuk nambahin makanan
-                    idMeal: String, nama: String, deskripsi: String, kalori: Int32,
-                    karbohidrat: Int32, lemak: Int32, protein: Int32, gambar: Data){
+                    idMeal: String, nama: String, deskripsi: String,
+                    karbohidrat: Int32, lemak: Int32, protein: Int32, gambar: Data, kaloriTotal: Int32, lemakTotal: Int32, proteinTotal: Int32, karbohidratTotal: Int32){
         let newJournal = JournalEntity(context: context)
         newJournal.lagi_apa = lagiApa
         newJournal.perasaan = perasaan
@@ -66,8 +66,14 @@ class CoreDataClass {
         newJournal.satuan = satuan
         newJournal.tanggal_jam = tanggalJam
         newJournal.tipe = tipe
+        newJournal.kaloriTotal = kaloriTotal
+        newJournal.lemakTotal = lemakTotal
+        newJournal.karbohidratTotal = karbohidratTotal
+        newJournal.proteinTotal = proteinTotal
+
+
         newJournal.meal = addMeal(idMeal: idMeal, nama: nama, deskripsi: deskripsi,
-                                  kalori: kalori, karbohidrat: karbohidrat, lemak: lemak,
+                                  kalori: kaloriTotal, karbohidrat: karbohidrat, lemak: lemak,
                                   protein: protein, gambar: gambar)
         
         saveData()
@@ -132,7 +138,7 @@ class CoreDataClass {
         // Bikin expression buat ngambil jumlah datanya
 
         let expression = NSExpressionDescription()
-        expression.expression =  NSExpression(forFunction: "sum:", arguments:[NSExpression(forKeyPath: "kalori")])
+        expression.expression =  NSExpression(forFunction: "sum:", arguments:[NSExpression(forKeyPath: "kaloriTotal")])
         expression.name = "kaloriPerDay";
         expression.expressionResultType = NSAttributeType.doubleAttributeType
 
