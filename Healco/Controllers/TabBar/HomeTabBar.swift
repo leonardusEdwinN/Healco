@@ -14,6 +14,12 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
     //create imagepicker viewcontroller
     private var imagePickerControler =  UIImagePickerController()
     
+    // notification center
+    let notificationCenter = UNUserNotificationCenter.current()
+    
+    // CoreData konektor
+    let data = CoreDataClass()
+    
     required init(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)!
         }
@@ -21,7 +27,9 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
         override func viewDidLoad() {
             super.viewDidLoad()
             self.delegate = self
+            notificationCenter.delegate = self
             self.setupMiddleButton()
+            self.notificationAlertScheduling()
        }
     
     // TabBarButton – Setup Middle Button
@@ -105,8 +113,6 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
             foodRecogVC.modalPresentationStyle = .fullScreen
         }
     }
-    
-
 }
 
 extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -130,6 +136,45 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true , completion: nil)
+    }
+    
+    func notificationAlertScheduling(){
+        let notif = data.fetchNotification()
+        let content = UNMutableNotificationContent()
+        let timeSystem = Date()
+        let calendarSekarang = Calendar.current
+        let jamSekarang = calendarSekarang.component(.hour, from: timeSystem)
+        let menitSekarang = calendarSekarang.component(.minute, from: timeSystem)
+        var waktuComponent = DateComponents()
+        waktuComponent.calendar = calendarSekarang
+        waktuComponent.hour = jamSekarang
+        waktuComponent.minute = menitSekarang
+        let strJamSekarang: String = "\(waktuComponent.hour ?? 0)" + ":" + "\(waktuComponent.minute ?? 0)"
+        print("Jam: \(waktuComponent.hour ?? 0)" + " Menit: \(waktuComponent.minute ?? 0)")
+        print(strJamSekarang)
+        let jamSarapan: String = notif?.value(forKeyPath: "sarapanTime") as? String ?? ""
+        let jamSiang: String = notif?.value(forKeyPath: "siangTime") as? String ?? ""
+        let jamMalam: String = notif?.value(forKeyPath: "malamTime") as? String ?? ""
+        print("Sarapan: " + jamSarapan)
+        print("Siang: " + jamSiang)
+        print("Malam: " + jamMalam)
+        if(strJamSekarang == notif?.value(forKeyPath: "sarapanTime") as? String){
+            content.title = "Jam Sarapan"
+            content.body = "Hai! Sekarang waktunya sarapan! "
+        }
+        else if (strJamSekarang == notif?.value(forKeyPath: "siangTime") as? String){
+            content.title = "Jam Makan Siang"
+            content.body = "Hai! Sekarang waktunya untuk makan siang! "
+        }
+        else if (strJamSekarang == notif?.value(forKeyPath: "malamTime") as? String){
+            content.title = "Jam Makan Malam"
+            content.body = "Hai! Sekarang waktunya untuk makan malam! "
+        }
+        content.body += "Ingat ya untuk mencatat makananmu ya!"
+        content.sound = UNNotificationSound.default
+        let trigger = UNCalendarNotificationTrigger(dateMatching: waktuComponent, repeats: true)
+        let notifRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        notificationCenter.add(notifRequest)
     }
 }
 
