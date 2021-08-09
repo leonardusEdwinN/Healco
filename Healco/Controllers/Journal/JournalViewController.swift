@@ -115,21 +115,27 @@ class JournalViewController : UIViewController{
         
         
         // MARK: FOR BMR
-        let profileDummy = Profile(age: 15, gender: .male, height: 150, weight: 55.00)
-        //add data to profile
-        //let profileDataFetch = data.fetchProfile()
+        //        let profileDataFetch = data.fetchProfile()
+        var profileDummy : Profile!
+        //
+        //        if profileDataFetch != nil {
+        //            profileDummy.age = calcAge(birthday: profileDataFetch?.tanggal_lahir ?? Date())
+        //
+        //
+        //            profileDummy.gender = profileDataFetch?.gender == "Pria" ? .male : .female
+        //
+        //            profileDummy.height = Int(profileDataFetch?.tinggi_badan ?? 0)
+        //
+        //            profileDummy.weight = profileDataFetch?.berat_badan ?? 0.0
+        //
+        //        } else {
+        //            profileDummy = Profile(age: 0, gender: .male, height: 0, weight: 0)
+        //        }
+        profileDummy = Profile(age: 0, gender: .male, height: 0, weight: 0)
         
-//        profile.age = calcAge(birthday: profileDataFetch?.tanggal_lahir ?? Date())
-//
-//        if ((profileDataFetch?.gender = "Pria") != nil) {
-//            profile.gender = .male
-//        }else{
-//            profile.gender = .female
-//        }
-//
-//        profile.weight = profileDataFetch?.berat_badan ?? 0.00
-//        profile.height = profileDataFetch?.tinggi_badan ?? 0
+        
         let bmr = BMR(profile: profileDummy)
+        
         let kaloriHariIni : Float = 900
         let persentageBmr : Float = kaloriHariIni  / Float(bmr)
         
