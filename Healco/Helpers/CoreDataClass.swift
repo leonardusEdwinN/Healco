@@ -33,7 +33,7 @@ class CoreDataClass {
     func fetchJournalBaseOnDay(tanggalWaktu: Date) -> [JournalEntity]{ //Date() -> tipe datenya
         do {
             let request = NSFetchRequest<JournalEntity>(entityName: "JournalEntity")
-            request.predicate = NSPredicate(format: "tanggalJam == %@", tanggalWaktu as NSDate)
+            request.predicate = NSPredicate(format: "tanggal_jam == %@", tanggalWaktu as NSDate)
             return try context.fetch(request)
         } catch let error {
             print("Error nih pas ngambil data jurnalnya, nih detailnya \(error)")
@@ -44,7 +44,7 @@ class CoreDataClass {
     func fetchJournalBaseOnDayAndType(tanggalWaktu: Date, tipe: String) -> [JournalEntity]{
         do {
             let request = NSFetchRequest<JournalEntity>(entityName: "JournalEntity")
-            request.predicate = NSPredicate(format: "tanggalJam == %@ AND tipe == %@", tanggalWaktu as NSDate, tipe)
+            request.predicate = NSPredicate(format: "tanggal_jam == %@ AND tipe == %@", tanggalWaktu as NSDate, tipe)
             return try context.fetch(request)
         } catch let error {
             print("Error nih pas ngambil data jurnalnya, nih detailnya \(error)")
