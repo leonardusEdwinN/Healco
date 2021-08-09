@@ -30,10 +30,10 @@ class CoreDataClass {
         }
     }
     
-    func fetchJournalBaseOnDay(tanggalWaktu: Date) -> [JournalEntity]{
+    func fetchJournalBaseOnDay(tanggalWaktu: Date) -> [JournalEntity]{ //Date() -> tipe datenya
         do {
             let request = NSFetchRequest<JournalEntity>(entityName: "JournalEntity")
-            request.predicate = NSPredicate(format: "tanggalJam == %@", tanggalWaktu as NSDate)
+            request.predicate = NSPredicate(format: "tanggal_jam == %@", tanggalWaktu as NSDate)
             return try context.fetch(request)
         } catch let error {
             print("Error nih pas ngambil data jurnalnya, nih detailnya \(error)")
@@ -44,7 +44,7 @@ class CoreDataClass {
     func fetchJournalBaseOnDayAndType(tanggalWaktu: Date, tipe: String) -> [JournalEntity]{
         do {
             let request = NSFetchRequest<JournalEntity>(entityName: "JournalEntity")
-            request.predicate = NSPredicate(format: "tanggalJam == %@ AND tipe == %@", tanggalWaktu as NSDate, tipe)
+            request.predicate = NSPredicate(format: "tanggal_jam == %@ AND tipe == %@", tanggalWaktu as NSDate, tipe)
             return try context.fetch(request)
         } catch let error {
             print("Error nih pas ngambil data jurnalnya, nih detailnya \(error)")
@@ -52,7 +52,7 @@ class CoreDataClass {
         }
     }
     
-    // Ini Add Journal yang masih polos, gak pakai makanan yang udah kesimpen
+    // Ini Add Journal yang masih polos, gak pakai makanan yang udah kesimpen -> pake yang ini dulu gais
     
     func addJournal(lagiApa: String, perasaan: String, porsi: Double,
                     satuan: String, tanggalJam: Date, tipe: String,
@@ -108,7 +108,7 @@ class CoreDataClass {
         saveData()
     }
     
-    // MARK: Kalau yang disini function untuk meal yak..
+    // MARK: Kalau yang disini function untuk meal yak.. // belum di pake
     
     func addMeal(idMeal: String, nama: String, deskripsi: String, kalori: Int32,
                  karbohidrat: Int32, lemak: Int32, protein: Int32, gambar: Data) -> MealEntity{

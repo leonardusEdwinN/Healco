@@ -33,6 +33,13 @@ class LoginViewController: UIViewController, UNUserNotificationCenterDelegate{
     @IBOutlet weak var priaKelaminButton: UIButton!
     @IBOutlet weak var wanitaKelaminButton: UIButton!
     
+    @IBOutlet weak var sarapanTimePicker: UIDatePicker!
+    @IBOutlet weak var buttonMulai: UIButton!
+    @IBOutlet weak var makanSiangTimePicker: UIDatePicker!
+    @IBOutlet weak var makanMalamTimePicker: UIDatePicker!
+    
+    var timePicker = UIDatePicker()
+    var toolbar = UIToolbar()
     override func viewDidLoad() {
         super.viewDidLoad()
         notificationLoginScheduling()
@@ -41,26 +48,51 @@ class LoginViewController: UIViewController, UNUserNotificationCenterDelegate{
         // buat nge-hide keyboard
         hideKeyboardWhenTappedAround()
         
-        // addBottomBorder untuk memberikan border bawah pada objek TextField
-        namaTextField.addBottomBorder()
-        //tglLahirTextField.addBottomBorder()
-        tinggiBadanTextField.addBottomBorder()
-        beratBadanTextField.addBottomBorder()
+
         
         // memasukkan func untuk kelamin
         priaKelaminButton.addTarget(self, action: #selector(self.buttonKelamin_Tapped), for: .touchUpInside)
         wanitaKelaminButton.addTarget(self, action: #selector(self.buttonKelamin_Tapped), for:.touchUpInside)
+        priaKelaminButton.layer.cornerRadius = 15
+        wanitaKelaminButton.layer.cornerRadius = 15
         
         // hide semua textfield waktu
-        sarapanTextField.isHidden = true
-        makanSiangTextField.isHidden = true
-        makanMalamTextField.isHidden = true
+//        sarapanTextField.isHidden = true
+//        makanSiangTextField.isHidden = true
+//        makanMalamTextField.isHidden = true
+        sarapanTimePicker.datePickerMode = .time
+        sarapanTimePicker.isHidden = true
+        makanSiangTimePicker.datePickerMode = .time
+        makanSiangTimePicker.isHidden = true
+        makanMalamTimePicker.datePickerMode = .time
+        makanMalamTimePicker.isHidden = true
+        
+        
         //genderPickerView.dataSource = self
         //genderPickerView.delegate = self
         
         // menjadikan keyboard menjadi numeric
         tinggiBadanTextField.keyboardType = .numberPad
         beratBadanTextField.keyboardType = .decimalPad
+        
+        buttonMulai.layer.cornerRadius = 15
+    }
+    
+
+
+    // Called when the date picker changes.
+
+    @objc func updateDateField(sender: UIDatePicker) {
+        sarapanTextField?.text = formatDateForDisplay(date: sender.date)
+    }
+
+
+    // Formats the date chosen with the date picker.
+
+    fileprivate func formatDateForDisplay(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy"
+        return formatter.string(from: date)
     }
     
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
@@ -89,9 +121,17 @@ class LoginViewController: UIViewController, UNUserNotificationCenterDelegate{
         switch(sender.tag){
         case 1:
             genderTerpilih = (sender.titleLabel?.text)!
+            priaKelaminButton.backgroundColor = UIColor(named: "AvocadoGreen")
+            priaKelaminButton.setTitleColor(.white, for: .normal)
+            wanitaKelaminButton.backgroundColor = UIColor(named: "MangoYoghurt")
+            wanitaKelaminButton.setTitleColor(UIColor(named: "StateUnactiveText"), for: .normal)
             print("gender: \(genderTerpilih)")
         case 2:
             genderTerpilih = (sender.titleLabel?.text)!
+            wanitaKelaminButton.backgroundColor = UIColor(named: "AvocadoGreen")
+            wanitaKelaminButton.setTitleColor(.white, for: .normal)
+            priaKelaminButton.backgroundColor = UIColor(named: "MangoYoghurt")
+            priaKelaminButton.setTitleColor(UIColor(named: "StateUnactiveText"), for: .normal)
             print("gender: \(genderTerpilih)")
         default:
             break
@@ -101,31 +141,37 @@ class LoginViewController: UIViewController, UNUserNotificationCenterDelegate{
     
     @IBAction func sarapanSwitch_Turned(_ sender: UISwitch) {
         if(sender.isOn){
-            sarapanTextField.isHidden = false
+//            sarapanTextField.isHidden = false
+            sarapanTimePicker.isHidden = false
             tipeMakan = "Sarapan"
         }
         else{
-            sarapanTextField.isHidden = true
+//            sarapanTextField.isHidden = true
+            sarapanTimePicker.isHidden = true
         }
     }
     
     @IBAction func makanSiangSwitch_Turned(_ sender: UISwitch) {
         if sender.isOn{
-            makanSiangTextField.isHidden = false
+//            makanSiangTextField.isHidden = false
+            makanSiangTimePicker.isHidden = false
             tipeMakan = "Makan Siang"
         }
         else{
-            makanSiangTextField.isHidden = true
+//            makanSiangTextField.isHidden = true
+            makanSiangTimePicker.isHidden = true
         }
     }
     
     @IBAction func makanMalamSwitch_Turned(_ sender: UISwitch) {
         if sender.isOn{
-            makanMalamTextField.isHidden = false
+//            makanMalamTextField.isHidden = false
+            makanMalamTimePicker.isHidden = false
             tipeMakan = "Makan Malam"
         }
         else{
-            makanMalamTextField.isHidden = true
+//            makanMalamTextField.isHidden = true
+            makanMalamTimePicker.isHidden = true
         }
     }
     

@@ -55,17 +55,32 @@ class JournalViewController : UIViewController{
     //Konsumsimu Hari Ini
     @IBOutlet weak var labelKonsumsimuHariIni: UILabel!
     //CollectionView Sarapan
+    @IBOutlet weak var viewSarapan: UIView!
+    @IBOutlet weak var imageNoSarapan: UIImageView!
     @IBOutlet weak var labelSarapan: UILabel!
     @IBOutlet weak var collectionViewSarapan: UICollectionView!
     //CollectionView Makan Siang
+    @IBOutlet weak var viewMakanSiang: UIView!
+    @IBOutlet weak var imageNoMakanSiang: UIImageView!
     @IBOutlet weak var labelMakanSiang: UILabel!
     @IBOutlet weak var collectionViewMakanSiang: UICollectionView!
     //CollectionView Makan Malem
+    @IBOutlet weak var viewMakanMalam: UIView!
+    @IBOutlet weak var imageNoMakanMalam: UIImageView!
     @IBOutlet weak var labelMakanMalam: UILabel!
     @IBOutlet weak var collectionViewMakanMalam: UICollectionView!
     //CollectionView Snack
+    @IBOutlet weak var viewSnack: UIView!
+    @IBOutlet weak var imageNoSnack: UIImageView!
     @IBOutlet weak var labelSnack: UILabel!
     @IBOutlet weak var collectionViewSnack: UICollectionView!
+    
+    
+    //data Journal Array
+    var dataJournalSarapan : [JournalEntity] = [JournalEntity]()
+    var dataJournalMakanSiang : [JournalEntity] = [JournalEntity]()
+    var dataJournalMakanMalam : [JournalEntity] = [JournalEntity]()
+    var dataJournalSnack : [JournalEntity] = [JournalEntity]()
     
     // Weekly CollectionCell
     var date : [String] = []
@@ -83,6 +98,8 @@ class JournalViewController : UIViewController{
     //datepicker
 //    var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
+    let tanggalHariIni = Date()
+    let formatter = DateFormatter()
     
     var fetchData: [NSManagedObject] = []
     
@@ -98,21 +115,27 @@ class JournalViewController : UIViewController{
         
         
         // MARK: FOR BMR
-        let profileDummy = Profile(age: 15, gender: .male, height: 150, weight: 55.00)
-        //add data to profile
-        //let profileDataFetch = data.fetchProfile()
+        //        let profileDataFetch = data.fetchProfile()
+        var profileDummy : Profile!
+        //
+        //        if profileDataFetch != nil {
+        //            profileDummy.age = calcAge(birthday: profileDataFetch?.tanggal_lahir ?? Date())
+        //
+        //
+        //            profileDummy.gender = profileDataFetch?.gender == "Pria" ? .male : .female
+        //
+        //            profileDummy.height = Int(profileDataFetch?.tinggi_badan ?? 0)
+        //
+        //            profileDummy.weight = profileDataFetch?.berat_badan ?? 0.0
+        //
+        //        } else {
+        //            profileDummy = Profile(age: 0, gender: .male, height: 0, weight: 0)
+        //        }
+        profileDummy = Profile(age: 0, gender: .male, height: 0, weight: 0)
         
-//        profile.age = calcAge(birthday: profileDataFetch?.tanggal_lahir ?? Date())
-//
-//        if ((profileDataFetch?.gender = "Pria") != nil) {
-//            profile.gender = .male
-//        }else{
-//            profile.gender = .female
-//        }
-//
-//        profile.weight = profileDataFetch?.berat_badan ?? 0.00
-//        profile.height = profileDataFetch?.tinggi_badan ?? 0
+        
         let bmr = BMR(profile: profileDummy)
+        
         let kaloriHariIni : Float = 900
         let persentageBmr : Float = kaloriHariIni  / Float(bmr)
         
@@ -120,31 +143,47 @@ class JournalViewController : UIViewController{
         labelKalori.text = "\(Int(kaloriHariIni)) /\(bmr)"
         progressViewKalori.setProgress( persentageBmr , animated: true)
         
-//        let weekday = Calendar.current.component(.weekday, from: Date())
-//        print("weekday : \(weekday)")
-//        for n in (1...weekday - 1).reversed(){
-//            date.append(calweeksDates2(when: -n))
-//            dateForDataBase.append(calweeksDates(when: -n))
-//            print(-n)
-//        }
-//        date.append(calweeksDates2(when: 0))
-//        dateForDataBase.append(calweeksDates(when: 0))
-//        for n in weekday - 1...5{
-//            date.append(calweeksDates2(when: n))
-//            dateForDataBase.append(calweeksDates(when: n))
-//            print(n)
-//        }
-//
-//        let date = Date()
-//        let format = DateFormatter()
-//        format.dateFormat = "yyyy-MM-dd"
-//        let formattedDate = format.string(from: date)
-//        print("FORMATTED DATE : \(formattedDate)")
-//        fetchData = myFetchRequestByDate(date: formattedDate)
-//        let gestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(backgroundTap(gesture:)));
-//       viewScrolling.addGestureRecognizer(gestureRecognizer)
+        
+        getJournal(tanggal: tanggalHariIni)
 
     }
+    
+    func getJournal(tanggal : Date){
+        
+        print("Tanggal : \(tanggal)")
+        let tanggalFormat = formatter.date(from: "\(tanggal)")
+        
+        print("Tanggal : \(formatter.dateFormat = "YYYY-MM-DD")")
+        
+        let dataJournalSarapan = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Sarapan")
+        imageNoSarapan.isHidden = dataJournalSarapan.count > 0 ? true : false
+        self.dataJournalSarapan = dataJournalSarapan.count > 0 ? dataJournalSarapan : []
+       
+        let dataJournalSiang = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Siang")
+        imageNoMakanSiang.isHidden = dataJournalSiang.count > 0 ? true : false
+        self.dataJournalMakanSiang = dataJournalSiang.count > 0 ? dataJournalSiang : []
+        
+        let dataJournalMalam = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Malam")
+        imageNoMakanMalam.isHidden = dataJournalMalam.count > 0 ? true : false
+        self.dataJournalMakanMalam = dataJournalMalam.count > 0 ? dataJournalMalam : []
+        
+        let dataJournalSnack = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Snack")
+        imageNoSnack.isHidden = dataJournalSnack.count > 0 ? true : false
+        self.dataJournalSnack = dataJournalSnack.count > 0 ? dataJournalSnack : []
+        
+        print("DATA JOURNAL : \(dataJournalSarapan)")
+        print("DATA JOURNAL : \(dataJournalSiang)")
+        print("DATA JOURNAL : \(dataJournalMalam)")
+        print("DATA JOURNAL : \(dataJournalSnack)")
+//        if(dataJournalSarapan.count > 0){
+//
+//        }else{
+//            //ketika ga punya data
+//        }
+    }
+    
+    
+  
     
     func calcAge(birthday: Date) -> Int {
         let dateFormater = DateFormatter()
@@ -282,13 +321,13 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             return 7
         }else  if collectionView == self.collectionViewSarapan {
-            return 5
+            return self.dataJournalSarapan.count
         }else  if collectionView == self.collectionViewMakanSiang {
-            return 1
+            return self.dataJournalMakanSiang.count
         }else  if collectionView == self.collectionViewMakanMalam {
-            return 2
+            return self.dataJournalMakanMalam.count
         }else  if collectionView == self.collectionViewSnack {
-            return 3
+            return self.dataJournalSnack.count
         }
         return 0
     }
@@ -298,8 +337,7 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
-            let tanggalHariIni = Date()
-            let formatter = DateFormatter()
+            
             formatter.dateFormat = "dd"
             formatter.locale = Locale(identifier: "id_ID")
             let tanggalCell = formatter.string(from: tanggalHariIni)
@@ -544,6 +582,11 @@ extension JournalViewController{
         collectionViewSnack.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
         collectionViewSnack.delegate = self
         collectionViewSnack.dataSource = self
+        
+        imageNoSarapan.isHidden = true
+        imageNoMakanSiang.isHidden = true
+        imageNoMakanMalam.isHidden = true
+        imageNoSnack.isHidden = true
     }
     
     func getWidthViewNutrition(){
