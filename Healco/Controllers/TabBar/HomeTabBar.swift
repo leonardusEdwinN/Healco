@@ -151,7 +151,6 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
         waktuComponent.minute = menitSekarang
         let strJamSekarang: String = "\(waktuComponent.hour ?? 0)" + ":" + "\(waktuComponent.minute ?? 0)"
         print("Jam: \(waktuComponent.hour ?? 0)" + " Menit: \(waktuComponent.minute ?? 0)")
-        print(strJamSekarang)
         let jamSarapan: String = notif?.value(forKeyPath: "sarapanTime") as? String ?? ""
         let jamSiang: String = notif?.value(forKeyPath: "siangTime") as? String ?? ""
         let jamMalam: String = notif?.value(forKeyPath: "malamTime") as? String ?? ""
