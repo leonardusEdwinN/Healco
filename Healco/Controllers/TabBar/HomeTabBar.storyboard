@@ -350,7 +350,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7QE-sW-zUy">
                                                 <rect key="frame" x="20" y="955" width="394" height="180"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="noJournal" translatesAutoresizingMaskIntoConstraints="NO" id="fuG-rr-h6w">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noJournal" translatesAutoresizingMaskIntoConstraints="NO" id="fuG-rr-h6w">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="180"/>
                                                     </imageView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hHy-Uy-Scn">
@@ -462,7 +462,7 @@
                                             <constraint firstAttribute="height" constant="40" id="Qlb-gQ-UGE"/>
                                             <constraint firstAttribute="width" constant="40" id="gwU-cH-7al"/>
                                         </constraints>
-                                        <color key="tintColor" name="PaleYellow"/>
+                                        <color key="tintColor" name="SweetMango"/>
                                         <state key="normal" image="calendar" catalog="system">
                                             <color key="titleColor" name="PaleYellow"/>
                                         </state>
@@ -473,7 +473,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agustus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOY-5u-895">
                                         <rect key="frame" x="289" y="55.5" width="55" height="19"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
-                                        <color key="textColor" name="PaleYellow"/>
+                                        <color key="textColor" name="MangoYoghurt"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -634,8 +634,14 @@
         <namedColor name="AvocadoGreen">
             <color red="0.37999999523162842" green="0.55000001192092896" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="MangoYoghurt">
+            <color red="0.98000001907348633" green="0.94999998807907104" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PaleYellow">
             <color red="0.99000000953674316" green="0.98000001907348633" blue="0.88999998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SweetMango">
+            <color red="0.95999997854232788" green="0.87000000476837158" blue="0.36000001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
