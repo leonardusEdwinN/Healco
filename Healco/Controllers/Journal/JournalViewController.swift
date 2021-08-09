@@ -9,7 +9,12 @@ import Foundation
 //import Charts
 import CoreData
 import UIKit
-
+enum isJournalFill {
+    case yesterdayFill //jika jurnal terisi
+    case yesterdayNo //jika journal tidak terisi
+    case dayDate //untuk tanggal hari ini
+    case tomorrow
+}
 
 
 class JournalViewController : UIViewController{
@@ -88,6 +93,8 @@ class JournalViewController : UIViewController{
     var dateForDataBase : [String] = []
     var selectedBefore : IndexPath!
     var selectedDate : String = ""
+    var isInitiateDate : Bool = false
+    var selectedIndex : Int = 0
     
     //properties
     let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
@@ -145,15 +152,30 @@ class JournalViewController : UIViewController{
         
         
         getJournal(tanggal: tanggalHariIni)
+//        getFoodJournalIsEmptyOrNay()
+        
+       
 
     }
     
+    func getFoodJournalIsEmptyOrNay(tanggalParam : Date) -> isJournalFill{
+        var result : isJournalFill = .tomorrow
+        let dataJournal = data.fetchJournalBaseOnDay(tanggalWaktu: tanggalParam)
+        var order = Calendar.current.compare(tanggalHariIni, to: tanggalParam, toGranularity: .day)
+        
+        switch order {
+        case .orderedDescending://yesterday
+            result =  dataJournal.count > 0 ? isJournalFill.yesterdayFill : isJournalFill.yesterdayNo
+        case .orderedAscending://tomorrow
+            result = isJournalFill.tomorrow
+        case .orderedSame://daydate
+            result = isJournalFill.dayDate
+        }
+        return result
+        
+    }
+    
     func getJournal(tanggal : Date){
-        
-        print("Tanggal : \(tanggal)")
-        let tanggalFormat = formatter.date(from: "\(tanggal)")
-        
-        print("Tanggal : \(formatter.dateFormat = "YYYY-MM-DD")")
         
         let dataJournalSarapan = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Sarapan")
         imageNoSarapan.isHidden = dataJournalSarapan.count > 0 ? true : false
@@ -171,19 +193,8 @@ class JournalViewController : UIViewController{
         imageNoSnack.isHidden = dataJournalSnack.count > 0 ? true : false
         self.dataJournalSnack = dataJournalSnack.count > 0 ? dataJournalSnack : []
         
-        print("DATA JOURNAL : \(dataJournalSarapan)")
-        print("DATA JOURNAL : \(dataJournalSiang)")
-        print("DATA JOURNAL : \(dataJournalMalam)")
-        print("DATA JOURNAL : \(dataJournalSnack)")
-//        if(dataJournalSarapan.count > 0){
-//
-//        }else{
-//            //ketika ga punya data
-//        }
     }
     
-    
-  
     
     func calcAge(birthday: Date) -> Int {
         let dateFormater = DateFormatter()
@@ -331,6 +342,7 @@ extension JournalViewController : UICollectionViewDataSource{
         }
         return 0
     }
+    
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
@@ -342,14 +354,41 @@ extension JournalViewController : UICollectionViewDataSource{
             formatter.locale = Locale(identifier: "id_ID")
             let tanggalCell = formatter.string(from: tanggalHariIni)
             
-            print("PERBANDINGAN : \(tanggalCell) :: \(date[indexPath.item])")
-            tanggalCell == date[indexPath.item] ? print("SAME DATE") : print("WRONG DATE")
             if(tanggalCell == date[indexPath.item]){
 //                cell.viewOuter.backgroundColor = .green
                 cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item],isToday: true)
+                self.isInitiateDate = true
+                self.selectedIndex = indexPath.item
+                
             }else{
                 cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item],isToday: false)
             }
+            
+            let tanggal = Date()
+            let calendar = Calendar.current
+            var tanggalBaru = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: tanggal as Date)
+            tanggalBaru.day = Int(date[indexPath.item])
+            
+            if let tanggalParam = calendar.date(from: tanggalBaru){
+//                print("YUHU  : \(getFoodJournalIsEmptyOrNay(tanggalParam: tanggalParam))")
+                switch getFoodJournalIsEmptyOrNay(tanggalParam: tanggalParam) {
+                case isJournalFill.yesterdayNo:
+                    cell.labelTanggal.backgroundColor = UIColor(named : "StateUnactiveText")
+                case isJournalFill.yesterdayFill:
+                    cell.labelTanggal.backgroundColor = UIColor(named : "AvocadoGreen")
+                    cell.labelTanggal.textColor = .white
+                case isJournalFill.dayDate:
+                    cell.labelTanggal.backgroundColor = UIColor(named : "MangoYoghurt")
+                default:
+                    cell.labelTanggal.backgroundColor = .white
+                }
+               
+                
+                
+            }
+            
+            
+            cell.changeUpdate()
             
 //            cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item])// unteuk set data
 
@@ -374,7 +413,26 @@ extension JournalViewController : UICollectionViewDataSource{
         switch collectionView {
         case self.collectionViewWeekly:
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
-            print("WEEKLY CELL SELECTED \(indexPath.item)")
+            
+            
+            if(self.isInitiateDate){
+                let cellSelectedBefore = collectionView.cellForItem(at: IndexPath(item: self.selectedIndex, section: 0)) as! WeeklyCollectionViewCell
+                
+                cellSelectedBefore.isSelected = false
+                
+                self.isInitiateDate = false
+                cellSelectedBefore.changeUpdate()
+            }
+            cell.changeUpdate()
+            
+            let tanggal = Date()
+            let calendar = Calendar.current
+            var tanggalBaru = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: tanggal as Date)
+            tanggalBaru.day = Int(date[indexPath.item])
+            
+            guard let tanggalBaru = calendar.date(from: tanggalBaru) else { return }
+            
+            getJournal(tanggal: tanggalBaru)
             break
         case self.collectionViewSarapan:
             let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
@@ -408,6 +466,10 @@ extension JournalViewController : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
+            print("WEEKLY CELL DESELECTED \(date[indexPath.item])")
+            
+            cell.changeUpdate()
+            
         }
     }
     
@@ -504,13 +566,6 @@ extension JournalViewController{
         return food
     }
     
-    func getArrangedDateInOneWeek(){
-        let calendar = Calendar.current
-        let today = calendar.startOfDay(for: Date())
-        let dayOfWeek = calendar.component(.weekday, from: today)
-        print("Hari: \(today)")
-        print("Hari apa: \(dayOfWeek)")
-    }
 }
 
 
@@ -527,7 +582,7 @@ extension JournalViewController{
         var tanggal : Date?
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        print("DATA : \(formatter.string(from: calendarDate))")
+//        print("DATA : \(formatter.string(from: calendarDate))")
         for indexOfDate in 0..<7 {
             
             if(indexOfDate == 0) {
