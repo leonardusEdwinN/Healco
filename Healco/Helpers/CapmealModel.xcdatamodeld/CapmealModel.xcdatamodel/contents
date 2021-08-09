@@ -6,9 +6,13 @@
         <attribute name="tipe" optional="YES" attributeType="String"/>
     </entity>
     <entity name="JournalEntity" representedClassName="JournalEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="kaloriTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="karbohidratTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="lagi_apa" optional="YES" attributeType="String"/>
+        <attribute name="lemakTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="perasaan" optional="YES" attributeType="String"/>
         <attribute name="porsi" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="proteinTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="satuan" optional="YES" attributeType="String"/>
         <attribute name="tanggal_jam" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="tipe" optional="YES" attributeType="String"/>
@@ -42,9 +46,9 @@
     </entity>
     <elements>
         <element name="HistoricalEntity" positionX="27" positionY="-90" width="128" height="74"/>
-        <element name="JournalEntity" positionX="-123.8551635742188" positionY="-250.5234985351562" width="128" height="134"/>
+        <element name="JournalEntity" positionX="-123.8551635742188" positionY="-250.5234985351562" width="128" height="194"/>
         <element name="MealEntity" positionX="381.865234375" positionY="-183.5227355957031" width="128" height="164"/>
-        <element name="ProfileEntity" positionX="-182.9930419921875" positionY="180.0543823242188" width="128" height="104"/>
         <element name="NotificationEntity" positionX="27" positionY="-90" width="128" height="119"/>
+        <element name="ProfileEntity" positionX="-182.9930419921875" positionY="180.0543823242188" width="128" height="104"/>
     </elements>
 </model>
