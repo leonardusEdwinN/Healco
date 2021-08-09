@@ -122,28 +122,29 @@ class JournalViewController : UIViewController{
         
         
         // MARK: FOR BMR
-        //        let profileDataFetch = data.fetchProfile()
-        var profileDummy : Profile!
-        //
-        //        if profileDataFetch != nil {
-        //            profileDummy.age = calcAge(birthday: profileDataFetch?.tanggal_lahir ?? Date())
-        //
-        //
-        //            profileDummy.gender = profileDataFetch?.gender == "Pria" ? .male : .female
-        //
-        //            profileDummy.height = Int(profileDataFetch?.tinggi_badan ?? 0)
-        //
-        //            profileDummy.weight = profileDataFetch?.berat_badan ?? 0.0
-        //
-        //        } else {
-        //            profileDummy = Profile(age: 0, gender: .male, height: 0, weight: 0)
-        //        }
-        profileDummy = Profile(age: 0, gender: .male, height: 0, weight: 0)
+        let profileDataFetch = data.fetchProfile()
+        let sumkalori = data.sumKalori(tanggalJurnal: tanggalHariIni)
+        var profileDummy : Profile = Profile(age: 0, gender: .male, height: 0, weight: 0)
         
+        if profileDataFetch.count != 0{
+            profileDummy.age = calcAge(birthday: profileDataFetch[0].tanggal_lahir ?? Date())
+
+
+            profileDummy.gender = profileDataFetch[0].gender == "Pria" || profileDataFetch[0].gender == "" ? .male : .female
         
+            profileDummy.height = Int(profileDataFetch[0].tinggi_badan)
+        
+            profileDummy.weight = profileDataFetch[0].berat_badan
+        
+        } else {
+            profileDummy = Profile(age: 0, gender: .male, height: 0, weight: 0)
+        }
+        
+//        print("\(profileDummy.weight = profileDataFetch[0].berat_badan)")
         let bmr = BMR(profile: profileDummy)
         
-        let kaloriHariIni : Float = 900
+        let kaloriHariIni : Float = Float(sumkalori)
+        
         let persentageBmr : Float = kaloriHariIni  / Float(bmr)
         
         //MARK: CHANGE FRONT END DATA CALORI
