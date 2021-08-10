@@ -1,228 +1,109 @@
 //
 //  ProfileViewController.swift
-//  Profile
+//  Healco
 //
-//  Created by Rian on 03/08/21.
+//  Created by Rian Sanjaya on 09/08/21.
 //
 
 import UIKit
 import CoreData
 
-struct MapingDataProfile {
-    var index: Int
-    var name: String
-    var value: String
-    var key: String
-    var isEdited: Bool
-}
-
-class ProfileViewController: UIViewController, UIPopoverPresentationControllerDelegate {
-    let profileTableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .insetGrouped)
-        tableView.backgroundColor = UIColor.white
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.separatorColor = UIColor.clear
-        return tableView
-    }()
+class ProfileViewController: UIViewController{
+    let gender: [String] = ["", "Pria", "Wanita"]
+    var genderTerpilih: String = ""
+    var tipeMakan: String = ""
+    var tglLahir = Date()
+    var edit : Bool!
     
-    var isVCEdit: Bool = false
+    // function buat CoreData
+    let data = CoreDataClass()
+    var profile : [ProfileEntity] = [ProfileEntity]()
     
-    
-    var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    var selectedGender: String?
-    public var formatData: [MapingDataProfile] = []
-    var profileData = [ProfileEntity]()
-    
-    
-    func getDataProfile() {
-        let data = CoreDataClass()
-        let profile  = data.fetchProfile()
-//
-        if profile == nil {
-            formatData.append(MapingDataProfile(index: 0, name: "Jenis Kelamin", value: "", key: "gender", isEdited: false))
-            formatData.append(MapingDataProfile(index: 1, name: "Umur", value: "", key: "umur", isEdited: false))
-            formatData.append(MapingDataProfile(index: 2, name: "Tinggi Badan", value: "", key: "tinggi_badan", isEdited: false))
-            formatData.append(MapingDataProfile(index: 3, name: "Berat Badan", value: "", key: "berat_badan", isEdited: false))
-
-        } else {
-//            formatData.append(MapingDataProfile(index: 0, name: "Jenis Kelamin", value: profileData[0].gender ?? "", key: "gender", isEdited: false))
-//            formatData.append(MapingDataProfile(index: 1, name: "Umur", value: String(profileData[0].umur), key: "umur", isEdited: false))
-//            formatData.append(MapingDataProfile(index: 2, name: "Tinggi Badan", value: String(profileData[0].tinggi_badan), key: "tinggi_badan", isEdited: false))
-//            formatData.append(MapingDataProfile(index: 3, name: "Berat Badan", value: String(profileData[0].berat_badan), key: "berat_badan", isEdited: false))
-        }
-        profileTableView.reloadData()
-    }
-    
-    func saveDataProfile() {
-        let profileRequest: NSFetchRequest<ProfileEntity> = ProfileEntity.fetchRequest()
-        do {
-            try profileData = managedObjectContext.fetch(profileRequest)
-        } catch {
-            print("Couldn't load the profile data!")
-        }
-        
-        if profileData.count == 0 {
-            //CREATE
-            print("START TO GET ENTITY")
-            let entity = NSEntityDescription.entity(forEntityName: "ProfileEntity", in: managedObjectContext)
-            let newInventory = NSManagedObject(entity: entity!, insertInto: managedObjectContext)
-            
-            for i in 0..<formatData.count {
-                if formatData[i].key == "gender" {
-                    newInventory.setValue(formatData[i].value, forKey: formatData[i].key)
-                } else {
-                    newInventory.setValue(Int64(formatData[i].value), forKey: formatData[i].key)
-                }
-            }
-            
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Failed to create!")
-            }
-            
-        } else {
-            //EDIT
-            let userProfile = profileData.first!
-            for i in 0..<formatData.count {
-                if formatData[i].key == "gender" {
-                    userProfile.setValue(formatData[i].value, forKey: formatData[i].key)
-                } else {
-                    userProfile.setValue(Int64(formatData[i].value), forKey: formatData[i].key)
-                }
-            }
-            
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Failed to edit!")
-            }
-            
-        }
-//        profileTableView.reloadData()
-    }
-    
-    func setupTableView() {
-        profileTableView.delegate = self
-        profileTableView.dataSource = self
-        profileTableView.register(SettingsProfileTableViewCell.self, forCellReuseIdentifier: SettingsProfileTableViewCell.identifier)
-        view.addSubview(profileTableView)
-        NSLayoutConstraint.activate([
-            profileTableView.topAnchor.constraint(equalTo: view.topAnchor),
-            profileTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            profileTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            profileTableView.leftAnchor.constraint(equalTo: view.leftAnchor)
-        ])
-    }
+    @IBOutlet weak var viewProfileHeader: UIView!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var genderOptions: UISegmentedControl!
+    @IBOutlet weak var datePickerTanggalLahir: UIDatePicker!
+    @IBOutlet weak var tinggiBadanTextField: UITextField!
+    @IBOutlet weak var beratBadanTextField: UITextField!
+    @IBOutlet weak var viewRec: UIView!
+    @IBOutlet weak var segmentedControlGender: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        managedObjectContext = appDelegate?.persistentContainer.viewContext ?? NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        setupTableView()
-        getDataProfile()
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.performPicker), name: NSNotification.Name(rawValue: "showPickerController"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateGender), name: NSNotification.Name(rawValue: "updateGender"), object: nil)
+        profile = data.fetchProfile()
+        // buat nge-hide keyboard
+        hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    @objc func updateGender() {
-        formatData.removeAll()
-        getDataProfile()
-    }
-    
-    @objc func performPicker() {
-//        self.performSegue(withIdentifier: "segueGender", sender: nil)
+        tinggiBadanTextField.keyboardType = .numberPad
+        beratBadanTextField.keyboardType = .decimalPad
+        //radius heaeder
+        viewProfileHeader.layer.cornerRadius = 30
         
-        self.performSegue(withIdentifier: "segueGender", sender: nil)
-    }
-    
-    
-    @objc func buttonTapped(sender: UIButton) {
-        var btnTitle: String = ""
-        if self.isVCEdit == true {
-            for i in 0..<formatData.count {
-                let cell = profileTableView.cellForRow(at: [0, i]) as! SettingsProfileTableViewCell
-                formatData[i].value = cell.textField.text!
-                formatData[i].isEdited = false
-            }
-            saveDataProfile()
-            btnTitle = "Edit"
-            self.isVCEdit = false
-            
-        } else {
-            for i in 0..<formatData.count {
-                if i != 0 {
-                    formatData[i].isEdited = true
-                }
-            }
-            btnTitle = "Save"
-            self.isVCEdit = true
+        viewRec.layer.cornerRadius = 15
+        self.editButton.tag = 0
+        //manggil data dari core data
+        tinggiBadanTextField.text = "\(profile[0].tinggi_badan)"
+        beratBadanTextField.text = "\(profile[0].berat_badan)"
+        datePickerTanggalLahir.date = profile[0].tanggal_lahir!
+        
+        if profile[0].gender == "Pria"{
+            genderOptions.selectedSegmentIndex = 0
+        }
+        else if profile[0].gender == "Wanita" {
+            genderOptions .selectedSegmentIndex = 1
             
         }
-        sender.setTitle(btnTitle, for: .normal)
-        profileTableView.reloadData()
-    }
-
-}
-
-extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+        //menonaktifkan field dan sebagainya
+        tinggiBadanTextField.isUserInteractionEnabled = false
+        tinggiBadanTextField.backgroundColor = UIColor.lightGray
+        beratBadanTextField.isUserInteractionEnabled = false
+        beratBadanTextField.backgroundColor = UIColor.lightGray
+        genderOptions.isUserInteractionEnabled = false
+        datePickerTanggalLahir.isUserInteractionEnabled = false  }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let frame: CGRect = profileTableView.frame
-        let Buttons: UIButton = UIButton(frame: CGRect(x: frame.size.width - 40 - 50, y: -15, width: 50, height: 30))
-        Buttons.setTitle(isVCEdit == false ? "Edit" : "Save", for: .normal)
-        Buttons.setTitleColor(.systemBlue, for: .normal)
-        Buttons.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    @IBAction func editButtonTapped(_ sender: Any) {
+            print("Save")
+       
+        if edit == true {
+        edit = false
+            //merubah text button
+            editButton.setTitle("Edit", for: .normal)
+            //mengaktifkan field dan sebagainya
+            tinggiBadanTextField.isUserInteractionEnabled = false
+            tinggiBadanTextField.backgroundColor = UIColor.lightGray
+            beratBadanTextField.isUserInteractionEnabled = false
+            beratBadanTextField.backgroundColor = UIColor.lightGray
+            genderOptions.isUserInteractionEnabled = false
+            datePickerTanggalLahir.isUserInteractionEnabled = false
+        }else{
+        edit = true
+            editButton.setTitle("Save", for: .normal)
+            //menonaktifkan field dan sebagainya
+            tinggiBadanTextField.isUserInteractionEnabled = true
+            tinggiBadanTextField.backgroundColor = UIColor.white
+            beratBadanTextField.isUserInteractionEnabled = true
+            beratBadanTextField.backgroundColor = UIColor.white
+            genderOptions.isUserInteractionEnabled = true
+            datePickerTanggalLahir.isUserInteractionEnabled = true
+            
+        }
+        let converter = NumberFormatter()
+        converter.numberStyle = .decimal
+        converter.groupingSeparator = "."
+        converter.decimalSeparator = ","
+        converter.locale = Locale(identifier: "id-ID")
+        let berat = converter.number(from: beratBadanTextField.text!) as? Double ?? 0.0
+        data.changeProfile(profile: profile[0], nama_pengguna: "", gender: genderTerpilih, tanggalLahir: datePickerTanggalLahir.date, tinggiBadan: Int32(tinggiBadanTextField.text!)!, beratBadan: berat)
+        }
         
-        let headerView: UIView = UIView(frame: CGRect(x: 0, y: -10, width: frame.size.width, height: 50))
-        headerView.addSubview(Buttons)
-        return headerView
+    @IBAction func genderSwitch(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            print("masuk pria")
+            genderTerpilih = "Pria"
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return formatData.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let profile = formatData[indexPath.row]
-        guard let cell = profileTableView.dequeueReusableCell(withIdentifier: SettingsProfileTableViewCell.identifier, for: indexPath) as? SettingsProfileTableViewCell else {
-            return UITableViewCell()
-        }
-        cell.configure(with: profile)
-        cell.selectionStyle = .none
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 && isVCEdit {
-            self.performSegue(withIdentifier: "segueGender", sender: nil)
+        else if sender.selectedSegmentIndex == 1 {
+            print("masuk wanita")
+            genderTerpilih = "Wanita"
         }
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let nav = segue.destination as? GenderPickerViewController {
-//            nav.pickerSelected = formatData[0].value
-//            nav.modalPresentationStyle = .overCurrentContext
-//        }
-//    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueGender",
-           let foodRecogVC = segue.destination as? GenderPickerViewController {
-            foodRecogVC.modalPresentationStyle = .overCurrentContext
-        }
-    }
-    
 }

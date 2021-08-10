@@ -295,12 +295,12 @@ class CoreDataClass {
     
     // MARK: Ini Fungsi Untuk Ngatur Notifikasi Input Jurnal
     
-    func fetchNotification() -> NotificationEntity? {
+    func fetchNotification() -> [NotificationEntity] {
         do {
-            return try context.fetch(NSFetchRequest<NotificationEntity>(entityName: "NotificationEntity"))[0]
+            return try context.fetch(NSFetchRequest<NotificationEntity>(entityName: "NotificationEntity"))
         } catch let error {
             print("Error nih pas ngambil data notifikasinya, detailnya \(error)")
-            return nil
+            return []
         }
     }
     
@@ -314,6 +314,15 @@ class CoreDataClass {
         notif.malamOn = malamOn
         notif.malamTime = malamTime
         
+        if !sarapanOn{
+            notif.sarapanTime = ""
+        }
+        if !siangOn{
+            notif.siangTime = ""
+        }
+        if !malamOn{
+            notif.malamTime = ""
+        }
         saveData()
     }
     

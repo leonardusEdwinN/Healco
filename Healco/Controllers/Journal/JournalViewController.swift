@@ -60,21 +60,29 @@ class JournalViewController : UIViewController{
     @IBOutlet weak var labelKonsumsimuHariIni: UILabel!
     //CollectionView Sarapan
     @IBOutlet weak var viewSarapan: UIView!
+    @IBOutlet weak var stackViewNoSarapan: UIStackView!
+    @IBOutlet weak var labelNoSarapan: UILabel!
     @IBOutlet weak var imageNoSarapan: UIImageView!
     @IBOutlet weak var labelSarapan: UILabel!
     @IBOutlet weak var collectionViewSarapan: UICollectionView!
     //CollectionView Makan Siang
     @IBOutlet weak var viewMakanSiang: UIView!
+    @IBOutlet weak var stackViewNoMakanSiang: UIStackView!
+    @IBOutlet weak var labelNoMakanSiang: UILabel!
     @IBOutlet weak var imageNoMakanSiang: UIImageView!
     @IBOutlet weak var labelMakanSiang: UILabel!
     @IBOutlet weak var collectionViewMakanSiang: UICollectionView!
     //CollectionView Makan Malem
     @IBOutlet weak var viewMakanMalam: UIView!
+    @IBOutlet weak var stackViewNoMakanMalam: UIStackView!
+    @IBOutlet weak var labelNoMakanMalam: UILabel!
     @IBOutlet weak var imageNoMakanMalam: UIImageView!
     @IBOutlet weak var labelMakanMalam: UILabel!
     @IBOutlet weak var collectionViewMakanMalam: UICollectionView!
     //CollectionView Snack
     @IBOutlet weak var viewSnack: UIView!
+    @IBOutlet weak var stackViewNoSnack: UIStackView!
+    @IBOutlet weak var labelNoSnack: UILabel!
     @IBOutlet weak var imageNoSnack: UIImageView!
     @IBOutlet weak var labelSnack: UILabel!
     @IBOutlet weak var collectionViewSnack: UICollectionView!
@@ -177,19 +185,19 @@ class JournalViewController : UIViewController{
     
     func getJournal(tanggal : Date){
         let dataJournalSarapan = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Sarapan")
-        imageNoSarapan.isHidden = dataJournalSarapan.count > 0 ? true : false
+        stackViewNoSarapan.isHidden = dataJournalSarapan.count > 0 ? true : false
         self.dataJournalSarapan = dataJournalSarapan.count > 0 ? dataJournalSarapan : []
        
         let dataJournalSiang = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Siang")
-        imageNoMakanSiang.isHidden = dataJournalSiang.count > 0 ? true : false
+        stackViewNoMakanSiang.isHidden = dataJournalSiang.count > 0 ? true : false
         self.dataJournalMakanSiang = dataJournalSiang.count > 0 ? dataJournalSiang : []
         
         let dataJournalMalam = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Malam")
-        imageNoMakanMalam.isHidden = dataJournalMalam.count > 0 ? true : false
+        stackViewNoMakanMalam.isHidden = dataJournalMalam.count > 0 ? true : false
         self.dataJournalMakanMalam = dataJournalMalam.count > 0 ? dataJournalMalam : []
         
         let dataJournalSnack = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Snack")
-        imageNoSnack.isHidden = dataJournalSnack.count > 0 ? true : false
+        stackViewNoSnack.isHidden = dataJournalSnack.count > 0 ? true : false
         self.dataJournalSnack = dataJournalSnack.count > 0 ? dataJournalSnack : []
         
         for journal in data.fetchJournal() {
@@ -652,10 +660,10 @@ extension JournalViewController{
         collectionViewSnack.delegate = self
         collectionViewSnack.dataSource = self
         
-        imageNoSarapan.isHidden = true
-        imageNoMakanSiang.isHidden = true
-        imageNoMakanMalam.isHidden = true
-        imageNoSnack.isHidden = true
+        stackViewNoSarapan.isHidden = true
+        stackViewNoMakanSiang.isHidden = true
+        stackViewNoMakanMalam.isHidden = true
+        stackViewNoSnack.isHidden = true
     }
     
     func getWidthViewNutrition(){

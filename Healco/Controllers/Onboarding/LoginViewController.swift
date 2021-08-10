@@ -6,20 +6,17 @@
 //
 
 import UIKit
-//import CoreData
-import UserNotifications
+import CoreData
 
-class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UNUserNotificationCenterDelegate{
-    let gender: [String] = ["", "Pria", "Wanita"]
+class LoginViewController: UIViewController{
     var genderTerpilih: String = ""
-    var tipeMakan: String = ""
     var tglLahir = Date()
+    var isSarapanOn: Bool = false
+    var isSiangOn: Bool = false
+    var isMalamOn: Bool = false
     
     // function buat CoreData
     let data = CoreDataClass()
-    
-    // notification center
-    let notificationCenter = UNUserNotificationCenter.current()
     
     @IBOutlet weak var namaTextField: UITextField!
     //@IBOutlet weak var tglLahirTextField: UITextField!
@@ -44,10 +41,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var toolbar = UIToolbar()
     override func viewDidLoad() {
         super.viewDidLoad()
-        notificationCenter.delegate = self
         
-        // notification
-        //notificationLoginScheduling()
         // buat nge-hide keyboard
         hideKeyboardWhenTappedAround()
         
@@ -99,18 +93,27 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @IBAction func btnMasuk_Tapped(_ sender: UIButton) {
-        //let tglLahirTerpilih = tglLahirDatePicker.date
-        //let formatTglLahir = DateFormatter()
-        //formatTglLahir.dateFormat = "yyyy-MM-dd"
+        let tglLahirTerpilih = tglLahirDatePicker.date
+        let formatTglLahir = DateFormatter()
+        formatTglLahir.dateFormat = "dd MM yyyy"
+        let strTglLahir = formatTglLahir.string(from: tglLahirTerpilih)
+        print(strTglLahir)
         let converter = NumberFormatter()
         converter.numberStyle = .decimal
         converter.groupingSeparator = "."
         converter.decimalSeparator = ","
         converter.locale = Locale(identifier: "id-ID")
+        let formatJam = DateFormatter()
+        formatJam.dateFormat = "HH:mm"
         let berat = converter.number(from: beratBadanTextField.text!) as? Double ?? 0.0
         data.addProfile(nama_pengguna: "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text ?? "0") ?? 0, beratBadan: berat)
 //        data.addProfile(nama_pengguna: "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text!) ?? 0 , beratBadan: berat)
         print("Berhasil!")
+        data.addNotif(sarapanOn: isSarapanOn, sarapanTime: formatJam.string(from: sarapanTimePicker.date), siangOn: isSiangOn, siangTime: formatJam.string(from: makanSiangTimePicker.date), malamOn: isMalamOn, malamTime: formatJam.string(from: makanMalamTimePicker.date))
+        print("Status sarapan: " + String(isSarapanOn))
+        print("Status siang: " + String(isSiangOn))
+        print("Status malam: " + String(isMalamOn))
+        print("Berhasil")
         let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
         viewController.modalTransitionStyle = .crossDissolve
@@ -145,11 +148,13 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         if(sender.isOn){
 //            sarapanTextField.isHidden = false
             sarapanTimePicker.isHidden = false
-            tipeMakan = "Sarapan"
+            isSarapanOn = true
+            
         }
         else{
 //            sarapanTextField.isHidden = true
             sarapanTimePicker.isHidden = true
+            isSarapanOn = false
         }
     }
     
@@ -157,11 +162,12 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         if sender.isOn{
 //            makanSiangTextField.isHidden = false
             makanSiangTimePicker.isHidden = false
-            tipeMakan = "Makan Siang"
+            isSiangOn = true
         }
         else{
 //            makanSiangTextField.isHidden = true
             makanSiangTimePicker.isHidden = true
+            isSiangOn = false
         }
     }
     
@@ -169,62 +175,17 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         if sender.isOn{
 //            makanMalamTextField.isHidden = false
             makanMalamTimePicker.isHidden = false
-            tipeMakan = "Makan Malam"
+            isMalamOn = true
         }
         else{
 //            makanMalamTextField.isHidden = true
             makanMalamTimePicker.isHidden = true
+            isMalamOn = false
         }
     }
     
     @IBAction func datePicker_Changed(_ sender: Any) {
         tglLahir = tglLahirDatePicker.date
-    }
-}
-
-extension LoginViewController{
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return gender.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return gender[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        genderTerpilih = gender[row]
-        
-        print(genderTerpilih)
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        completionHandler()
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .list, .sound])
-    }
-    
-    func notificationLoginScheduling(){
-        let profil = data.fetchProfile()
-        let content = UNMutableNotificationContent()
-        if profil.count == 0 {
-            content.title = "Login"
-            content.body = "Kamu masih belum login!"
-            content.sound = UNNotificationSound.default
-        }
-        else{
-            content.title = "Selamat datang!"
-            content.body = "Selamat datang kembali! Kamu dapat melihat jurnal harian makanan kamu!"
-            content.sound = UNNotificationSound.default
-        }
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-        let notifRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        notificationCenter.add(notifRequest)
     }
 }
 
