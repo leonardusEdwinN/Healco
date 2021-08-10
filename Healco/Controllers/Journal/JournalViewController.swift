@@ -6,9 +6,9 @@
 //
 
 import Foundation
-//import Charts
 import CoreData
 import UIKit
+
 enum isJournalFill {
     case yesterdayFill //jika jurnal terisi
     case yesterdayNo //jika journal tidak terisi
@@ -16,10 +16,9 @@ enum isJournalFill {
     case tomorrow
 }
 
-
 class JournalViewController : UIViewController{
     
-    //coredata
+    //Coredata
     let data = CoreDataClass()
     
     var profile : Profile!
@@ -110,16 +109,11 @@ class JournalViewController : UIViewController{
     let spacingBetweenCells: CGFloat = 10
     private var startingScrollingOffset = CGPoint.zero
     
-    //datepicker
-//    var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
     let tanggalHariIni = Date()
     let formatter = DateFormatter()
     
     var fetchData: [NSManagedObject] = []
-    
-//    //create imagepicker viewcontroller
-//    private var imagePickerControler =  UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,14 +130,9 @@ class JournalViewController : UIViewController{
         
         if profileDataFetch.count != 0{
             profileDummy.age = calcAge(birthday: profileDataFetch[0].tanggal_lahir ?? Date())
-
-
             profileDummy.gender = profileDataFetch[0].gender == "Pria" || profileDataFetch[0].gender == "" ? .male : .female
-        
             profileDummy.height = Int(profileDataFetch[0].tinggi_badan)
-        
             profileDummy.weight = profileDataFetch[0].berat_badan
-        
         } else {
             profileDummy = Profile(age: 0, gender: .male, height: 0, weight: 0)
         }
@@ -157,32 +146,30 @@ class JournalViewController : UIViewController{
         //MARK: CHANGE FRONT END DATA
         labelKalori.text = "\(Int(kaloriHariIni)) /\(bmr)"
         labelKarbohidratValue.text = "\(data.getPercentage(macroNutrient: .karbohidrat, tanggalJurnal: tanggalHariIni))"
-//        labelProteinValue.text = "\(data.getPercentage(macroNutrient: .protein, tanggalJurnal: Calendar.current.date(bySetting: .hour, value: <#T##Int#>, of: <#T##Date#>)))"
+        labelProteinValue.text = "\(data.getPercentage(macroNutrient: .protein, tanggalJurnal: getTodayDate()))"
         labelLemakValue.text = "\(data.getPercentage(macroNutrient: .lemak, tanggalJurnal: tanggalHariIni))"
 
         progressViewKalori.setProgress( persentageBmr , animated: true)
         
-        
         getJournal(tanggal: tanggalHariIni)
-//        getFoodJournalIsEmptyOrNay()
-        
-       
-
     }
     
-//    func getTodayDate () -> Date {
-//        let tanggalHariIni : Date!
-//
-//        let dateComponents = Calendar.current.dateComponents(fromDate: yourDate)
-//        dateComponents.minute = 0
-//        let finishedDate = Calendar.current.date(fromComponents: dateComponents)
-//
-//        return tanggalHariIni
-//    }
+    func getTodayDate () -> Date {
+        var finishedDate : Date!
+        
+        var dateComponents = Calendar.current.dateComponents(in: TimeZone.current, from: Date())
+        dateComponents.minute = 0
+        dateComponents.hour = 0
+        dateComponents.second = 0
+        finishedDate = Calendar.current.date(from: dateComponents)
+        
+        return finishedDate
+    }
+    
     func getFoodJournalIsEmptyOrNay(tanggalParam : Date) -> isJournalFill{
         var result : isJournalFill = .tomorrow
         let dataJournal = data.fetchJournalBaseOnDay(tanggalWaktu: tanggalParam)
-        var order = Calendar.current.compare(tanggalHariIni, to: tanggalParam, toGranularity: .day)
+        let order = Calendar.current.compare(tanggalHariIni, to: tanggalParam, toGranularity: .day)
         
         switch order {
         case .orderedDescending://yesterday
@@ -197,8 +184,6 @@ class JournalViewController : UIViewController{
     }
     
     func getJournal(tanggal : Date){
-        
-    
         let dataJournalSarapan = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Sarapan")
         stackViewNoSarapan.isHidden = dataJournalSarapan.count > 0 ? true : false
         self.dataJournalSarapan = dataJournalSarapan.count > 0 ? dataJournalSarapan : []
@@ -221,18 +206,9 @@ class JournalViewController : UIViewController{
             print("lemak: ", journal.lemakTotal)
             print("protein: ", journal.proteinTotal)
             print("kalori: ", journal.kaloriTotal)
-
         }
+        
         print("data jurnal: ", data.fetchJournal().count)
-//        print("DATA JOURNAL : \(dataJournalSarapan)")
-//        print("DATA JOURNAL : \(dataJournalSiang)")
-//        print("DATA JOURNAL : \(dataJournalMalam)")
-//        print("DATA JOURNAL : \(dataJournalSnack)")
-//        if(dataJournalSarapan.count > 0){
-//
-//        }else{
-//            //ketika ga punya data
-//        }
     }
     
     

@@ -159,23 +159,23 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
         var sarapanOn: Bool = false
         var siangOn: Bool = false
         var malamOn: Bool = false
-        if(notif != nil){
-            let sarapanNotif = notif?.value(forKeyPath: "sarapanOn") as? Bool
-            let siangNotif = notif?.value(forKeyPath: "siangOn") as? Bool
-            let malamNotif = notif?.value(forKeyPath: "malamOn") as? Bool
+        if(notif.count > 0){
+            let sarapanNotif = notif[0].value(forKeyPath: "sarapanOn") as? Bool
+            let siangNotif = notif[0].value(forKeyPath: "siangOn") as? Bool
+            let malamNotif = notif[0].value(forKeyPath: "malamOn") as? Bool
             
             if sarapanNotif!{
-                strJamSarapan = notif?.value(forKeyPath: "sarapanTime") as? String ?? ""
+                strJamSarapan = notif[0].value(forKeyPath: "sarapanTime") as? String ?? ""
                 sarapanOn = sarapanNotif!
                 print("Sarapan: \(strJamSarapan ?? "")")
             }
             if siangNotif!{
-                strJamSiang = notif?.value(forKeyPath: "siangTime") as? String ?? ""
+                strJamSiang = notif[0].value(forKeyPath: "siangTime") as? String ?? ""
                 siangOn = siangNotif!
                 print("Siang: \(strJamSiang ?? "")")
             }
             if malamNotif!{
-                strJamMalam = notif?.value(forKeyPath: "malamTime") as? String ?? ""
+                strJamMalam = notif[0].value(forKeyPath: "malamTime") as? String ?? ""
                 malamOn = malamNotif!
                 print("Malam: \(strJamMalam ?? "")")
             }
