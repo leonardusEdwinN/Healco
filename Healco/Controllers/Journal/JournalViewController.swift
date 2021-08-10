@@ -157,7 +157,7 @@ class JournalViewController : UIViewController{
         //MARK: CHANGE FRONT END DATA
         labelKalori.text = "\(Int(kaloriHariIni)) /\(bmr)"
         labelKarbohidratValue.text = "\(data.getPercentage(macroNutrient: .karbohidrat, tanggalJurnal: tanggalHariIni))"
-        labelProteinValue.text = "\(data.getPercentage(macroNutrient: .protein, tanggalJurnal: Calendar.current.date(bySetting: .hour, value: <#T##Int#>, of: <#T##Date#>)))"
+//        labelProteinValue.text = "\(data.getPercentage(macroNutrient: .protein, tanggalJurnal: Calendar.current.date(bySetting: .hour, value: <#T##Int#>, of: <#T##Date#>)))"
         labelLemakValue.text = "\(data.getPercentage(macroNutrient: .lemak, tanggalJurnal: tanggalHariIni))"
 
         progressViewKalori.setProgress( persentageBmr , animated: true)
@@ -170,15 +170,15 @@ class JournalViewController : UIViewController{
 
     }
     
-    func getTodayDate () -> Date {
-        let tanggalHariIni : Date!
-        
-        let dateComponents = Calendar.current.dateComponents(fromDate: yourDate)
-        dateComponents.minute = 0
-        let finishedDate = Calendar.current.date(fromComponents: dateComponents)
-        
-        return tanggalHariIni
-    }
+//    func getTodayDate () -> Date {
+//        let tanggalHariIni : Date!
+//
+//        let dateComponents = Calendar.current.dateComponents(fromDate: yourDate)
+//        dateComponents.minute = 0
+//        let finishedDate = Calendar.current.date(fromComponents: dateComponents)
+//
+//        return tanggalHariIni
+//    }
     func getFoodJournalIsEmptyOrNay(tanggalParam : Date) -> isJournalFill{
         var result : isJournalFill = .tomorrow
         let dataJournal = data.fetchJournalBaseOnDay(tanggalWaktu: tanggalParam)
