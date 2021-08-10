@@ -337,7 +337,7 @@ class CoreDataManager {
     let context: NSManagedObjectContext
     
     init() {
-        container = NSPersistentContainer(name: "CapmealModel")
+        container = NSPersistentContainer(name: "CapmealDataModel")
         container.loadPersistentStores { (description, error) in
             if let error = error {
                 print("Yah, Core Data nya error nih! \(error)")

@@ -108,7 +108,8 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         converter.decimalSeparator = ","
         converter.locale = Locale(identifier: "id-ID")
         let berat = converter.number(from: beratBadanTextField.text!) as? Double ?? 0.0
-        data.addProfile(nama_pengguna: "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text!) ?? 0 , beratBadan: berat)
+        data.addProfile(nama_pengguna: "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text ?? "0") ?? 0, beratBadan: berat)
+//        data.addProfile(nama_pengguna: "", gender: genderTerpilih, tanggalLahir: tglLahir, tinggiBadan: Int32(tinggiBadanTextField.text!) ?? 0 , beratBadan: berat)
         print("Berhasil!")
         let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
