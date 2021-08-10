@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1315B9C826B53BE40030C84A /* CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C726B53BE40030C84A /* CoreDataClass.swift */; };
-		1315B9CA26B5595B0030C84A /* CustomizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C926B5595B0030C84A /* CustomizedTabBar.swift */; };
 		1315B9CC26B7D8CB0030C84A /* RoundedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */; };
 		1315B9D426B7F8A80030C84A /* NutritionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9D226B7F8A80030C84A /* NutritionCollectionViewCell.swift */; };
 		1315B9D526B7F8A80030C84A /* NutritionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */; };
@@ -63,7 +62,6 @@
 
 /* Begin PBXFileReference section */
 		1315B9C726B53BE40030C84A /* CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataClass.swift; sourceTree = "<group>"; };
-		1315B9C926B5595B0030C84A /* CustomizedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedTabBar.swift; sourceTree = "<group>"; };
 		1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTabBar.swift; sourceTree = "<group>"; };
 		1315B9D226B7F8A80030C84A /* NutritionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCollectionViewCell.swift; sourceTree = "<group>"; };
 		1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 				1315B9C726B53BE40030C84A /* CoreDataClass.swift */,
 				221A0BC4267B60B00042A94A /* Extention.swift */,
 				13495F3F26B42FCE0051EE32 /* DateExtension.swift */,
-				1315B9C926B5595B0030C84A /* CustomizedTabBar.swift */,
 				1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */,
 				13D156B526C27E97003BF22E /* CapmealDataModel.xcdatamodeld */,
 			);
@@ -521,7 +518,6 @@
 				221E9ABE26BD39D200FBBF20 /* ProfileViewController.swift in Sources */,
 				13492D57267F030600843181 /* Food101.mlmodel in Sources */,
 				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
-				1315B9CA26B5595B0030C84A /* CustomizedTabBar.swift in Sources */,
 				EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
 				138C84852685CD8B008E5C2C /* FeelToEatCollectionViewCell.swift in Sources */,

@@ -24,6 +24,12 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
             self.setupMiddleButton()
        }
     
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//            self.tabBar.barTintColor = UIColor.red
+//            self.tabBar.unselectedItemTintColor = UIColor.darkGray
+//            self.tabBar.tintColor = UIColor.white
+//      }
+    
     // TabBarButton – Setup Middle Button
         func setupMiddleButton() {
 
