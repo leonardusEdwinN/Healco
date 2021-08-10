@@ -9,6 +9,11 @@ import Foundation
 import UIKit
 import UserNotifications
 
+enum StorageType {
+    case userDefaults
+    case fileSystem
+}
+
 class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
     
     //create imagepicker viewcontroller
@@ -19,6 +24,9 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
     
     // CoreData konektor
     let data = CoreDataClass()
+    
+    //cek if using camera
+    var usingCamera : Bool = false
     
     required init(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)!
@@ -68,6 +76,8 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
             
         }
     
+    
+    
     //presentation Action sheet
     private func PresentActionSheet(){
         
@@ -84,6 +94,7 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
                 self.imagePickerControler.delegate = self
                 self.imagePickerControler.allowsEditing = true
                 self.present(self.imagePickerControler, animated: true, completion: nil)
+                self.usingCamera = false
             }else{
                 fatalError("Photo library not avaliable")
             }
@@ -96,6 +107,7 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
                 self.imagePickerControler.delegate = self
                 self.imagePickerControler.allowsEditing = true
                 self.present(self.imagePickerControler, animated: true, completion: nil)
+                self.usingCamera = true
             }
             else{
                 fatalError("Camera not Avaliable")
@@ -122,25 +134,82 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
 }
 
 extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    //store image
+    private func store(image: UIImage, forKey key: String, withStorageType storageType: StorageType) {
+        if let pngRepresentation = image.pngData() {
+            switch storageType {
+            case .fileSystem:
+                // Save to disk
+                break
+            case .userDefaults:
+                UserDefaults.standard.set(pngRepresentation, forKey: key)
+            }
+        }
+    }
+    
+    //retrive image
+    private func retrieveImage(forKey key: String, inStorageType storageType: StorageType) -> UIImage? {
+        switch storageType {
+            case .fileSystem:
+                // Retrieve image from disk
+                break
+            case .userDefaults:
+                if let imageData = UserDefaults.standard.object(forKey: key) as? Data,
+                    let image = UIImage(data: imageData) {
+                    
+                    return image
+                }
+        }
+        return nil
+    }
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             
-            //picker.dismiss(animated: true, completion: nil)
-            
-            //go to another viewcontroller
-            let storyboard : UIStoryboard = UIStoryboard(name: "FoodDetail", bundle: nil)
-            let VC  = storyboard.instantiateViewController(withIdentifier: "FoodNameViewController") as! FoodNameViewController
-            
-            
-//            let fileManager = NSFileManager.defaultManager()
-//            let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-//            let documentDirectory = urls[0] as NSURL
-            
-            
-            //parsing image to  another view
-            VC.imageHasilFoto = uiImage
-            VC.modalPresentationStyle = .fullScreen
-            picker.present(VC, animated: true, completion: nil)
+            if !usingCamera {
+                //picker.dismiss(animated: true, completion: nil)
+                
+                //go to another viewcontroller
+                let storyboard : UIStoryboard = UIStoryboard(name: "FoodDetail", bundle: nil)
+                let VC  = storyboard.instantiateViewController(withIdentifier: "FoodNameViewController") as! FoodNameViewController
+                
+                
+    //            let fileManager = NSFileManager.defaultManager()
+    //            let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+    //            let documentDirectory = urls[0] as NSURL
+                
+                
+                //parsing image to  another view
+                VC.imageHasilFoto = uiImage
+                VC.modalPresentationStyle = .fullScreen
+                picker.present(VC, animated: true, completion: nil)
+            }else{
+                //picker.dismiss(animated: true, completion: nil)
+                
+                //go to another viewcontroller
+                let storyboard : UIStoryboard = UIStoryboard(name: "FoodDetail", bundle: nil)
+                let VC  = storyboard.instantiateViewController(withIdentifier: "FoodNameViewController") as! FoodNameViewController
+                
+                //get class imagesaver
+                let imagesaver = ImageSaver()
+                imagesaver.writeToPhotoAlbum(image: uiImage)
+                
+    //            let fileManager = NSFileManager.defaultManager()
+    //            let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+    //            let documentDirectory = urls[0] as NSURL
+                
+                
+                //save image to offline storage
+                store(image: uiImage, forKey: "fotopertama", withStorageType: .userDefaults)
+                
+                //parsing image to  another view
+                VC.imageHasilFoto = uiImage
+                VC.modalPresentationStyle = .fullScreen
+                picker.present(VC, animated: true, completion: nil)
+                
+                
+            }
             
 
         }
@@ -219,5 +288,15 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
     }
 }
 
+
+class ImageSaver: NSObject {
+    func writeToPhotoAlbum(image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveError), nil)
+    }
+
+    @objc func saveError(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        print("Save finished!")
+    }
+}
 
 
