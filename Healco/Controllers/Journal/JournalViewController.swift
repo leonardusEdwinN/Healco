@@ -198,11 +198,19 @@ class JournalViewController : UIViewController{
         imageNoSnack.isHidden = dataJournalSnack.count > 0 ? true : false
         self.dataJournalSnack = dataJournalSnack.count > 0 ? dataJournalSnack : []
         
-        print("data jurnal: ", data.fetchJournal()) 
-        print("DATA JOURNAL : \(dataJournalSarapan)")
-        print("DATA JOURNAL : \(dataJournalSiang)")
-        print("DATA JOURNAL : \(dataJournalMalam)")
-        print("DATA JOURNAL : \(dataJournalSnack)")
+        for journal in data.fetchJournal() {
+            print("tipe: ", journal.tipe)
+            print("karbo: ", journal.karbohidratTotal)
+            print("lemak: ", journal.lemakTotal)
+            print("protein: ", journal.proteinTotal)
+            print("kalori: ", journal.kaloriTotal)
+
+        }
+        print("data jurnal: ", data.fetchJournal().count)
+//        print("DATA JOURNAL : \(dataJournalSarapan)")
+//        print("DATA JOURNAL : \(dataJournalSiang)")
+//        print("DATA JOURNAL : \(dataJournalMalam)")
+//        print("DATA JOURNAL : \(dataJournalSnack)")
 //        if(dataJournalSarapan.count > 0){
 //
 //        }else{

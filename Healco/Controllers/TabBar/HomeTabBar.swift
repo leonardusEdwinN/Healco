@@ -119,6 +119,12 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
             let storyboard : UIStoryboard = UIStoryboard(name: "FoodDetail", bundle: nil)
             let VC  = storyboard.instantiateViewController(withIdentifier: "FoodNameViewController") as! FoodNameViewController
             
+            
+//            let fileManager = NSFileManager.defaultManager()
+//            let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+//            let documentDirectory = urls[0] as NSURL
+            
+            
             //parsing image to  another view
             VC.imageHasilFoto = uiImage
             VC.modalPresentationStyle = .fullScreen

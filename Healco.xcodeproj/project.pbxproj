@@ -106,6 +106,7 @@
 		221E9ABD26BD39D200FBBF20 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2289F5CB2672218D00C118CD /* FoodRecog.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodRecog.storyboard; sourceTree = "<group>"; };
 		2289F5CD267222A900C118CD /* FoodRecogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRecogVC.swift; sourceTree = "<group>"; };
+		22B1000426C293CF007B2795 /* CapmealModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "CapmealModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		4434291D267C281900A85983 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		4434292F267C3FDC00A85983 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
@@ -765,9 +766,10 @@
 		13D156B526C27E97003BF22E /* CapmealDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				22B1000426C293CF007B2795 /* CapmealModel 2.xcdatamodel */,
 				13D156B626C27E97003BF22E /* CapmealModel.xcdatamodel */,
 			);
-			currentVersion = 13D156B626C27E97003BF22E /* CapmealModel.xcdatamodel */;
+			currentVersion = 22B1000426C293CF007B2795 /* CapmealModel 2.xcdatamodel */;
 			path = CapmealDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

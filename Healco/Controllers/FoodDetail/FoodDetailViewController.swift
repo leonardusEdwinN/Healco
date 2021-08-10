@@ -10,7 +10,7 @@ import CoreData
 
 class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     //    var selectedData : FoodDataSearch?
-    var porsiMakanan: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9 , 10]
+    var porsiMakanan: [Int] = []
     var satuanPorsi: [String] = ["gr", "pcs", "cup"]
     var informasiMakanan: [String] = ["Karbohidrat", "Protein"]
     var selectedFood : FoodModel2!
@@ -121,7 +121,11 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        for  n in 1...1000 {
+            porsiMakanan.append(n)
+        }
+        
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ubah", style: .plain, target: self, action: #selector(btnEdit_Pressed))
         
         pickerviewPorsi.dataSource = self
@@ -183,7 +187,11 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
 //        data.addJournal(lagiApa: "\(String(describing: selectedReason))", perasaan: "\(String(describing: selectedFeel))", porsi: Double(selectedPorsi ?? 0), satuan: "\(String(describing: selectedSatuan))", tanggalJam: Date(), tipe: "\(String(describing: selectedTime))", idMeal: selectedFood.foodStatus, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: Data(), kaloriTotal: Int32(selectedFood.foodCalories), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat), kalori: Int32(selectedFood.foodCalories))
         
-        data.addJournal(lagiApa: "", perasaan: "", porsi: 0.0, satuan: "", tanggalJam: Date(), tipe: "Sarapan", idMeal: "", nama: "", deskripsi: "", karbohidrat: 12, lemak: 12, protein: 13, gambar: "", kaloriTotal: 14, lemakTotal: 14, proteinTotal: 14, karbohidratTotal: 14, kalori: 15)
+    data.addJournal(lagiApa: "", perasaan: "", porsi: 0.0, satuan: "", tanggalJam: Date(), tipe: "Sarapan", idMeal: "", nama: "", deskripsi: "", karbohidrat: 12, lemak: 12, protein: 13, gambar: "", kaloriTotal: 14, lemakTotal: 14, proteinTotal: 14, karbohidratTotal: 14, kalori: 15)
+        
+        
+        
+        //print("total kalori \(totalKalori) || total protein \(totalProtein)")
         
         
     }
@@ -327,8 +335,9 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         }else if collectionView == self.feelWhenEatCollectionView{
             let cell = collectionView.cellForItem(at: indexPath) as! FeelToEatCollectionViewCell
             cell.changeUpdate()
-            
-    }}
+        }
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //collectionView.backgroundColor = UIColor.green
@@ -383,9 +392,16 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0{
+            
+            
             return String(porsiMakanan[row])
         }
         return satuanPorsi[row]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        selectedPorsi = porsiMakanan[row]
     }
     
     func getSelectedDataIntoCoreData(time: String, feel: String, reason: String){
