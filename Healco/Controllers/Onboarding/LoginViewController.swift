@@ -109,9 +109,6 @@ class LoginViewController: UIViewController{
         data.addProfile(nama_pengguna: "", gender: genderTerpilih, tanggalLahir: formatTglLahir.date(from: strTglLahir)! , tinggiBadan: Int32(tinggiBadanTextField.text!) ?? 0 , beratBadan: berat)
         print("Berhasil!")
         data.addNotif(sarapanOn: isSarapanOn, sarapanTime: formatJam.string(from: sarapanTimePicker.date), siangOn: isSiangOn, siangTime: formatJam.string(from: makanSiangTimePicker.date), malamOn: isMalamOn, malamTime: formatJam.string(from: makanMalamTimePicker.date))
-        print("Jam sarapan: \(formatJam.string(from: sarapanTimePicker.date))")
-        print("Jam makan siang: \(formatJam.string(from: makanSiangTimePicker.date))")
-        print("Jam makan malam: \(formatJam.string(from: makanMalamTimePicker.date))")
         print("Berhasil")
         let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
         let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
