@@ -154,13 +154,18 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
             
             if sarapanNotif!{
                 strJamSarapan = notif?.value(forKeyPath: "sarapanTime") as? String ?? ""
-                sarapanOn = true
-            } else if siangNotif!{
+                sarapanOn = sarapanNotif!
+                print("Sarapan: \(strJamSarapan ?? "")")
+            }
+            if siangNotif!{
                 strJamSiang = notif?.value(forKeyPath: "siangTime") as? String ?? ""
-                siangOn = true
-            } else if malamNotif!{
+                siangOn = siangNotif!
+                print("Siang: \(strJamSiang ?? "")")
+            }
+            if malamNotif!{
                 strJamMalam = notif?.value(forKeyPath: "malamTime") as? String ?? ""
-                malamOn = true
+                malamOn = malamNotif!
+                print("Malam: \(strJamMalam ?? "")")
             }
         }
         let tglFormatter = DateFormatter()
@@ -169,18 +174,20 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
         
         if sarapanOn{
             let jamSarapan: Date? = tglFormatter.date(from: strJamSarapan ?? "") ?? nil
-            //print("Status sarapan: " + String(sarapanOn))
-            //print("Jam sarapan: " + tglFormatter.string(from: jamSarapan ?? Date()))
+            print("Status sarapan: " + String(sarapanOn))
+            print("Jam sarapan: " + tglFormatter.string(from: jamSarapan ?? Date()))
             waktuNotificationMuncul(waktu: jamSarapan!, title: "Jam Sarapan", body: "Sekarang jam makan sarapan, jangan lupa catatin makananmu ya!")
-        } else if siangOn{
+        }
+        if siangOn{
             let jamSiang: Date? = tglFormatter.date(from: strJamSiang ?? "") ?? nil
-            //print("Status siang: " + String(siangOn))
-            //print("Jam makan siang: " + tglFormatter.string(from: jamSiang ?? Date()))
+            print("Status siang: " + String(siangOn))
+            print("Jam makan siang: " + tglFormatter.string(from: jamSiang ?? Date()))
             waktuNotificationMuncul(waktu: jamSiang!, title: "Jam Makan Siang", body: "Sekarang jam makan siang, ingat catatin ya!")
-        } else if malamOn{
+        }
+        if malamOn{
             let jamMalam: Date? = tglFormatter.date(from: strJamMalam ?? "") ?? nil
-            //print("Status malam: " + String(malamOn))
-            //print("Jam makan malam: " + tglFormatter.string(from: jamMalam ?? Date()))
+            print("Status malam: " + String(malamOn))
+            print("Jam makan malam: " + tglFormatter.string(from: jamMalam ?? Date()))
             waktuNotificationMuncul(waktu: jamMalam!, title: "Jam Makan Malam", body: "Jam makan malam, jangan lupa catatin sebelum makan sampai bobo ya!")
         }
     }
