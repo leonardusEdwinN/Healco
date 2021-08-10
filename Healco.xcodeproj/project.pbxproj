@@ -53,6 +53,7 @@
 		EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */; };
 		EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */; };
 		EF886DB626B940540039CFAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF886DB526B940540039CFAC /* LoginViewController.swift */; };
+		EF9CD4E626C1256B00D734E6 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9CD4E526C1256B00D734E6 /* NotificationManager.swift */; };
 		EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB9682267F08CF00C23BA2 /* FoodModel.swift */; };
 		EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -108,6 +109,7 @@
 		EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodDetail.storyboard; sourceTree = "<group>"; };
 		EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNameViewController.swift; sourceTree = "<group>"; };
 		EF886DB526B940540039CFAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EF9CD4E526C1256B00D734E6 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EFAB9682267F08CF00C23BA2 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +161,7 @@
 				221A0BC4267B60B00042A94A /* Extention.swift */,
 				13495F3F26B42FCE0051EE32 /* DateExtension.swift */,
 				1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */,
+				EF9CD4E526C1256B00D734E6 /* NotificationManager.swift */,
 				13D156B526C27E97003BF22E /* CapmealDataModel.xcdatamodeld */,
 			);
 			path = Helpers;
@@ -512,6 +515,7 @@
 				138C84852685CD8B008E5C2C /* FeelToEatCollectionViewCell.swift in Sources */,
 				221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */,
 				1315B9C826B53BE40030C84A /* CoreDataClass.swift in Sources */,
+				EF9CD4E626C1256B00D734E6 /* NotificationManager.swift in Sources */,
 				13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */,
 				221A0BC5267B60B00042A94A /* Extention.swift in Sources */,
 				13D156B726C27E97003BF22E /* CapmealDataModel.xcdatamodeld in Sources */,
@@ -662,7 +666,7 @@
 				CODE_SIGN_ENTITLEMENTS = Healco/Healco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9P49UTYHH6;
+				DEVELOPMENT_TEAM = Y4SYN8VK49;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -687,7 +691,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9P49UTYHH6;
+				DEVELOPMENT_TEAM = Y4SYN8VK49;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (

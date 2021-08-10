@@ -304,6 +304,15 @@ class CoreDataClass {
         notif.malamOn = malamOn
         notif.malamTime = malamTime
         
+        if !sarapanOn{
+            notif.sarapanTime = ""
+        }
+        if !siangOn{
+            notif.siangTime = ""
+        }
+        if !malamOn{
+            notif.malamTime = ""
+        }
         saveData()
     }
     

@@ -7,12 +7,18 @@
 
 import Foundation
 import UIKit
-
+import UserNotifications
 
 class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
     
     //create imagepicker viewcontroller
     private var imagePickerControler =  UIImagePickerController()
+    
+    // notification center
+    let notificationCenter = UNUserNotificationCenter.current()
+    
+    // CoreData konektor
+    let data = CoreDataClass()
     
     required init(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)!
@@ -21,7 +27,9 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
         override func viewDidLoad() {
             super.viewDidLoad()
             self.delegate = self
+            notificationCenter.delegate = self
             self.setupMiddleButton()
+            self.notificationAlertScheduling()
        }
     
 //    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -111,8 +119,6 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
             foodRecogVC.modalPresentationStyle = .fullScreen
         }
     }
-    
-
 }
 
 extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
@@ -136,6 +142,74 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true , completion: nil)
+    }
+    
+    func notificationAlertScheduling(){
+        //notificationCenter.removeAllPendingNotificationRequests()
+        let notif = data.fetchNotification()
+        var strJamSarapan: String? = ""
+        var strJamSiang: String? = ""
+        var strJamMalam: String? = ""
+        var sarapanOn: Bool = false
+        var siangOn: Bool = false
+        var malamOn: Bool = false
+        if(notif != nil){
+            let sarapanNotif = notif?.value(forKeyPath: "sarapanOn") as? Bool
+            let siangNotif = notif?.value(forKeyPath: "siangOn") as? Bool
+            let malamNotif = notif?.value(forKeyPath: "malamOn") as? Bool
+            
+            if sarapanNotif!{
+                strJamSarapan = notif?.value(forKeyPath: "sarapanTime") as? String ?? ""
+                sarapanOn = sarapanNotif!
+                print("Sarapan: \(strJamSarapan ?? "")")
+            }
+            if siangNotif!{
+                strJamSiang = notif?.value(forKeyPath: "siangTime") as? String ?? ""
+                siangOn = siangNotif!
+                print("Siang: \(strJamSiang ?? "")")
+            }
+            if malamNotif!{
+                strJamMalam = notif?.value(forKeyPath: "malamTime") as? String ?? ""
+                malamOn = malamNotif!
+                print("Malam: \(strJamMalam ?? "")")
+            }
+        }
+        let tglFormatter = DateFormatter()
+        tglFormatter.dateFormat = "HH:mm"
+        
+        
+        if sarapanOn{
+            let jamSarapan: Date? = tglFormatter.date(from: strJamSarapan ?? "") ?? nil
+            print("Status sarapan: " + String(sarapanOn))
+            print("Jam sarapan: " + tglFormatter.string(from: jamSarapan ?? Date()))
+            waktuNotificationMuncul(waktu: jamSarapan!, title: "Jam Sarapan", body: "Sekarang jam makan sarapan, jangan lupa catatin makananmu ya!")
+        }
+        if siangOn{
+            let jamSiang: Date? = tglFormatter.date(from: strJamSiang ?? "") ?? nil
+            print("Status siang: " + String(siangOn))
+            print("Jam makan siang: " + tglFormatter.string(from: jamSiang ?? Date()))
+            waktuNotificationMuncul(waktu: jamSiang!, title: "Jam Makan Siang", body: "Sekarang jam makan siang, ingat catatin ya!")
+        }
+        if malamOn{
+            let jamMalam: Date? = tglFormatter.date(from: strJamMalam ?? "") ?? nil
+            print("Status malam: " + String(malamOn))
+            print("Jam makan malam: " + tglFormatter.string(from: jamMalam ?? Date()))
+            waktuNotificationMuncul(waktu: jamMalam!, title: "Jam Makan Malam", body: "Jam makan malam, jangan lupa catatin sebelum makan sampai bobo ya!")
+        }
+    }
+    
+    private func waktuNotificationMuncul(waktu: Date, title: String, body: String){
+        var component = DateComponents()
+        component.calendar = Calendar.current
+        component.hour = component.calendar?.component(.hour, from: waktu)
+        component.minute = component.calendar?.component(.minute, from: waktu)
+        let contentNotif = UNMutableNotificationContent()
+        contentNotif.title = title
+        contentNotif.body = body
+        contentNotif.sound = UNNotificationSound.default
+        let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: true)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: contentNotif, trigger: trigger)
+        notificationCenter.add(request)
     }
 }
 
