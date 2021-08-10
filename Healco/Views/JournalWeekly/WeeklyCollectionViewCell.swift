@@ -40,7 +40,7 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
         self.labelHari.text = dayString
         self.labelTanggal.text = dateText
         self.isSelected = isToday ? true : false
-        self.viewOuter.backgroundColor = isToday ? UIColor(named: "SweetMango")  :  .white
+        self.viewOuter.backgroundColor = isToday ? UIColor(named: "SweetMango")  :  .systemBackground
         changeUpdate()
         
     }
@@ -50,7 +50,7 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
         if(isSelected){
             viewOuter.backgroundColor = UIColor(named: "SweetMango")
         }else{
-            viewOuter.backgroundColor = .white
+            viewOuter.backgroundColor = .systemBackground
         }
 //        if(status == "Healthy"){
 //            imageIcon.image = UIImage(systemName: "heart.fill")

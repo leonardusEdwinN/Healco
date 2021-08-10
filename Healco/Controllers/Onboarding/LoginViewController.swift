@@ -51,7 +51,7 @@ class LoginViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         // buat nge-hide keyboard
         hideKeyboardWhenTappedAround()
         
-
+        tinggiBadanTextField.text = ""
         
         // memasukkan func untuk kelamin
         priaKelaminButton.addTarget(self, action: #selector(self.buttonKelamin_Tapped), for: .touchUpInside)
