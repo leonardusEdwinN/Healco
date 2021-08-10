@@ -113,9 +113,9 @@ class JournalViewController : UIViewController{
         self.getDateArray()
         self.createUI()
         
-        
         // MARK: FOR BMR
         let profileDataFetch = data.fetchProfile()
+        
         let sumkalori = data.sumKalori(tanggalJurnal: tanggalHariIni)
         var profileDummy : Profile = Profile(age: 0, gender: .male, height: 0, weight: 0)
         
@@ -133,15 +133,18 @@ class JournalViewController : UIViewController{
             profileDummy = Profile(age: 0, gender: .male, height: 0, weight: 0)
         }
         
-//        print("\(profileDummy.weight = profileDataFetch[0].berat_badan)")
         let bmr = BMR(profile: profileDummy)
         
         let kaloriHariIni : Float = Float(sumkalori)
         
         let persentageBmr : Float = kaloriHariIni  / Float(bmr)
         
-        //MARK: CHANGE FRONT END DATA CALORI
+        //MARK: CHANGE FRONT END DATA
         labelKalori.text = "\(Int(kaloriHariIni)) /\(bmr)"
+        labelKarbohidratValue.text = "\(data.getPercentage(macroNutrient: .karbohidrat, tanggalJurnal: tanggalHariIni))"
+        labelProteinValue.text = "\(data.getPercentage(macroNutrient: .protein, tanggalJurnal: tanggalHariIni))"
+        labelLemakValue.text = "\(data.getPercentage(macroNutrient: .lemak, tanggalJurnal: tanggalHariIni))"
+
         progressViewKalori.setProgress( persentageBmr , animated: true)
         
         
@@ -156,6 +159,7 @@ class JournalViewController : UIViewController{
         
         print("Tanggal : \(formatter.dateFormat = "YYYY-MM-DD")")
         
+    
         let dataJournalSarapan = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Sarapan")
         imageNoSarapan.isHidden = dataJournalSarapan.count > 0 ? true : false
         self.dataJournalSarapan = dataJournalSarapan.count > 0 ? dataJournalSarapan : []
@@ -172,6 +176,7 @@ class JournalViewController : UIViewController{
         imageNoSnack.isHidden = dataJournalSnack.count > 0 ? true : false
         self.dataJournalSnack = dataJournalSnack.count > 0 ? dataJournalSnack : []
         
+        print("data jurnal: ", data.fetchJournal()) 
         print("DATA JOURNAL : \(dataJournalSarapan)")
         print("DATA JOURNAL : \(dataJournalSiang)")
         print("DATA JOURNAL : \(dataJournalMalam)")
