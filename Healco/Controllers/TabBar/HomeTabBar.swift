@@ -64,7 +64,6 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
         //button 1
         let libraryAction = UIAlertAction(title: "Photo Library", style: .default){ (action: UIAlertAction) in
             
-            UIAlertAction.setValue(UIColor.green, forKey: "titleTextColor")
             
             if UIImagePickerController.isSourceTypeAvailable(.camera){
                 self.imagePickerControler.sourceType = .photoLibrary

@@ -114,7 +114,10 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var statusEdit: Bool = false // untuk button status
     var selectedPorsi : Int?
     var selectedSatuan : String?
-    
+    var totalLemak : Float!
+    var totalProtein : Float!
+    var totalKarbohidrat : Float!
+    var totalKalori : Float!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -173,8 +176,16 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBAction func buttonSimpanPressed(_ sender: Any) {
         self.performSegue(withIdentifier: "goToHome", sender: sender)
         let data = CoreDataClass()
+        totalLemak = Float(selectedPorsi ?? 0) * Float (selectedFood.foodFat)
+        totalProtein = Float(selectedPorsi ?? 0) * Float (selectedFood.foodProtein)
+        totalKarbohidrat = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCarbohydrate)
+        totalKalori = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCalories)
 
-        data.addJournal(lagiApa: "\(String(describing: selectedReason))", perasaan: "\(String(describing: selectedFeel))", porsi: Double(selectedPorsi ?? 0), satuan: "\(String(describing: selectedSatuan))", tanggalJam: Date(), tipe: "\(String(describing: selectedTime))", idMeal: selectedFood.foodStatus, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: imageHasilPhoto.pngData() ?? Data(), kaloriTotal: Int32(selectedFood.foodCalories), lemakTotal: 0, proteinTotal: 0, karbohidratTotal: 0)
+//        data.addJournal(lagiApa: "\(String(describing: selectedReason))", perasaan: "\(String(describing: selectedFeel))", porsi: Double(selectedPorsi ?? 0), satuan: "\(String(describing: selectedSatuan))", tanggalJam: Date(), tipe: "\(String(describing: selectedTime))", idMeal: selectedFood.foodStatus, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: Data(), kaloriTotal: Int32(selectedFood.foodCalories), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat), kalori: Int32(selectedFood.foodCalories))
+        
+        data.addJournal(lagiApa: "", perasaan: "", porsi: 0.0, satuan: "", tanggalJam: Date(), tipe: "Sarapan", idMeal: "", nama: "", deskripsi: "", karbohidrat: 12, lemak: 12, protein: 13, gambar: "", kaloriTotal: 14, lemakTotal: 14, proteinTotal: 14, karbohidratTotal: 14, kalori: 15)
+        
+        
     }
     
     
