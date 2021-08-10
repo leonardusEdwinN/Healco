@@ -210,7 +210,7 @@ class CoreDataClass {
         expression.expressionResultType = NSAttributeType.doubleAttributeType
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "JournalEntity")
-        request.predicate = NSPredicate(format: "tanggal_jam == %@", tanggalJurnal as NSDate)
+        //request.predicate = NSPredicate(format: "tanggal_jam == %@", tanggalJurnal as NSDate)
         request.propertiesToFetch = [expression]
         request.resultType = NSFetchRequestResultType.dictionaryResultType
         
