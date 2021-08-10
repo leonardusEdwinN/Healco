@@ -389,13 +389,16 @@ extension JournalViewController : UICollectionViewDataSource{
                 switch getFoodJournalIsEmptyOrNay(tanggalParam: tanggalParam) {
                 case isJournalFill.yesterdayNo:
                     cell.labelTanggal.backgroundColor = UIColor(named : "StateUnactiveText")
+                    cell.labelTanggal.textColor = .black
                 case isJournalFill.yesterdayFill:
                     cell.labelTanggal.backgroundColor = UIColor(named : "AvocadoGreen")
                     cell.labelTanggal.textColor = .white
                 case isJournalFill.dayDate:
                     cell.labelTanggal.backgroundColor = UIColor(named : "MangoYoghurt")
+                    cell.labelTanggal.textColor = .black
                 default:
-                    cell.labelTanggal.backgroundColor = .white
+                    cell.labelTanggal.backgroundColor = .secondarySystemBackground
+                    cell.labelTanggal.textColor = .label
                 }
                
                 
@@ -445,9 +448,9 @@ extension JournalViewController : UICollectionViewDataSource{
             var tanggalBaru = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: tanggal as Date)
             tanggalBaru.day = Int(date[indexPath.item])
             
-            guard let tanggalBaru = calendar.date(from: tanggalBaru) else { return }
+            guard let tanggalJurnal = calendar.date(from: tanggalBaru) else { return }
             
-            getJournal(tanggal: tanggalBaru)
+            getJournal(tanggal: tanggalJurnal)
             break
         case self.collectionViewSarapan:
             let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
@@ -632,6 +635,9 @@ extension JournalViewController{
         
         //progressbar
         progressViewKalori.transform = progressViewKalori.transform.scaledBy(x: 1, y: 3)
+        progressViewKalori.layer.borderWidth = 0.5
+        progressViewKalori.layer.borderColor = UIColor(named : "AvocadoGreen")?.cgColor
+        progressViewKalori.layer.cornerRadius = 5
         
         //weekly
         collectionViewWeekly.register(UINib.init(nibName: "WeeklyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "weeklyCollectionViewCell")
