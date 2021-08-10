@@ -147,26 +147,20 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
         }
     }
     
-    //retrive image
-    private func retrieveImage(forKey key: String, inStorageType storageType: StorageType) -> UIImage? {
-        switch storageType {
-            case .fileSystem:
-                // Retrieve image from disk
-                break
-            case .userDefaults:
-                if let imageData = UserDefaults.standard.object(forKey: key) as? Data,
-                    let image = UIImage(data: imageData) {
-                    
-                    return image
-                }
-        }
-        return nil
+    //random name
+    private func randomName () -> String{
+        let namaFoto : String!
+        let string = String.random(minimumLength: 1, maximumLength: 10)
+        let int = Int.random(1, 20)
+        namaFoto = "\(string)\(int)"
+        print("namafoto",namaFoto)
+        return namaFoto
     }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            
+            let namaFoto = randomName()
             if !usingCamera {
                 //picker.dismiss(animated: true, completion: nil)
                 
@@ -179,8 +173,10 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
     //            let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
     //            let documentDirectory = urls[0] as NSURL
                 
+                store(image: uiImage, forKey: namaFoto, withStorageType: .userDefaults)
                 
-                //parsing image to  another view
+                //parsing image and name to  another view
+                VC.namaFoto = namaFoto
                 VC.imageHasilFoto = uiImage
                 VC.modalPresentationStyle = .fullScreen
                 picker.present(VC, animated: true, completion: nil)
@@ -190,6 +186,10 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
                 //go to another viewcontroller
                 let storyboard : UIStoryboard = UIStoryboard(name: "FoodDetail", bundle: nil)
                 let VC  = storyboard.instantiateViewController(withIdentifier: "FoodNameViewController") as! FoodNameViewController
+                
+                store(image: uiImage, forKey: namaFoto, withStorageType: .userDefaults)
+                //parsing image and name to  another view
+                VC.namaFoto = namaFoto
                 
                 //get class imagesaver
                 let imagesaver = ImageSaver()
@@ -300,3 +300,53 @@ class ImageSaver: NSObject {
 }
 
 
+public extension Int {
+    /// SwiftRandom extension
+    static func random(_ lower: Int = 0, _ upper: Int = 100) -> Int {
+        return Int.random(in: lower...upper)
+    }
+}
+
+
+public extension String {
+    /// SwiftRandom extension
+    static func random(ofLength length: Int) -> String {
+        return random(minimumLength: length, maximumLength: length)
+    }
+    
+    /// SwiftRandom extension
+    static func random(minimumLength min: Int, maximumLength max: Int) -> String {
+        return random(
+            withCharactersInString: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+            minimumLength: min,
+            maximumLength: max
+        )
+    }
+    
+    /// SwiftRandom extension
+    static func random(withCharactersInString string: String, ofLength length: Int) -> String {
+        return random(
+            withCharactersInString: string,
+            minimumLength: length,
+            maximumLength: length
+        )
+    }
+    
+    /// SwiftRandom extension
+    static func random(withCharactersInString string: String, minimumLength min: Int, maximumLength max: Int) -> String {
+        guard min > 0 && max >= min else {
+            return ""
+        }
+        
+        let length: Int = (min < max) ? .random(in: min...max) : max
+        var randomString = ""
+        
+        (1...length).forEach { _ in
+            let randomIndex: Int = .random(in: 0..<string.count)
+            let c = string.index(string.startIndex, offsetBy: randomIndex)
+            randomString += String(string[c])
+        }
+        
+        return randomString
+    }
+}

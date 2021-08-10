@@ -78,7 +78,7 @@ class CoreDataClass {
         newJournal.karbohidrat = karbohidrat
         newJournal.lemak = lemak
         newJournal.protein = protein
-        
+        newJournal.nama = nama
         saveData()
     }
     
@@ -185,27 +185,27 @@ class CoreDataClass {
         let lemak : Int32 = getSumOfMacroNutrient(macroNutrient: .lemak, tanggalJurnal: tanggalJurnal)
         let protein : Int32 = getSumOfMacroNutrient(macroNutrient: .protein, tanggalJurnal: tanggalJurnal)
         let total : Int32 = karbohidrat + lemak + protein
-        var hasilnya : Int32 = 0
+        var hasilnya : Float = 0
         
-        print("karbo ", karbohidrat)
-        print("lemak ",  lemak)
-        print("protein ",  protein)
+        
 
         if(karbohidrat != 0 && lemak != 0 && protein != 0){
             switch macroNutrient {
             case .karbohidrat:
-                hasilnya = karbohidrat / total * 100
+                hasilnya = Float(karbohidrat) / Float(total) * 100
             case .lemak:
-                hasilnya = lemak / total * 100
+                hasilnya = Float(lemak) / Float(total) * 100
             case .protein:
-                hasilnya = protein / total * 100
+                hasilnya = Float(protein) / Float(total) * 100
             }
+
         } else {
             hasilnya = 0
             print("default sama dengan nol")
         }
         
-        return "\(hasilnya)%"
+        return "\(Int(hasilnya))%"
+        
     }
     
     func getSumOfMacroNutrient(macroNutrient: MacroNutrient, tanggalJurnal: Date) -> Int32 {
@@ -230,7 +230,6 @@ class CoreDataClass {
         } catch let error as NSError {
             NSLog("Error pas jumlahin \(keyPath): \(error.localizedDescription)")
         }
-        print("hasil makro nutrient ", hasilnya)
         return hasilnya
     }
     

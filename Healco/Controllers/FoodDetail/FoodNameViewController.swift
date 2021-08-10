@@ -25,6 +25,7 @@ class FoodNameViewController: UIViewController {
     var foods: [NSManagedObject] = []
     var filteredFoodNames: [FoodDataSearch] = []
     var imageHasilFoto : UIImage!
+    var namaFoto : String!
     let fatSecretClient = FatSecretClient()
     var foodData : [FoodDataSearch] = []
     //    var selectedData : FoodDataSearch?
@@ -332,7 +333,8 @@ extension FoodNameViewController {
                 let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
                 let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
                 vc.selectedFood = self.selectedFood
-                vc.imageHasilPhoto = self.imageHasilFoto
+                //vc.imageHasilPhoto = self.imageHasilFoto
+                vc.namaFoto = self.namaFoto
                 vc.statusEdit = false
                 vc.modalPresentationStyle = .pageSheet
                 self.present(vc, animated: true, completion: nil)

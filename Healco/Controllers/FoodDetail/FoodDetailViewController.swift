@@ -18,6 +18,8 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var reasonToEatArray : [String] = ["Gak Ada", "Ada Acara", "Nongkrong", "Nonton", "Belajar", "Kerja"]
     var feelWhenEatArray : [String] = ["😃 Biasa Aja", "😆 Bahagia", "😢 Sedih", "😫 Galau", "🤯 Stress", "😡 Marah"]
     var imageHasilPhoto : UIImage!
+    var namaFoto : String!
+    
     
     /*@IBOutlet weak var foodStatusImageView: UIImageView!
      @IBOutlet weak var foodNameLabel: UILabel!
@@ -187,8 +189,8 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
 //        data.addJournal(lagiApa: "\(String(describing: selectedReason))", perasaan: "\(String(describing: selectedFeel))", porsi: Double(selectedPorsi ?? 0), satuan: "\(String(describing: selectedSatuan))", tanggalJam: Date(), tipe: "\(String(describing: selectedTime))", idMeal: selectedFood.foodStatus, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: Data(), kaloriTotal: Int32(selectedFood.foodCalories), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat), kalori: Int32(selectedFood.foodCalories))
         
-    data.addJournal(lagiApa: "", perasaan: "", porsi: 0.0, satuan: "", tanggalJam: Date(), tipe: "Sarapan", idMeal: "", nama: "", deskripsi: "", karbohidrat: 12, lemak: 12, protein: 13, gambar: "", kaloriTotal: 14, lemakTotal: 14, proteinTotal: 14, karbohidratTotal: 14, kalori: 15)
-        
+    data.addJournal(lagiApa: "", perasaan: "", porsi: 0.0, satuan: "", tanggalJam: getTodayDate() , tipe: "Sarapan", idMeal: "", nama: "", deskripsi: "", karbohidrat: 12, lemak: 12, protein: 13, gambar: namaFoto, kaloriTotal: 14, lemakTotal: 14, proteinTotal: 14, karbohidratTotal: 14, kalori: 15)
+    print( "namafoto: ",namaFoto!)
         
         
         //print("total kalori \(totalKalori) || total protein \(totalProtein)")
@@ -200,6 +202,16 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBAction func buttonHappusPressed(_ sender: Any) {
     }
     
+    func getTodayDate() -> Date {
+        let calendar = Calendar(identifier: .gregorian)
+        var finishedDate = calendar.date(byAdding: .hour, value: 7, to: Date())
+        var hourComponent = DateComponents()
+        hourComponent.hour = 0
+
+        finishedDate = calendar.nextDate(after: finishedDate ?? Date(), matching: hourComponent,
+                                         matchingPolicy: .nextTime, direction: .backward)
+        return finishedDate ?? Date()
+    }
     
     func registerCellToCollectionView(){
         timeToEatCollectionView.register(UINib(nibName: "TimeToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeToEatCell")

@@ -284,6 +284,23 @@ class JournalViewController : UIViewController{
 }
 
 extension JournalViewController : UICollectionViewDataSource{
+    
+    //retrive image
+    private func retrieveImage(forKey key: String, inStorageType storageType: StorageType) -> UIImage {
+        switch storageType {
+            case .fileSystem:
+                // Retrieve image from disk
+                break
+            case .userDefaults:
+                if let imageData = UserDefaults.standard.object(forKey: key) as? Data,
+                    let image = UIImage(data: imageData) {
+                    
+                    return image
+                }
+        }
+        return UIImage(named: "brooke-lark-nBtmglfY0HU-unsplash")!
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -347,7 +364,27 @@ extension JournalViewController : UICollectionViewDataSource{
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryPhotoCell", for: indexPath) as! GalleryPhotoCollectionViewCell
             
+            if collectionView == self.collectionViewSarapan {
+                if (self.dataJournalSarapan.count > 0){
+                    cell.setUI(dataPhoto: retrieveImage(forKey: self.dataJournalSarapan[indexPath.item].gambar! , inStorageType: .userDefaults) , title: self.dataJournalSarapan[indexPath.item].nama ?? "")
+                }
+
+            }else  if collectionView == self.collectionViewMakanSiang {
+                if (self.dataJournalMakanSiang.count > 0){
+                    cell.setUI(dataPhoto: retrieveImage(forKey: self.dataJournalMakanSiang[indexPath.item].gambar! , inStorageType: .userDefaults) , title: self.dataJournalMakanSiang[indexPath.item].nama ?? "")
+                }
+            }else  if collectionView == self.collectionViewMakanMalam {
+                if(self.dataJournalMakanMalam.count > 0){
+                    cell.setUI(dataPhoto: retrieveImage(forKey: self.dataJournalMakanMalam[indexPath.item].gambar! , inStorageType: .userDefaults) , title: self.dataJournalMakanMalam[indexPath.item].nama ?? "")
+                }
+                
+            }else  if collectionView == self.collectionViewSnack {
+                if(self.dataJournalSnack.count > 0){
+                    cell.setUI(dataPhoto: retrieveImage(forKey: self.dataJournalSnack[indexPath.item].gambar! , inStorageType: .userDefaults) , title: self.dataJournalSnack[indexPath.item].nama!)
+                }
+            }
             return cell
+
         }
     }
     
