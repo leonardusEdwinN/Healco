@@ -57,8 +57,8 @@ class CoreDataClass {
     func addJournal(lagiApa: String, perasaan: String, porsi: Double,
                     satuan: String, tanggalJam: Date, tipe: String,
                     // Ini parameter untuk nambahin makanan
-                    idMeal: String, nama: String, deskripsi: String, kalori: Int32,
-                    karbohidrat: Int32, lemak: Int32, protein: Int32, gambar: Data){
+                    idMeal: String, nama: String, deskripsi: String,
+                    karbohidrat: Int32, lemak: Int32, protein: Int32, gambar: String, kaloriTotal: Int32, lemakTotal: Int32, proteinTotal: Int32, karbohidratTotal: Int32, kalori: Int32){
         let newJournal = JournalEntity(context: context)
         newJournal.lagi_apa = lagiApa
         newJournal.perasaan = perasaan
@@ -66,9 +66,16 @@ class CoreDataClass {
         newJournal.satuan = satuan
         newJournal.tanggal_jam = tanggalJam
         newJournal.tipe = tipe
+        newJournal.kaloriTotal = kaloriTotal
+        newJournal.lemakTotal = lemakTotal
+        newJournal.karbohidratTotal = karbohidratTotal
+        newJournal.proteinTotal = proteinTotal
+
+
         newJournal.meal = addMeal(idMeal: idMeal, nama: nama, deskripsi: deskripsi,
                                   kalori: kalori, karbohidrat: karbohidrat, lemak: lemak,
                                   protein: protein, gambar: gambar)
+        print("addJournal")
         
         saveData()
     }
@@ -111,7 +118,7 @@ class CoreDataClass {
     // MARK: Kalau yang disini function untuk meal yak.. // belum di pake
     
     func addMeal(idMeal: String, nama: String, deskripsi: String, kalori: Int32,
-                 karbohidrat: Int32, lemak: Int32, protein: Int32, gambar: Data) -> MealEntity{
+                 karbohidrat: Int32, lemak: Int32, protein: Int32, gambar: String) -> MealEntity{
         let newMeal = MealEntity(context: context)
         newMeal.id_meal = idMeal
         newMeal.nama = nama
@@ -132,7 +139,7 @@ class CoreDataClass {
         // Bikin expression buat ngambil jumlah datanya
 
         let expression = NSExpressionDescription()
-        expression.expression =  NSExpression(forFunction: "sum:", arguments:[NSExpression(forKeyPath: "kalori")])
+        expression.expression =  NSExpression(forFunction: "sum:", arguments:[NSExpression(forKeyPath: "kaloriTotal")])
         expression.name = "kaloriPerDay";
         expression.expressionResultType = NSAttributeType.doubleAttributeType
 
@@ -162,14 +169,22 @@ class CoreDataClass {
         let protein : Int32 = getSumOfMacroNutrient(macroNutrient: .protein, tanggalJurnal: tanggalJurnal)
         let total : Int32 = karbohidrat + lemak + protein
         var hasilnya : Int32 = 0
-                
-        switch macroNutrient {
-        case .karbohidrat:
-            hasilnya = karbohidrat / total * 100
-        case .lemak:
-            hasilnya = lemak / total * 100
-        case .protein:
-            hasilnya = protein / total * 100
+        
+        print("karbo ", karbohidrat)
+        print("lemak ",  lemak)
+        print("protein ",  protein)
+
+        if(karbohidrat != 0 && lemak != 0 && protein != 0){
+            switch macroNutrient {
+            case .karbohidrat:
+                hasilnya = karbohidrat / total * 100
+            case .lemak:
+                hasilnya = lemak / total * 100
+            case .protein:
+                hasilnya = protein / total * 100
+            }
+        } else {
+            hasilnya = 0
         }
         
         return "\(hasilnya)%"
@@ -177,7 +192,7 @@ class CoreDataClass {
     
     func getSumOfMacroNutrient(macroNutrient: MacroNutrient, tanggalJurnal: Date) -> Int32 {
         var hasilnya : Int32 = 0
-        let keyPath = macroNutrient.rawValue.lowercased()
+        let keyPath = macroNutrient.rawValue
         
         let expression = NSExpressionDescription()
         expression.expression =  NSExpression(forFunction: "sum:", arguments:[NSExpression(forKeyPath: keyPath)])
@@ -196,7 +211,7 @@ class CoreDataClass {
         } catch let error as NSError {
             NSLog("Error pas jumlahin \(keyPath): \(error.localizedDescription)")
         }
-        
+        print("hasil makro nutrient ", hasilnya)
         return hasilnya
     }
     
@@ -331,7 +346,7 @@ class CoreDataManager {
     let context: NSManagedObjectContext
     
     init() {
-        container = NSPersistentContainer(name: "CapmealModel")
+        container = NSPersistentContainer(name: "CapmealDataModel")
         container.loadPersistentStores { (description, error) in
             if let error = error {
                 print("Yah, Core Data nya error nih! \(error)")
@@ -357,7 +372,7 @@ enum TipeMakan : String {
 }
 
 enum MacroNutrient : String {
-    case karbohidrat = "Karbohidrat"
-    case lemak = "Lemak"
-    case protein = "Protein"
+    case karbohidrat = "karbohidratTotal"
+    case lemak = "lemakTotal"
+    case protein = "proteinTotal"
 }

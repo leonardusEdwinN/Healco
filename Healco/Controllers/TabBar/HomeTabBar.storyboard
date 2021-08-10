@@ -27,7 +27,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tvc-07-dBR" customClass="RoundedTabBar" customModule="Healco" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <color key="tintColor" name="AvocadoGreen"/>
                         <color key="selectedImageTintColor" red="0.3294117647" green="0.50196078430000002" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
@@ -53,7 +53,7 @@
                                 <rect key="frame" x="0.0" y="110" width="414" height="703"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTA-Aw-IGl">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1137"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1140"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2N2-6h-z29" customClass="WeeklyCollectionView" customModule="Healco" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="10" width="394" height="70"/>
@@ -70,28 +70,28 @@
                                                 <cells/>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrisimu Hari Ini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQl-pK-JbV">
-                                                <rect key="frame" x="20" y="90" width="374" height="23.5"/>
+                                                <rect key="frame" x="20" y="90" width="374" height="25"/>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlo-K9-Cgm">
-                                                <rect key="frame" x="20" y="123.5" width="374" height="65"/>
+                                                <rect key="frame" x="20" y="125" width="374" height="65"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kalori" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2r-YK-tmp">
-                                                        <rect key="frame" x="15" y="10" width="38.5" height="26"/>
+                                                        <rect key="frame" x="15" y="10" width="40.5" height="26"/>
                                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtJ-Tk-lTR">
-                                                        <rect key="frame" x="339.5" y="14.5" width="19.5" height="17.5"/>
+                                                        <rect key="frame" x="338.5" y="13.5" width="20.5" height="19"/>
                                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1250/ 1800" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cf6-O1-dwK">
-                                                        <rect key="frame" x="253.5" y="14.5" width="76" height="17.5"/>
+                                                        <rect key="frame" x="254.5" y="13.5" width="74" height="19"/>
                                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -99,10 +99,10 @@
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.69999998807907104" translatesAutoresizingMaskIntoConstraints="NO" id="GEl-rh-RcX">
                                                         <rect key="frame" x="15" y="46" width="344" height="4"/>
                                                         <color key="progressTintColor" name="AvocadoGreen"/>
-                                                        <color key="trackTintColor" red="0.55294117649999996" green="0.55294117649999996" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <color key="trackTintColor" systemColor="systemBackgroundColor"/>
                                                     </progressView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="GEl-rh-RcX" firstAttribute="top" secondItem="h2r-YK-tmp" secondAttribute="bottom" constant="10" id="G86-Wt-tFj"/>
                                                     <constraint firstItem="h2r-YK-tmp" firstAttribute="top" secondItem="Tlo-K9-Cgm" secondAttribute="top" constant="10" id="I4R-oy-evX"/>
@@ -118,7 +118,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31J-OP-EiN">
-                                                <rect key="frame" x="289" y="198.5" width="105" height="60"/>
+                                                <rect key="frame" x="289" y="200" width="105" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-OJ-K2y">
                                                         <rect key="frame" x="10" y="10" width="85" height="20"/>
@@ -139,7 +139,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="HEc-OJ-K2y" secondAttribute="trailing" constant="10" id="2dQ-OB-Rie"/>
                                                     <constraint firstItem="5Ym-h3-bcU" firstAttribute="leading" secondItem="31J-OP-EiN" secondAttribute="leading" constant="10" id="7tT-g8-bXT"/>
@@ -153,7 +153,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cha-ar-dzi">
-                                                <rect key="frame" x="20" y="198.5" width="105" height="60"/>
+                                                <rect key="frame" x="20" y="200" width="105" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yl5-cH-NNb">
                                                         <rect key="frame" x="10" y="10" width="85" height="20"/>
@@ -174,7 +174,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="Yl5-cH-NNb" firstAttribute="leading" secondItem="cha-ar-dzi" secondAttribute="leading" constant="10" id="5Tw-7x-OVj"/>
                                                     <constraint firstAttribute="width" constant="105" id="Ooq-1e-VVa"/>
@@ -188,7 +188,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxJ-P4-nXd">
-                                                <rect key="frame" x="154.5" y="198.5" width="105" height="60"/>
+                                                <rect key="frame" x="154.5" y="200" width="105" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvf-IS-O1i">
                                                         <rect key="frame" x="10" y="10" width="85" height="20"/>
@@ -209,7 +209,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="hvf-IS-O1i" secondAttribute="trailing" constant="10" id="2nm-kf-IyL"/>
                                                     <constraint firstItem="RZV-a4-wn0" firstAttribute="top" secondItem="hvf-IS-O1i" secondAttribute="bottom" id="Hq6-OE-VzZ"/>
@@ -222,13 +222,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Konsumsimu Hari Ini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aD-OK-h28">
-                                                <rect key="frame" x="20" y="268.5" width="374" height="23.5"/>
+                                                <rect key="frame" x="20" y="270" width="374" height="25"/>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sarapan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMh-Av-8re">
-                                                <rect key="frame" x="20" y="297" width="374" height="20"/>
+                                                <rect key="frame" x="20" y="300" width="374" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="xV3-nX-8nQ"/>
                                                 </constraints>
@@ -237,7 +237,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUc-aN-qBf">
-                                                <rect key="frame" x="20" y="322" width="394" height="180"/>
+                                                <rect key="frame" x="20" y="325" width="394" height="180"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noJournal" translatesAutoresizingMaskIntoConstraints="NO" id="Hkb-0i-xap">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="180"/>
@@ -268,7 +268,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NG-Wy-yj4">
-                                                <rect key="frame" x="20" y="532" width="394" height="180"/>
+                                                <rect key="frame" x="20" y="535" width="394" height="180"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noJournal" translatesAutoresizingMaskIntoConstraints="NO" id="tYx-z3-WQy">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="180"/>
@@ -299,7 +299,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Siang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7D-lt-LQi">
-                                                <rect key="frame" x="20" y="507" width="374" height="20"/>
+                                                <rect key="frame" x="20" y="510" width="374" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="Fz2-ZA-HhC"/>
                                                 </constraints>
@@ -308,7 +308,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yo-3g-YPo">
-                                                <rect key="frame" x="20" y="742" width="394" height="180"/>
+                                                <rect key="frame" x="20" y="745" width="394" height="180"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noJournal" translatesAutoresizingMaskIntoConstraints="NO" id="GRO-bC-vpc">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="180"/>
@@ -339,7 +339,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Malam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeN-qE-Ub2">
-                                                <rect key="frame" x="20" y="717" width="374" height="20"/>
+                                                <rect key="frame" x="20" y="720" width="374" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="gbi-AO-itM"/>
                                                 </constraints>
@@ -348,9 +348,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7QE-sW-zUy">
-                                                <rect key="frame" x="20" y="952" width="394" height="180"/>
+                                                <rect key="frame" x="20" y="955" width="394" height="180"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlightedImage="noJournal" translatesAutoresizingMaskIntoConstraints="NO" id="fuG-rr-h6w">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noJournal" translatesAutoresizingMaskIntoConstraints="NO" id="fuG-rr-h6w">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="180"/>
                                                     </imageView>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hHy-Uy-Scn">
@@ -379,7 +379,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dui-Ur-pQT">
-                                                <rect key="frame" x="20" y="927" width="374" height="20"/>
+                                                <rect key="frame" x="20" y="930" width="374" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="J8l-no-IXh"/>
                                                 </constraints>
@@ -450,7 +450,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jurnal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB1-yP-v73">
-                                        <rect key="frame" x="20" y="50.5" width="69" height="29.5"/>
+                                        <rect key="frame" x="20" y="49.5" width="77" height="31.5"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -462,7 +462,7 @@
                                             <constraint firstAttribute="height" constant="40" id="Qlb-gQ-UGE"/>
                                             <constraint firstAttribute="width" constant="40" id="gwU-cH-7al"/>
                                         </constraints>
-                                        <color key="tintColor" name="PaleYellow"/>
+                                        <color key="tintColor" name="SweetMango"/>
                                         <state key="normal" image="calendar" catalog="system">
                                             <color key="titleColor" name="PaleYellow"/>
                                         </state>
@@ -471,9 +471,9 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agustus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOY-5u-895">
-                                        <rect key="frame" x="289" y="56.5" width="55" height="17.5"/>
+                                        <rect key="frame" x="289" y="55.5" width="55" height="19"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
-                                        <color key="textColor" name="PaleYellow"/>
+                                        <color key="textColor" name="MangoYoghurt"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -634,9 +634,18 @@
         <namedColor name="AvocadoGreen">
             <color red="0.37999999523162842" green="0.55000001192092896" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="MangoYoghurt">
+            <color red="0.98000001907348633" green="0.94999998807907104" blue="0.70999997854232788" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="PaleYellow">
             <color red="0.99000000953674316" green="0.98000001907348633" blue="0.88999998569488525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="SweetMango">
+            <color red="0.95999997854232788" green="0.87000000476837158" blue="0.36000001430511475" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

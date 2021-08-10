@@ -36,13 +36,10 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
         func setupMiddleButton() {
 
             let middleBtn = UIButton(frame: CGRect(x: (self.view.bounds.width / 2)-25, y: -20, width: 50, height: 50))
-            //let gradient = CAGradientLayer()
-
-//            gradient.frame = middleBtn.bounds
-//            gradient.colors = [UIColor.gray.cgColor, UIColor.green.cgColor]
             
 //            STYLE THE BUTTON YOUR OWN WAY
             middleBtn.setImage(UIImage(named: "addIcon"), for: .normal)
+//            middleBtn.setImage(UIImage(named: "plus.circle"), for: .normal)
             middleBtn.tintColor = .white
 //            middleBtn.layer.insertSublayer(gradient, at: 0)
             middleBtn.layer.backgroundColor = UIColor(named: "AvocadoGreen")?.cgColor
@@ -70,9 +67,12 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
         
         
         let actionSheet = UIAlertController(title: "Select Photo", message: "Choose", preferredStyle: .actionSheet)
+        actionSheet.view.tintColor = UIColor(named: "DarkGreen")
         
         //button 1
         let libraryAction = UIAlertAction(title: "Photo Library", style: .default){ (action: UIAlertAction) in
+            
+            
             if UIImagePickerController.isSourceTypeAvailable(.camera){
                 self.imagePickerControler.sourceType = .photoLibrary
                 self.imagePickerControler.delegate = self

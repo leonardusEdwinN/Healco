@@ -39,16 +39,18 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
         //dayString untuk hari, dateText untuk tanggal
         self.labelHari.text = dayString
         self.labelTanggal.text = dateText
-        self.viewOuter.backgroundColor = isToday ? UIColor(named: "AvocadoGreen")  :  .white
+        self.isSelected = isToday ? true : false
+        self.viewOuter.backgroundColor = isToday ? UIColor(named: "SweetMango")  :  .systemBackground
+        changeUpdate()
         
     }
     
     func changeUpdate(){
-        print("CELL :: isselected \(isSelected)")
+//        print("CELL :: isselected \(isSelected)")
         if(isSelected){
-            viewOuter.backgroundColor = .green
+            viewOuter.backgroundColor = UIColor(named: "SweetMango")
         }else{
-            viewOuter.backgroundColor = .white
+            viewOuter.backgroundColor = .systemBackground
         }
 //        if(status == "Healthy"){
 //            imageIcon.image = UIImage(systemName: "heart.fill")

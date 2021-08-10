@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="HistoricalEntity" representedClassName="HistoricalEntity" syncable="YES" codeGenerationType="class">
         <attribute name="angka" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="tanggal" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -20,9 +20,9 @@
     </entity>
     <entity name="MealEntity" representedClassName="MealEntity" syncable="YES" codeGenerationType="class">
         <attribute name="deskripsi" optional="YES" attributeType="String"/>
-        <attribute name="gambar" optional="YES" attributeType="Binary"/>
+        <attribute name="gambar" optional="YES" attributeType="String"/>
         <attribute name="id_meal" optional="YES" attributeType="String"/>
-        <attribute name="kalori" optional="YES" attributeType="Integer 32" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="kalori" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="karbohidrat" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="lemak" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="nama" optional="YES" attributeType="String"/>
@@ -45,10 +45,10 @@
         <attribute name="tinggi_badan" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="HistoricalEntity" positionX="27" positionY="-90" width="128" height="74"/>
-        <element name="JournalEntity" positionX="-123.8551635742188" positionY="-250.5234985351562" width="128" height="194"/>
-        <element name="MealEntity" positionX="381.865234375" positionY="-183.5227355957031" width="128" height="164"/>
-        <element name="NotificationEntity" positionX="27" positionY="-90" width="128" height="119"/>
-        <element name="ProfileEntity" positionX="-182.9930419921875" positionY="180.0543823242188" width="128" height="104"/>
+        <element name="JournalEntity" positionX="-63" positionY="-18" width="128" height="208"/>
+        <element name="MealEntity" positionX="153.7042236328125" positionY="-27.84378051757812" width="128" height="178"/>
+        <element name="ProfileEntity" positionX="410.5228271484375" positionY="-261.61767578125" width="128" height="104"/>
+        <element name="NotificationEntity" positionX="59.60321044921875" positionY="-196.9718933105469" width="128" height="119"/>
+        <element name="HistoricalEntity" positionX="341.9508056640625" positionY="-9.6611328125" width="128" height="74"/>
     </elements>
 </model>

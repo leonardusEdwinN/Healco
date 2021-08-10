@@ -3,8 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -32,11 +32,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="50I-e5-Kji">
-                        <rect key="frame" x="17.5" y="15" width="45" height="45"/>
+                        <rect key="frame" x="17.5" y="25" width="45" height="35"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="27" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4u-ec-1bc">
-                                <rect key="frame" x="7.5" y="7.5" width="30" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="7.5" y="2.5" width="30" height="30"/>
+                                <color key="backgroundColor" systemColor="systemFillColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="E9z-8i-cq0"/>
                                     <constraint firstAttribute="width" constant="30" id="jlD-CW-NCB"/>
@@ -46,11 +46,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="R4u-ec-1bc" firstAttribute="centerY" secondItem="50I-e5-Kji" secondAttribute="centerY" id="Rcv-7d-y0y"/>
                             <constraint firstAttribute="width" constant="45" id="b6g-6H-mwh"/>
-                            <constraint firstAttribute="height" constant="45" id="hIT-oK-cSA"/>
+                            <constraint firstAttribute="height" constant="35" id="hIT-oK-cSA"/>
                             <constraint firstItem="R4u-ec-1bc" firstAttribute="centerX" secondItem="50I-e5-Kji" secondAttribute="centerX" id="lx8-mj-mla"/>
                         </constraints>
                     </view>
@@ -64,7 +64,7 @@
                 <constraint firstItem="nSa-kd-Vaw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NFE-h7-9Ai"/>
                 <constraint firstItem="50I-e5-Kji" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="b5s-ZU-uuS"/>
                 <constraint firstAttribute="bottom" secondItem="50I-e5-Kji" secondAttribute="bottom" id="ial-t5-B4M"/>
-                <constraint firstItem="50I-e5-Kji" firstAttribute="top" secondItem="nSa-kd-Vaw" secondAttribute="bottom" id="mNT-Pv-usl"/>
+                <constraint firstItem="50I-e5-Kji" firstAttribute="top" secondItem="nSa-kd-Vaw" secondAttribute="bottom" constant="10" id="mNT-Pv-usl"/>
             </constraints>
             <size key="customSize" width="69" height="76"/>
             <connections>
@@ -75,4 +75,12 @@
             <point key="canvasLocation" x="150.72463768115944" y="121.20535714285714"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

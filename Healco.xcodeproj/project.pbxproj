@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1315B9C626B53BC10030C84A /* CapmealModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C426B53BC10030C84A /* CapmealModel.xcdatamodeld */; };
 		1315B9C826B53BE40030C84A /* CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C726B53BE40030C84A /* CoreDataClass.swift */; };
 		1315B9CA26B5595B0030C84A /* CustomizedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C926B5595B0030C84A /* CustomizedTabBar.swift */; };
 		1315B9CC26B7D8CB0030C84A /* RoundedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */; };
@@ -40,6 +39,7 @@
 		13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 13A11C75268324E200FA1545 /* FatSecretSwift */; };
 		13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B3EC6926B2AE6F00870C20 /* HomeTabBar.swift */; };
 		13B3EC6C26B2AE7F00870C20 /* HomeTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B3EC6B26B2AE7F00870C20 /* HomeTabBar.storyboard */; };
+		13D156B726C27E97003BF22E /* CapmealDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13D156B526C27E97003BF22E /* CapmealDataModel.xcdatamodeld */; };
 		13FF88A826BD1FC10008A888 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF88A426BD1FC00008A888 /* ProfileCell.swift */; };
 		13FF88AB26BD1FC10008A888 /* genderPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF88A726BD1FC10008A888 /* genderPickerViewController.swift */; };
 		221A0BBD267B321D0042A94A /* HasilFoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221A0BBC267B321D0042A94A /* HasilFoto.storyboard */; };
@@ -63,7 +63,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1315B9C526B53BC10030C84A /* CapmealModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CapmealModel.xcdatamodel; sourceTree = "<group>"; };
 		1315B9C726B53BE40030C84A /* CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataClass.swift; sourceTree = "<group>"; };
 		1315B9C926B5595B0030C84A /* CustomizedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizedTabBar.swift; sourceTree = "<group>"; };
 		1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTabBar.swift; sourceTree = "<group>"; };
@@ -98,6 +97,7 @@
 		139AD0AA2679F70E00954DB2 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		13B3EC6926B2AE6F00870C20 /* HomeTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBar.swift; sourceTree = "<group>"; };
 		13B3EC6B26B2AE7F00870C20 /* HomeTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTabBar.storyboard; sourceTree = "<group>"; };
+		13D156B626C27E97003BF22E /* CapmealModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CapmealModel.xcdatamodel; sourceTree = "<group>"; };
 		13FF88A426BD1FC00008A888 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		13FF88A726BD1FC10008A888 /* genderPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = genderPickerViewController.swift; sourceTree = "<group>"; };
 		221A0BBC267B321D0042A94A /* HasilFoto.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HasilFoto.storyboard; sourceTree = "<group>"; };
@@ -165,13 +165,13 @@
 		13492D55267F022E00843181 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				1315B9C426B53BC10030C84A /* CapmealModel.xcdatamodeld */,
 				1315B9C726B53BE40030C84A /* CoreDataClass.swift */,
 				221A0BC4267B60B00042A94A /* Extention.swift */,
 				13495F3F26B42FCE0051EE32 /* DateExtension.swift */,
 				1315B9C926B5595B0030C84A /* CustomizedTabBar.swift */,
 				1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */,
 				EF9CD4E526C1256B00D734E6 /* NotificationManager.swift */,
+				13D156B526C27E97003BF22E /* CapmealDataModel.xcdatamodeld */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -524,7 +524,6 @@
 				221E9ABE26BD39D200FBBF20 /* ProfileViewController.swift in Sources */,
 				13492D57267F030600843181 /* Food101.mlmodel in Sources */,
 				2289F5CE267222A900C118CD /* FoodRecogVC.swift in Sources */,
-				1315B9C626B53BC10030C84A /* CapmealModel.xcdatamodeld in Sources */,
 				1315B9CA26B5595B0030C84A /* CustomizedTabBar.swift in Sources */,
 				EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */,
 				137A0B652670CE2B00543CCF /* SceneDelegate.swift in Sources */,
@@ -534,6 +533,7 @@
 				EF9CD4E626C1256B00D734E6 /* NotificationManager.swift in Sources */,
 				13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */,
 				221A0BC5267B60B00042A94A /* Extention.swift in Sources */,
+				13D156B726C27E97003BF22E /* CapmealDataModel.xcdatamodeld in Sources */,
 				44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */,
 				EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */,
 				1315B9D426B7F8A80030C84A /* NutritionCollectionViewCell.swift in Sources */,
@@ -689,7 +689,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = id.SMILE.Capmeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -714,7 +714,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = id.SMILE.Capmeal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -766,13 +766,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		1315B9C426B53BC10030C84A /* CapmealModel.xcdatamodeld */ = {
+		13D156B526C27E97003BF22E /* CapmealDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				1315B9C526B53BC10030C84A /* CapmealModel.xcdatamodel */,
+				13D156B626C27E97003BF22E /* CapmealModel.xcdatamodel */,
 			);
-			currentVersion = 1315B9C526B53BC10030C84A /* CapmealModel.xcdatamodel */;
-			path = CapmealModel.xcdatamodeld;
+			currentVersion = 13D156B626C27E97003BF22E /* CapmealModel.xcdatamodel */;
+			path = CapmealDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

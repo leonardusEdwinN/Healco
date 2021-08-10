@@ -36,7 +36,6 @@ class ProfileViewController: UIViewController, UIPopoverPresentationControllerDe
     
     
     func getDataProfile() {
-        print("TEST MEAL")
         let data = CoreDataClass()
         let profile  = data.fetchProfile()
 //
