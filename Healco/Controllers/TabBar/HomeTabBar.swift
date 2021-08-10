@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import UserNotifications
 
 class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
     
@@ -217,6 +217,7 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
         content.sound = UNNotificationSound.default
         print("Jam notification: \(waktuData.hour ?? 0)" + " dan menit notification: \(waktuData.minute ?? 0)")
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        //let trigger = UNCalendarNotificationTrigger(dateMatching: waktuData, repeats: true)
         let notifRequest = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         notificationCenter.add(notifRequest)
     }
