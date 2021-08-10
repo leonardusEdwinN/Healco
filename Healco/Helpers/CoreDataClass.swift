@@ -1,5 +1,5 @@
 //
-//  CoreData.swift
+//  CoreDataClass.swift
 //  Healco
 //
 //  Created by Fahmi Dzulqarnain on 22/07/21.
@@ -8,11 +8,11 @@
 import Foundation
 import CoreData
 
+/// Contoh Implementasi CoreData
+/// let data = CoreData()
+/// let journals = data.fetchJournalBaseOnDay(tanggalWaktu: getToday())
+
 class CoreDataClass {
-    
-    // MARK: Contoh Implementasi CoreData
-    // let data = CoreData()
-    // let journals = data.fetchJournalBaseOnDay(tanggalWaktu: Date())
     
     let manager = CoreDataManager.instance
     let context: NSManagedObjectContext
@@ -30,7 +30,7 @@ class CoreDataClass {
         }
     }
     
-    func fetchJournalBaseOnDay(tanggalWaktu: Date) -> [JournalEntity]{ //Date() -> tipe datenya
+    func fetchJournalBaseOnDay(tanggalWaktu: Date) -> [JournalEntity]{
         do {
             let request = NSFetchRequest<JournalEntity>(entityName: "JournalEntity")
             request.predicate = NSPredicate(format: "tanggal_jam == %@", tanggalWaktu as NSDate)
@@ -57,8 +57,9 @@ class CoreDataClass {
     func addJournal(lagiApa: String, perasaan: String, porsi: Double,
                     satuan: String, tanggalJam: Date, tipe: String,
                     // Ini parameter untuk nambahin makanan
-                    idMeal: String, nama: String, deskripsi: String,
-                    karbohidrat: Int32, lemak: Int32, protein: Int32, gambar: String, kaloriTotal: Int32, lemakTotal: Int32, proteinTotal: Int32, karbohidratTotal: Int32, kalori: Int32){
+                    idMeal: String, nama: String, deskripsi: String, karbohidrat: Int32,
+                    lemak: Int32, protein: Int32, gambar: String, kaloriTotal: Int32,
+                    lemakTotal: Int32, proteinTotal: Int32, karbohidratTotal: Int32, kalori: Int32){
         let newJournal = JournalEntity(context: context)
         newJournal.lagi_apa = lagiApa
         newJournal.perasaan = perasaan
@@ -77,11 +78,6 @@ class CoreDataClass {
         newJournal.karbohidrat = karbohidrat
         newJournal.lemak = lemak
         newJournal.protein = protein
-
-//        newJournal.meal = addMeal(idMeal: idMeal, nama: nama, deskripsi: deskripsi,
-//                                  kalori: kalori, karbohidrat: karbohidrat, lemak: lemak,
-//                                  protein: protein, gambar: gambar)
-        print("addJournal")
         
         saveData()
     }
@@ -89,7 +85,7 @@ class CoreDataClass {
     // Nah kalau ini Add Journal yang ngambil makanan yang udah ada
     
     func addJournal(lagiApa: String, perasaan: String, porsi: Double,
-                    satuan: String, tanggalJam: Date, tipe: String/*, meal: MealEntity*/, kaloritotal: Int32, proteintotal: Int32){
+                    satuan: String, tanggalJam: Date, tipe: String, kaloritotal: Int32, proteintotal: Int32){
         let newJournal = JournalEntity(context: context)
         newJournal.lagi_apa = lagiApa
         newJournal.perasaan = perasaan
@@ -105,15 +101,28 @@ class CoreDataClass {
     }
     
     func updateJournal(journal: JournalEntity, lagiApa: String, perasaan: String, porsi: Double,
-                       satuan: String, tanggalJam: Date, tipe: String, kalori: Int32){
+                       satuan: String, tanggalJam: Date, tipe: String, kalori: Int32,
+                       // Ini parameter untuk ngubah makanan
+                       idMeal: String, nama: String, deskripsi: String, karbohidrat: Int32,
+                       lemak: Int32, protein: Int32, gambar: String, kaloriTotal: Int32,
+                       lemakTotal: Int32, proteinTotal: Int32, karbohidratTotal: Int32){
         journal.lagi_apa = lagiApa
         journal.perasaan = perasaan
         journal.porsi = porsi
         journal.satuan = satuan
         journal.tanggal_jam = tanggalJam
         journal.tipe = tipe
-        // Ntar tinggal tambah aja sesuai kebutuhan, mau ngeupdate meal nya gimana
-        journal.meal?.kalori = kalori
+        journal.kaloriTotal = kaloriTotal
+        journal.lemakTotal = lemakTotal
+        journal.karbohidratTotal = karbohidratTotal
+        journal.proteinTotal = proteinTotal
+        journal.id_meal = idMeal
+        journal.deskripsi = deskripsi
+        journal.gambar = gambar
+        journal.kalori = kalori
+        journal.karbohidrat = karbohidrat
+        journal.lemak = lemak
+        journal.protein = protein
         
         saveData()
     }
@@ -314,15 +323,10 @@ class CoreDataClass {
         notif.malamOn = malamOn
         notif.malamTime = malamTime
         
-        if !sarapanOn{
-            notif.sarapanTime = ""
-        }
-        if !siangOn{
-            notif.siangTime = ""
-        }
-        if !malamOn{
-            notif.malamTime = ""
-        }
+        if !sarapanOn{ notif.sarapanTime = "" }
+        if !siangOn{ notif.siangTime = "" }
+        if !malamOn{ notif.malamTime = "" }
+        
         saveData()
     }
     
@@ -340,7 +344,6 @@ class CoreDataClass {
         
         saveData()
     }
-    
     
     // MARK: Yang terakhir, ini function buat core data secara umum
     
