@@ -70,11 +70,17 @@ class CoreDataClass {
         newJournal.lemakTotal = lemakTotal
         newJournal.karbohidratTotal = karbohidratTotal
         newJournal.proteinTotal = proteinTotal
+        newJournal.id_meal = idMeal
+        newJournal.deskripsi = deskripsi
+        newJournal.gambar = gambar
+        newJournal.kalori = kalori
+        newJournal.karbohidrat = karbohidrat
+        newJournal.lemak = lemak
+        newJournal.protein = protein
 
-
-        newJournal.meal = addMeal(idMeal: idMeal, nama: nama, deskripsi: deskripsi,
-                                  kalori: kalori, karbohidrat: karbohidrat, lemak: lemak,
-                                  protein: protein, gambar: gambar)
+//        newJournal.meal = addMeal(idMeal: idMeal, nama: nama, deskripsi: deskripsi,
+//                                  kalori: kalori, karbohidrat: karbohidrat, lemak: lemak,
+//                                  protein: protein, gambar: gambar)
         print("addJournal")
         
         saveData()
@@ -82,19 +88,21 @@ class CoreDataClass {
     
     // Nah kalau ini Add Journal yang ngambil makanan yang udah ada
     
-//    func addJournal(lagiApa: String, perasaan: String, porsi: Double,
-//                    satuan: String, tanggalJam: Date, tipe: String, meal: MealEntity){
-//        let newJournal = JournalEntity(context: context)
-//        newJournal.lagi_apa = lagiApa
-//        newJournal.perasaan = perasaan
-//        newJournal.porsi = porsi
-//        newJournal.satuan = satuan
-//        newJournal.tanggal_jam = tanggalJam
-//        newJournal.tipe = tipe
-//        newJournal.meal = meal
-//
-//        saveData()
-//    }
+    func addJournal(lagiApa: String, perasaan: String, porsi: Double,
+                    satuan: String, tanggalJam: Date, tipe: String/*, meal: MealEntity*/, kaloritotal: Int32, proteintotal: Int32){
+        let newJournal = JournalEntity(context: context)
+        newJournal.lagi_apa = lagiApa
+        newJournal.perasaan = perasaan
+        newJournal.porsi = porsi
+        newJournal.satuan = satuan
+        newJournal.tanggal_jam = tanggalJam
+        newJournal.tipe = tipe
+        newJournal.kaloriTotal = kaloritotal
+        newJournal.proteinTotal = proteintotal
+        //newJournal.meal = meal
+
+        saveData()
+    }
     
     func updateJournal(journal: JournalEntity, lagiApa: String, perasaan: String, porsi: Double,
                        satuan: String, tanggalJam: Date, tipe: String, kalori: Int32){
@@ -185,6 +193,7 @@ class CoreDataClass {
             }
         } else {
             hasilnya = 0
+            print("default sama dengan nol")
         }
         
         return "\(hasilnya)%"
@@ -194,13 +203,14 @@ class CoreDataClass {
         var hasilnya : Int32 = 0
         let keyPath = macroNutrient.rawValue
         
+        print("keypath ",keyPath)
         let expression = NSExpressionDescription()
         expression.expression =  NSExpression(forFunction: "sum:", arguments:[NSExpression(forKeyPath: keyPath)])
         expression.name = "\(keyPath)PerDay";
         expression.expressionResultType = NSAttributeType.doubleAttributeType
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "JournalEntity")
-        request.predicate = NSPredicate(format: "tanggal_jam == %@", tanggalJurnal as NSDate)
+        //request.predicate = NSPredicate(format: "tanggal_jam == %@", tanggalJurnal as NSDate)
         request.propertiesToFetch = [expression]
         request.resultType = NSFetchRequestResultType.dictionaryResultType
         
