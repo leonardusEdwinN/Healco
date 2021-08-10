@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
           let mainStoryboard = UIStoryboard(name: "HomeTabBar", bundle: nil)
           var vc: UIViewController
           if launchedBefore {
-              vc = mainStoryboard.instantiateViewController(identifier: "JournalViewController")
+              vc = mainStoryboard.instantiateViewController(identifier: "HomeTabBar")
           }
           else{
               vc = launchStoryboard.instantiateViewController(identifier: "Onboarding")
