@@ -165,7 +165,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJ2-6h-cze">
-                                <rect key="frame" x="20" y="739" width="350" height="50"/>
+                                <rect key="frame" x="20" y="729.33333333333337" width="350" height="50"/>
                                 <color key="backgroundColor" name="AvocadoGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="O6I-5i-8Gq"/>
@@ -179,19 +179,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukkan Datamu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IHI-fy-L11">
-                                <rect key="frame" x="68.666666666666671" y="74" width="252.66666666666663" height="35"/>
+                                <rect key="frame" x="77.666666666666671" y="74" width="234.66666666666663" height="32.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenis Kelamin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjd-fy-LjX">
-                                <rect key="frame" x="20" y="129" width="350" height="21.333333333333343"/>
+                                <rect key="frame" x="20" y="126.66666666666669" width="350" height="20"/>
                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wPB-fK-x3j">
-                                <rect key="frame" x="20" y="165.33333333333334" width="90" height="30"/>
+                                <rect key="frame" x="20" y="161.66666666666666" width="90" height="30"/>
                                 <color key="backgroundColor" name="AvocadoGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RG7-jD-LJe"/>
@@ -203,19 +203,19 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal Lahir:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxC-8y-juc">
-                                <rect key="frame" x="19.999999999999993" y="235.33333333333334" width="115.33333333333331" height="21.333333333333343"/>
+                                <rect key="frame" x="20" y="231.66666666666666" width="106" height="20"/>
                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tinggi Badan:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g6-Xn-Qlm">
-                                <rect key="frame" x="19.999999999999993" y="291.66666666666669" width="111.33333333333331" height="21.333333333333314"/>
+                                <rect key="frame" x="19.999999999999993" y="286.66666666666669" width="105.33333333333331" height="20"/>
                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dalam cm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fez-FW-U1h">
-                                <rect key="frame" x="220" y="285" width="150" height="35"/>
+                                <rect key="frame" x="220" y="279.33333333333331" width="150" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="2ty-QX-BxK"/>
                                     <constraint firstAttribute="height" constant="35" id="pVv-wk-kWx"/>
@@ -224,13 +224,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Berat Badan:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bvv-Y0-V8w">
-                                <rect key="frame" x="19.999999999999993" y="348" width="106.33333333333331" height="21.333333333333314"/>
+                                <rect key="frame" x="20" y="341.66666666666669" width="100" height="20"/>
                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="dalam kg" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k7U-QX-7Tb">
-                                <rect key="frame" x="220" y="341.33333333333331" width="150" height="35"/>
+                                <rect key="frame" x="220" y="334.33333333333331" width="150" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="AQV-h3-9uk"/>
                                     <constraint firstAttribute="width" constant="150" id="UTj-fM-3SF"/>
@@ -239,37 +239,37 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sarapan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fg-b5-siP">
-                                <rect key="frame" x="20" y="455.66666666666669" width="66.666666666666671" height="21.333333333333314"/>
+                                <rect key="frame" x="19.999999999999996" y="446.66666666666669" width="63.666666666666657" height="20"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lxt-ha-Zjp">
-                                <rect key="frame" x="321" y="451" width="51" height="31"/>
+                                <rect key="frame" x="321" y="441.33333333333331" width="51" height="31"/>
                                 <connections>
                                     <action selector="sarapanSwitch_Turned:" destination="irq-J7-Ssd" eventType="valueChanged" id="mCp-2A-iPy"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5fD-uB-VQt">
-                                <rect key="frame" x="321" y="547" width="51" height="31"/>
+                                <rect key="frame" x="321" y="537.33333333333337" width="51" height="31"/>
                                 <connections>
                                     <action selector="makanSiangSwitch_Turned:" destination="irq-J7-Ssd" eventType="valueChanged" id="6Vp-cd-ro5"/>
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Malam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMd-pa-eUC">
-                                <rect key="frame" x="20" y="647.66666666666663" width="112" height="21.333333333333371"/>
+                                <rect key="frame" x="20.000000000000007" y="638.66666666666663" width="107.66666666666669" height="20"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0W7-bp-aZV">
-                                <rect key="frame" x="321" y="643" width="51" height="31"/>
+                                <rect key="frame" x="321" y="633.33333333333337" width="51" height="31"/>
                                 <connections>
                                     <action selector="makanMalamSwitch_Turned:" destination="irq-J7-Ssd" eventType="valueChanged" id="9x4-JI-E2D"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAR-Lt-9yv">
-                                <rect key="frame" x="135" y="165.33333333333334" width="90" height="30"/>
+                                <rect key="frame" x="135" y="161.66666666666666" width="90" height="30"/>
                                 <color key="backgroundColor" name="MangoYoghurt"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="3NH-qt-0Mt"/>
@@ -281,40 +281,40 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kapan waktu makanmu?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFU-DT-bmE">
-                                <rect key="frame" x="21" y="409.33333333333331" width="344" height="21.333333333333314"/>
+                                <rect key="frame" x="21" y="401.66666666666669" width="344" height="20"/>
                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Siang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIm-A8-cTl">
-                                <rect key="frame" x="20" y="551.66666666666663" width="102" height="21.333333333333371"/>
+                                <rect key="frame" x="19.999999999999993" y="542.66666666666663" width="99.333333333333314" height="20"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="right" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="lb6-sU-b8A">
-                                <rect key="frame" x="50" y="487" width="320" height="35"/>
+                                <rect key="frame" x="50" y="477.33333333333331" width="320" height="34.999999999999943"/>
                                 <color key="tintColor" name="AvocadoGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="JPw-08-8J3"/>
                                 </constraints>
                             </datePicker>
                             <datePicker contentMode="right" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bUY-OY-Lmd">
-                                <rect key="frame" x="50" y="583" width="320" height="35"/>
+                                <rect key="frame" x="50" y="573.33333333333337" width="320" height="35"/>
                                 <color key="tintColor" name="AvocadoGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="9M4-Qz-F1R"/>
                                 </constraints>
                             </datePicker>
                             <datePicker contentMode="right" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="T1q-vh-84P">
-                                <rect key="frame" x="50" y="679" width="320" height="35"/>
+                                <rect key="frame" x="50" y="669.33333333333337" width="320" height="35"/>
                                 <color key="tintColor" name="AvocadoGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="nSy-8c-0mJ"/>
                                 </constraints>
                             </datePicker>
                             <datePicker contentMode="right" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DjA-O7-J7E">
-                                <rect key="frame" x="50" y="229" width="320" height="34"/>
+                                <rect key="frame" x="50" y="224.66666666666666" width="320" height="33.999999999999972"/>
                                 <color key="tintColor" name="AvocadoGreen"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="Q53-qA-lm6"/>
