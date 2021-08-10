@@ -144,6 +144,9 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
         var strJamSarapan: String? = ""
         var strJamSiang: String? = ""
         var strJamMalam: String? = ""
+        var sarapanOn: Bool = false
+        var siangOn: Bool = false
+        var malamOn: Bool = false
         if(notif != nil){
             let sarapanNotif = notif?.value(forKeyPath: "sarapanOn") as? Bool
             let siangNotif = notif?.value(forKeyPath: "siangOn") as? Bool
@@ -151,33 +154,42 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
             
             if sarapanNotif!{
                 strJamSarapan = notif?.value(forKeyPath: "sarapanTime") as? String ?? ""
-                //sarapan = true
+                sarapanOn = true
             } else if siangNotif!{
                 strJamSiang = notif?.value(forKeyPath: "siangTime") as? String ?? ""
-                //siang = true
+                siangOn = true
             } else if malamNotif!{
                 strJamMalam = notif?.value(forKeyPath: "malamTime") as? String ?? ""
-                //malam = true
+                malamOn = true
             }
         }
         let tglFormatter = DateFormatter()
         tglFormatter.dateFormat = "HH:mm"
-        let jamSarapan: Date? = tglFormatter.date(from: strJamSarapan ?? "") ?? nil
-        let jamSiang: Date? = tglFormatter.date(from: strJamSiang ?? "") ?? nil
-        let jamMalam: Date? = tglFormatter.date(from: strJamMalam ?? "") ?? nil
-        /*print("Jam sarapan: " + tglFormatter.string(from: jamSarapan!))
-        print("Jam makan siang: " + tglFormatter.string(from: jamSiang!))
-        print("Jam makan malam: " + tglFormatter.string(from: jamMalam!))*/
-        waktuNotificationMuncul(waktu: jamSarapan ?? nil, title: "Jam Sarapan", body: "Sekarang jam makan sarapan, jangan lupa catatin makananmu ya!")
-        waktuNotificationMuncul(waktu: jamSiang ?? nil, title: "Jam Makan Siang", body: "Sekarang jam makan siang, ingat catatin ya!")
-        waktuNotificationMuncul(waktu: jamMalam ?? nil, title: "Jam Makan Malam", body: "Jam makan malam, jangan lupa catatin sebelum makan sampai bobo ya!")
+        
+        
+        if sarapanOn{
+            let jamSarapan: Date? = tglFormatter.date(from: strJamSarapan ?? "") ?? nil
+            //print("Status sarapan: " + String(sarapanOn))
+            //print("Jam sarapan: " + tglFormatter.string(from: jamSarapan ?? Date()))
+            waktuNotificationMuncul(waktu: jamSarapan!, title: "Jam Sarapan", body: "Sekarang jam makan sarapan, jangan lupa catatin makananmu ya!")
+        } else if siangOn{
+            let jamSiang: Date? = tglFormatter.date(from: strJamSiang ?? "") ?? nil
+            //print("Status siang: " + String(siangOn))
+            //print("Jam makan siang: " + tglFormatter.string(from: jamSiang ?? Date()))
+            waktuNotificationMuncul(waktu: jamSiang!, title: "Jam Makan Siang", body: "Sekarang jam makan siang, ingat catatin ya!")
+        } else if malamOn{
+            let jamMalam: Date? = tglFormatter.date(from: strJamMalam ?? "") ?? nil
+            //print("Status malam: " + String(malamOn))
+            //print("Jam makan malam: " + tglFormatter.string(from: jamMalam ?? Date()))
+            waktuNotificationMuncul(waktu: jamMalam!, title: "Jam Makan Malam", body: "Jam makan malam, jangan lupa catatin sebelum makan sampai bobo ya!")
+        }
     }
     
-    private func waktuNotificationMuncul(waktu: Date?, title: String, body: String){
+    private func waktuNotificationMuncul(waktu: Date, title: String, body: String){
         var component = DateComponents()
         component.calendar = Calendar.current
-        component.hour = component.calendar?.component(.hour, from: waktu ?? Date())
-        component.minute = component.calendar?.component(.minute, from: waktu ?? Date())
+        component.hour = component.calendar?.component(.hour, from: waktu)
+        component.minute = component.calendar?.component(.minute, from: waktu)
         let contentNotif = UNMutableNotificationContent()
         contentNotif.title = title
         contentNotif.body = body
