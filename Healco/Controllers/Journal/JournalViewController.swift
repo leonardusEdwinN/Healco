@@ -162,12 +162,21 @@ class JournalViewController : UIViewController{
         labelLemakValue.text = "\(data.getPercentage(macroNutrient: .lemak, tanggalJurnal: tanggalHariIni))"
         
         progressViewKalori.setProgress( persentageBmr , animated: true)
+        
+        
+        let tanggal = Date()
+        let calendar = Calendar.current
+        let tanggalBaru = calendar.dateComponents([.year, .month, .day], from: tanggal as Date)
+
+        guard let tanggalJurnal = calendar.date(from: tanggalBaru) else { return }
+        print("DATE TANGGAL JURNAL : \(tanggalJurnal)")
+//
         getJournal(tanggal: tanggalHariIni)
         
-        collectionViewSarapan.reloadData()
-        collectionViewMakanSiang.reloadData()
-        collectionViewMakanMalam.reloadData()
-        collectionViewSnack.reloadData()
+//        collectionViewSarapan.reloadData()
+//        collectionViewMakanSiang.reloadData()
+//        collectionViewMakanMalam.reloadData()
+//        collectionViewSnack.reloadData()
 
     }
     
@@ -198,7 +207,7 @@ class JournalViewController : UIViewController{
                 tanggal = calendarDate.startOfWeek
             }
             formatter.dateFormat = "dd"
-            formatter.locale = Locale(identifier: "id_ID")
+//            formatter.locale = Locale(identifier: "id_ID")
             let tanggalPrint = formatter.string(from: tanggal!)
             date.append(tanggalPrint)
             
@@ -224,31 +233,43 @@ class JournalViewController : UIViewController{
     }
     
     func getJournal(tanggal: Date){
+        print("DATE : \(tanggal)")
         let dataJournalSarapan = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Breakfast")
         stackViewNoSarapan.isHidden = dataJournalSarapan.count > 0 ? true : false
         self.dataJournalSarapan = dataJournalSarapan.count > 0 ? dataJournalSarapan : []
+        self.collectionViewSarapan.reloadData()
         
         let dataJournalSiang = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Lunch")
         stackViewNoMakanSiang.isHidden = dataJournalSiang.count > 0 ? true : false
         self.dataJournalMakanSiang = dataJournalSiang.count > 0 ? dataJournalSiang : []
+        self.collectionViewMakanSiang.reloadData()
         
         let dataJournalMalam = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Dinner")
         stackViewNoMakanMalam.isHidden = dataJournalMalam.count > 0 ? true : false
         self.dataJournalMakanMalam = dataJournalMalam.count > 0 ? dataJournalMalam : []
+        self.collectionViewMakanMalam.reloadData()
         
         let dataJournalSnack = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Snack")
         stackViewNoSnack.isHidden = dataJournalSnack.count > 0 ? true : false
         self.dataJournalSnack = dataJournalSnack.count > 0 ? dataJournalSnack : []
+        self.collectionViewSnack.reloadData()
         
-        for journal in data.fetchJournal() {
-            print("tipe: ", journal.tipe ?? "")
-            print("karbo: ", journal.karbohidratTotal)
-            print("lemak: ", journal.lemakTotal)
-            print("protein: ", journal.proteinTotal)
-            print("kalori: ", journal.kaloriTotal)
-        }
+        print("JOURNAL SARAPAN : \(self.dataJournalSarapan.count)")
+        print("JOURNAL SIANG : \(self.dataJournalMakanSiang.count)")
+        print("JOURNAL MALAM : \(self.dataJournalMakanMalam.count)")
+        print("JOURNAL SNACK : \(self.dataJournalSnack.count)")
         
-        print("data jurnal: ", data.fetchJournal().count)
+        
+        
+//        for journal in data.fetchJournal() {
+//            print("tipe: ", journal.tipe ?? "")
+//            print("karbo: ", journal.karbohidratTotal)
+//            print("lemak: ", journal.lemakTotal)
+//            print("protein: ", journal.proteinTotal)
+//            print("kalori: ", journal.kaloriTotal)
+//        }
+//
+//        print("data jurnal: ", data.fetchJournal().count)
     }
     
     func calcAge(birthday: Date) -> Int {
@@ -433,6 +454,7 @@ extension JournalViewController : UICollectionViewDataSource{
             guard let tanggalJurnal = calendar.date(from: tanggalBaru) else { return }
             
             getJournal(tanggal: tanggalJurnal)
+            
             break
         case self.collectionViewSarapan:
             if let foodIdSelected = dataJournalSarapan[indexPath.item].id_meal, let gambar = dataJournalSarapan[indexPath.item].gambar{
