@@ -20,6 +20,7 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var feelWhenEatArray : [String] = ["😃 Biasa Aja", "😆 Bahagia", "😢 Sedih", "😫 Galau", "🤯 Stress", "😡 Marah"]
     var imageHasilPhoto : UIImage!
     var namaFoto : String!
+    let data = CoreDataClass()
     
     
     /*@IBOutlet weak var foodStatusImageView: UIImageView!
@@ -115,6 +116,7 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var selectedTime: String?
     var selectedFeel: String?
     var statusEdit: Bool = false // untuk button status
+    var isUpdate: Bool = false // untuk button status
     var selectedPorsi : Int?
     var selectedSatuan : String?
     var totalLemak : Float!
@@ -140,33 +142,30 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
             self.buttonSimpanOrUbah.setTitle("Ubah", for: .normal)
             self.viewTopNutrition.isHidden = false
             self.viewBottomNutrition.isHidden = true
-            self.buttonHapus.isHidden = false
-            
             
             viewBottomNutrition.translatesAutoresizingMaskIntoConstraints = false
             viewBottomNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = true
             viewTopNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = false
             
             
-            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
-            buttonHapus.heightAnchor.constraint(equalToConstant: 0).isActive = false
+            self.buttonHapus.isHidden = true
+//            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
+//            buttonHapus.heightAnchor.constraint(equalToConstant: 0).isActive = true
             
         }else{
-            
             self.buttonSimpanOrUbah.setTitle("Simpan", for: .normal)
             self.viewTopNutrition.isHidden = true
             self.viewBottomNutrition.isHidden = false
             
-            self.buttonHapus.isHidden = true
             
             viewTopNutrition.translatesAutoresizingMaskIntoConstraints = false
             viewTopNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = true
             viewBottomNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = false
             
             
-            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
-            buttonHapus.heightAnchor.constraint(equalToConstant: 0).isActive = true
-            
+            self.buttonHapus.isHidden = true
+//            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
+//            buttonHapus.heightAnchor.constraint(equalToConstant: 0).isActive = true
         }
         
         
@@ -177,20 +176,61 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
         //getSelectedDataIntoCoreData() // masukin data selectedFood ke CoreData
     }
     
+    @IBAction func buttonHapusPressed(_ sender: Any) {
+//        data.deleteJournal(journal: JournalEntity())
+        print("DELETING JOURNAL >>>>> ..... >>>> ..... >>>> DONE")
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func buttonBackPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    @IBAction func buttonSimpanPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "goToHome", sender: sender)
-        let data = CoreDataClass()
-        totalLemak = Float(selectedPorsi ?? 0) * Float (selectedFood.foodFat)
-        totalProtein = Float(selectedPorsi ?? 0) * Float (selectedFood.foodProtein)
-        totalKarbohidrat = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCarbohydrate)
-        totalKalori = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCalories)
+    @IBAction func buttonSimpanOrUbahClicked(_ sender: Any) {
+        if(statusEdit){
+            //dari ubah di click dulu jadi simpan
+            self.buttonSimpanOrUbah.setTitle("Simpan", for: .normal)
+            
+            self.buttonHapus.isHidden = false
+            self.buttonHapus.backgroundColor = UIColor(named: "PinkBerry")
+//            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
+//            buttonHapus.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//            buttonHapus.bottomAnchor.constraint(equalTo: viewBottomNutrition.topAnchor).isActive = true
+            
+            self.isUpdate = true
+            self.statusEdit = !self.statusEdit
+        }else{
+            if(!isUpdate){
+                //nambah data baru
+                
+                totalLemak = Float(selectedPorsi ?? 0) * Float (selectedFood.foodFat)
+                totalProtein = Float(selectedPorsi ?? 0) * Float (selectedFood.foodProtein)
+                totalKarbohidrat = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCarbohydrate)
+                totalKalori = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCalories)
+                
+                data.addJournal(lagiApa: selectedReason ?? reasonToEatArray[0], perasaan: selectedFeel ?? feelWhenEatArray[0], porsi: Double(selectedPorsi ?? porsiMakanan[0]), satuan: satuanPorsi[0], tanggalJam: getTodayDate() , tipe: selectedTime ?? satuanPorsi[0], idMeal: selectedFood.foodId , nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: namaFoto, kaloriTotal: Int32(totalKalori), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat), kalori: Int32(selectedFood.foodCalories))
+                self.performSegue(withIdentifier: "goToHome", sender: sender)
+            }else{
+                //data udpdate
+                
+                totalLemak = Float(selectedPorsi ?? 0) * Float (selectedFood.foodFat)
+                totalProtein = Float(selectedPorsi ?? 0) * Float (selectedFood.foodProtein)
+                totalKarbohidrat = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCarbohydrate)
+                totalKalori = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCalories)
+                
+//                data.updateJournal(journal: JournalEntity(), lagiApa: selectedReason ?? reasonToEatArray[0], perasaan: selectedFeel ?? feelWhenEatArray[0], porsi: Double(selectedPorsi ?? porsiMakanan[0]), satuan: satuanPorsi[0], tanggalJam: getTodayDate(), tipe: selectedTime ?? satuanPorsi[0], kalori: Int32(selectedFood.foodCalories), idMeal: selectedFood.foodId, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: selectedFood.foodImage, kaloriTotal: Int32(totalKalori), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat))
+                
+                print("UPDATING DATA.... PLEASE WAIT ....")
+               
+                self.performSegue(withIdentifier: "goToHome", sender: sender)
+            }
+        }
+        
+        
+        
+        
 
 //        data.addJournal(lagiApa: "\(String(describing: selectedReason))", perasaan: "\(String(describing: selectedFeel))", porsi: Double(selectedPorsi ?? 0), satuan: "\(String(describing: selectedSatuan))", tanggalJam: Date(), tipe: "\(String(describing: selectedTime))", idMeal: selectedFood.foodStatus, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: Data(), kaloriTotal: Int32(selectedFood.foodCalories), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat), kalori: Int32(selectedFood.foodCalories))
         
-        data.addJournal(lagiApa: selectedReason ?? reasonToEatArray[0], perasaan: selectedFeel ?? feelWhenEatArray[0], porsi: Double(selectedPorsi ?? porsiMakanan[0]), satuan: satuanPorsi[0], tanggalJam: getTodayDate() , tipe: selectedTime ?? satuanPorsi[0], idMeal: selectedFood.foodStatus , nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: namaFoto, kaloriTotal: Int32(totalKalori), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat), kalori: Int32(selectedFood.foodCalories))
+        
 
 
         //print("total kalori \(totalKalori) || total protein \(totalProtein)")
@@ -257,20 +297,17 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     
     func setData(){
-//        foodNameLabel.text = self.selectedFood.foodName
-        
-        
-//        imagePhoto.image = imageHasilPhoto
-//
-//        labelKaloriValueTop.text = String(self.selectedFood.foodCalories) + "kal"
-//        labelLemakValueTop.text = String(self.selectedFood.foodFat) + "gr"
-//        labelKarbohidratValueTop.text = String(self.selectedFood.foodCarbohydrate) + "gr"
-//        labelProteinValueTop.text = String(self.selectedFood.foodProtein) + "gr"
-//
-//        labelKaloriValueBottom.text = String(self.selectedFood.foodCalories) + "kal"
-//         labelLemakValueBottom.text = String(self.selectedFood.foodFat) + "gr"
-//         labelKarbohidratValueBottom.text = String(self.selectedFood.foodCarbohydrate) + "gr"
-//         labelProteinValueBottom.text = String(self.selectedFood.foodProtein) + "gr"
+        foodNameLabel.text = self.selectedFood.foodName
+        imagePhoto.image = imageHasilPhoto ?? UIImage(named: "breakfast")
+        labelKaloriValueTop.text = String(self.selectedFood.foodCalories) + "kal"
+        labelLemakValueTop.text = String(self.selectedFood.foodFat) + "gr"
+        labelKarbohidratValueTop.text = String(self.selectedFood.foodCarbohydrate) + "gr"
+        labelProteinValueTop.text = String(self.selectedFood.foodProtein) + "gr"
+
+        labelKaloriValueBottom.text = String(self.selectedFood.foodCalories) + "kal"
+         labelLemakValueBottom.text = String(self.selectedFood.foodFat) + "gr"
+         labelKarbohidratValueBottom.text = String(self.selectedFood.foodCarbohydrate) + "gr"
+         labelProteinValueBottom.text = String(self.selectedFood.foodProtein) + "gr"
     }
     
     /*@IBAction func buttonSubmit_Pressed(_ sender: Any) {

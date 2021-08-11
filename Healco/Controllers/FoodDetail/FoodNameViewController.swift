@@ -309,23 +309,13 @@ extension FoodNameViewController {
             guard let servingsFood = food.servings?[0] else { return }
             
             
-            let data = FoodModel2(foodName: food.name, foodDescription: "", foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0)
+//            let data = FoodModel2(foodName: food.name, foodDescription: "", foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0, foodId: idFood)
+//
+//            let foodStatus = self.calculateFood(foodModel: data).rawValue
+//            var description = ""
             
-            let foodStatus = self.calculateFood(foodModel: data).rawValue
-            var description = ""
             
-            switch foodStatus{
-            case "Healthy":
-                description = "You eat healthy food, Keep it going !"
-            case "Common":
-                description = "Not bad"
-            case "Unhealthy":
-                description = "Don't eat unhealthy food to much"
-            default:
-                print("ERROR")
-            }
-            
-            self.selectedFood = FoodModel2(foodName: food.name, foodDescription: description, foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: foodStatus, foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0)
+            self.selectedFood = FoodModel2(foodName: food.name, foodDescription: "", foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "foodStatus", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0, foodId: idFood, foodImage: self.namaFoto)
             
             
             //print("DATA SELECTED FOOD : \(self.selectedFood)")
@@ -333,10 +323,10 @@ extension FoodNameViewController {
                 let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
                 let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
                 vc.selectedFood = self.selectedFood
-                //vc.imageHasilPhoto = self.imageHasilFoto
+                vc.imageHasilPhoto = self.imageHasilFoto
                 vc.namaFoto = self.namaFoto
                 vc.statusEdit = false
-                vc.modalPresentationStyle = .pageSheet
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
         }
