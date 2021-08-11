@@ -674,7 +674,7 @@
                                             <segment title="Pria"/>
                                             <segment title="Wanita"/>
                                         </segments>
-                                        <color key="tintColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                        <color key="tintColor" systemColor="secondarySystemBackgroundColor"/>
                                         <color key="selectedSegmentTintColor" name="AvocadoGreen"/>
                                         <connections>
                                             <action selector="genderSwitch:" destination="PBi-Lx-uQ2" eventType="valueChanged" id="ZSG-nb-u15"/>
@@ -944,9 +944,6 @@
         </namedColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="secondarySystemGroupedBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
