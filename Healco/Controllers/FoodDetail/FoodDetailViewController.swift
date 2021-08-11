@@ -189,10 +189,9 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
 //        data.addJournal(lagiApa: "\(String(describing: selectedReason))", perasaan: "\(String(describing: selectedFeel))", porsi: Double(selectedPorsi ?? 0), satuan: "\(String(describing: selectedSatuan))", tanggalJam: Date(), tipe: "\(String(describing: selectedTime))", idMeal: selectedFood.foodStatus, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: Data(), kaloriTotal: Int32(selectedFood.foodCalories), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat), kalori: Int32(selectedFood.foodCalories))
         
-    data.addJournal(lagiApa: "", perasaan: "", porsi: 0.0, satuan: "", tanggalJam: getTodayDate() , tipe: "Sarapan", idMeal: "", nama: "", deskripsi: "", karbohidrat: 12, lemak: 12, protein: 13, gambar: namaFoto, kaloriTotal: 14, lemakTotal: 14, proteinTotal: 14, karbohidratTotal: 14, kalori: 15)
-    print( "namafoto: ",namaFoto!)
-        
-        
+        data.addJournal(lagiApa: selectedReason ?? reasonToEatArray[0], perasaan: selectedFeel ?? feelWhenEatArray[0], porsi: Double(selectedPorsi ?? porsiMakanan[0]), satuan: satuanPorsi[0], tanggalJam: getTodayDate() , tipe: selectedSatuan ?? satuanPorsi[0], idMeal: selectedFood.foodStatus , nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: namaFoto, kaloriTotal: Int32(totalKalori), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat), kalori: Int32(selectedFood.foodCalories))
+
+
         //print("total kalori \(totalKalori) || total protein \(totalProtein)")
         
         
@@ -405,7 +404,6 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if component == 0{
             
-            
             return String(porsiMakanan[row])
         }
         return satuanPorsi[row]
@@ -413,7 +411,14 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
-        selectedPorsi = porsiMakanan[row]
+        
+        if pickerView == self.porsiPickerView {
+           
+                selectedPorsi = porsiMakanan[row]
+         
+                selectedSatuan =  satuanPorsi[0]
+        }
+
     }
     
     func getSelectedDataIntoCoreData(time: String, feel: String, reason: String){
