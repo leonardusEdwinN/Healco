@@ -810,6 +810,9 @@
                                     </datePicker>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sfp-bh-XNM">
                                         <rect key="frame" x="310" y="67" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchMakanSiangPressed:" destination="PBi-Lx-uQ2" eventType="valueChanged" id="drs-Gk-bzN"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Malam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKX-hz-FnV">
                                         <rect key="frame" x="15" y="118" width="112" height="21.5"/>
@@ -819,6 +822,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-04-mye">
                                         <rect key="frame" x="310" y="20.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchSarapanPressed:" destination="PBi-Lx-uQ2" eventType="valueChanged" id="Kb5-EC-56R"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sarapan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2K-LR-OXA">
                                         <rect key="frame" x="15" y="25" width="67" height="21.5"/>
@@ -828,6 +834,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2pg-9z-h99">
                                         <rect key="frame" x="310" y="113.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchMakanMalamPressed:" destination="PBi-Lx-uQ2" eventType="valueChanged" id="qvS-lc-bNf"/>
+                                        </connections>
                                     </switch>
                                     <datePicker contentMode="right" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wh9-Qi-GA1">
                                         <rect key="frame" x="-25" y="111.5" width="320" height="35"/>
@@ -884,11 +893,21 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="person.circle.fill" catalog="system" id="XQt-tc-ebz"/>
                     <connections>
                         <outlet property="beratBadanTextField" destination="MOz-Uu-mwy" id="ebd-wj-12M"/>
+                        <outlet property="datePickerMakanMalam" destination="wh9-Qi-GA1" id="a8E-gS-h3a"/>
+                        <outlet property="datePickerMakanSiang" destination="cEG-hX-1ea" id="FUu-hS-AYE"/>
+                        <outlet property="datePickerSarapan" destination="3re-ju-OT9" id="Dpu-h2-NqZ"/>
                         <outlet property="datePickerTanggalLahir" destination="YMo-q6-kiG" id="jck-vJ-mf0"/>
                         <outlet property="editButton" destination="cUk-iQ-Y1Y" id="gLQ-5M-fLo"/>
                         <outlet property="genderOptions" destination="Bj8-8w-frt" id="4t3-al-cgi"/>
+                        <outlet property="labelMakanMalam" destination="jKX-hz-FnV" id="Ttx-Ve-ZDe"/>
+                        <outlet property="labelMakanSiang" destination="zTk-V8-qZo" id="C9y-g2-S1t"/>
+                        <outlet property="labelSarapan" destination="p2K-LR-OXA" id="MWC-aT-iMN"/>
                         <outlet property="segmentedControlGender" destination="Bj8-8w-frt" id="6Nz-Mc-zTS"/>
+                        <outlet property="switchMakanMalam" destination="2pg-9z-h99" id="Y2w-2X-1qJ"/>
+                        <outlet property="switchMakanSiang" destination="sfp-bh-XNM" id="u3V-YV-Miz"/>
+                        <outlet property="switchSarapan" destination="dWR-04-mye" id="pMh-4W-gfX"/>
                         <outlet property="tinggiBadanTextField" destination="4zR-vZ-zY1" id="rw2-I4-vWp"/>
+                        <outlet property="viewNotifikasi" destination="XKm-yp-ecD" id="fcE-f1-IfD"/>
                         <outlet property="viewProfileHeader" destination="d3g-ge-Cth" id="FgL-BC-nkc"/>
                         <outlet property="viewRec" destination="vgV-GE-ITv" id="ipo-Hh-nLf"/>
                     </connections>
