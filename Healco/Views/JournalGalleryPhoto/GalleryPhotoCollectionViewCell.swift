@@ -39,11 +39,9 @@ class GalleryPhotoCollectionViewCell: UICollectionViewCell {
 
     }
     
-    func setUI(dataPhoto : Photo){
-        self.labelTitleGalleryPhoto.text = dataPhoto.title
-        self.photoView.image = dataPhoto.image
-        
-        
+    func setUI(dataPhoto : UIImage, title: String){
+        self.labelTitleGalleryPhoto.text = title
+        self.photoView.image = dataPhoto
     }
     
     
