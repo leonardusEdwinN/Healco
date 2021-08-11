@@ -36,6 +36,8 @@ struct FoodModel2{
     var foodSodium : Double!
     var foodStatus: String!
     var foodSaturatedFat : Double!
+    var foodId : String!
+    var foodImage: String!
 }
 //struct FoodModel{
 //    var foodName: String!

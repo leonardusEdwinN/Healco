@@ -83,7 +83,7 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
         
         
         let actionSheet = UIAlertController(title: "Select Photo", message: "Choose", preferredStyle: .actionSheet)
-        actionSheet.view.tintColor = UIColor(named: "DarkGreen")
+        actionSheet.view.tintColor = UIColor(named: "ActionSheetCustomColor")
         
         //button 1
         let libraryAction = UIAlertAction(title: "Photo Library", style: .default){ (action: UIAlertAction) in

@@ -14,6 +14,8 @@ class GalleryPhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var photoView: UIImageView!
     @IBOutlet weak var labelTitleGalleryPhoto: UILabel!
     
+    var idFood : String = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

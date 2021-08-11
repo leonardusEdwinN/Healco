@@ -8,6 +8,7 @@
 import Foundation
 import CoreData
 import UIKit
+import FatSecretSwift
 
 enum isJournalFill {
     case yesterdayFill //jika jurnal terisi
@@ -20,6 +21,9 @@ class JournalViewController : UIViewController{
     
     //Coredata
     let data = CoreDataClass()
+    
+    let fatSecretClient = FatSecretClient()
+    var selectedFood = FoodModel2()
     
     var profile : Profile!
     
@@ -114,6 +118,14 @@ class JournalViewController : UIViewController{
     let formatter = DateFormatter()
     
     var fetchData: [NSManagedObject] = []
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionViewSnack.reloadData()
+        collectionViewSarapan.reloadData()
+        collectionViewMakanSiang.reloadData()
+        collectionViewMakanMalam.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -285,6 +297,9 @@ class JournalViewController : UIViewController{
         if segue.identifier == "goToDetailJournal",
            let detailJournalVC = segue.destination as? FoodDetailViewController {
             detailJournalVC.statusEdit = true
+            detailJournalVC.selectedFood = self.selectedFood
+            detailJournalVC.modalPresentationStyle = .fullScreen
+            
         }
     }
 }
@@ -420,20 +435,27 @@ extension JournalViewController : UICollectionViewDataSource{
             getJournal(tanggal: tanggalJurnal)
             break
         case self.collectionViewSarapan:
-            //let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
-            print("SOMETHING CLICKED from sarapan")
-            performSegue(withIdentifier: "goToDetailJournal", sender: self)
+            if let foodIdSelected = dataJournalSarapan[indexPath.item].id_meal, let gambar = dataJournalSarapan[indexPath.item].gambar{
+                getFood(idFood : foodIdSelected, gambar : gambar)
+            }
             break
         case self.collectionViewMakanSiang:
-            //let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
             print("SOMETHING CLICKED FROM SIANG")
-            performSegue(withIdentifier: "goToDetailJournal", sender: self)
+            print("selected \(dataJournalMakanSiang[indexPath.item])")
+            if let foodIdSelected = dataJournalMakanSiang[indexPath.item].id_meal , let gambar = dataJournalMakanSiang[indexPath.item].gambar{
+                getFood(idFood : foodIdSelected, gambar : gambar)
+            }
             break
         case self.collectionViewMakanMalam:
-            //let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
+            if let foodIdSelected = dataJournalMakanMalam[indexPath.item].id_meal , let gambar = dataJournalMakanMalam[indexPath.item].gambar{
+                getFood(idFood : foodIdSelected, gambar : gambar)
+            }
             break
         case self.collectionViewSnack:
-            //let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
+            print("selected \(dataJournalSnack[indexPath.item])")
+            if let foodIdSelected = dataJournalSnack[indexPath.item].id_meal, let gambar = dataJournalSnack[indexPath.item].gambar{
+                getFood(idFood : foodIdSelected, gambar : gambar)
+            }
             break
         default:
             print("CANNOT SELECT")
@@ -547,5 +569,36 @@ extension JournalViewController{
         self.viewKarbohidrat.frame.size.width = CGFloat(calculate)
         self.viewProtein.frame.size.width = CGFloat(calculate)
         self.viewLemak.frame.size.width = CGFloat(calculate)
+    }
+}
+
+extension JournalViewController{
+    func getFood(idFood : String, gambar : String){
+        fatSecretClient.getFood(id: idFood) { food in
+            guard let servingsFood = food.servings?[0] else { return }
+            
+            
+//            let data = FoodModel2(foodName: food.name, foodDescription: "", foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0, foodId: idFood)
+//
+//            let foodStatus = self.calculateFood(foodModel: data).rawValue
+//            var description = ""
+            
+            
+            self.selectedFood = FoodModel2(foodName: food.name, foodDescription: "", foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0, foodId: idFood, foodImage : gambar)
+            
+            
+            //print("DATA SELECTED FOOD : \(self.selectedFood)")
+            DispatchQueue.main.async {
+//                let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
+//                let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
+//                vc.selectedFood = self.selectedFood
+//                vc.statusEdit = true
+//                vc.modalPresentationStyle = .fullScreen
+//                self.present(vc, animated: true, completion: nil)
+                self.performSegue(withIdentifier: "goToDetailJournal", sender: self)
+            }
+        }
+        
+        
     }
 }
