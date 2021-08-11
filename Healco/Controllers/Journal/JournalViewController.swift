@@ -151,6 +151,12 @@ class JournalViewController : UIViewController{
         
         progressViewKalori.setProgress( persentageBmr , animated: true)
         getJournal(tanggal: tanggalHariIni)
+        
+        collectionViewSarapan.reloadData()
+        collectionViewMakanSiang.reloadData()
+        collectionViewMakanMalam.reloadData()
+        collectionViewSnack.reloadData()
+
     }
     
     func getTodayDate() -> Date {
@@ -206,15 +212,15 @@ class JournalViewController : UIViewController{
     }
     
     func getJournal(tanggal: Date){
-        let dataJournalSarapan = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Sarapan")
+        let dataJournalSarapan = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Breakfast")
         stackViewNoSarapan.isHidden = dataJournalSarapan.count > 0 ? true : false
         self.dataJournalSarapan = dataJournalSarapan.count > 0 ? dataJournalSarapan : []
         
-        let dataJournalSiang = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Siang")
+        let dataJournalSiang = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Lunch")
         stackViewNoMakanSiang.isHidden = dataJournalSiang.count > 0 ? true : false
         self.dataJournalMakanSiang = dataJournalSiang.count > 0 ? dataJournalSiang : []
         
-        let dataJournalMalam = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Malam")
+        let dataJournalMalam = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Dinner")
         stackViewNoMakanMalam.isHidden = dataJournalMalam.count > 0 ? true : false
         self.dataJournalMakanMalam = dataJournalMalam.count > 0 ? dataJournalMalam : []
         
