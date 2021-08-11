@@ -198,8 +198,10 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
             self.isUpdate = true
             self.statusEdit = !self.statusEdit
         }else{
+            
             if(!isUpdate){
                 //nambah data baru
+                print("ADD DATA")
                 
                 totalLemak = Float(selectedPorsi ?? 0) * Float (selectedFood.foodFat)
                 totalProtein = Float(selectedPorsi ?? 0) * Float (selectedFood.foodProtein)
@@ -207,6 +209,7 @@ class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 totalKalori = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCalories)
                 
                 data.addJournal(lagiApa: selectedReason ?? reasonToEatArray[0], perasaan: selectedFeel ?? feelWhenEatArray[0], porsi: Double(selectedPorsi ?? porsiMakanan[0]), satuan: satuanPorsi[0], tanggalJam: getTodayDate() , tipe: selectedTime ?? satuanPorsi[0], idMeal: selectedFood.foodId , nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: namaFoto, kaloriTotal: Int32(totalKalori), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat), kalori: Int32(selectedFood.foodCalories))
+                self.isUpdate = !self.isUpdate
                 self.performSegue(withIdentifier: "goToHome", sender: sender)
             }else{
                 //data udpdate
