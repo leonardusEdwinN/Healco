@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import UserNotifications
+import HealthKit
 
 enum StorageType {
     case userDefaults
@@ -38,8 +39,19 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
             notificationCenter.delegate = self
             self.setupMiddleButton()
             self.notificationAlertScheduling()
+            
+
        }
     
+    func healthkit () -> String {
+        var string : String = "string"
+        if HKHealthStore.isHealthDataAvailable() {
+            // Add code to use HealthKit here.
+            let healthStore = HKHealthStore()
+            
+        }
+        return string
+    }
 //    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 //            self.tabBar.barTintColor = UIColor.red
 //            self.tabBar.unselectedItemTintColor = UIColor.darkGray
@@ -131,6 +143,8 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
             foodRecogVC.modalPresentationStyle = .fullScreen
         }
     }
+    
+    
 }
 
 extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDelegate{

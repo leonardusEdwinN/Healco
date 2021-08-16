@@ -29,6 +29,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>We Need Your Camera Accsess For This Task</string>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>We need Your Permission for This Fiture</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
