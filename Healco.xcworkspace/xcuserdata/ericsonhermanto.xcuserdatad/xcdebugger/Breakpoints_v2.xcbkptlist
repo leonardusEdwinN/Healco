@@ -110,9 +110,9 @@
             filePath = "Healco/Controllers/Journal/JournalViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "548"
-            endingLineNumber = "548"
-            landmarkName = "getWidthViewNutrition()"
+            startingLineNumber = "590"
+            endingLineNumber = "590"
+            landmarkName = "createUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -126,9 +126,9 @@
             filePath = "Healco/Controllers/Journal/JournalViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "550"
-            endingLineNumber = "550"
-            landmarkName = "getWidthViewNutrition()"
+            startingLineNumber = "592"
+            endingLineNumber = "592"
+            landmarkName = "createUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -142,9 +142,9 @@
             filePath = "Healco/Controllers/Journal/JournalViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "549"
-            endingLineNumber = "549"
-            landmarkName = "getWidthViewNutrition()"
+            startingLineNumber = "591"
+            endingLineNumber = "591"
+            landmarkName = "createUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -161,6 +161,150 @@
             startingLineNumber = "104"
             endingLineNumber = "104"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B9412B8-584C-4CD8-8EC5-BE2A92115B05"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Healco/Controllers/Journal/JournalViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "healthkit()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6991B049-07E0-411E-8C57-747D2C5D0715"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Healco/Controllers/Journal/JournalViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "healthkit()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5ED8085A-4482-4C82-BD4E-9AC88DC6F989"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Healco/Controllers/Journal/JournalViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "healthkit()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5ED8085A-4482-4C82-BD4E-9AC88DC6F989 - a5a1dfe00932bce8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Healco.JournalViewController.healthkit() -&gt; ()"
+                  moduleName = "Healco"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ericsonhermanto/Documents/GitHub/Healco/Healco/Controllers/Journal/JournalViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "205"
+                  endingLineNumber = "205"
+                  offsetFromSymbolStart = "1164">
+               </Location>
+               <Location
+                  uuid = "5ED8085A-4482-4C82-BD4E-9AC88DC6F989 - c4bb63d41210a057"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.HKActivitySummaryQuery, Swift.Optional&lt;Swift.Array&lt;__C.HKActivitySummary&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Healco.JournalViewController.healthkit() -&gt; ()"
+                  moduleName = "Healco"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ericsonhermanto/Documents/GitHub/Healco/Healco/Controllers/Journal/JournalViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EEF597D4-E7B7-474A-847B-5ABAF58DF24B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Healco/Controllers/Journal/JournalViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "healthkit()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EEF597D4-E7B7-474A-847B-5ABAF58DF24B - c4bb63d41210a31d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.HKActivitySummaryQuery, Swift.Optional&lt;Swift.Array&lt;__C.HKActivitySummary&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Healco.JournalViewController.healthkit() -&gt; ()"
+                  moduleName = "Healco"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ericsonhermanto/Documents/GitHub/Healco/Healco/Controllers/Journal/JournalViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "212"
+                  endingLineNumber = "212"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "EEF597D4-E7B7-474A-847B-5ABAF58DF24B - 44149e2e7c56efb9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (__C.HKActivitySummaryQuery, Swift.Optional&lt;Swift.Array&lt;__C.HKActivitySummary&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Healco.JournalViewController.healthkit() -&gt; ()"
+                  moduleName = "Healco"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ericsonhermanto/Documents/GitHub/Healco/Healco/Controllers/Journal/JournalViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "213"
+                  endingLineNumber = "213"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "408FF632-4A03-43B1-B425-0A099067EE15"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Healco/Controllers/Journal/JournalViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "healthkit()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

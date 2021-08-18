@@ -40,6 +40,18 @@
 		13B3EC6C26B2AE7F00870C20 /* HomeTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13B3EC6B26B2AE7F00870C20 /* HomeTabBar.storyboard */; };
 		13D156B726C27E97003BF22E /* CapmealDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13D156B526C27E97003BF22E /* CapmealDataModel.xcdatamodeld */; };
 		2213D2C426CA48900010C8A5 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2213D2C326CA48900010C8A5 /* HealthKit.framework */; };
+		2217A79826CD123C00DB0651 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2217A79626CD123C00DB0651 /* Interface.storyboard */; };
+		2217A79A26CD123D00DB0651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2217A79926CD123D00DB0651 /* Assets.xcassets */; };
+		2217A7A126CD123D00DB0651 /* Capmeal_Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2217A7A026CD123D00DB0651 /* Capmeal_Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2217A7A626CD123D00DB0651 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2217A7A526CD123D00DB0651 /* HostingController.swift */; };
+		2217A7A826CD123D00DB0651 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2217A7A726CD123D00DB0651 /* ContentView.swift */; };
+		2217A7AA26CD123D00DB0651 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2217A7A926CD123D00DB0651 /* ExtensionDelegate.swift */; };
+		2217A7AC26CD123D00DB0651 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2217A7AB26CD123D00DB0651 /* NotificationController.swift */; };
+		2217A7AE26CD123D00DB0651 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2217A7AD26CD123D00DB0651 /* NotificationView.swift */; };
+		2217A7B026CD123D00DB0651 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2217A7AF26CD123D00DB0651 /* ComplicationController.swift */; };
+		2217A7B226CD123E00DB0651 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2217A7B126CD123E00DB0651 /* Assets.xcassets */; };
+		2217A7B526CD123E00DB0651 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2217A7B426CD123E00DB0651 /* Preview Assets.xcassets */; };
+		2217A7BA26CD123E00DB0651 /* Capmeal_Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2217A79426CD123C00DB0651 /* Capmeal_Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		221A0BBD267B321D0042A94A /* HasilFoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221A0BBC267B321D0042A94A /* HasilFoto.storyboard */; };
 		221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A0BC2267B3B570042A94A /* HasilFotoVC.swift */; };
 		221A0BC5267B60B00042A94A /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A0BC4267B60B00042A94A /* Extention.swift */; };
@@ -58,6 +70,48 @@
 		EFAB9683267F08CF00C23BA2 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAB9682267F08CF00C23BA2 /* FoodModel.swift */; };
 		EFB2CFD8267B546600414E66 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB2CFD7267B546600414E66 /* FoodDetailViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2217A7A226CD123D00DB0651 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 137A0B572670CE2B00543CCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2217A79F26CD123D00DB0651;
+			remoteInfo = "Capmeal_Watch Extension";
+		};
+		2217A7B826CD123E00DB0651 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 137A0B572670CE2B00543CCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2217A79326CD123C00DB0651;
+			remoteInfo = Capmeal_Watch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2217A7BE26CD123E00DB0651 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2217A7A126CD123D00DB0651 /* Capmeal_Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2217A7C226CD123E00DB0651 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				2217A7BA26CD123E00DB0651 /* Capmeal_Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1315B9C726B53BE40030C84A /* CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataClass.swift; sourceTree = "<group>"; };
@@ -95,6 +149,21 @@
 		13B3EC6B26B2AE7F00870C20 /* HomeTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeTabBar.storyboard; sourceTree = "<group>"; };
 		13D156B626C27E97003BF22E /* CapmealModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CapmealModel.xcdatamodel; sourceTree = "<group>"; };
 		2213D2C326CA48900010C8A5 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		2217A79426CD123C00DB0651 /* Capmeal_Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capmeal_Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2217A79726CD123C00DB0651 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		2217A79926CD123D00DB0651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2217A79B26CD123D00DB0651 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2217A7A026CD123D00DB0651 /* Capmeal_Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Capmeal_Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2217A7A526CD123D00DB0651 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		2217A7A726CD123D00DB0651 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2217A7A926CD123D00DB0651 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		2217A7AB26CD123D00DB0651 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		2217A7AD26CD123D00DB0651 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		2217A7AF26CD123D00DB0651 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		2217A7B126CD123E00DB0651 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2217A7B426CD123E00DB0651 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2217A7B626CD123E00DB0651 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2217A7B726CD123E00DB0651 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		221A0BBC267B321D0042A94A /* HasilFoto.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HasilFoto.storyboard; sourceTree = "<group>"; };
 		221A0BC2267B3B570042A94A /* HasilFotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasilFotoVC.swift; sourceTree = "<group>"; };
 		221A0BC4267B60B00042A94A /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
@@ -125,6 +194,13 @@
 				2213D2C426CA48900010C8A5 /* HealthKit.framework in Frameworks */,
 				13A11C76268324E200FA1545 /* FatSecretSwift in Frameworks */,
 				B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2217A79D26CD123D00DB0651 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				137A0B612670CE2B00543CCF /* Healco */,
+				2217A79526CD123C00DB0651 /* Capmeal_Watch */,
+				2217A7A426CD123D00DB0651 /* Capmeal_Watch Extension */,
 				137A0B602670CE2B00543CCF /* Products */,
 				68300107CC7A5F6FCEACC122 /* Pods */,
 				49D385FB5606C38EC4F15509 /* Frameworks */,
@@ -186,6 +264,8 @@
 			isa = PBXGroup;
 			children = (
 				137A0B5F2670CE2B00543CCF /* Healco.app */,
+				2217A79426CD123C00DB0651 /* Capmeal_Watch.app */,
+				2217A7A026CD123D00DB0651 /* Capmeal_Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -346,6 +426,41 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		2217A79526CD123C00DB0651 /* Capmeal_Watch */ = {
+			isa = PBXGroup;
+			children = (
+				2217A79626CD123C00DB0651 /* Interface.storyboard */,
+				2217A79926CD123D00DB0651 /* Assets.xcassets */,
+				2217A79B26CD123D00DB0651 /* Info.plist */,
+			);
+			path = Capmeal_Watch;
+			sourceTree = "<group>";
+		};
+		2217A7A426CD123D00DB0651 /* Capmeal_Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2217A7A526CD123D00DB0651 /* HostingController.swift */,
+				2217A7A726CD123D00DB0651 /* ContentView.swift */,
+				2217A7A926CD123D00DB0651 /* ExtensionDelegate.swift */,
+				2217A7AB26CD123D00DB0651 /* NotificationController.swift */,
+				2217A7AD26CD123D00DB0651 /* NotificationView.swift */,
+				2217A7AF26CD123D00DB0651 /* ComplicationController.swift */,
+				2217A7B126CD123E00DB0651 /* Assets.xcassets */,
+				2217A7B626CD123E00DB0651 /* Info.plist */,
+				2217A7B726CD123E00DB0651 /* PushNotificationPayload.apns */,
+				2217A7B326CD123E00DB0651 /* Preview Content */,
+			);
+			path = "Capmeal_Watch Extension";
+			sourceTree = "<group>";
+		};
+		2217A7B326CD123E00DB0651 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2217A7B426CD123E00DB0651 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		2268724B2678BF41006293A3 /* MLmodel */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,10 +509,12 @@
 				137A0B5B2670CE2B00543CCF /* Sources */,
 				137A0B5C2670CE2B00543CCF /* Frameworks */,
 				137A0B5D2670CE2B00543CCF /* Resources */,
+				2217A7C226CD123E00DB0651 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2217A7B926CD123E00DB0651 /* PBXTargetDependency */,
 			);
 			name = Healco;
 			packageProductDependencies = (
@@ -406,6 +523,40 @@
 			productName = Healco;
 			productReference = 137A0B5F2670CE2B00543CCF /* Healco.app */;
 			productType = "com.apple.product-type.application";
+		};
+		2217A79326CD123C00DB0651 /* Capmeal_Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2217A7BF26CD123E00DB0651 /* Build configuration list for PBXNativeTarget "Capmeal_Watch" */;
+			buildPhases = (
+				2217A79226CD123C00DB0651 /* Resources */,
+				2217A7BE26CD123E00DB0651 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2217A7A326CD123D00DB0651 /* PBXTargetDependency */,
+			);
+			name = Capmeal_Watch;
+			productName = Capmeal_Watch;
+			productReference = 2217A79426CD123C00DB0651 /* Capmeal_Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		2217A79F26CD123D00DB0651 /* Capmeal_Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2217A7BB26CD123E00DB0651 /* Build configuration list for PBXNativeTarget "Capmeal_Watch Extension" */;
+			buildPhases = (
+				2217A79C26CD123D00DB0651 /* Sources */,
+				2217A79D26CD123D00DB0651 /* Frameworks */,
+				2217A79E26CD123D00DB0651 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Capmeal_Watch Extension";
+			productName = "Capmeal_Watch Extension";
+			productReference = 2217A7A026CD123D00DB0651 /* Capmeal_Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -418,6 +569,12 @@
 				TargetAttributes = {
 					137A0B5E2670CE2B00543CCF = {
 						CreatedOnToolsVersion = 12.5;
+					};
+					2217A79326CD123C00DB0651 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					2217A79F26CD123D00DB0651 = {
+						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
 			};
@@ -438,6 +595,8 @@
 			projectRoot = "";
 			targets = (
 				137A0B5E2670CE2B00543CCF /* Healco */,
+				2217A79326CD123C00DB0651 /* Capmeal_Watch */,
+				2217A79F26CD123D00DB0651 /* Capmeal_Watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -466,6 +625,24 @@
 				138C847C26859C4D008E5C2C /* TimeToEatCollectionViewCell.xib in Resources */,
 				EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */,
 				1315B9D526B7F8A80030C84A /* NutritionCollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2217A79226CD123C00DB0651 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2217A79A26CD123D00DB0651 /* Assets.xcassets in Resources */,
+				2217A79826CD123C00DB0651 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2217A79E26CD123D00DB0651 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2217A7B526CD123E00DB0651 /* Preview Assets.xcassets in Resources */,
+				2217A7B226CD123E00DB0651 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,7 +709,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2217A79C26CD123D00DB0651 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2217A7A826CD123D00DB0651 /* ContentView.swift in Sources */,
+				2217A7A626CD123D00DB0651 /* HostingController.swift in Sources */,
+				2217A7AC26CD123D00DB0651 /* NotificationController.swift in Sources */,
+				2217A7AA26CD123D00DB0651 /* ExtensionDelegate.swift in Sources */,
+				2217A7AE26CD123D00DB0651 /* NotificationView.swift in Sources */,
+				2217A7B026CD123D00DB0651 /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2217A7A326CD123D00DB0651 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2217A79F26CD123D00DB0651 /* Capmeal_Watch Extension */;
+			targetProxy = 2217A7A226CD123D00DB0651 /* PBXContainerItemProxy */;
+		};
+		2217A7B926CD123E00DB0651 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2217A79326CD123C00DB0651 /* Capmeal_Watch */;
+			targetProxy = 2217A7B826CD123E00DB0651 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */ = {
@@ -541,6 +744,14 @@
 				137A0B712670CE2C00543CCF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2217A79626CD123C00DB0651 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2217A79726CD123C00DB0651 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -714,6 +925,96 @@
 			};
 			name = Release;
 		};
+		2217A7BC26CD123E00DB0651 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Capmeal_Watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Capmeal_Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = id.SMILE.Capmeal.eric.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		2217A7BD26CD123E00DB0651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Capmeal_Watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Capmeal_Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = id.SMILE.Capmeal.eric.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		2217A7C026CD123E00DB0651 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
+				IBSC_MODULE = Capmeal_Watch_Extension;
+				INFOPLIST_FILE = Capmeal_Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = id.SMILE.Capmeal.eric.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		2217A7C126CD123E00DB0651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
+				IBSC_MODULE = Capmeal_Watch_Extension;
+				INFOPLIST_FILE = Capmeal_Watch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = id.SMILE.Capmeal.eric.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -731,6 +1032,24 @@
 			buildConfigurations = (
 				137A0B772670CE2C00543CCF /* Debug */,
 				137A0B782670CE2C00543CCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2217A7BB26CD123E00DB0651 /* Build configuration list for PBXNativeTarget "Capmeal_Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2217A7BC26CD123E00DB0651 /* Debug */,
+				2217A7BD26CD123E00DB0651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2217A7BF26CD123E00DB0651 /* Build configuration list for PBXNativeTarget "Capmeal_Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2217A7C026CD123E00DB0651 /* Debug */,
+				2217A7C126CD123E00DB0651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

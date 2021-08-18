@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>We need Your Permission for This Fiture</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -32,7 +34,7 @@
 	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
 	<string>We need Your Permission for This Fiture</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
+	<string>We need Your Permission for This Fiture</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We Need Your Permission to Accsess Photo Library </string>
 	<key>UIAppFonts</key>

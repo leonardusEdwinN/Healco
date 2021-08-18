@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import UserNotifications
-import HealthKit
 
 enum StorageType {
     case userDefaults
@@ -29,6 +28,8 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
     //cek if using camera
     var usingCamera : Bool = false
     
+    
+    
     required init(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)!
         }
@@ -40,18 +41,12 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
             self.setupMiddleButton()
             self.notificationAlertScheduling()
             
-
-       }
-    
-    func healthkit () -> String {
-        var string : String = "string"
-        if HKHealthStore.isHealthDataAvailable() {
-            // Add code to use HealthKit here.
-            let healthStore = HKHealthStore()
             
-        }
-        return string
-    }
+       }
+        
+
+    
+    
 //    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 //            self.tabBar.barTintColor = UIColor.red
 //            self.tabBar.unselectedItemTintColor = UIColor.darkGray
