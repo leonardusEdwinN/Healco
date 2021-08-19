@@ -11,6 +11,8 @@
 		1315B9CC26B7D8CB0030C84A /* RoundedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */; };
 		1315B9D426B7F8A80030C84A /* NutritionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9D226B7F8A80030C84A /* NutritionCollectionViewCell.swift */; };
 		1315B9D526B7F8A80030C84A /* NutritionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */; };
+		133575AC26CE5410000C6B0F /* ListKonsumsi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133575AB26CE5410000C6B0F /* ListKonsumsi.swift */; };
+		133575AE26CE5776000C6B0F /* ListKonsumsiItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133575AD26CE5776000C6B0F /* ListKonsumsiItem.swift */; };
 		13492D57267F030600843181 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 13492D56267F030600843181 /* Food101.mlmodel */; };
 		13495F4026B42FCE0051EE32 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13495F3F26B42FCE0051EE32 /* DateExtension.swift */; };
 		137A0B632670CE2B00543CCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137A0B622670CE2B00543CCF /* AppDelegate.swift */; };
@@ -118,6 +120,8 @@
 		1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTabBar.swift; sourceTree = "<group>"; };
 		1315B9D226B7F8A80030C84A /* NutritionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCollectionViewCell.swift; sourceTree = "<group>"; };
 		1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionCollectionViewCell.xib; sourceTree = "<group>"; };
+		133575AB26CE5410000C6B0F /* ListKonsumsi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonsumsi.swift; sourceTree = "<group>"; };
+		133575AD26CE5776000C6B0F /* ListKonsumsiItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonsumsiItem.swift; sourceTree = "<group>"; };
 		13492D56267F030600843181 /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
 		13495F3F26B42FCE0051EE32 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		137A0B5F2670CE2B00543CCF /* Healco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Healco.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +218,15 @@
 				1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */,
 			);
 			path = JournalNutrition;
+			sourceTree = "<group>";
+		};
+		133575AF26CE5785000C6B0F /* ListKonsumsi */ = {
+			isa = PBXGroup;
+			children = (
+				133575AB26CE5410000C6B0F /* ListKonsumsi.swift */,
+				133575AD26CE5776000C6B0F /* ListKonsumsiItem.swift */,
+			);
+			path = ListKonsumsi;
 			sourceTree = "<group>";
 		};
 		13492D53267F020800843181 /* FoodRecog */ = {
@@ -439,6 +452,7 @@
 		2217A7A426CD123D00DB0651 /* Capmeal_Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				133575AF26CE5785000C6B0F /* ListKonsumsi */,
 				2217A7A526CD123D00DB0651 /* HostingController.swift */,
 				2217A7A726CD123D00DB0651 /* ContentView.swift */,
 				2217A7A926CD123D00DB0651 /* ExtensionDelegate.swift */,
@@ -714,9 +728,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2217A7A826CD123D00DB0651 /* ContentView.swift in Sources */,
+				133575AC26CE5410000C6B0F /* ListKonsumsi.swift in Sources */,
 				2217A7A626CD123D00DB0651 /* HostingController.swift in Sources */,
 				2217A7AC26CD123D00DB0651 /* NotificationController.swift in Sources */,
 				2217A7AA26CD123D00DB0651 /* ExtensionDelegate.swift in Sources */,
+				133575AE26CE5776000C6B0F /* ListKonsumsiItem.swift in Sources */,
 				2217A7AE26CD123D00DB0651 /* NotificationView.swift in Sources */,
 				2217A7B026CD123D00DB0651 /* ComplicationController.swift in Sources */,
 			);
