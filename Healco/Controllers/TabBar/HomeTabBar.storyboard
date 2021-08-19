@@ -56,7 +56,7 @@
                                 <rect key="frame" x="0.0" y="110" width="414" height="703"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTA-Aw-IGl">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1147"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1144"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2N2-6h-z29" customClass="WeeklyCollectionView" customModule="Healco" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="10" width="394" height="70"/>
@@ -73,28 +73,28 @@
                                                 <cells/>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrisimu Hari Ini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQl-pK-JbV">
-                                                <rect key="frame" x="20" y="90" width="374" height="25"/>
+                                                <rect key="frame" x="20" y="90" width="374" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tlo-K9-Cgm">
-                                                <rect key="frame" x="20" y="125" width="374" height="65"/>
+                                                <rect key="frame" x="20" y="123.5" width="374" height="65"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kalori" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2r-YK-tmp">
-                                                        <rect key="frame" x="15" y="10" width="40.5" height="26"/>
+                                                        <rect key="frame" x="15" y="10" width="38.5" height="26"/>
                                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtJ-Tk-lTR">
-                                                        <rect key="frame" x="338.5" y="13.5" width="20.5" height="19"/>
+                                                        <rect key="frame" x="339.5" y="14.5" width="19.5" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1250/ 1800" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cf6-O1-dwK">
-                                                        <rect key="frame" x="254.5" y="13.5" width="74" height="19"/>
+                                                        <rect key="frame" x="253.5" y="14.5" width="76" height="17.5"/>
                                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -121,7 +121,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31J-OP-EiN">
-                                                <rect key="frame" x="289" y="200" width="105" height="60"/>
+                                                <rect key="frame" x="289" y="198.5" width="105" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEc-OJ-K2y">
                                                         <rect key="frame" x="10" y="10" width="85" height="20"/>
@@ -156,7 +156,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cha-ar-dzi">
-                                                <rect key="frame" x="20" y="200" width="105" height="60"/>
+                                                <rect key="frame" x="20" y="198.5" width="105" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yl5-cH-NNb">
                                                         <rect key="frame" x="10" y="10" width="85" height="20"/>
@@ -191,7 +191,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FxJ-P4-nXd">
-                                                <rect key="frame" x="154.5" y="200" width="105" height="60"/>
+                                                <rect key="frame" x="154.5" y="198.5" width="105" height="60"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvf-IS-O1i">
                                                         <rect key="frame" x="10" y="10" width="85" height="20"/>
@@ -225,13 +225,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Konsumsimu Hari Ini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aD-OK-h28">
-                                                <rect key="frame" x="20" y="277" width="374" height="25"/>
+                                                <rect key="frame" x="20" y="275.5" width="374" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sarapan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMh-Av-8re">
-                                                <rect key="frame" x="20" y="307" width="374" height="20"/>
+                                                <rect key="frame" x="20" y="304" width="374" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="xV3-nX-8nQ"/>
                                                 </constraints>
@@ -240,7 +240,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUc-aN-qBf">
-                                                <rect key="frame" x="20" y="332" width="394" height="180"/>
+                                                <rect key="frame" x="20" y="329" width="394" height="180"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wn3-XY-VYm">
                                                         <rect key="frame" x="32" y="0.0" width="330" height="180"/>
@@ -253,7 +253,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kamu gak ada makan pagi" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs0-F6-ioz">
-                                                                <rect key="frame" x="120" y="69" width="210" height="42.5"/>
+                                                                <rect key="frame" x="120" y="80" width="210" height="20"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -286,7 +286,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NG-Wy-yj4">
-                                                <rect key="frame" x="20" y="542" width="394" height="180"/>
+                                                <rect key="frame" x="20" y="539" width="394" height="180"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vew-6v-VB3">
                                                         <rect key="frame" x="32" y="0.0" width="330" height="180"/>
@@ -299,7 +299,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kamu gak ada makan siang" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gq4-nb-yWJ">
-                                                                <rect key="frame" x="120" y="69" width="210" height="42.5"/>
+                                                                <rect key="frame" x="120" y="70" width="210" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -332,7 +332,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Siang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7D-lt-LQi">
-                                                <rect key="frame" x="20" y="517" width="374" height="20"/>
+                                                <rect key="frame" x="20" y="514" width="374" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="Fz2-ZA-HhC"/>
                                                 </constraints>
@@ -341,7 +341,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yo-3g-YPo">
-                                                <rect key="frame" x="20" y="752" width="394" height="180"/>
+                                                <rect key="frame" x="20" y="749" width="394" height="180"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cee-Io-Pae">
                                                         <rect key="frame" x="32" y="0.0" width="330" height="180"/>
@@ -354,7 +354,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kamu gak ada makan malam" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxL-fS-WjY">
-                                                                <rect key="frame" x="120" y="69" width="210" height="42.5"/>
+                                                                <rect key="frame" x="120" y="70" width="210" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -387,7 +387,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Malam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeN-qE-Ub2">
-                                                <rect key="frame" x="20" y="727" width="374" height="20"/>
+                                                <rect key="frame" x="20" y="724" width="374" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="gbi-AO-itM"/>
                                                 </constraints>
@@ -396,7 +396,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7QE-sW-zUy">
-                                                <rect key="frame" x="20" y="962" width="394" height="180"/>
+                                                <rect key="frame" x="20" y="959" width="394" height="180"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="nIJ-6N-Dee">
                                                         <rect key="frame" x="32" y="0.0" width="330" height="180"/>
@@ -409,7 +409,7 @@
                                                                 </constraints>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kamu gak ada makan snack" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGv-d8-krh">
-                                                                <rect key="frame" x="145" y="69" width="185" height="42.5"/>
+                                                                <rect key="frame" x="145" y="70" width="185" height="40"/>
                                                                 <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -442,7 +442,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Snack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dui-Ur-pQT">
-                                                <rect key="frame" x="20" y="937" width="374" height="20"/>
+                                                <rect key="frame" x="20" y="934" width="374" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="J8l-no-IXh"/>
                                                 </constraints>
@@ -513,7 +513,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jurnal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TB1-yP-v73">
-                                        <rect key="frame" x="20" y="49.5" width="77" height="31.5"/>
+                                        <rect key="frame" x="20" y="50.5" width="69" height="29.5"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -534,7 +534,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agustus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOY-5u-895">
-                                        <rect key="frame" x="288.5" y="55.5" width="55.5" height="19"/>
+                                        <rect key="frame" x="289" y="56.5" width="55" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="15"/>
                                         <color key="textColor" name="MangoYoghurt"/>
                                         <nil key="highlightedColor"/>
@@ -650,7 +650,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vgV-GE-ITv">
-                                <rect key="frame" x="20" y="179.5" width="374" height="200"/>
+                                <rect key="frame" x="20" y="178" width="374" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal Lahir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Op-Dg-RiA">
                                         <rect key="frame" x="15" y="71" width="102" height="21"/>
@@ -749,7 +749,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUk-iQ-Y1Y">
-                                <rect key="frame" x="354" y="125.5" width="30" height="34"/>
+                                <rect key="frame" x="354" y="126" width="30" height="32"/>
                                 <fontDescription key="fontDescription" name="Quicksand-Medium" family="Quicksand" pointSize="17"/>
                                 <state key="normal" title="Edit"/>
                                 <connections>
@@ -760,7 +760,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3p-Yf-BNG">
-                                        <rect key="frame" x="28" y="49.5" width="78.5" height="31.5"/>
+                                        <rect key="frame" x="28" y="50.5" width="70.5" height="29.5"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -774,72 +774,72 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYy-41-l1d">
-                                <rect key="frame" x="35" y="130" width="47" height="25"/>
+                                <rect key="frame" x="35" y="130" width="42" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifikasi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTg-3v-wsb">
-                                <rect key="frame" x="35" y="404.5" width="89.5" height="25"/>
+                                <rect key="frame" x="35" y="403" width="83" height="23.5"/>
                                 <fontDescription key="fontDescription" name="Quicksand-SemiBold" family="Quicksand" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XKm-yp-ecD">
-                                <rect key="frame" x="20" y="449.5" width="374" height="164.5"/>
+                                <rect key="frame" x="20" y="446.5" width="374" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Siang" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTk-V8-qZo">
-                                        <rect key="frame" x="15" y="71.5" width="102" height="21.5"/>
+                                        <rect key="frame" x="15" y="70" width="99.5" height="20"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="right" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cEG-hX-1ea">
-                                        <rect key="frame" x="-25" y="65" width="320" height="35"/>
+                                        <rect key="frame" x="-25" y="62.5" width="320" height="35"/>
                                         <color key="tintColor" name="AvocadoGreen"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="dAk-2D-oJz"/>
                                         </constraints>
                                     </datePicker>
                                     <datePicker contentMode="right" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="3re-ju-OT9">
-                                        <rect key="frame" x="-25" y="18.5" width="320" height="35"/>
+                                        <rect key="frame" x="-25" y="17.5" width="320" height="35"/>
                                         <color key="tintColor" name="AvocadoGreen"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="if9-8f-j67"/>
                                         </constraints>
                                     </datePicker>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sfp-bh-XNM">
-                                        <rect key="frame" x="310" y="67" width="51" height="31"/>
+                                        <rect key="frame" x="310" y="64.5" width="51" height="31"/>
                                         <connections>
                                             <action selector="switchMakanSiangPressed:" destination="PBi-Lx-uQ2" eventType="valueChanged" id="drs-Gk-bzN"/>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Makan Malam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKX-hz-FnV">
-                                        <rect key="frame" x="15" y="118" width="112" height="21.5"/>
+                                        <rect key="frame" x="15" y="115" width="107.5" height="20"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-04-mye">
-                                        <rect key="frame" x="310" y="20.5" width="51" height="31"/>
+                                        <rect key="frame" x="310" y="19.5" width="51" height="31"/>
                                         <connections>
                                             <action selector="switchSarapanPressed:" destination="PBi-Lx-uQ2" eventType="valueChanged" id="Kb5-EC-56R"/>
                                         </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sarapan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p2K-LR-OXA">
-                                        <rect key="frame" x="15" y="25" width="67" height="21.5"/>
+                                        <rect key="frame" x="15" y="25" width="64" height="20"/>
                                         <fontDescription key="fontDescription" name="Quicksand-Regular" family="Quicksand" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2pg-9z-h99">
-                                        <rect key="frame" x="310" y="113.5" width="51" height="31"/>
+                                        <rect key="frame" x="310" y="109.5" width="51" height="31"/>
                                         <connections>
                                             <action selector="switchMakanMalamPressed:" destination="PBi-Lx-uQ2" eventType="valueChanged" id="qvS-lc-bNf"/>
                                         </connections>
                                     </switch>
                                     <datePicker contentMode="right" contentHorizontalAlignment="fill" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wh9-Qi-GA1">
-                                        <rect key="frame" x="-25" y="111.5" width="320" height="35"/>
+                                        <rect key="frame" x="-25" y="107.5" width="320" height="35"/>
                                         <color key="tintColor" name="AvocadoGreen"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="rb5-eE-Kvw"/>

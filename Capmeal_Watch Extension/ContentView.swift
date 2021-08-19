@@ -17,6 +17,7 @@ struct makroNutrient {
     var namaMakro : String = ""
     var presentasi : Int = 0
 }
+
 struct ProgressBar : View {
     @Binding var value : Float
     
@@ -59,33 +60,65 @@ struct MakroNutrient : View{
     }
 }
 
+
 struct ContentView: View {
     @State var currentProgress: Float = 0.2
     @State var makro : [makroNutrient] = [
         makroNutrient(namaMakro: "Karbohidrat", presentasi: 0),
         makroNutrient(namaMakro: "Protein", presentasi: 0),
         makroNutrient(namaMakro: "Lemak", presentasi: 0)
-
     ]
-    
+    @State private var currentPage = 0
+    @State private var currentCal : Int = 700
+    @State private var targetCal : Int = 1368
+    var width = WKInterfaceDevice.current().screenBounds.width
+    var height = WKInterfaceDevice.current().screenBounds.height
 
-    
     var body: some View {
-        ScrollView{
-            VStack{
-                HStack{
-                    Text("700").font(.largeTitle)
-                    Text("kal/1368 kal")
+       
+        VStack(spacing:0){
+            Spacer(minLength: 30)
+            GeometryReader{ g in
+                HStack(spacing:0){
+                    ScrollView{
+                        VStack{
+                            HStack{
+                                Text("\(currentCal)").font(.largeTitle)
+                                Text("kal/\(targetCal) kal")
+                            }
+                            ProgressBar(value: $currentProgress).frame(height: 20)
+                                .padding()
+
+                            MakroNutrient(makroNutrient: $makro[0]).frame(height: 40).padding(.init(top: 0, leading: 8, bottom: 0, trailing: 8))
+                            MakroNutrient(makroNutrient: $makro[1]).frame(height: 40).frame(height: 40).padding(.init(top: 0, leading: 8, bottom: 0, trailing: 8))
+                            MakroNutrient(makroNutrient: $makro[2]).frame(height: 40).frame(height: 40).padding(.init(top: 0, leading: 8, bottom: 0, trailing: 8))
+
+                        }.navigationTitle(Text("Capmeal")).navigationBarHidden(false)
+                    }.frame(width: g.frame(in: .global).width)
+                    
+                    //secondView
+                    SecondView().frame(width: g.frame(in: .global).width)
                 }
-                ProgressBar(value: $currentProgress).frame(height: 20)
-                    .padding()
+                
+            }
+            //Page Control
+            HStack{
+                Circle()
+                    .frame(width: 8, height: 8)
+                    .foregroundColor(currentPage==1 ? Color.gray:Color.Avocado)
+                Circle()
+                    .frame(width: 8, height: 8)
+                    .foregroundColor(currentPage==1 ? Color.Avocado:Color.gray)
+            }
+        }.frame(width: width, height: height)
+        
+    }
+}
 
-                MakroNutrient(makroNutrient: $makro[0]).frame(height: 40).padding(.init(top: 0, leading: 8, bottom: 0, trailing: 8))
-                MakroNutrient(makroNutrient: $makro[1]).frame(height: 40).frame(height: 40).padding(.init(top: 0, leading: 8, bottom: 0, trailing: 8))
-                MakroNutrient(makroNutrient: $makro[2]).frame(height: 40).frame(height: 40).padding(.init(top: 0, leading: 8, bottom: 0, trailing: 8))
-
-            }.navigationTitle(Text("Capmeal")).navigationBarHidden(false)
-
+struct SecondView : View {
+    var body : some View {
+        VStack{
+            Text("Second View")
         }
     }
 }
