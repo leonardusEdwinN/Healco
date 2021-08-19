@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 import UIKit
 import FatSecretSwift
+import HealthKit
 
 enum isJournalFill {
     case yesterdayFill //jika jurnal terisi
@@ -119,13 +120,24 @@ class JournalViewController : UIViewController{
     
     var fetchData: [NSManagedObject] = []
     
+    //healthKit
+    var healthStore = HKHealthStore()
+
+    //var activityringview
     
     override func viewWillAppear(_ animated: Bool) {
         collectionViewSnack.reloadData()
         collectionViewSarapan.reloadData()
         collectionViewMakanSiang.reloadData()
         collectionViewMakanMalam.reloadData()
+        
+        healthStore.requestAuthorization(toShare: nil, read: [HKObjectType.activitySummaryType()]){
+            success, Error in
+            
+            self.healthkit()
+        }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,8 +189,38 @@ class JournalViewController : UIViewController{
 //        collectionViewMakanSiang.reloadData()
 //        collectionViewMakanMalam.reloadData()
 //        collectionViewSnack.reloadData()
-
+        
+        
     }
+    
+    func healthkit () {
+        if HKHealthStore.isHealthDataAvailable() {
+
+            let calendar = Calendar(identifier: .gregorian)
+            var finishedDate = calendar.date(byAdding: .hour, value: 7, to: Date())
+            var hourComponent = DateComponents()
+            hourComponent.hour = 0
+
+            finishedDate = calendar.nextDate(after: finishedDate ?? Date(), matching: hourComponent,
+                                             matchingPolicy: .nextTime, direction: .backward)
+            
+            
+            
+            let predicate = NSPredicate(format: "%K = %@", argumentArray: [HKPredicateKeyPathDateComponents, finishedDate ?? Calendar.current])
+            
+            let query = HKActivitySummaryQuery(predicate: predicate){ query,summaries ,error in
+                
+                //print("summ",summaries?[0].activeEnergyBurned ?? "")
+                if let summary = summaries?.first{
+                    DispatchQueue.main.sync() {
+                        print(summary.activeEnergyBurned)
+                    }
+                }
+            }
+            healthStore.execute(query)
+        }
+    }
+    
     
     func getTodayDate() -> Date {
         let calendar = Calendar(identifier: .gregorian)
@@ -254,10 +296,10 @@ class JournalViewController : UIViewController{
         self.dataJournalSnack = dataJournalSnack.count > 0 ? dataJournalSnack : []
         self.collectionViewSnack.reloadData()
         
-        print("JOURNAL SARAPAN : \(self.dataJournalSarapan.count)")
-        print("JOURNAL SIANG : \(self.dataJournalMakanSiang.count)")
-        print("JOURNAL MALAM : \(self.dataJournalMakanMalam.count)")
-        print("JOURNAL SNACK : \(self.dataJournalSnack.count)")
+//        print("JOURNAL SARAPAN : \(self.dataJournalSarapan.count)")
+//        print("JOURNAL SIANG : \(self.dataJournalMakanSiang.count)")
+//        print("JOURNAL MALAM : \(self.dataJournalMakanMalam.count)")
+//        print("JOURNAL SNACK : \(self.dataJournalSnack.count)")
         
         
         

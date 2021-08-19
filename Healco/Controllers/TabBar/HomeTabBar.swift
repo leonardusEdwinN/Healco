@@ -28,6 +28,8 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
     //cek if using camera
     var usingCamera : Bool = false
     
+    
+    
     required init(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)!
         }
@@ -38,7 +40,12 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
             notificationCenter.delegate = self
             self.setupMiddleButton()
             self.notificationAlertScheduling()
+            
+            
        }
+        
+
+    
     
 //    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
 //            self.tabBar.barTintColor = UIColor.red
@@ -131,6 +138,8 @@ class HomeTabBar : UITabBarController,UITabBarControllerDelegate{
             foodRecogVC.modalPresentationStyle = .fullScreen
         }
     }
+    
+    
 }
 
 extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
