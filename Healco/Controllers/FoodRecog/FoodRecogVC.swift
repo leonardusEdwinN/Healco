@@ -5,58 +5,83 @@
 //  Created by Ericson Hermanto on 10/06/21.
 //
 
-import Foundation
+
 import UIKit
 import AVKit
 import Vision
 
-class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDelegate */{
-    
-    //capture Session
-    var captureSession: AVCaptureSession?
-    //Photo Output
-    let output = AVCapturePhotoOutput()
-    //Video Preview
-    let previewLayer = AVCaptureVideoPreviewLayer()
-    var imageSend = UIImage()
-    
 
+struct Profile {
+    //in year
+    var age : Int
+    //male or female
+    var gender : Gender
+    // in cm
+    var height : Int
+    //in kg
+    var weight : Double
+}
+
+enum Gender {
+    case male
+    case female
+}
+
+class FoodRecogVC: UIViewController {
+    
+//    //capture Session
+//    var captureSession: AVCaptureSession?
+//    //Photo Output
+//    let output = AVCapturePhotoOutput()
+//    //Video Preview
+//    let previewLayer = AVCaptureVideoPreviewLayer()
+    //var imageSend = UIImage()
+    
+    //create imagepicker viewcontroller
+    private var imagePickerControler =  UIImagePickerController()
+    
+    
     //backButton
     @IBOutlet weak var backButton: UIButton!
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func ActionButton(_ sender: Any) {
+        PresentActionSheet()
+    }
     
-    private let shutterButton : UIButton = {
-        let button = UIButton(frame: CGRect(x:0, y:0, width: 80, height: 80))
-
-        button.layer.cornerRadius = 40
-        button.layer.borderWidth = 5
-                
-        button.layer.borderColor = UIColor.white.cgColor
-        return button
-    }()
     
-    private let innerButton : UIButton = {
-        let button = UIButton(frame: CGRect(x:0, y:0, width: 60, height: 60))
-        button.layer.cornerRadius = 30
-        button.layer.backgroundColor = UIColor.white.cgColor
-        return button
-    }()
+//    private let shutterButton : UIButton = {
+//        let button = UIButton(frame: CGRect(x:0, y:0, width: 80, height: 80))
+//
+//        button.layer.cornerRadius = 40
+//        button.layer.borderWidth = 5
+//
+//        button.layer.borderColor = UIColor.white.cgColor
+//        return button
+//    }()
+//
+//    private let innerButton : UIButton = {
+//        let button = UIButton(frame: CGRect(x:0, y:0, width: 60, height: 60))
+//        button.layer.cornerRadius = 30
+//        button.layer.backgroundColor = UIColor.white.cgColor
+//        return button
+//    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
-        view.backgroundColor = .black
-        view.layer.addSublayer(previewLayer)
-        view.addSubview(shutterButton)
-        view.addSubview(innerButton)
+        //view.backgroundColor = .black
+        //view.layer.addSublayer(previewLayer)
+        //view.addSubview(shutterButton)
+        //view.addSubview(innerButton)
         
-        self.navigationController?.isNavigationBarHidden = true
+        //self.navigationController?.isNavigationBarHidden = true
         //self.navigationController?.navigationBar.barTintColor = UIColor.black
-        checkCameraPermissions()
-        innerButton.addTarget(self, action: #selector(didTapTakePhoto), for: .touchUpInside)
+        //checkCameraPermissions()
+        //innerButton.addTarget(self, action: #selector(didTapTakePhoto), for: .touchUpInside)
 
         
 //        //camera config
@@ -77,72 +102,116 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
 //
 //        VNImageRequestHandler(cgImage: <#T##CGImage#>, options: <#T##[VNImageOption : Any]#>)
     }
+    
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        previewLayer.frame = view.alignmentRect(forFrame: .init(x: 0, y: view.frame.size.height/6, width: view.frame.size.width, height: view.frame.size.height - 300))
-        //previewLayer.frame = view.bounds
-        shutterButton.center = CGPoint(x: view.frame.size.width/2,
-                                       y: view.frame.size.height - 100)
+    
+    //presentation Action sheet
+    private func PresentActionSheet(){
         
-        innerButton.center = CGPoint(x: view.frame.size.width/2,
-                                       y: view.frame.size.height - 100)
-    }
-    
-    private func checkCameraPermissions(){
-        switch AVCaptureDevice.authorizationStatus(for: .video){
-            
-        case .notDetermined:
-            //request
-            AVCaptureDevice.requestAccess(for: .video) { [weak self]granted in
-                guard granted else {
-                    return
-                }
-                DispatchQueue.main.async {
-                    self?.setupCamera()
-                }
-            }
-        case .restricted:
-            break
-        case .denied:
-            break
-        case .authorized:
-            setupCamera()
-        @unknown default:
-            
-            break
-        }
-    }
-    
-    private func setupCamera(){
-        let session = AVCaptureSession()
-        if let device = AVCaptureDevice.default(for: .video){
-            do {
-                let input = try AVCaptureDeviceInput(device: device)
-                if session.canAddInput(input){
-                    session.addInput(input)
-                }
-                
-                if session.canAddOutput(output){
-                    session.addOutput(output)
-                }
-                
-                previewLayer.videoGravity = .resizeAspectFill
-                previewLayer.session = session
-                session.startRunning()
-                self.captureSession = session
-                 
-            } catch  {
-                print(error)
+        
+        let actionSheet = UIAlertController(title: "Select Photo", message: "Choose", preferredStyle: .actionSheet)
+        
+        //button 1
+        let libraryAction = UIAlertAction(title: "Photo Library", style: .default){ (action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                self.imagePickerControler.sourceType = .photoLibrary
+                self.imagePickerControler.delegate = self
+                self.imagePickerControler.allowsEditing = true
+                self.present(self.imagePickerControler, animated: true, completion: nil)
+            }else{
+                fatalError("Photo library not avaliable")
             }
         }
-    }
-    
-    @objc private func didTapTakePhoto(){
-        output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-      
         
+        //button 2
+        let CameraAction = UIAlertAction(title: "Camera", style: .default){ (action: UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                self.imagePickerControler.sourceType = .camera
+                self.imagePickerControler.delegate = self
+                self.imagePickerControler.allowsEditing = true
+                self.present(self.imagePickerControler, animated: true, completion: nil)
+            }
+            else{
+                fatalError("Camera not Avaliable")
+            }
+            
+        }
+        
+        //button 3
+        let cancel = UIAlertAction(title: "Cancel", style:.cancel, handler: nil)
+        
+        actionSheet.addAction(libraryAction)
+        actionSheet.addAction(CameraAction)
+        actionSheet.addAction(cancel)
+        
+        present(actionSheet, animated: true, completion: nil)
     }
+
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        previewLayer.frame = view.alignmentRect(forFrame: .init(x: 0, y: view.frame.size.height/6, width: view.frame.size.width, height: view.frame.size.height - 300))
+//        //previewLayer.frame = view.bounds
+//        shutterButton.center = CGPoint(x: view.frame.size.width/2,
+//                                       y: view.frame.size.height - 100)
+//
+//        innerButton.center = CGPoint(x: view.frame.size.width/2,
+//                                       y: view.frame.size.height - 100)
+//    }
+    
+//    private func checkCameraPermissions(){
+//        switch AVCaptureDevice.authorizationStatus(for: .video){
+//
+//        case .notDetermined:
+//            //request
+//            AVCaptureDevice.requestAccess(for: .video) { [weak self]granted in
+//                guard granted else {
+//                    return
+//                }
+//                DispatchQueue.main.async {
+//                    self?.setupCamera()
+//                }
+//            }
+//        case .restricted:
+//            break
+//        case .denied:
+//            break
+//        case .authorized:
+//            setupCamera()
+//        @unknown default:
+//
+//            break
+//        }
+//    }
+    
+//    private func setupCamera(){
+//        let session = AVCaptureSession()
+//        if let device = AVCaptureDevice.default(for: .video){
+//            do {
+//                let input = try AVCaptureDeviceInput(device: device)
+//                if session.canAddInput(input){
+//                    session.addInput(input)
+//                }
+//
+//                if session.canAddOutput(output){
+//                    session.addOutput(output)
+//                }
+//
+//                previewLayer.videoGravity = .resizeAspectFill
+//                previewLayer.session = session
+//                session.startRunning()
+//                self.captureSession = session
+//
+//            } catch  {
+//                print(error)
+//            }
+//        }
+//    }
+    
+//    @objc private func didTapTakePhoto(){
+//        output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
+//
+//
+//    }
     
 //    func captureOutput(_ output: AVcaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection){
 //        //print("Camera was able to capture a frame:", Date())
@@ -169,47 +238,73 @@ class FoodRecogVC: UIViewController /*, AVCaptureVideoDataOutputSampleBufferDele
 //        navigationController?.pushViewController(vc, animated: true)
 //    }
     
-    @IBAction func BackToMain(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
-        navigationController?.pushViewController(vc, animated: true)
+//    @IBAction func BackToMain(_ sender: Any) {
+//        let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
+//        let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
+//        navigationController?.pushViewController(vc, animated: true)
+//    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if(segue.identifier == "goToFoodNameVC"){
+//        let foodNameVC = segue.destination as? FoodNameViewController
+//        foodNameVC?.imageHasilFoto = imageSend
+//        }
+//    }
+}
+
+
+//extension FoodRecogVC : AVCapturePhotoCaptureDelegate{
+//
+//
+//    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+//        //print("PHOTO OUTPUT \(photo.fileDataRepresentation())")
+//        guard let data = photo.fileDataRepresentation() else{
+//            return
+//        }
+//        guard let image = UIImage(data: data) else {return}
+//        captureSession?.stopRunning()
+//
+//        self.imageSend = image
+//
+//
+////        pindahVC(image: image)
+//
+//        //let imageView = UIImageView(image: image)
+//        //imageView.contentMode = .center
+//        //let screenSize: CGRect = UIScreen.main.bounds
+//        //imageView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height * 0.2)
+//        //view.addSubview(imageView)
+//
+//
+//    }
+//
+//
+//}
+
+
+extension FoodRecogVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let uiImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            
+            //picker.dismiss(animated: true, completion: nil)
+            
+            //go to another viewcontroller
+            let storyboard : UIStoryboard = UIStoryboard(name: "FoodDetail", bundle: nil)
+            let VC  = storyboard.instantiateViewController(withIdentifier: "FoodNameViewController") as! FoodNameViewController
+            
+            //parsing image to  another view
+            VC.imageHasilFoto = uiImage
+            VC.modalPresentationStyle = .fullScreen
+            picker.present(VC, animated: true, completion: nil)
+            
+
+        }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if(segue.identifier == "goToFoodNameVC"){
-        let foodNameVC = segue.destination as? FoodNameViewController
-        foodNameVC?.imageHasilFoto = imageSend
-        }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true , completion: nil)
     }
 }
 
 
-extension FoodRecogVC : AVCapturePhotoCaptureDelegate{
-    
-    
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        //print("PHOTO OUTPUT \(photo.fileDataRepresentation())")
-        guard let data = photo.fileDataRepresentation() else{
-            return
-        }
-        guard let image = UIImage(data: data) else {return}
-        captureSession?.stopRunning()
-        
-        self.imageSend = image
-        
-        performSegue(withIdentifier: "goToFoodNameVC", sender: self)
-
-//        pindahVC(image: image)
-        
-        //let imageView = UIImageView(image: image)
-        //imageView.contentMode = .center
-        //let screenSize: CGRect = UIScreen.main.bounds
-        //imageView.frame = CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height * 0.2)
-        //view.addSubview(imageView)
-        
-        
-    }
-    
-     
-}

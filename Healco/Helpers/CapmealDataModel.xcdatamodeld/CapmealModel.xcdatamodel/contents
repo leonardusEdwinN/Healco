@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="HistoricalEntity" representedClassName="HistoricalEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="angka" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="tanggal" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="tipe" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="JournalEntity" representedClassName="JournalEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="kaloriTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="karbohidratTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lagi_apa" optional="YES" attributeType="String"/>
+        <attribute name="lemakTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="perasaan" optional="YES" attributeType="String"/>
+        <attribute name="porsi" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="proteinTotal" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="satuan" optional="YES" attributeType="String"/>
+        <attribute name="tanggal_jam" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="tipe" optional="YES" attributeType="String"/>
+        <relationship name="meal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MealEntity" inverseName="journals" inverseEntity="MealEntity"/>
+    </entity>
+    <entity name="MealEntity" representedClassName="MealEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="deskripsi" optional="YES" attributeType="String"/>
+        <attribute name="gambar" optional="YES" attributeType="String"/>
+        <attribute name="id_meal" optional="YES" attributeType="String"/>
+        <attribute name="kalori" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="karbohidrat" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lemak" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nama" optional="YES" attributeType="String"/>
+        <attribute name="protein" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="journals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalEntity" inverseName="meal" inverseEntity="JournalEntity"/>
+    </entity>
+    <entity name="NotificationEntity" representedClassName="NotificationEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="malamOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="malamTime" optional="YES" attributeType="String"/>
+        <attribute name="sarapanOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sarapanTime" optional="YES" attributeType="String"/>
+        <attribute name="siangOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="siangTime" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ProfileEntity" representedClassName="ProfileEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="berat_badan" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="nama_pengguna" optional="YES" attributeType="String"/>
+        <attribute name="tanggal_lahir" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="tinggi_badan" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="JournalEntity" positionX="-63" positionY="-18" width="128" height="208"/>
+        <element name="MealEntity" positionX="153.7042236328125" positionY="-27.84378051757812" width="128" height="178"/>
+        <element name="ProfileEntity" positionX="410.5228271484375" positionY="-261.61767578125" width="128" height="104"/>
+        <element name="NotificationEntity" positionX="59.60321044921875" positionY="-196.9718933105469" width="128" height="119"/>
+        <element name="HistoricalEntity" positionX="341.9508056640625" positionY="-9.6611328125" width="128" height="74"/>
+    </elements>
+</model>

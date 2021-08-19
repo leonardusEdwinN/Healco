@@ -8,14 +8,20 @@
 import UIKit
 import CoreData
 
-class FoodDetailViewController: UIViewController {
-    
+
+class FoodDetailViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     //    var selectedData : FoodDataSearch?
+    var porsiMakanan: [Int] = []
+    var satuanPorsi: [String] = ["gr", "pcs", "cup"]
+    var informasiMakanan: [String] = ["Karbohidrat", "Protein"]
     var selectedFood : FoodModel2!
     var timeToEatArray : [String] = ["Breakfast","Lunch","Dinner", "Snack"]
-    var reasonToEatArray : [String] = ["It was time", "Hungry", "Social", "Bored", "Stressed", "Loved taste", "Other"]
-    var feelWhenEatArray : [String] = ["😆", "😭", "😰", "😧", "😠", "🥱"]
+    var reasonToEatArray : [String] = ["Gak Ada", "Ada Acara", "Nongkrong", "Nonton", "Belajar", "Kerja"]
+    var feelWhenEatArray : [String] = ["😃 Biasa Aja", "😆 Bahagia", "😢 Sedih", "😫 Galau", "🤯 Stress", "😡 Marah"]
     var imageHasilPhoto : UIImage!
+    var namaFoto : String!
+    let data = CoreDataClass()
+    
     
     /*@IBOutlet weak var foodStatusImageView: UIImageView!
      @IBOutlet weak var foodNameLabel: UILabel!
@@ -24,38 +30,233 @@ class FoodDetailViewController: UIViewController {
      @IBOutlet weak var foodFatLabel: UILabel!
      @IBOutlet weak var foodCarbohydrateLabel: UILabel!
      @IBOutlet weak var foodProteinLabel: UILabel!*/
-    @IBOutlet weak var backButton: UIButton!
+ 
+    //headerView
+    @IBOutlet weak var viewHeaderFoodDetail: UIView!
+    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var buttonBack: UIButton!
     @IBOutlet weak var imagePhoto: UIImageView!
+    @IBOutlet weak var buttonSimpanOrUbah: UIButton!
+    
+    //journalingView
     @IBOutlet weak var foodNameLabel: UILabel!
     
-    @IBOutlet weak var viewDescription: UIView!
-    @IBOutlet weak var foodStatusImageView: UIImageView!
-    @IBOutlet weak var foodDescriptionLabel: UILabel!
+    //Nutrisi Makananmu Top
+    //========
+    @IBOutlet weak var viewTopNutrition: UIView!
+    @IBOutlet weak var labelNutrisiMakananmuTop: UILabel!
+    //kal View Kalori
+    @IBOutlet weak var viewKaloriTop: UIView!
+    @IBOutlet weak var labelKaloriTextTop: UILabel!
+    @IBOutlet weak var labelKaloriValueTop: UILabel!
+    //kal View Karbohidrat
+    @IBOutlet weak var viewKarbohidratTop: UIView!
+    @IBOutlet weak var labelKarbohidratTextTop: UILabel!
+    @IBOutlet weak var labelKarbohidratValueTop: UILabel!
+    //kal View kalori
+    @IBOutlet weak var viewProteinTop: UIView!
+    @IBOutlet weak var labelProteinTextTop: UILabel!
+    @IBOutlet weak var labelProteinValueTop: UILabel!
+    //kal View kalori
+    @IBOutlet weak var viewLemakTop: UIView!
+    @IBOutlet weak var labelLemakTextTop: UILabel!
+    @IBOutlet weak var labelLemakValueTop: UILabel!
+    //===========
     
-    @IBOutlet weak var viewDetailFood: UIView!
-    @IBOutlet weak var foodCaloriesLabel: UILabel!
-    @IBOutlet weak var foodFatLabel: UILabel!
-    @IBOutlet weak var foodCarbohydrateLabel: UILabel!
-    @IBOutlet weak var foodProteinLabel: UILabel!
     
+    @IBOutlet weak var porsiPickerView: UIPickerView!
     
-    @IBOutlet weak var reasonToEatCollectionView: UICollectionView!
+    @IBOutlet weak var labelMakanBerapaBanyak: UILabel!
+    @IBOutlet weak var pickerviewPorsi: UIPickerView!
+    
+    @IBOutlet weak var labelKapanMakannya: UILabel!
     @IBOutlet weak var timeToEatCollectionView: UICollectionView!
+    
+    @IBOutlet weak var labelMoodnyaGimana: UILabel!
     @IBOutlet weak var feelWhenEatCollectionView: UICollectionView!
+    
+    @IBOutlet weak var labelLagiNgapainPasMakan: UILabel!
+    @IBOutlet weak var reasonToEatCollectionView: UICollectionView!
+    
+    
+    //Nutrisi Makananmu Bottom
+    //========
+    @IBOutlet weak var viewBottomNutrition: UIView!
+    @IBOutlet weak var labelNutrisiMakananmuBottom: UILabel!
+    //kal View Kalori
+    @IBOutlet weak var viewKaloriBottom: UIView!
+    @IBOutlet weak var labelKaloriTextBottom: UILabel!
+    @IBOutlet weak var labelKaloriValueBottom: UILabel!
+    //kal View Karbohidrat
+    @IBOutlet weak var viewKarbohidratBottom: UIView!
+    @IBOutlet weak var labelKarbohidratTextBottom: UILabel!
+    @IBOutlet weak var labelKarbohidratValueBottom: UILabel!
+    //kal View kalori
+    @IBOutlet weak var viewProteinBottom: UIView!
+    @IBOutlet weak var labelProteinTextBottom: UILabel!
+    @IBOutlet weak var labelProteinValueBottom: UILabel!
+    //kal View kalori
+    @IBOutlet weak var viewLemakBottom: UIView!
+    @IBOutlet weak var labelLemakTextBottom: UILabel!
+    @IBOutlet weak var labelLemakValueBottom: UILabel!
+    //===========
+    
+    @IBOutlet weak var buttonHapus: UIButton!
+    
+//    @IBOutlet weak var viewDescription: UIView!
+//    @IBOutlet weak var foodDescriptionLabel: UILabel!
+//    @IBOutlet weak var viewDetailFood: UIView!
+//    @IBOutlet weak var foodCaloriesLabel: UILabel!
+//    @IBOutlet weak var foodFatLabel: UILabel!
+//    @IBOutlet weak var foodCarbohydrateLabel: UILabel!
+//    @IBOutlet weak var foodProteinLabel: UILabel!
+   
     
     var selectedReason: String?
     var selectedTime: String?
     var selectedFeel: String?
-    
-    @IBOutlet weak var buttonSubmit: UIButton!
-    
-    @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    var statusEdit: Bool = false // untuk button status
+    var isUpdate: Bool = false // untuk button status
+    var selectedPorsi : Int?
+    var selectedSatuan : String?
+    var totalLemak : Float!
+    var totalProtein : Float!
+    var totalKarbohidrat : Float!
+    var totalKalori : Float!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePhoto.image = imageHasilPhoto
+        
+        for  n in 1...1000 {
+            porsiMakanan.append(n)
+        }
+        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ubah", style: .plain, target: self, action: #selector(btnEdit_Pressed))
+        
+        pickerviewPorsi.dataSource = self
+        pickerviewPorsi.delegate = self
+        print("status Edit : \(statusEdit)")
+        print("status food : \(selectedFood)")
+        
+        if(statusEdit){
+            self.buttonSimpanOrUbah.setTitle("Ubah", for: .normal)
+            self.viewTopNutrition.isHidden = false
+            self.viewBottomNutrition.isHidden = true
+            
+            viewBottomNutrition.translatesAutoresizingMaskIntoConstraints = false
+            viewBottomNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            viewTopNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = false
+            
+            
+            self.buttonHapus.isHidden = true
+//            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
+//            buttonHapus.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            
+        }else{
+            self.buttonSimpanOrUbah.setTitle("Simpan", for: .normal)
+            self.viewTopNutrition.isHidden = true
+            self.viewBottomNutrition.isHidden = false
+            
+            
+            viewTopNutrition.translatesAutoresizingMaskIntoConstraints = false
+            viewTopNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            viewBottomNutrition.heightAnchor.constraint(equalToConstant: 0).isActive = false
+            
+            
+            self.buttonHapus.isHidden = true
+//            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
+//            buttonHapus.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        }
+        
+        
+        
+        setData()
+        settingUiToViewController()
+        registerCellToCollectionView()
+        //getSelectedDataIntoCoreData() // masukin data selectedFood ke CoreData
+    }
+    
+    @IBAction func buttonHapusPressed(_ sender: Any) {
+//        data.deleteJournal(journal: JournalEntity())
+        print("DELETING JOURNAL >>>>> ..... >>>> ..... >>>> DONE")
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func buttonBackPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func buttonSimpanOrUbahClicked(_ sender: Any) {
+        if(statusEdit){
+            //dari ubah di click dulu jadi simpan
+            self.buttonSimpanOrUbah.setTitle("Simpan", for: .normal)
+            
+            self.buttonHapus.isHidden = false
+            self.buttonHapus.backgroundColor = UIColor(named: "PinkBerry")
+//            buttonHapus.translatesAutoresizingMaskIntoConstraints = false
+//            buttonHapus.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//            buttonHapus.bottomAnchor.constraint(equalTo: viewBottomNutrition.topAnchor).isActive = true
+            
+            self.isUpdate = true
+            self.statusEdit = !self.statusEdit
+        }else{
+            
+            if(!isUpdate){
+                //nambah data baru
+                print("ADD DATA")
+                
+                totalLemak = Float(selectedPorsi ?? 0) * Float (selectedFood.foodFat)
+                totalProtein = Float(selectedPorsi ?? 0) * Float (selectedFood.foodProtein)
+                totalKarbohidrat = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCarbohydrate)
+                totalKalori = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCalories)
+                
+                data.addJournal(lagiApa: selectedReason ?? reasonToEatArray[0], perasaan: selectedFeel ?? feelWhenEatArray[0], porsi: Double(selectedPorsi ?? porsiMakanan[0]), satuan: satuanPorsi[0], tanggalJam: getTodayDate() , tipe: selectedTime ?? satuanPorsi[0], idMeal: selectedFood.foodId , nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: namaFoto, kaloriTotal: Int32(totalKalori), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat), kalori: Int32(selectedFood.foodCalories))
+                self.isUpdate = !self.isUpdate
+                self.performSegue(withIdentifier: "goToHome", sender: sender)
+            }else{
+                //data udpdate
+                
+                totalLemak = Float(selectedPorsi ?? 0) * Float (selectedFood.foodFat)
+                totalProtein = Float(selectedPorsi ?? 0) * Float (selectedFood.foodProtein)
+                totalKarbohidrat = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCarbohydrate)
+                totalKalori = Float(selectedPorsi ?? 0) * Float (selectedFood.foodCalories)
+                
+//                data.updateJournal(journal: JournalEntity(), lagiApa: selectedReason ?? reasonToEatArray[0], perasaan: selectedFeel ?? feelWhenEatArray[0], porsi: Double(selectedPorsi ?? porsiMakanan[0]), satuan: satuanPorsi[0], tanggalJam: getTodayDate(), tipe: selectedTime ?? satuanPorsi[0], kalori: Int32(selectedFood.foodCalories), idMeal: selectedFood.foodId, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: selectedFood.foodImage, kaloriTotal: Int32(totalKalori), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat))
+                
+                print("UPDATING DATA.... PLEASE WAIT ....")
+               
+                self.performSegue(withIdentifier: "goToHome", sender: sender)
+            }
+        }
+        
+        
+        
+        
+
+//        data.addJournal(lagiApa: "\(String(describing: selectedReason))", perasaan: "\(String(describing: selectedFeel))", porsi: Double(selectedPorsi ?? 0), satuan: "\(String(describing: selectedSatuan))", tanggalJam: Date(), tipe: "\(String(describing: selectedTime))", idMeal: selectedFood.foodStatus, nama: selectedFood.foodName, deskripsi: selectedFood.foodDescription, karbohidrat: Int32(selectedFood.foodCarbohydrate), lemak: Int32(selectedFood.foodFat), protein: Int32(selectedFood.foodProtein), gambar: Data(), kaloriTotal: Int32(selectedFood.foodCalories), lemakTotal: Int32(totalLemak), proteinTotal: Int32(totalProtein), karbohidratTotal: Int32(totalKarbohidrat), kalori: Int32(selectedFood.foodCalories))
+        
+        
+
+
+        //print("total kalori \(totalKalori) || total protein \(totalProtein)")
+        
+        
+    }
+    
+    
+    @IBAction func buttonHappusPressed(_ sender: Any) {
+    }
+    
+    func getTodayDate() -> Date {
+        let calendar = Calendar(identifier: .gregorian)
+        var finishedDate = calendar.date(byAdding: .hour, value: 7, to: Date())
+        var hourComponent = DateComponents()
+        hourComponent.hour = 0
+
+        finishedDate = calendar.nextDate(after: finishedDate ?? Date(), matching: hourComponent,
+                                         matchingPolicy: .nextTime, direction: .backward)
+        return finishedDate ?? Date()
+    }
+    
+    func registerCellToCollectionView(){
         timeToEatCollectionView.register(UINib(nibName: "TimeToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "timeToEatCell")
         timeToEatCollectionView.delegate = self
         timeToEatCollectionView.dataSource = self
@@ -69,69 +270,73 @@ class FoodDetailViewController: UIViewController {
         feelWhenEatCollectionView.register(UINib(nibName: "FeelToEatCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "feelToEatCell")
         feelWhenEatCollectionView.delegate = self
         feelWhenEatCollectionView.dataSource = self
+    }
+    
+    func settingUiToViewController(){
+        viewHeaderFoodDetail.layer.cornerRadius = 15
         
-        if let layout = timeToEatCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.estimatedItemSize = CGSize(width: view.frame.width, height: 100)
-            layout.itemSize = UICollectionViewFlowLayout.automaticSize
-        }
         
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//        layout.itemSize = CGSize(width: 100, height: 30)
-//        layout.scrollDirection = .horizontal
-//
-//        timeToEatCollectionView.collectionViewLayout = layout
+        viewKarbohidratTop.layer.cornerRadius = 15
+        viewKarbohidratTop.dropShadow()
+        viewKaloriTop.layer.cornerRadius = 15
+        viewKaloriTop.dropShadow()
+        viewProteinTop.layer.cornerRadius = 15
+        viewProteinTop.dropShadow()
+        viewLemakTop.layer.cornerRadius = 15
+        viewLemakTop.dropShadow()
         
-        buttonSubmit.layer.cornerRadius = 15
         
-        setData()
-        //getSelectedDataIntoCoreData() // masukin data selectedFood ke CoreData
+        viewKarbohidratBottom.layer.cornerRadius = 15
+        viewKarbohidratBottom.dropShadow()
+        viewKaloriBottom.layer.cornerRadius = 15
+        viewKaloriBottom.dropShadow()
+        viewLemakBottom.layer.cornerRadius = 15
+        viewLemakBottom.dropShadow()
+        viewProteinBottom.layer.cornerRadius = 15
+        viewProteinBottom.dropShadow()
+        
+        buttonHapus.layer.cornerRadius = 15
     }
     
     
     func setData(){
         foodNameLabel.text = self.selectedFood.foodName
-        foodDescriptionLabel.text = self.selectedFood.foodDescription
-        
-        //calculate food statusnya
-        switch(self.selectedFood.foodStatus){
-        case "Healthy":
-            foodStatusImageView.image = UIImage(named: "healthy-icon")
-            foodCaloriesLabel.textColor = UIColor(red: 0.09, green: 0.54, blue: 0.38, alpha: 1.00)
-            break
-        case "Common":
-            foodStatusImageView.image = UIImage(named: "common-icon")
-            foodCaloriesLabel.textColor = UIColor.orange
-            break
-        case "Unhealthy":
-            foodStatusImageView.image = UIImage(named: "unhealthy-icon")
-            foodCaloriesLabel.textColor = UIColor.red
-            break
-        default:
-            break
-        }
-        foodCaloriesLabel.text = String(self.selectedFood.foodCalories) + "cal"
-        foodFatLabel.text = String(self.selectedFood.foodFat) + "g"
-        foodCarbohydrateLabel.text = String(self.selectedFood.foodCarbohydrate) + "g"
-        foodProteinLabel.text = String(self.selectedFood.foodProtein) + "g"
+        imagePhoto.image = imageHasilPhoto ?? UIImage(named: "breakfast")
+        labelKaloriValueTop.text = String(self.selectedFood.foodCalories) + "kal"
+        labelLemakValueTop.text = String(self.selectedFood.foodFat) + "gr"
+        labelKarbohidratValueTop.text = String(self.selectedFood.foodCarbohydrate) + "gr"
+        labelProteinValueTop.text = String(self.selectedFood.foodProtein) + "gr"
+
+        labelKaloriValueBottom.text = String(self.selectedFood.foodCalories) + "kal"
+         labelLemakValueBottom.text = String(self.selectedFood.foodFat) + "gr"
+         labelKarbohidratValueBottom.text = String(self.selectedFood.foodCarbohydrate) + "gr"
+         labelProteinValueBottom.text = String(self.selectedFood.foodProtein) + "gr"
     }
     
-    @IBAction func buttonSubmit_Pressed(_ sender: Any) {
-        if (selectedReason != nil || selectedTime != nil || selectedFeel != nil){
+    /*@IBAction func buttonSubmit_Pressed(_ sender: Any) {
+        if (selectedReason != "" || selectedTime != "" || selectedFeel != ""){
             // get nilai2 tersebut ke dalam CoreData
-            getSelectedDataIntoCoreData(time: selectedTime!, feel: selectedFeel!, reason: selectedReason!)
+            print(selectedFeel ?? "")
+            print(selectedTime ?? "")
+            print(selectedReason ?? "")
+            getSelectedDataIntoCoreData(time: selectedTime ?? "", feel: selectedFeel ?? "", reason: selectedReason ?? "")
+            
+            /*let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "JournalViewController") as! JournalViewController
+            navigationController?.pushViewController(vc, animated: true)*/
         }
         else{
-            getSelectedDataIntoCoreData(time: "", feel: "", reason: "")
+            print("Kosong!")
         }
-    }
+    }*/
     
     override public func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "goToJournalVC"){
-            let vc = segue.destination as? JournalViewController
-            vc?.picTakenDetail = imageHasilPhoto
+        if(segue.identifier == "goToHome"){
+            let vc = segue.destination as? HomeTabBar
             vc?.modalPresentationStyle = .fullScreen
         }
     }
+    
 }
 
 
@@ -182,8 +387,10 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
         }else if collectionView == self.feelWhenEatCollectionView{
             let cell = collectionView.cellForItem(at: indexPath) as! FeelToEatCollectionViewCell
             cell.changeUpdate()
-            
-        }}
+        }
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //collectionView.backgroundColor = UIColor.green
         //collectionView.layer.backgroundColor = CGColor.init(red: 0, green: 255, blue: 0, alpha: 1)
@@ -210,6 +417,49 @@ extension FoodDetailViewController : UICollectionViewDelegate, UICollectionViewD
             selectedReason = ""
             selectedFeel = ""
         }
+    }
+    
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+//
+//        let totalCellWidth = CellWidth * CellCount
+//        let totalSpacingWidth = CellSpacing * (CellCount - 1)
+//
+//        let leftInset = (collectionViewWidth - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+//        let rightInset = leftInset
+//
+//        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+//    }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 2
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if component == 0 {
+            return porsiMakanan.count
+        }
+        return satuanPorsi.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if component == 0{
+            
+            return String(porsiMakanan[row])
+        }
+        return satuanPorsi[row]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        
+        if pickerView == self.porsiPickerView {
+           
+                selectedPorsi = porsiMakanan[row]
+         
+                selectedSatuan =  satuanPorsi[0]
+        }
+
     }
     
     func getSelectedDataIntoCoreData(time: String, feel: String, reason: String){

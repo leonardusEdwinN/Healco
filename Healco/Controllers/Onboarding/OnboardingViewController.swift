@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class OnboardingViewController: UIViewController {
     
@@ -29,11 +30,11 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         slides = [
-            OnboardingSlide(title: "Knowing Healthy Meal", description: "Capture your meal and get to know if its nutrition good or not", image: UIImage(named: "onboarding-image-1")!),
-            OnboardingSlide(title: "Do Food Diary", description: "By doing food diary, you’ll help yourself to track what’s wrong in your food consumption.", image: UIImage(named: "onboarding-image-2")!),
-            OnboardingSlide(title: "Improve habit", description: "We will give you summary from your diary to improve your habit", image: UIImage(named: "onboarding-image-3")!)
+            OnboardingSlide(title: "Foto Makananmu", description: "Cekrek, cekrek, ambil foto dan dapatkan informasi nutrisi yang ada di makanan kamu.", image: UIImage(named: "onboarding-image-1")!),
+            OnboardingSlide(title: "Jurnaling yuk!", description: "Melakukan jurnaling terhadap konsumsimu dapat membantu meningkatkan kesadaran akan apa yang kamu makan.", image: UIImage(named: "onboarding-image-2")!),
+            OnboardingSlide(title: "Perbaiki Pola Makan", description: "Jurnaling dapat membantu kamu untuk memperbaiki pola makan supaya lebih sehat lho.", image: UIImage(named: "onboarding-image-3")!)
         ]
         
         pageControl.numberOfPages = slides.count
@@ -41,12 +42,15 @@ class OnboardingViewController: UIViewController {
         collectionView.delegate = self
     }
     
-    
+    //--Kelny Verision
     @IBAction func btn_next_click(_ sender: Any) {
         if currentPage == slides.count - 1 {
-            let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil);
+//            let storyboard = UIStoryboard(name: "JournalViewController", bundle: nil);
+//
+//            let viewController = storyboard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController;
 
-            let viewController = storyboard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController;
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil);
+            let viewController = storyboard.instantiateViewController(withIdentifier: "OnboardingLogin")
             viewController.modalTransitionStyle = .crossDissolve
             viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: true, completion: nil)
@@ -58,7 +62,21 @@ class OnboardingViewController: UIViewController {
         }
     }
     
-    
+//    @IBAction func btn_next_click(_ sender: Any) {
+//        if currentPage == slides.count - 1 {
+//                let storyboard = UIStoryboard(name: "HomeTabBar", bundle: nil);
+//
+//                let viewController = storyboard.instantiateViewController(withIdentifier: "HomeTabBar") as! HomeTabBar;
+//            viewController.modalTransitionStyle = .crossDissolve
+//            viewController.modalPresentationStyle = .fullScreen
+//            self.present(viewController, animated: true, completion: nil)
+//        } else {
+//            currentPage += 1
+//            collectionView.isPagingEnabled = false
+//            collectionView.scrollToItem(at: IndexPath(item: currentPage, section: 0), at: .centeredHorizontally, animated: true)
+//            collectionView.isPagingEnabled = true
+//        }
+//    }
 }
 
 extension OnboardingViewController: UICollectionViewDelegate {

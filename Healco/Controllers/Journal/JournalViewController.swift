@@ -6,38 +6,107 @@
 //
 
 import Foundation
-import Charts
 import CoreData
+import UIKit
+import FatSecretSwift
+import HealthKit
+
+enum isJournalFill {
+    case yesterdayFill //jika jurnal terisi
+    case yesterdayNo //jika journal tidak terisi
+    case dayDate //untuk tanggal hari ini
+    case tomorrow
+}
 
 class JournalViewController : UIViewController{
     
-    @IBOutlet weak var imageAddJournal: UIImageView!
-    @IBOutlet weak var viewEmptyJournal: UIView!
-    @IBOutlet weak var labelPieChartDetail: UILabel!
-    @IBOutlet weak var labelPieChartPercentage: UILabel!
-    @IBOutlet weak var stackPieChart: UIStackView!
-    @IBOutlet weak var stackNoChartData: UIStackView!
-    @IBOutlet weak var buttonChangeDate: UIButton!
-    @IBOutlet weak var collectionViewPhotoGallery: UICollectionView!
-    @IBOutlet weak var viewSlideShowGallery: UIView!
-    @IBOutlet weak var viewSummary: UIView!
-    @IBOutlet weak var viewPieChart: UIView!
-    @IBOutlet weak var collectionViewWeekly: UICollectionView!
-    @IBOutlet weak var labelCommon: UILabel!
-    @IBOutlet weak var labelUnhealthy: UILabel!
-    @IBOutlet weak var labelHealthy: UILabel!
-    @IBOutlet weak var labelDate: UILabel!
-    var pieChartView = PieChartView()
+    //Coredata
+    let data = CoreDataClass()
     
-    //Photo Gallery
-    var carouselData = [Photo]()
-    let cellScale : CGFloat = 0.6
-    var picTakenDetail: UIImage!
+    let fatSecretClient = FatSecretClient()
+    var selectedFood = FoodModel2()
+    
+    var profile : Profile!
+    
+    @IBOutlet weak var viewScrolling: UIView!
+    
+    @IBOutlet weak var addJournalButton: UIButton!
+    //Header
+    @IBOutlet weak var viewJournalHeader: UIView!
+    @IBOutlet weak var labelJournalTitle: UILabel!
+    @IBOutlet weak var labelBulan: UILabel!
+    @IBOutlet weak var buttonChangeDate: UIButton!
+    
+    //Weekly CollectionView
+    @IBOutlet weak var collectionViewWeekly: UICollectionView!
+    
+    //Nutrisi hari ini
+    @IBOutlet weak var labelNutrisiHariIni: UILabel!
+    @IBOutlet weak var viewKalori: UIView!
+    @IBOutlet weak var labelKaloriText: UILabel!
+    @IBOutlet weak var labelKalori: UILabel!
+    @IBOutlet weak var labelSatuanKalori: UILabel!
+    @IBOutlet weak var progressViewKalori: UIProgressView!
+    
+    //Karbohidrat
+    @IBOutlet weak var labelKarbohidratValue: UILabel!
+    @IBOutlet weak var labelKarbohidratText: UILabel!
+    @IBOutlet weak var viewKarbohidrat: UIView!
+    //Protein
+    @IBOutlet weak var labelProteinValue: UILabel!
+    @IBOutlet weak var labelProteinText: UILabel!
+    @IBOutlet weak var viewProtein: UIView!
+    //Lemak
+    @IBOutlet weak var labelLemakValue: UILabel!
+    @IBOutlet weak var labelLemakText: UILabel!
+    @IBOutlet weak var viewLemak: UIView!
+    
+    //Konsumsimu Hari Ini
+    @IBOutlet weak var labelKonsumsimuHariIni: UILabel!
+    //CollectionView Sarapan
+    @IBOutlet weak var viewSarapan: UIView!
+    @IBOutlet weak var stackViewNoSarapan: UIStackView!
+    @IBOutlet weak var labelNoSarapan: UILabel!
+    @IBOutlet weak var imageNoSarapan: UIImageView!
+    @IBOutlet weak var labelSarapan: UILabel!
+    @IBOutlet weak var collectionViewSarapan: UICollectionView!
+    //CollectionView Makan Siang
+    @IBOutlet weak var viewMakanSiang: UIView!
+    @IBOutlet weak var stackViewNoMakanSiang: UIStackView!
+    @IBOutlet weak var labelNoMakanSiang: UILabel!
+    @IBOutlet weak var imageNoMakanSiang: UIImageView!
+    @IBOutlet weak var labelMakanSiang: UILabel!
+    @IBOutlet weak var collectionViewMakanSiang: UICollectionView!
+    //CollectionView Makan Malem
+    @IBOutlet weak var viewMakanMalam: UIView!
+    @IBOutlet weak var stackViewNoMakanMalam: UIStackView!
+    @IBOutlet weak var labelNoMakanMalam: UILabel!
+    @IBOutlet weak var imageNoMakanMalam: UIImageView!
+    @IBOutlet weak var labelMakanMalam: UILabel!
+    @IBOutlet weak var collectionViewMakanMalam: UICollectionView!
+    //CollectionView Snack
+    @IBOutlet weak var viewSnack: UIView!
+    @IBOutlet weak var stackViewNoSnack: UIStackView!
+    @IBOutlet weak var labelNoSnack: UILabel!
+    @IBOutlet weak var imageNoSnack: UIImageView!
+    @IBOutlet weak var labelSnack: UILabel!
+    @IBOutlet weak var collectionViewSnack: UICollectionView!
+    
+    
+    //data Journal Array
+    var dataJournalSarapan : [JournalEntity] = [JournalEntity]()
+    var dataJournalMakanSiang : [JournalEntity] = [JournalEntity]()
+    var dataJournalMakanMalam : [JournalEntity] = [JournalEntity]()
+    var dataJournalSnack : [JournalEntity] = [JournalEntity]()
     
     // Weekly CollectionCell
     var date : [String] = []
+    var dayString : [String] = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"]
     var dateForDataBase : [String] = []
     var selectedBefore : IndexPath!
+    var selectedDate : String = ""
+    var isInitiateDate : Bool = false
+    var selectedIndex : Int = 0
     
     //properties
     let sectionInsets = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
@@ -45,162 +114,234 @@ class JournalViewController : UIViewController{
     let spacingBetweenCells: CGFloat = 10
     private var startingScrollingOffset = CGPoint.zero
     
-    //datepicker
-    var toolBar = UIToolbar()
     var datePicker  = UIDatePicker()
+    var tanggalHariIni : Date!
+    let formatter = DateFormatter()
     
     var fetchData: [NSManagedObject] = []
     
+    //healthKit
+    var healthStore = HKHealthStore()
+
+    //var activityringview
     
-    var count_healthy: Int = 0
-    var count_common: Int = 0
-    var count_unhealthy: Int = 0
-    var dataEntries : [PieChartDataEntry] = []
+    override func viewWillAppear(_ animated: Bool) {
+        collectionViewSnack.reloadData()
+        collectionViewSarapan.reloadData()
+        collectionViewMakanSiang.reloadData()
+        collectionViewMakanMalam.reloadData()
+        
+        healthStore.requestAuthorization(toShare: nil, read: [HKObjectType.activitySummaryType()]){
+            success, Error in
+            
+            self.healthkit()
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDate()
         
-        // add tap gesture to image
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.goToFoodRecog))
+        self.getWidthViewNutrition()
+        self.getDateArray()
+        self.createUI()
         
-        imageAddJournal.isUserInteractionEnabled = true
-        imageAddJournal.addGestureRecognizer(tapGestureRecognizer)
-        buttonChangeDate.layer.cornerRadius = 13.5
-        buttonChangeDate.layer.masksToBounds = true
+        // MARK: FOR BMR
+        tanggalHariIni = getTodayDate()
         
-        //pieChart
-        pieChartView.delegate = self
+        let profileDataFetch = data.fetchProfile()
+        let sumkalori = data.sumKalori(tanggalJurnal: tanggalHariIni)
+        var profileDummy : Profile = Profile(age: 0, gender: .male, height: 0, weight: 0)
         
-        // UIcollectionview
-        collectionViewPhotoGallery.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "galleryPhotoCell")
-        collectionViewPhotoGallery.delegate = self
-        collectionViewPhotoGallery.dataSource = self
-        //        let screenSize = UIScreen.main.bounds.size
-        //        let cellWidth = floor(screenSize.width * cellScale)
-        //        let cellHeight = floor(screenSize.height * cellScale)
-        //        let insetX = (collectionViewPhotoGallery.frame.size.width - cellWidth) / 2.0
-        //        let insetY = (collectionViewPhotoGallery.frame.size.height - cellHeight) / 2.0
-        //
-        //        let layout = collectionViewPhotoGallery.collectionViewLayout as! UICollectionViewFlowLayout
-        //        layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
-        //        collectionViewPhotoGallery.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
-        
-        
-        //weekly
-        collectionViewWeekly.register(UINib.init(nibName: "WeeklyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "weeklyCollectionViewCell")
-        collectionViewWeekly.delegate = self
-        collectionViewWeekly.dataSource = self
-        collectionViewWeekly.allowsMultipleSelection = false
-        
-        let weekday = Calendar.current.component(.weekday, from: Date())
-        for n in (1...weekday - 1).reversed(){
-            date.append(calweeksDates2(when: -n))
-            dateForDataBase.append(calweeksDates(when: -n))
-        }
-        date.append(calweeksDates2(when: 0))
-        dateForDataBase.append(calweeksDates(when: 0))
-        for n in weekday - 1...6{
-            date.append(calweeksDates2(when: n))
-            dateForDataBase.append(calweeksDates(when: n))
+        if profileDataFetch.count != 0{
+            profileDummy.age = calcAge(birthday: profileDataFetch[0].tanggal_lahir ?? Date())
+            profileDummy.gender = profileDataFetch[0].gender == "Pria" || profileDataFetch[0].gender == "" ? .male : .female
+            profileDummy.height = Int(profileDataFetch[0].tinggi_badan)
+            profileDummy.weight = profileDataFetch[0].berat_badan
+        } else {
+            profileDummy = Profile(age: 0, gender: .male, height: 0, weight: 0)
         }
         
-        let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd"
-        let formattedDate = format.string(from: date)
-        fetchData = myFetchRequestByDate(date: formattedDate)
+        let bmr = BMR(profile: profileDummy)
         
-        for(i) in fetchData.indices{
-            let status = fetchData[i].value(forKeyPath: "foodStatus") as? String
+        let kaloriHariIni : Float = Float(sumkalori)
+        let persentageBmr : Float = kaloriHariIni  / Float(bmr)
+        
+        //MARK: CHANGE FRONT END DATA
+        labelKalori.text = "\(Int(kaloriHariIni)) /\(bmr)"
+        labelKarbohidratValue.text = "\(data.getPercentage(macroNutrient: .karbohidrat, tanggalJurnal: tanggalHariIni))"
+        labelProteinValue.text = "\(data.getPercentage(macroNutrient: .protein, tanggalJurnal: getTodayDate()))"
+        labelLemakValue.text = "\(data.getPercentage(macroNutrient: .lemak, tanggalJurnal: tanggalHariIni))"
+        
+        progressViewKalori.setProgress( persentageBmr , animated: true)
+        
+        
+        let tanggal = Date()
+        let calendar = Calendar.current
+        let tanggalBaru = calendar.dateComponents([.year, .month, .day], from: tanggal as Date)
+
+        guard let tanggalJurnal = calendar.date(from: tanggalBaru) else { return }
+        print("DATE TANGGAL JURNAL : \(tanggalJurnal)")
+//
+        getJournal(tanggal: tanggalHariIni)
+        
+//        collectionViewSarapan.reloadData()
+//        collectionViewMakanSiang.reloadData()
+//        collectionViewMakanMalam.reloadData()
+//        collectionViewSnack.reloadData()
+        
+        
+    }
+    
+    func healthkit () {
+        if HKHealthStore.isHealthDataAvailable() {
+
+            let calendar = Calendar(identifier: .gregorian)
+            var finishedDate = calendar.date(byAdding: .hour, value: 7, to: Date())
+            var hourComponent = DateComponents()
+            hourComponent.hour = 0
+
+            finishedDate = calendar.nextDate(after: finishedDate ?? Date(), matching: hourComponent,
+                                             matchingPolicy: .nextTime, direction: .backward)
             
-            carouselData.append(Photo(image: UIImage(data: fetchData[i].value(forKeyPath: "foodPhoto") as! Data)!, title: "\(fetchData[i].value(forKeyPath: "foodName") as! String)", description: "\(fetchData[i].value(forKeyPath: "foodDescription") as! String)", status: status!))
             
-            if(status == "Healthy"){
-                count_healthy += 1
-            } else if status == "Common"{
-                count_common += 1
-            } else {
-                count_unhealthy += 1
+            
+            let predicate = NSPredicate(format: "%K = %@", argumentArray: [HKPredicateKeyPathDateComponents, finishedDate ?? Calendar.current])
+            
+            let query = HKActivitySummaryQuery(predicate: predicate){ query,summaries ,error in
+                
+                //print("summ",summaries?[0].activeEnergyBurned ?? "")
+                if let summary = summaries?.first{
+                    DispatchQueue.main.sync() {
+                        print(summary.activeEnergyBurned)
+                    }
+                }
             }
-        }
-        
-        labelHealthy.text = "\(count_healthy) Healthy"
-        labelCommon.text = "\(count_common) Common"
-        labelUnhealthy.text = "\(count_unhealthy) Unhealthy"
-        
-        let totalData = count_healthy + count_common + count_unhealthy
-        if(count_healthy > count_common && count_healthy > count_unhealthy){
-            //makan sehat
-            labelPieChartPercentage.text = "\( round((Double(count_healthy) / Double(totalData)) * 100))%"
-            labelPieChartDetail.text = "Healthy"
-        }else if(count_common > count_healthy && count_common > count_unhealthy){
-            //common
-            
-            labelPieChartPercentage.text = "\( round((Double(count_common) / Double(totalData)) * 100))%"
-            labelPieChartDetail.text = "Common"
-        } else {
-            labelPieChartPercentage.text = "\( round((Double(count_unhealthy) / Double(totalData)) * 100))%"
-            labelPieChartDetail.text = "Unhealthy"
-        }
-        
-        if (carouselData.isEmpty){
-            stackNoChartData.isHidden = false
-            stackPieChart.isHidden = true
-            pieChartView.isHidden = true
-            viewEmptyJournal.isHidden = false
-        } else {
-            stackNoChartData.isHidden = true
-            stackPieChart.isHidden = false
-            pieChartView.isHidden = false
-            viewEmptyJournal.isHidden = true
+            healthStore.execute(query)
         }
     }
     
     
-    func getDate(){
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .full
-        dateFormatter.timeStyle = .none
+    func getTodayDate() -> Date {
+        let calendar = Calendar(identifier: .gregorian)
+        var finishedDate = calendar.date(byAdding: .hour, value: 7, to: Date())
+        var hourComponent = DateComponents()
+        hourComponent.hour = 0
+
+        finishedDate = calendar.nextDate(after: finishedDate ?? Date(), matching: hourComponent,
+                                         matchingPolicy: .nextTime, direction: .backward)
+        return finishedDate ?? Date()
+    }
+    
+    func getDateArray() {
+        let theCalendar     = Calendar.current
+        var dayComponent    = DateComponents()
+        dayComponent.day    = 1 // For removing one day (yesterday): -1
         
-        let result = dateFormatter.string(from: date)
-        labelDate.text = result
+        let calendarDate = Date()
+        
+        var tanggal : Date?
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        for indexOfDate in 0..<7 {
+            
+            if (indexOfDate == 0) {
+                tanggal = calendarDate.startOfWeek
+            }
+            formatter.dateFormat = "dd"
+//            formatter.locale = Locale(identifier: "id_ID")
+            let tanggalPrint = formatter.string(from: tanggal!)
+            date.append(tanggalPrint)
+            
+            tanggal = theCalendar.date(byAdding: dayComponent, to: tanggal!) //tambahin lagi 1 hari
+        }
+    }
+    
+    func getFoodJournalIsEmptyOrNay(tanggalParam : Date) -> isJournalFill{
+        var result : isJournalFill = .tomorrow
+        let dataJournal = data.fetchJournalBaseOnDay(tanggalWaktu: tanggalParam)
+        let order = Calendar.current.compare(tanggalHariIni, to: tanggalParam, toGranularity: .day)
+        
+        switch order {
+        case .orderedDescending: //yesterday
+            result =  dataJournal.count > 0 ? isJournalFill.yesterdayFill : isJournalFill.yesterdayNo
+        case .orderedAscending: //tomorrow
+            result = isJournalFill.tomorrow
+        case .orderedSame: //daydate
+            result = isJournalFill.dayDate
+        }
+        
+        return result
+    }
+    
+    func getJournal(tanggal: Date){
+        print("DATE : \(tanggal)")
+        let dataJournalSarapan = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Breakfast")
+        stackViewNoSarapan.isHidden = dataJournalSarapan.count > 0 ? true : false
+        self.dataJournalSarapan = dataJournalSarapan.count > 0 ? dataJournalSarapan : []
+        self.collectionViewSarapan.reloadData()
+        
+        let dataJournalSiang = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Lunch")
+        stackViewNoMakanSiang.isHidden = dataJournalSiang.count > 0 ? true : false
+        self.dataJournalMakanSiang = dataJournalSiang.count > 0 ? dataJournalSiang : []
+        self.collectionViewMakanSiang.reloadData()
+        
+        let dataJournalMalam = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Dinner")
+        stackViewNoMakanMalam.isHidden = dataJournalMalam.count > 0 ? true : false
+        self.dataJournalMakanMalam = dataJournalMalam.count > 0 ? dataJournalMalam : []
+        self.collectionViewMakanMalam.reloadData()
+        
+        let dataJournalSnack = data.fetchJournalBaseOnDayAndType(tanggalWaktu: tanggal, tipe: "Snack")
+        stackViewNoSnack.isHidden = dataJournalSnack.count > 0 ? true : false
+        self.dataJournalSnack = dataJournalSnack.count > 0 ? dataJournalSnack : []
+        self.collectionViewSnack.reloadData()
+        
+//        print("JOURNAL SARAPAN : \(self.dataJournalSarapan.count)")
+//        print("JOURNAL SIANG : \(self.dataJournalMakanSiang.count)")
+//        print("JOURNAL MALAM : \(self.dataJournalMakanMalam.count)")
+//        print("JOURNAL SNACK : \(self.dataJournalSnack.count)")
+        
+        
+        
+//        for journal in data.fetchJournal() {
+//            print("tipe: ", journal.tipe ?? "")
+//            print("karbo: ", journal.karbohidratTotal)
+//            print("lemak: ", journal.lemakTotal)
+//            print("protein: ", journal.proteinTotal)
+//            print("kalori: ", journal.kaloriTotal)
+//        }
+//
+//        print("data jurnal: ", data.fetchJournal().count)
+    }
+    
+    func calcAge(birthday: Date) -> Int {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "MM/dd/yyyy"
+        let calendar: NSCalendar! = NSCalendar(calendarIdentifier: .gregorian)
+        let now = Date()
+        let calcAge = calendar.components(.year, from: birthday, to: now, options: [])
+        let age = calcAge.year
+        return age!
+    }
+    
+    @objc func backgroundTap(gesture : UITapGestureRecognizer) {
+        datePicker.removeFromSuperview()
     }
     
     @IBAction func buttonChangeDateClicked(_ sender: UIButton) {
-        
-        datePicker = UIDatePicker.init()
-        datePicker.backgroundColor = UIColor.white
-        
-        datePicker.autoresizingMask = .flexibleWidth
-        datePicker.datePickerMode = .date
-        
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.preferredDatePickerStyle = .inline
         datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
-        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 150, width: UIScreen.main.bounds.size.width, height: 150)
+
+        datePicker.backgroundColor = .secondarySystemBackground
         self.view.addSubview(datePicker)
-        
-        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 150, width: UIScreen.main.bounds.size.width, height: 50))
-        toolBar.barStyle = .default
-        
-        let topBarTitleLabel = UILabel.init(frame: (CGRect.init(origin: CGPoint.init(x: 0.0, y: 0.0), size: CGSize.init(width: 0.0, height: 0.0))))
-        topBarTitleLabel.text = "Change Date"
-        topBarTitleLabel.sizeToFit()
-        topBarTitleLabel.backgroundColor = UIColor.clear
-        topBarTitleLabel.textColor = UIColor.gray
-        topBarTitleLabel.textAlignment = NSTextAlignment.center
-        let topBarButtonItemTitleLabel = UIBarButtonItem.init(customView: topBarTitleLabel)
-        
-        let buttonCancel = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(self.onCancelButtonClick))
-        let flexibleBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        self.toolBar.setItems([flexibleBarButtonItem, topBarButtonItemTitleLabel, flexibleBarButtonItem, buttonCancel], animated: false)
-        self.toolBar.setNeedsLayout()
-        toolBar.sizeToFit()
-        self.view.addSubview(toolBar)
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        datePicker.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        datePicker.widthAnchor.constraint(equalToConstant: view.frame.size.width).isActive = true
     }
     
-    @objc func onCancelButtonClick() {
-        toolBar.removeFromSuperview()
+    @objc func onDoneButtonClick() {
         datePicker.removeFromSuperview()
     }
     
@@ -210,88 +351,55 @@ class JournalViewController : UIViewController{
         dateFormatter.timeStyle = .none
         
         if let date = sender?.date {
-            labelDate.text = dateFormatter.string(from: date)
+            self.selectedDate = dateFormatter.string(from: date)
             datePicker.removeFromSuperview()
-            toolBar.removeFromSuperview()
         }
-    }
-    @objc func goToFoodRecog() {
-        performSegue(withIdentifier: "goToFoodRecog", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToFoodRecog",
-           let foodRecogVC = segue.destination as? FoodRecogVC {
-            foodRecogVC.modalPresentationStyle = .fullScreen
+        if segue.identifier == "goToDetailJournal",
+           let detailJournalVC = segue.destination as? FoodDetailViewController {
+            detailJournalVC.statusEdit = true
+            detailJournalVC.selectedFood = self.selectedFood
+            detailJournalVC.modalPresentationStyle = .fullScreen
+            
         }
     }
-    
-    func calweeksDates(when: Int) -> String {
-        var  result = ""
-        let lastWeekDate = Calendar.current.date(byAdding: .day, value: when, to: Date())!
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "id_ID")
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let lastWeekDateString = dateFormatter.string(from: lastWeekDate)
-        result = lastWeekDateString
-        return result
-    }
-    
-    func calweeksDates2(when : Int) -> String {
-        var  result = ""
-        let lastWeekDate = Calendar.current.date(byAdding: .day, value: when, to: Date())!
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "id_ID")
-        dateFormatter.dateFormat = "MMM dd"
-        let lastWeekDateString = dateFormatter.string(from: lastWeekDate)
-        result = lastWeekDateString
-        return result
-    }
-    
-    func checkHeatlhy(tanggal: String) -> String {
-        var data : [String] = []
-        
-        for(i) in fetchData.indices{
-            //print("Tanggal: \(fetchData[i].value(forKeyPath: "dateTaken") as! String)")
-            if ((fetchData[i].value(forKeyPath: "dateTaken") as? String) != nil && fetchData[i].value(forKey: "dateTaken") as? String == tanggal){
-                data.append(fetchData[i].value(forKeyPath: "foodStatus") as? String ?? "")
-            }else{
-                return ""
-            }
-        }
-        
-        let healthy = data.lazy.filter{x in x == "Healthy" }.count
-        //let common = data.lazy.filter{x in x == "Common" }.count
-        let unhealthy = data.lazy.filter{x in x == "Unhealthy" }.count
-        
-        if (healthy  > unhealthy){
-            return "Healthy"
-        }else if (healthy < unhealthy){
-            return "Unhealthy"
-        }else if (healthy == 0 && unhealthy == 0 ){
-            return ""
-        }else {
-            return "Unhealthy"
-        }
-    }
-    
-    func foodStatusChange(){
-        
-    }
-    
 }
 
-// MARK : - UICollectionViewDataSource
 extension JournalViewController : UICollectionViewDataSource{
+    
+    //retrive image
+    private func retrieveImage(forKey key: String, inStorageType storageType: StorageType) -> UIImage {
+        switch storageType {
+            case .fileSystem:
+                // Retrieve image from disk
+                break
+            case .userDefaults:
+                if let imageData = UserDefaults.standard.object(forKey: key) as? Data,
+                    let image = UIImage(data: imageData) {
+                    
+                    return image
+                }
+        }
+        return UIImage(named: "brooke-lark-nBtmglfY0HU-unsplash")!
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionViewWeekly {
-            return date.count
-        }else if collectionView == self.collectionViewPhotoGallery{
-            return carouselData.count
+            return 7
+        } else if collectionView == self.collectionViewSarapan {
+            return self.dataJournalSarapan.count
+        } else if collectionView == self.collectionViewMakanSiang {
+            return self.dataJournalMakanSiang.count
+        } else if collectionView == self.collectionViewMakanMalam {
+            return self.dataJournalMakanMalam.count
+        } else if collectionView == self.collectionViewSnack {
+            return self.dataJournalSnack.count
         }
         return 0
     }
@@ -301,212 +409,260 @@ extension JournalViewController : UICollectionViewDataSource{
         if collectionView == self.collectionViewWeekly {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weeklyCollectionViewCell", for: indexPath) as! WeeklyCollectionViewCell
             
-            //            let numberOfCell = 7
-            //           let cellSpecing = 20
-            //               if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            //                layout.itemSize = CGSize(width: (Int(UIScreen.main.bounds.width) - (cellSpecing * (numberOfCell + 1))) / numberOfCell, height: 50)
-            //                    layout.invalidateLayout()
-            //                }
+            formatter.dateFormat = "dd"
+            formatter.locale = Locale(identifier: "id_ID")
+            let tanggalCell = formatter.string(from: tanggalHariIni)
             
-            cell.setUI(dateText: date[indexPath.item])
-            let mystatus = checkHeatlhy(tanggal: dateForDataBase[indexPath.row])
-            cell.changeUpdate(status: mystatus)
-            
-            return cell
-        } else if collectionView == self.collectionViewPhotoGallery{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryPhotoCell", for: indexPath) as! GalleryPhotoCollectionViewCell
-            
-            if(indexPath.item == 0){
-                cell.photoGalleryView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+            if (tanggalCell == date[indexPath.item]){
+                cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item],isToday: true)
+                self.isInitiateDate = true
+                self.selectedIndex = indexPath.item
+            } else {
+                cell.setUI(dateText: date[indexPath.item], dayString: dayString[indexPath.item],isToday: false)
             }
             
-            cell.setUI(dataPhoto: carouselData[indexPath.item])
+            let tanggal = Date()
+            let calendar = Calendar.current
+            var tanggalBaru = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: tanggal as Date)
+            tanggalBaru.day = Int(date[indexPath.item])
             
+            if let tanggalParam = calendar.date(from: tanggalBaru){
+                switch getFoodJournalIsEmptyOrNay(tanggalParam: tanggalParam) {
+                case isJournalFill.yesterdayNo:
+                    cell.labelTanggal.backgroundColor = UIColor(named : "StateUnactiveText")
+                    cell.labelTanggal.textColor = .black
+                case isJournalFill.yesterdayFill:
+                    cell.labelTanggal.backgroundColor = UIColor(named : "AvocadoGreen")
+                    cell.labelTanggal.textColor = .white
+                case isJournalFill.dayDate:
+                    cell.labelTanggal.backgroundColor = UIColor(named : "MangoYoghurt")
+                    cell.labelTanggal.textColor = .black
+                default:
+                    cell.labelTanggal.backgroundColor = .secondarySystemBackground
+                    cell.labelTanggal.textColor = .label
+                }
+            }
+        
+            cell.changeUpdate()
             return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryPhotoCell", for: indexPath) as! GalleryPhotoCollectionViewCell
+            
+            if collectionView == self.collectionViewSarapan {
+                if (self.dataJournalSarapan.count > 0){
+                    cell.setUI(dataPhoto: retrieveImage(forKey: self.dataJournalSarapan[indexPath.item].gambar! , inStorageType: .userDefaults) , title: self.dataJournalSarapan[indexPath.item].nama ?? "")
+                }
+
+            }else  if collectionView == self.collectionViewMakanSiang {
+                if (self.dataJournalMakanSiang.count > 0){
+                    cell.setUI(dataPhoto: retrieveImage(forKey: self.dataJournalMakanSiang[indexPath.item].gambar! , inStorageType: .userDefaults) , title: self.dataJournalMakanSiang[indexPath.item].nama ?? "")
+                }
+            }else  if collectionView == self.collectionViewMakanMalam {
+                if(self.dataJournalMakanMalam.count > 0){
+                    cell.setUI(dataPhoto: retrieveImage(forKey: self.dataJournalMakanMalam[indexPath.item].gambar! , inStorageType: .userDefaults) , title: self.dataJournalMakanMalam[indexPath.item].nama ?? "")
+                }
+                
+            }else  if collectionView == self.collectionViewSnack {
+                if(self.dataJournalSnack.count > 0){
+                    cell.setUI(dataPhoto: retrieveImage(forKey: self.dataJournalSnack[indexPath.item].gambar! , inStorageType: .userDefaults) , title: self.dataJournalSnack[indexPath.item].nama!)
+                }
+            }
+            return cell
+
         }
-        
-        return UICollectionViewCell()
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd"
-        let formattedDate = format.string(from: date)
-        fetchData = myFetchRequestByDate(date: formattedDate)
-        if collectionView == self.collectionViewWeekly {
+        switch collectionView {
+        case self.collectionViewWeekly:
             let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
-            let mystatus = checkHeatlhy(tanggal: dateForDataBase[indexPath.row])
-            cell.changeUpdate(status: mystatus)
-        }else if collectionView == self.collectionViewPhotoGallery{
-            //            let cell = collectionView.cellForItem(at: indexPath) as! GalleryPhotoCollectionViewCell
-            //            if(indexPath.item == 0){
-            //                //pindah ke halaman foodRecog
-            //                performSegue(withIdentifier: "goToFoodRecog", sender: self)
-            //            }else
             
-            if  indexPath.item <= fetchData.count {
-                //masuk ke halaman detail
-                let food = getFoodFromCoreDataByName(name: fetchData[indexPath.item].value(forKeyPath: "foodName") as! String)
-                let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
-                let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
-                vc.selectedFood = food
-                vc.imageHasilPhoto = UIImage(data: fetchData[indexPath.item].value(forKeyPath: "foodPhoto") as! Data)
-                vc.modalPresentationStyle = .pageSheet
-                self.present(vc, animated: true, completion: nil)
+            if(self.isInitiateDate){
+                let cellSelectedBefore = collectionView.cellForItem(at: IndexPath(item: self.selectedIndex, section: 0)) as! WeeklyCollectionViewCell
+                
+                cellSelectedBefore.isSelected = false
+                
+                self.isInitiateDate = false
+                cellSelectedBefore.changeUpdate()
             }
+            
+            cell.changeUpdate()
+            
+            let tanggal = Date()
+            let calendar = Calendar.current
+            var tanggalBaru = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: tanggal as Date)
+            tanggalBaru.day = Int(date[indexPath.item])
+            
+            guard let tanggalJurnal = calendar.date(from: tanggalBaru) else { return }
+            
+            getJournal(tanggal: tanggalJurnal)
+            
+            break
+        case self.collectionViewSarapan:
+            if let foodIdSelected = dataJournalSarapan[indexPath.item].id_meal, let gambar = dataJournalSarapan[indexPath.item].gambar{
+                getFood(idFood : foodIdSelected, gambar : gambar)
+            }
+            break
+        case self.collectionViewMakanSiang:
+            print("SOMETHING CLICKED FROM SIANG")
+            print("selected \(dataJournalMakanSiang[indexPath.item])")
+            if let foodIdSelected = dataJournalMakanSiang[indexPath.item].id_meal , let gambar = dataJournalMakanSiang[indexPath.item].gambar{
+                getFood(idFood : foodIdSelected, gambar : gambar)
+            }
+            break
+        case self.collectionViewMakanMalam:
+            if let foodIdSelected = dataJournalMakanMalam[indexPath.item].id_meal , let gambar = dataJournalMakanMalam[indexPath.item].gambar{
+                getFood(idFood : foodIdSelected, gambar : gambar)
+            }
+            break
+        case self.collectionViewSnack:
+            print("selected \(dataJournalSnack[indexPath.item])")
+            if let foodIdSelected = dataJournalSnack[indexPath.item].id_meal, let gambar = dataJournalSnack[indexPath.item].gambar{
+                getFood(idFood : foodIdSelected, gambar : gambar)
+            }
+            break
+        default:
+            print("CANNOT SELECT")
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if collectionView == self.collectionViewWeekly {
-            let cell = collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell
-            let mystatus = checkHeatlhy(tanggal: dateForDataBase[indexPath.row])
-            cell.changeUpdate(status: mystatus)
+            (collectionView.cellForItem(at: indexPath) as! WeeklyCollectionViewCell).changeUpdate()
         }
     }
     
-    //how to equaly space
+    // MARK: BMR Calculation
+    
+    private func BMR(profile : Profile) -> Int{
+        var bmrScore : Float!
+        let weight : Float = Float(profile.weight)
+        let height : Float = Float(profile.height)
+        let age : Float = Float(profile.age)
+        
+        if profile.gender == .male {
+            bmrScore = 88.362 + 13.397 * weight  + 4.799 * height  - 5.677 * age
+        } else {
+            bmrScore = 447.593 + 9.247 * weight  + 3.098 * height - 4.330 * age
+        }
+        return Int(bmrScore ?? 0.0)
+    }
+    
 }
 
-//extension JournalViewController : WeeklyCollectionViewCellProtocol{
-//    func reloadCell() {
-//        DispatchQueue.main.async {
-//            self.collectionViewWeekly.reloadData()
-//        }
-//    }
-//}
+extension JournalViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var widthCell : CGSize = CGSize(width: 100, height: 100)
+        if collectionView == self.collectionViewWeekly {
+            let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+            layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing = 0
+            layout.invalidateLayout()
+            
+            widthCell =  CGSize(width: self.view.frame.width / 8 , height:70) // Set your item size here
+        } else {
+            widthCell =  CGSize(width: 125 , height:150)
+        }
+        
+        return widthCell
+    }
+}
 
-// MARK : - UICollectionViewDelegate
 extension JournalViewController : UICollectionViewDelegate, UIScrollViewDelegate{
     
-    //    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-    //      startingScrollingOffset = scrollView.contentOffset
-    //    }
-    //
-    //    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-    //        let layout = self.collectionViewPhotoGallery.collectionViewLayout as! UICollectionViewFlowLayout
-    //        let cellWidthIncludingSpacing = layout.itemSize.width + layout.minimumLineSpacing
-    //        print(cellWidthIncludingSpacing)
-    //
-    //        var offset = targetContentOffset.pointee
-    //        let index = (offset.x + scrollView.contentInset.left) / cellWidthIncludingSpacing
-    //        let roundedIndex = round(index)
-    //        print(roundedIndex)
-    //
-    //        offset = CGPoint(x: roundedIndex * cellWidthIncludingSpacing - scrollView.contentInset.left, y: scrollView.contentInset.top)
-    //
-    //        targetContentOffset.pointee = offset
-    ////            let pageWidht:CGFloat = 200.0 + 30.0
-    ////            let currentOffset = scrollView.contentOffset.x
-    ////            let targetOffset = CGFloat(targetContentOffset.pointee.x)
-    ////            var newTargetOffset:CGFloat = 0.0
-    ////
-    ////            if targetOffset > currentOffset {
-    ////                newTargetOffset = CGFloat(ceilf(Float((currentOffset / pageWidht) * pageWidht)))
-    ////            }
-    ////            else {
-    ////                newTargetOffset = CGFloat(floorf(Float((currentOffset / pageWidht) * pageWidht)))
-    ////            }
-    ////
-    ////            if newTargetOffset < 0.0 {
-    ////                newTargetOffset = 0.0
-    ////            }
-    ////            else if newTargetOffset > scrollView.contentSize.width {
-    ////                newTargetOffset = scrollView.contentSize.width
-    ////            }
-    ////            targetContentOffset.pointee = CGPoint(x: newTargetOffset, y: 0.0)
-    //
-    //    }
 }
 
-extension JournalViewController : ChartViewDelegate{
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        pieChartView.frame = CGRect(x: 0, y: 0, width: viewPieChart.frame.size.width, height: viewPieChart.frame.size.height)
+//extension for UI
+extension JournalViewController{
+    func createUI(){
         
-        pieChartView.holeRadiusPercent = 0.7
-        pieChartView.transparentCircleRadiusPercent = 0.0
-        pieChartView.drawHoleEnabled = true
-        pieChartView.holeColor = .systemBackground
+        //view nutrition
+        viewJournalHeader.layer.cornerRadius = 30
+        viewKarbohidrat.layer.cornerRadius = 15
+        viewKarbohidrat.dropShadow()
+        viewProtein.layer.cornerRadius = 15
+        viewProtein.dropShadow()
+        viewLemak.layer.cornerRadius = 15
+        viewLemak.dropShadow()
+        viewKalori.layer.cornerRadius = 15
+        viewKalori.dropShadow()
         
-        // hides center text
-        pieChartView.drawCenterTextEnabled = true
-        pieChartView.legend.enabled = false
-        pieChartView.drawEntryLabelsEnabled = false
-        pieChartView.entryLabelColor = .clear
-        pieChartView.animate(xAxisDuration: 1.5)
-        pieChartView.setExtraOffsets(left: -15, top: -15, right: -15, bottom: -15)
+        //progressbar
+        progressViewKalori.transform = progressViewKalori.transform.scaledBy(x: 1, y: 3)
+        progressViewKalori.layer.borderWidth = 0.5
+        progressViewKalori.layer.borderColor = UIColor(named : "AvocadoGreen")?.cgColor
+        progressViewKalori.layer.cornerRadius = 5
         
-        viewPieChart.addSubview(pieChartView)
-        pieChartView.addSubview(stackPieChart)
+        //weekly
+        collectionViewWeekly.register(UINib.init(nibName: "WeeklyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "weeklyCollectionViewCell")
+        collectionViewWeekly.delegate = self
+        collectionViewWeekly.dataSource = self
+        collectionViewWeekly.allowsMultipleSelection = false
         
-        let set = PieChartDataSet(entries: dataEntries)
-        set.setColors(UIColor(red: 0.09, green: 0.54, blue: 0.38, alpha: 1.00), UIColor(red: 0.09, green: 0.84, blue: 0.58, alpha: 1.00), UIColor.red)
-        let data = PieChartData(dataSet: set)
+        //sarapan
+        collectionViewSarapan.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil),
+                                       forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewSarapan.delegate = self
+        collectionViewSarapan.dataSource = self
+        collectionViewMakanSiang.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil),
+                                          forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewMakanSiang.delegate = self
+        collectionViewMakanSiang.dataSource = self
+        collectionViewMakanMalam.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil),
+                                          forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewMakanMalam.delegate = self
+        collectionViewMakanMalam.dataSource = self
+        collectionViewSnack.register(UINib.init(nibName: "GalleryPhotoCollectionViewCell", bundle: nil),
+                                     forCellWithReuseIdentifier: "galleryPhotoCell")
+        collectionViewSnack.delegate = self
+        collectionViewSnack.dataSource = self
         
-        dataEntries.removeAll()
-        //append data to pie chart
-        dataEntries.append( PieChartDataEntry(value: Double(count_healthy)))
-        dataEntries.append( PieChartDataEntry(value: Double(count_common)))
-        dataEntries.append( PieChartDataEntry(value: Double(count_unhealthy)))
+        stackViewNoSarapan.isHidden = true
+        stackViewNoMakanSiang.isHidden = true
+        stackViewNoMakanMalam.isHidden = true
+        stackViewNoSnack.isHidden = true
+    }
+    
+    func getWidthViewNutrition(){
+        let width = UIScreen.main.bounds.size.width
+        let rightLeftInset = 60 // (left : 20, right : 20, jarak : 10*2)
         
-        data.setDrawValues(false)
-        pieChartView.data = data
-        
+        let calculate = (Int(width) - rightLeftInset) / 3
+        Swift.print("caclulate width : \(calculate)")
+        self.viewKarbohidrat.frame.size.width = CGFloat(calculate)
+        self.viewProtein.frame.size.width = CGFloat(calculate)
+        self.viewLemak.frame.size.width = CGFloat(calculate)
     }
 }
 
 extension JournalViewController{
-    func fetchValueFromCoreData()->[NSManagedObject]{
-        var data: [NSManagedObject] = []
-        
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        
-        let managedContext = appDelegate!.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Foods")
-        do{
-            try data = managedContext.fetch(fetchRequest)
-        }catch let error as NSError{
-            print("\(error)")
-        }
-        return data
-    }
-    
-    func myFetchRequestByDate(date: String)->[NSManagedObject]
-    {
-        let moc = UIApplication.shared.delegate as? AppDelegate
-        var data: [NSManagedObject] = []
-        let myRequest = NSFetchRequest<NSManagedObject>(entityName: "Foods")
-        let managedContext = moc!.persistentContainer.viewContext
-        myRequest.predicate = NSPredicate(format: "dateTaken CONTAINS[cd] %@", date)
-        
-        do{
-            try data = managedContext.fetch(myRequest)
-        } catch let error{
-            print(error)
-        }
-        return data
-    }
-    
-    func getFoodFromCoreDataByName(name: String) -> FoodModel2{
-        var food: FoodModel2 = FoodModel2()
-        let foodsCoreData: [NSManagedObject] = fetchValueFromCoreData()
-        for(i) in foodsCoreData.indices{
-            if(name == foodsCoreData[i].value(forKeyPath: "foodName") as! String){
-                food.foodName = foodsCoreData[i].value(forKeyPath: "foodName") as? String
-                food.foodDescription = foodsCoreData[i].value(forKeyPath: "foodDescription") as? String
-                food.foodCalories = foodsCoreData[i].value(forKeyPath: "foodCalories") as? Double
-                food.foodFat = foodsCoreData[i].value(forKeyPath: "foodFat") as? Double
-                food.foodCarbohydrate = foodsCoreData[i].value(forKeyPath: "foodCarbohydrate") as? Double
-                food.foodProtein = foodsCoreData[i].value(forKeyPath: "foodProtein") as? Double
-                food.foodSodium = foodsCoreData[i].value(forKeyPath: "foodSodium") as? Double
-                food.foodSaturatedFat = foodsCoreData[i].value(forKeyPath: "foodSaturatedFat") as? Double
+    func getFood(idFood : String, gambar : String){
+        fatSecretClient.getFood(id: idFood) { food in
+            guard let servingsFood = food.servings?[0] else { return }
+            
+            
+//            let data = FoodModel2(foodName: food.name, foodDescription: "", foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0, foodId: idFood)
+//
+//            let foodStatus = self.calculateFood(foodModel: data).rawValue
+//            var description = ""
+            
+            
+            self.selectedFood = FoodModel2(foodName: food.name, foodDescription: "", foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0, foodId: idFood, foodImage : gambar)
+            
+            
+            //print("DATA SELECTED FOOD : \(self.selectedFood)")
+            DispatchQueue.main.async {
+//                let storyboard = UIStoryboard(name: "FoodDetail", bundle: nil);
+//                let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
+//                vc.selectedFood = self.selectedFood
+//                vc.statusEdit = true
+//                vc.modalPresentationStyle = .fullScreen
+//                self.present(vc, animated: true, completion: nil)
+                self.performSegue(withIdentifier: "goToDetailJournal", sender: self)
             }
         }
-        return food
+        
+        
     }
 }
-
-

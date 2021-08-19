@@ -13,8 +13,9 @@ protocol WeeklyCollectionViewCellProtocol {
 
 class WeeklyCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var imageIcon: UIImageView!
-    @IBOutlet weak var labelDate: UILabel!
+    @IBOutlet weak var labelHari: UILabel!
+    @IBOutlet weak var viewOuter: UIView!
+    @IBOutlet weak var labelTanggal: UILabel!
     
 //    var selectedCell: Bool = false {
 //        didSet{
@@ -26,26 +27,41 @@ class WeeklyCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        labelTanggal.layer.cornerRadius = labelTanggal.frame.size.width / 2
+        labelTanggal.layer.masksToBounds = true
+        
+        viewOuter.layer.cornerRadius = 10
+        viewOuter.layer.masksToBounds = true
         // Initialization code
     }
     
-    func setUI(dateText : String){
-        self.labelDate.text = dateText
-        imageIcon.image = UIImage(systemName: "circle.fill")
+    func setUI(dateText : String, dayString : String, isToday : Bool){
+        //dayString untuk hari, dateText untuk tanggal
+        self.labelHari.text = dayString
+        self.labelTanggal.text = dateText
+        self.isSelected = isToday ? true : false
+        self.viewOuter.backgroundColor = isToday ? UIColor(named: "SweetMango")  :  .systemBackground
+        changeUpdate()
+        
     }
     
-    func changeUpdate(status: String){
-//        print("CELL : \(selectedCell) :: isselected \(isSelected)")
-        if(status == "Healthy"){
-            imageIcon.image = UIImage(systemName: "heart.fill")
-            imageIcon.tintColor = .red
-        }else if (status == "Unhealthy"){
-            imageIcon.image = UIImage(systemName: "hand.thumbsdown.fill")
-            imageIcon.tintColor = .red
+    func changeUpdate(){
+//        print("CELL :: isselected \(isSelected)")
+        if(isSelected){
+            viewOuter.backgroundColor = UIColor(named: "SweetMango")
         }else{
-            imageIcon.image = UIImage(systemName: "circle.fill")
-            imageIcon.tintColor = .secondaryLabel
+            viewOuter.backgroundColor = .systemBackground
         }
+//        if(status == "Healthy"){
+//            imageIcon.image = UIImage(systemName: "heart.fill")
+//            imageIcon.tintColor = .red
+//        }else if (status == "Unhealthy"){
+//            imageIcon.image = UIImage(systemName: "hand.thumbsdown.fill")
+//            imageIcon.tintColor = .red
+//        }else{
+//            imageIcon.image = UIImage(systemName: "circle.fill")
+//            imageIcon.tintColor = .secondaryLabel
+//        }
         
 //        delegate?.reloadCell()
     }

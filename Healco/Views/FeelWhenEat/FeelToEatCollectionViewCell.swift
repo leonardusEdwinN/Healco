@@ -23,10 +23,14 @@ class FeelToEatCollectionViewCell: UICollectionViewCell {
     }
     
     func changeUpdate(){
+        
         if(isSelected){
-            self.viewFeel.backgroundColor = UIColor(red: 0.38, green: 0.58, blue: 0.29, alpha: 1.00)
+            self.viewFeel.backgroundColor = UIColor(named: "AvocadoGreen")
+            self.labelFeel.textColor = .white
         }else{
-            self.viewFeel.backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.98, alpha: 1.00)
+            self.viewFeel.backgroundColor = UIColor(named: "MangoYoghurt")
+            self.labelFeel.textColor = UIColor(named: "StateUnactiveText")
+            
         }
     }
 

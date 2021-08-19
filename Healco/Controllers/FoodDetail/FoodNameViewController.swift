@@ -20,21 +20,27 @@ struct FoodDataSearch {
 
 class FoodNameViewController: UIViewController {
     
-    var tooMuch: String = ""
     var isSearching: Bool = false
     //    var foodNames: [String] = []
     var foods: [NSManagedObject] = []
     var filteredFoodNames: [FoodDataSearch] = []
     var imageHasilFoto : UIImage!
+    var namaFoto : String!
     let fatSecretClient = FatSecretClient()
     var foodData : [FoodDataSearch] = []
     //    var selectedData : FoodDataSearch?
     var selectedFood = FoodModel2()
     
+    var isSearchAPI : Bool = false
+    
+    @IBOutlet weak var JournalHeader: UIView!
     @IBOutlet weak var imagePhoto: UIImageView!
     @IBOutlet weak var buttonBack: UIButton!
-    @IBOutlet weak var foodSearchBar: UISearchBar!
+    //@IBOutlet weak var foodSearchBar: UISearchBar!
+    @IBOutlet weak var rearchAPI: UISearchBar!
     @IBOutlet weak var foodNameTableView: UITableView!
+    @IBOutlet weak var judulJenisFood: UILabel!
+    @IBOutlet weak var judulSearchFood: UILabel!
     
     
     override func viewDidLoad() {
@@ -43,7 +49,6 @@ class FoodNameViewController: UIViewController {
         /*
          Method di bawah ini hanya untuk masukin test data, nanti diremove aja waktu mau gabungin, atau diubah ke data dari API
          */
-        
         //add imagephoto ke jurnal
         imagePhoto.image = imageHasilFoto
         
@@ -63,9 +68,11 @@ class FoodNameViewController: UIViewController {
         
         // ==================
         
-        foodSearchBar.delegate = self
+        rearchAPI.delegate = self
+        
         foodNameTableView.dataSource = self
         foodNameTableView.delegate = self
+        JournalHeader.layer.cornerRadius = 30
         //
         //        self.foodData.insert(FoodDataSearch(foodName: "DUmmy", foodId: "1"), at: 0)
         //        print("\(self.foodData[0].foodName)")
@@ -92,6 +99,17 @@ class FoodNameViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func buttonSearchPressed(_ sender: Any) {
+        if rearchAPI.text != "" {
+            foodData.removeAll()
+            search(searchName: rearchAPI.text ?? "")
+            dismissKeyboard()
+            isSearching = false
+        }else{
+            
+        }
+    }
+    
     private func analyzeImage (image: UIImage?){
         guard let buffer = image?.resize(size: CGSize(width: 299, height: 299))?
                 .getCVPixelBuffer() else {
@@ -108,6 +126,8 @@ class FoodNameViewController: UIViewController {
             let foodName = text.replacingOccurrences(of: "_", with: " ")
             print("nama makanannya ", foodName)
             search(searchName: foodName)
+            judulJenisFood.text = "Pilih Jenis \(foodName)"
+            judulSearchFood.text = "Bukan \(foodName)"
         }
         catch {
             print(error.localizedDescription)
@@ -116,19 +136,25 @@ class FoodNameViewController: UIViewController {
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //
-//        if let vc = segue.destination as? FoodDetailViewController{
-//
 //            if(segue.identifier == "goToDetailVC"){
+//                if let vc = segue.destination as? FoodDetailViewController{
+//
+//                    vc.selectedFood = selectedFood // how to passing multiple parameter in prepare
+//                    print("status kirim food : \(selectedFood)")
+//                    vc.statusEdit = false
+//                    vc.modalPresentationStyle = .pageSheet
+//                }
+//
 //                //                if isSearching{
 //                //                    vc.foodId = filteredFoodNames[selectedRow]
 //                //                }
 //                //                else{
-//                vc.selectedFood = selectedFood
+////                vc.selectedFood = selectedFood
 //                //                }
-//                vc.modalPresentationStyle = .pageSheet
+////                vc.modalPresentationStyle = .pageSheet
 //            }
 //
-//        }
+//
 //    }
 }
 
@@ -158,23 +184,33 @@ extension FoodNameViewController: UITableViewDataSource, UITableViewDelegate, UI
         
         //        selectedData = FoodDataSearch(foodName: foodData[indexPath.row].foodName, foodId: foodData[indexPath.row].foodId)
         getFood(idFood: foodData[indexPath.row].foodId)
-        //        performSegue(withIdentifier: "goToDetailVC", sender: self)
+//        performSegue(withIdentifier: "goToDetailVC", sender: self)
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text == "" {
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchBar.text == "" {
+//            isSearching = false
+//            foodNameTableView.reloadData()
+//        } else{
+//            isSearching = true
+//            //comment search function
+//            //            filteredFoodNames = foodNames.filter{(name: String) -> Bool in return name.range(of: searchText, options:.caseInsensitive, range: nil, locale: nil) != nil}
+//            //filteredFoodNames = foodData.filter({foodDa} -> Bool )
+//            filteredFoodNames = foodData.lazy.filter { x in x.foodName.lowercased().contains(searchBar.text!.lowercased()) }
+//            foodNameTableView.reloadData()
+//        }
+//    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if rearchAPI.text != "" {
+            foodData.removeAll()
+            search(searchName: rearchAPI.text ?? "")
+            dismissKeyboard()
             isSearching = false
-            foodNameTableView.reloadData()
-        } else{
-            isSearching = true
-            //comment search function
-            //            filteredFoodNames = foodNames.filter{(name: String) -> Bool in return name.range(of: searchText, options:.caseInsensitive, range: nil, locale: nil) != nil}
-            //filteredFoodNames = foodData.filter({foodDa} -> Bool )
-            filteredFoodNames = foodData.lazy.filter { x in x.foodName.lowercased().contains(searchBar.text!.lowercased()) }
-            foodNameTableView.reloadData()
+        }else{
+            
         }
     }
-    
     //    override func viewDidAppear(_ animated: Bool) {
     //        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil);
     //        let viewController = storyboard.instantiateViewController(withIdentifier: "Onboarding") as! OnboardingViewController;
@@ -203,56 +239,45 @@ extension FoodNameViewController {
         var ifCommmon : Int = 0
         var ifUnhealthy : Int = 0
         var HealthyStat : HealthyStatus!
-        var highIngredient: String = ""
         
         if foodModel.foodFat <= 3.0 {
             ifHealthy += 1
         }else if foodModel.foodFat > 3.0 && foodModel.foodFat <= 17.5 {
             ifCommmon += 1
-            highIngredient += ", quite a lot of fat"
         }else {
             ifUnhealthy += 1
-            highIngredient += ", many fat"
         }
         
         if foodModel.foodProtein <= 25.0 {
             ifHealthy += 1
         }else if foodModel.foodProtein > 25.0 && foodModel.foodProtein <= 56 {
             ifCommmon += 1
-            highIngredient += ", quite a lot of protein"
         }else {
             ifUnhealthy += 1
-            highIngredient += ", too much protein"
         }
         
         if foodModel.foodSodium <= 140.0 {
             ifHealthy += 1
         }else if foodModel.foodSodium > 140 && foodModel.foodSodium <= 400 {
             ifCommmon += 1
-            highIngredient += ", quite a lot of sodium"
         }else {
             ifUnhealthy += 1
-            highIngredient += ", high sodium"
         }
         
         if foodModel.foodSaturatedFat <= 1.5 {
             ifHealthy += 1
-        } else if foodModel.foodSaturatedFat > 1.5 && foodModel.foodSaturatedFat <= 5 {
+        }else if foodModel.foodSaturatedFat > 1.5 && foodModel.foodSaturatedFat <= 5 {
             ifCommmon += 1
-            highIngredient += ", quite a lot of saturated fat"
-        } else {
+        }else {
             ifUnhealthy += 1
-            highIngredient += ", high saturated fat"
         }
         
         if foodModel.foodCarbohydrate <= 65 {
             ifHealthy += 1
         }else if foodModel.foodCarbohydrate > 65 && foodModel.foodCarbohydrate <= 90 {
             ifCommmon += 1
-            highIngredient += ", quite a lot of carbohydrate"
         }else {
             ifUnhealthy += 1
-            highIngredient += ", too much carbohydrate"
         }
         
         
@@ -266,25 +291,16 @@ extension FoodNameViewController {
             HealthyStat = HealthyStatus.healthy
         }
         
-        if ifHealthy == 5 {
-            HealthyStat = HealthyStatus.healthy
-            tooMuch = "You have found very healthy food!"
-        } else if ifUnhealthy > 1 && highIngredient.contains("saturated fat") {
+        if ifUnhealthy > 2 {
             HealthyStat = HealthyStatus.unhealthy
-        } else if ifUnhealthy == 1 && ifHealthy > 2 {
+        }else if ifCommmon > 2 && ifUnhealthy < 2 {
             HealthyStat = HealthyStatus.common
-        } else if ifCommmon > 2 && ifUnhealthy > 1 {
-            HealthyStat = HealthyStatus.unhealthy
-        } else if ifHealthy >= 2 && ifCommmon < 3 {
+        }else if ifHealthy >= 2 && ifCommmon >= 2 {
             HealthyStat = HealthyStatus.healthy
-        } else {
-            HealthyStat = HealthyStatus.common
+        }else {
+            HealthyStat = HealthyStatus.healthy
         }
         
-        if !highIngredient.isEmpty {
-            tooMuch = "This food contains\(highIngredient)"
-        }
-                
         return HealthyStat ?? HealthyStatus.common
     }
     
@@ -292,23 +308,14 @@ extension FoodNameViewController {
         fatSecretClient.getFood(id: idFood) { food in
             guard let servingsFood = food.servings?[0] else { return }
             
-            let data = FoodModel2(foodName: food.name, foodDescription: "", foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0)
             
-            let foodStatus = self.calculateFood(foodModel: data).rawValue
-            var description = ""
+//            let data = FoodModel2(foodName: food.name, foodDescription: "", foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0, foodId: idFood)
+//
+//            let foodStatus = self.calculateFood(foodModel: data).rawValue
+//            var description = ""
             
-            switch foodStatus{
-            case "Healthy":
-                description = "You eat healthy food, Keep it going! \(self.tooMuch)"
-            case "Common":
-                description = "You can eat this, but dont eat too much! \(self.tooMuch)"
-            case "Unhealthy":
-                description = "Please don't eat unhealthy food too much! \(self.tooMuch)"
-            default:
-                print("ERROR")
-            }
             
-            self.selectedFood = FoodModel2(foodName: food.name, foodDescription: description, foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: foodStatus, foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0)
+            self.selectedFood = FoodModel2(foodName: food.name, foodDescription: "", foodCalories: Double(servingsFood.calories ?? "0.0") ?? 0.0 , foodFat: Double(servingsFood.fat ?? "0.0") ?? 0.0, foodCarbohydrate: Double(servingsFood.carbohydrate ?? "0.0") ?? 0.0, foodProtein: Double(servingsFood.protein ?? "0.0") ?? 0.0, foodSodium: Double(servingsFood.sodium ?? "0.0") ?? 0.0, foodStatus: "foodStatus", foodSaturatedFat: Double(servingsFood.saturatedFat ?? "0.0") ?? 0.0, foodId: idFood, foodImage: self.namaFoto)
             
             
             //print("DATA SELECTED FOOD : \(self.selectedFood)")
@@ -317,11 +324,26 @@ extension FoodNameViewController {
                 let vc = storyboard.instantiateViewController(withIdentifier: "FoodDetailViewController") as! FoodDetailViewController
                 vc.selectedFood = self.selectedFood
                 vc.imageHasilPhoto = self.imageHasilFoto
-                vc.modalPresentationStyle = .pageSheet
+                vc.namaFoto = self.namaFoto
+                vc.statusEdit = false
+                vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true, completion: nil)
             }
         }
         
         
+    }
+}
+
+// Put this piece of code anywhere you like
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
