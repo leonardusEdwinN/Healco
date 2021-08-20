@@ -125,7 +125,7 @@
 		137A0B642670CE2B00543CCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		137A0B6E2670CE2C00543CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137A0B712670CE2C00543CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		137A0B732670CE2C00543CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		137A0B732670CE2C00543CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Healco/Info.plist; sourceTree = "<group>"; };
 		138C847926859C4D008E5C2C /* TimeToEatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeToEatCollectionViewCell.swift; sourceTree = "<group>"; };
 		138C847A26859C4D008E5C2C /* TimeToEatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeToEatCollectionViewCell.xib; sourceTree = "<group>"; };
 		138C847E2685A0B8008E5C2C /* ReasonToEatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonToEatCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -284,7 +284,6 @@
 				2268724B2678BF41006293A3 /* MLmodel */,
 				137A0B6E2670CE2C00543CCF /* Assets.xcassets */,
 				137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */,
-				137A0B732670CE2C00543CCF /* Info.plist */,
 			);
 			path = Healco;
 			sourceTree = "<group>";
@@ -429,6 +428,7 @@
 		2217A79526CD123C00DB0651 /* Capmeal_Watch */ = {
 			isa = PBXGroup;
 			children = (
+				137A0B732670CE2C00543CCF /* Info.plist */,
 				2217A79626CD123C00DB0651 /* Interface.storyboard */,
 				2217A79926CD123D00DB0651 /* Assets.xcassets */,
 				2217A79B26CD123D00DB0651 /* Info.plist */,
