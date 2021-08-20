@@ -6,11 +6,19 @@
 //
 
 import WatchKit
+import UserNotifications
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
         // Perform any final initialization of your application.
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            if success{
+                print("Apple Watch bisa terima notification")
+            } else if let error = error{
+                print("Apple Watch tak dapat menerima notification \(error.localizedDescription)")
+            }
+        }
     }
 
     func applicationDidBecomeActive() {
