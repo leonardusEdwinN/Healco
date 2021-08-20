@@ -6,8 +6,11 @@
 //
 
 import ClockKit
+import SwiftUI
 
 class ComplicationController: NSObject, CLKComplicationDataSource {
+    
+    let dataController: CalorieIntake? = CalorieIntake(intakeCal: 365, percentCal: 0.3)
     
     // MARK: - Complication Configuration
 
@@ -29,7 +32,7 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     func getTimelineEndDate(for complication: CLKComplication, withHandler handler: @escaping (Date?) -> Void) {
         // Call the handler with the last entry date you can currently provide or nil if you can't support future timelines
-        handler(nil)
+        handler(Date())
     }
     
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
@@ -40,13 +43,35 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     // MARK: - Timeline Population
     
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        // Call the handler with the current timeline entry
-        handler(nil)
+        if let calorie = dataController,
+          let template = makeTemplate(for: calorie, complication: complication) {
+          let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+          handler(entry)
+        } else {
+          handler(nil)
+        }
     }
     
     func getTimelineEntries(for complication: CLKComplication, after date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
-        // Call the handler with the timeline entries after the given date
-        handler(nil)
+        let timeline = dataController
+
+        var entries: [CLKComplicationTimelineEntry] = []
+        var current = date
+        let endDate = Date().addingTimeInterval(1000)
+
+        while (current.compare(endDate) == .orderedAscending) &&
+          (entries.count < limit) {
+          if let next = dataController,
+            let template = makeTemplate(for: next, complication: complication) {
+            let entry = CLKComplicationTimelineEntry(
+              date: current,
+              complicationTemplate: template)
+            entries.append(entry)
+          }
+          current = current.addingTimeInterval(5.0 * 60.0)
+        }
+
+        handler(entries)
     }
 
     // MARK: - Sample Templates
@@ -55,4 +80,25 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         // This method will be called once per supported complication, and the results will be cached
         handler(nil)
     }
+}
+
+extension ComplicationController {
+  func makeTemplate(for calorieIntake: CalorieIntake, complication: CLKComplication) -> CLKComplicationTemplate? {
+    switch complication.family {
+    case .graphicCircular:
+        return CLKComplicationTemplateGraphicCircularView(
+            ComplicationViewCircular(calorieIntake: calorieIntake)
+        )
+    case .graphicCorner:
+        return CLKComplicationTemplateGraphicCornerCircularView(
+            ComplicationViewCornerCircular(calorieIntake: calorieIntake)
+        )
+    case .graphicRectangular:
+        return CLKComplicationTemplateGraphicRectangularFullView(
+            ComplicationViewRectangle(calorieIntake: calorieIntake)
+        )
+    default:
+      return nil
+    }
+  }
 }
