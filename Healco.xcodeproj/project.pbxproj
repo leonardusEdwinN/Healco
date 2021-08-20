@@ -11,6 +11,11 @@
 		1315B9CC26B7D8CB0030C84A /* RoundedTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */; };
 		1315B9D426B7F8A80030C84A /* NutritionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9D226B7F8A80030C84A /* NutritionCollectionViewCell.swift */; };
 		1315B9D526B7F8A80030C84A /* NutritionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */; };
+		1334BDC726CF991A0066AA7E /* KonsumsiDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1334BDC626CF991A0066AA7E /* KonsumsiDetail.swift */; };
+		1334BDC926CF99A10066AA7E /* KonsumsiDetailNutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1334BDC826CF99A10066AA7E /* KonsumsiDetailNutrient.swift */; };
+		1334BDCB26CF9CF20066AA7E /* KonsumsiDetailJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1334BDCA26CF9CF20066AA7E /* KonsumsiDetailJournal.swift */; };
+		1334BDCD26CFA38A0066AA7E /* KonsumsiDetailJournalItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1334BDCC26CFA38A0066AA7E /* KonsumsiDetailJournalItem.swift */; };
+		1334BDCF26CFA4F00066AA7E /* KonsumsiDetailNutrientItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1334BDCE26CFA4F00066AA7E /* KonsumsiDetailNutrientItem.swift */; };
 		133575AC26CE5410000C6B0F /* ListKonsumsi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133575AB26CE5410000C6B0F /* ListKonsumsi.swift */; };
 		133575AE26CE5776000C6B0F /* ListKonsumsiItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133575AD26CE5776000C6B0F /* ListKonsumsiItem.swift */; };
 		13492D57267F030600843181 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 13492D56267F030600843181 /* Food101.mlmodel */; };
@@ -120,6 +125,11 @@
 		1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTabBar.swift; sourceTree = "<group>"; };
 		1315B9D226B7F8A80030C84A /* NutritionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCollectionViewCell.swift; sourceTree = "<group>"; };
 		1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionCollectionViewCell.xib; sourceTree = "<group>"; };
+		1334BDC626CF991A0066AA7E /* KonsumsiDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonsumsiDetail.swift; sourceTree = "<group>"; };
+		1334BDC826CF99A10066AA7E /* KonsumsiDetailNutrient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonsumsiDetailNutrient.swift; sourceTree = "<group>"; };
+		1334BDCA26CF9CF20066AA7E /* KonsumsiDetailJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonsumsiDetailJournal.swift; sourceTree = "<group>"; };
+		1334BDCC26CFA38A0066AA7E /* KonsumsiDetailJournalItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonsumsiDetailJournalItem.swift; sourceTree = "<group>"; };
+		1334BDCE26CFA4F00066AA7E /* KonsumsiDetailNutrientItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonsumsiDetailNutrientItem.swift; sourceTree = "<group>"; };
 		133575AB26CE5410000C6B0F /* ListKonsumsi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonsumsi.swift; sourceTree = "<group>"; };
 		133575AD26CE5776000C6B0F /* ListKonsumsiItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListKonsumsiItem.swift; sourceTree = "<group>"; };
 		13492D56267F030600843181 /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
@@ -218,6 +228,18 @@
 				1315B9D326B7F8A80030C84A /* NutritionCollectionViewCell.xib */,
 			);
 			path = JournalNutrition;
+			sourceTree = "<group>";
+		};
+		1334BDC526CF93840066AA7E /* KonsumsiDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1334BDC626CF991A0066AA7E /* KonsumsiDetail.swift */,
+				1334BDC826CF99A10066AA7E /* KonsumsiDetailNutrient.swift */,
+				1334BDCE26CFA4F00066AA7E /* KonsumsiDetailNutrientItem.swift */,
+				1334BDCA26CF9CF20066AA7E /* KonsumsiDetailJournal.swift */,
+				1334BDCC26CFA38A0066AA7E /* KonsumsiDetailJournalItem.swift */,
+			);
+			path = KonsumsiDetail;
 			sourceTree = "<group>";
 		};
 		133575AF26CE5785000C6B0F /* ListKonsumsi */ = {
@@ -452,6 +474,7 @@
 		2217A7A426CD123D00DB0651 /* Capmeal_Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1334BDC526CF93840066AA7E /* KonsumsiDetail */,
 				133575AF26CE5785000C6B0F /* ListKonsumsi */,
 				2217A7A526CD123D00DB0651 /* HostingController.swift */,
 				2217A7A726CD123D00DB0651 /* ContentView.swift */,
@@ -727,9 +750,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1334BDC926CF99A10066AA7E /* KonsumsiDetailNutrient.swift in Sources */,
+				1334BDCD26CFA38A0066AA7E /* KonsumsiDetailJournalItem.swift in Sources */,
 				2217A7A826CD123D00DB0651 /* ContentView.swift in Sources */,
 				133575AC26CE5410000C6B0F /* ListKonsumsi.swift in Sources */,
+				1334BDCF26CFA4F00066AA7E /* KonsumsiDetailNutrientItem.swift in Sources */,
+				1334BDCB26CF9CF20066AA7E /* KonsumsiDetailJournal.swift in Sources */,
 				2217A7A626CD123D00DB0651 /* HostingController.swift in Sources */,
+				1334BDC726CF991A0066AA7E /* KonsumsiDetail.swift in Sources */,
 				2217A7AC26CD123D00DB0651 /* NotificationController.swift in Sources */,
 				2217A7AA26CD123D00DB0651 /* ExtensionDelegate.swift in Sources */,
 				133575AE26CE5776000C6B0F /* ListKonsumsiItem.swift in Sources */,
