@@ -18,7 +18,7 @@ struct ListKonsumsi: View {
                 ListKonsumsiItem(image: "snack", title: "Chocolate bar cadburry")
                 ListKonsumsiItem(image: "snack", title: "Indomie goreng")
                 ListKonsumsiItem(image: "snack", title: "Martabak Sultan Keju")
-            }.navigationTitle("Konsumsimu")
+            }
         }
     }
 }

@@ -111,7 +111,7 @@ struct ContentView: View {
                         if value.predictedEndTranslation.width < -width / 2  {
                             self.activeView = currentView.secondView
                             self.viewState = .zero
-                            navigationTitle = "Konsumsi"
+                            navigationTitle = "Konsumsimu"
                         }
                         else {
                             self.viewState = .zero
