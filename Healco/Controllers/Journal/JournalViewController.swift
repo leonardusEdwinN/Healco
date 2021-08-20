@@ -131,11 +131,11 @@ class JournalViewController : UIViewController{
         collectionViewMakanSiang.reloadData()
         collectionViewMakanMalam.reloadData()
         
-        healthStore.requestAuthorization(toShare: nil, read: [HKObjectType.activitySummaryType()]){
-            success, Error in
-            
-            self.healthkit()
-        }
+//        healthStore.requestAuthorization(toShare: nil, read: [HKObjectType.activitySummaryType()]){
+//            success, Error in
+//
+//            self.healthkit()
+//        }
     }
     
     

@@ -20,8 +20,6 @@ struct ListKonsumsi: View {
                 ListKonsumsiItem(image: "snack", title: "Martabak Sultan Keju")
             }.navigationTitle("Konsumsimu")
         }
-        
-        
     }
 }
 

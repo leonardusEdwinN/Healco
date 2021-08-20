@@ -229,7 +229,6 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
     }
     
     func notificationAlertScheduling(){
-        //notificationCenter.removeAllPendingNotificationRequests()
         let notif = data.fetchNotification()
         var strJamSarapan: String? = ""
         var strJamSiang: String? = ""
@@ -292,7 +291,7 @@ extension HomeTabBar : UIImagePickerControllerDelegate, UINavigationControllerDe
         contentNotif.body = body
         contentNotif.sound = UNNotificationSound.default
         let trigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: true)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: contentNotif, trigger: trigger)
+        let request = UNNotificationRequest(identifier: title, content: contentNotif, trigger: trigger)
         notificationCenter.add(request)
     }
 }
