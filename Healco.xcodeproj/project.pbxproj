@@ -68,6 +68,7 @@
 		4434291F267C281900A85983 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4434291D267C281900A85983 /* OnboardingViewController.swift */; };
 		44342927267C2BA800A85983 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */; };
 		44342930267C3FDC00A85983 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4434292F267C3FDC00A85983 /* Onboarding.storyboard */; };
+		447289C926CF8FE50036C526 /* ComplicationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447289C826CF8FE50036C526 /* ComplicationViews.swift */; };
 		44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */; };
 		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
 		EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */; };
@@ -139,7 +140,7 @@
 		137A0B642670CE2B00543CCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		137A0B6E2670CE2C00543CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		137A0B712670CE2C00543CCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		137A0B732670CE2C00543CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		137A0B732670CE2C00543CCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Healco/Info.plist; sourceTree = "<group>"; };
 		138C847926859C4D008E5C2C /* TimeToEatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeToEatCollectionViewCell.swift; sourceTree = "<group>"; };
 		138C847A26859C4D008E5C2C /* TimeToEatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimeToEatCollectionViewCell.xib; sourceTree = "<group>"; };
 		138C847E2685A0B8008E5C2C /* ReasonToEatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReasonToEatCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -188,6 +189,7 @@
 		4434291D267C281900A85983 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		44342926267C2BA800A85983 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		4434292F267C3FDC00A85983 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		447289C826CF8FE50036C526 /* ComplicationViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationViews.swift; sourceTree = "<group>"; };
 		44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Healco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.release.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.release.xcconfig"; sourceTree = "<group>"; };
@@ -319,7 +321,6 @@
 				2268724B2678BF41006293A3 /* MLmodel */,
 				137A0B6E2670CE2C00543CCF /* Assets.xcassets */,
 				137A0B702670CE2C00543CCF /* LaunchScreen.storyboard */,
-				137A0B732670CE2C00543CCF /* Info.plist */,
 			);
 			path = Healco;
 			sourceTree = "<group>";
@@ -464,6 +465,7 @@
 		2217A79526CD123C00DB0651 /* Capmeal_Watch */ = {
 			isa = PBXGroup;
 			children = (
+				137A0B732670CE2C00543CCF /* Info.plist */,
 				2217A79626CD123C00DB0651 /* Interface.storyboard */,
 				2217A79926CD123D00DB0651 /* Assets.xcassets */,
 				2217A79B26CD123D00DB0651 /* Info.plist */,
@@ -486,6 +488,7 @@
 				2217A7B626CD123E00DB0651 /* Info.plist */,
 				2217A7B726CD123E00DB0651 /* PushNotificationPayload.apns */,
 				2217A7B326CD123E00DB0651 /* Preview Content */,
+				447289C826CF8FE50036C526 /* ComplicationViews.swift */,
 			);
 			path = "Capmeal_Watch Extension";
 			sourceTree = "<group>";
@@ -760,6 +763,7 @@
 				1334BDC726CF991A0066AA7E /* KonsumsiDetail.swift in Sources */,
 				2217A7AC26CD123D00DB0651 /* NotificationController.swift in Sources */,
 				2217A7AA26CD123D00DB0651 /* ExtensionDelegate.swift in Sources */,
+				447289C926CF8FE50036C526 /* ComplicationViews.swift in Sources */,
 				133575AE26CE5776000C6B0F /* ListKonsumsiItem.swift in Sources */,
 				2217A7AE26CD123D00DB0651 /* NotificationView.swift in Sources */,
 				2217A7B026CD123D00DB0651 /* ComplicationController.swift in Sources */,

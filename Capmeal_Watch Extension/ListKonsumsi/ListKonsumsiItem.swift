@@ -20,8 +20,6 @@ struct ListKonsumsiItem: View {
                     .aspectRatio(contentMode: .fit).padding()
                 Text(title).padding(10)
             }.background(Color("DarkGray")).cornerRadius(15)
-        
-        
     }
 }
 
