@@ -203,9 +203,8 @@ struct SecondView : View {
     var body : some View {
         GeometryReader { bounds in
             VStack {
-                Text("SecondView")
+                Spacer(minLength: 35)
                 ListKonsumsi()
-
             }
             .frame(width: bounds.size.width, height: bounds.size.height, alignment: .center)
         }
