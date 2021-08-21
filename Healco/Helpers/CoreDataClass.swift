@@ -13,7 +13,7 @@ import Combine
 /// let data = CoreData()
 /// let journals = data.fetchJournalBaseOnDay(tanggalWaktu: getToday())
 
-class CoreDataClass {
+class CoreDataClass: ObservableObject {
     
     let manager = CoreDataManager.instance
     let context: NSManagedObjectContext

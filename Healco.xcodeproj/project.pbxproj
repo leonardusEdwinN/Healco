@@ -71,6 +71,8 @@
 		447289C926CF8FE50036C526 /* ComplicationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447289C826CF8FE50036C526 /* ComplicationViews.swift */; };
 		44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */; };
 		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
+		EF0CB13726D0F6470067C43A /* CapmealDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13D156B526C27E97003BF22E /* CapmealDataModel.xcdatamodeld */; };
+		EF0CB13826D0F64B0067C43A /* CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1315B9C726B53BE40030C84A /* CoreDataClass.swift */; };
 		EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */; };
 		EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */; };
 		EF886DB626B940540039CFAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF886DB526B940540039CFAC /* LoginViewController.swift */; };
@@ -760,12 +762,14 @@
 				1334BDCF26CFA4F00066AA7E /* KonsumsiDetailNutrientItem.swift in Sources */,
 				1334BDCB26CF9CF20066AA7E /* KonsumsiDetailJournal.swift in Sources */,
 				2217A7A626CD123D00DB0651 /* HostingController.swift in Sources */,
+				EF0CB13826D0F64B0067C43A /* CoreDataClass.swift in Sources */,
 				1334BDC726CF991A0066AA7E /* KonsumsiDetail.swift in Sources */,
 				2217A7AC26CD123D00DB0651 /* NotificationController.swift in Sources */,
 				2217A7AA26CD123D00DB0651 /* ExtensionDelegate.swift in Sources */,
 				447289C926CF8FE50036C526 /* ComplicationViews.swift in Sources */,
 				133575AE26CE5776000C6B0F /* ListKonsumsiItem.swift in Sources */,
 				2217A7AE26CD123D00DB0651 /* NotificationView.swift in Sources */,
+				EF0CB13726D0F6470067C43A /* CapmealDataModel.xcdatamodeld in Sources */,
 				2217A7B026CD123D00DB0651 /* ComplicationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

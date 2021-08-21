@@ -82,7 +82,8 @@ struct ContentView: View {
     @State var activeView = currentView.firstView
     @State var viewState = CGSize.zero
     @State var navigationTitle = "Capmeal"
-    //@EnvironmentObject var data: CoreDataClass
+    @EnvironmentObject var data: CoreDataClass
+    
     var body: some View {
         VStack(spacing:0){
             
@@ -221,4 +222,8 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+extension ContentView{
+    
 }
