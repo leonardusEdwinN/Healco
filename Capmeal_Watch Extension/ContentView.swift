@@ -82,7 +82,7 @@ struct ContentView: View {
     @State var activeView = currentView.firstView
     @State var viewState = CGSize.zero
     @State var navigationTitle = "Capmeal"
-
+    //@EnvironmentObject var data: CoreDataClass
     var body: some View {
         VStack(spacing:0){
             

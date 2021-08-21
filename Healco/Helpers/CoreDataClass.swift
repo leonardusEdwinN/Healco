@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import Combine
 
 /// Contoh Implementasi CoreData
 /// let data = CoreData()
