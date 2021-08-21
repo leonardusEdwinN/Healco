@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 extension Color {
     static let Avocado = Color(red: 100 / 255, green: 150 / 255, blue: 73 / 255)

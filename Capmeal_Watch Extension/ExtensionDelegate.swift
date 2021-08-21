@@ -16,7 +16,7 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
             if success{
                 print("Apple Watch bisa terima notification")
             } else if let error = error{
-                print("Apple Watch tak dapat menerima notification \(error.localizedDescription)")
+                print("Apple Watch tidak bisa menerima notification karena \(error.localizedDescription)")
             }
         }
     }
