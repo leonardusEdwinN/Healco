@@ -71,6 +71,8 @@
 		447289C926CF8FE50036C526 /* ComplicationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447289C826CF8FE50036C526 /* ComplicationViews.swift */; };
 		44B333B2267C159D00C4BC96 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B333B1267C159D00C4BC96 /* OnboardingSlide.swift */; };
 		B44FB77D8D343950DE8B538F /* Pods_Healco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */; };
+		EF360F0026D3A2EA00559659 /* WatchConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF360EFF26D3A2EA00559659 /* WatchConnector.swift */; };
+		EF360F0226D3A4DF00559659 /* WatchReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF360F0126D3A4DF00559659 /* WatchReceiver.swift */; };
 		EF68BF782683322C00AE0F0A /* FoodDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */; };
 		EF68BF7A2683399B00AE0F0A /* FoodNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */; };
 		EF886DB626B940540039CFAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF886DB526B940540039CFAC /* LoginViewController.swift */; };
@@ -194,6 +196,8 @@
 		45A02339C3BA8D0BCF14A287 /* Pods_Healco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Healco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		926237BE82BF52C385C57C5A /* Pods-Healco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.release.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.release.xcconfig"; sourceTree = "<group>"; };
 		9ABF74E3677E2222C9FEFBBA /* Pods-Healco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Healco.debug.xcconfig"; path = "Target Support Files/Pods-Healco/Pods-Healco.debug.xcconfig"; sourceTree = "<group>"; };
+		EF360EFF26D3A2EA00559659 /* WatchConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnector.swift; sourceTree = "<group>"; };
+		EF360F0126D3A4DF00559659 /* WatchReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchReceiver.swift; sourceTree = "<group>"; };
 		EF68BF772683322C00AE0F0A /* FoodDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FoodDetail.storyboard; sourceTree = "<group>"; };
 		EF68BF792683399B00AE0F0A /* FoodNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNameViewController.swift; sourceTree = "<group>"; };
 		EF886DB526B940540039CFAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 				1315B9CB26B7D8CB0030C84A /* RoundedTabBar.swift */,
 				EF9CD4E526C1256B00D734E6 /* NotificationManager.swift */,
 				13D156B526C27E97003BF22E /* CapmealDataModel.xcdatamodeld */,
+				EF360EFF26D3A2EA00559659 /* WatchConnector.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 				2217A7B726CD123E00DB0651 /* PushNotificationPayload.apns */,
 				2217A7B326CD123E00DB0651 /* Preview Content */,
 				447289C826CF8FE50036C526 /* ComplicationViews.swift */,
+				EF360F0126D3A4DF00559659 /* WatchReceiver.swift */,
 			);
 			path = "Capmeal_Watch Extension";
 			sourceTree = "<group>";
@@ -738,6 +744,7 @@
 				221A0BC3267B3B570042A94A /* HasilFotoVC.swift in Sources */,
 				1315B9C826B53BE40030C84A /* CoreDataClass.swift in Sources */,
 				EF9CD4E626C1256B00D734E6 /* NotificationManager.swift in Sources */,
+				EF360F0026D3A2EA00559659 /* WatchConnector.swift in Sources */,
 				13B3EC6A26B2AE6F00870C20 /* HomeTabBar.swift in Sources */,
 				221A0BC5267B60B00042A94A /* Extention.swift in Sources */,
 				13D156B726C27E97003BF22E /* CapmealDataModel.xcdatamodeld in Sources */,
@@ -762,6 +769,7 @@
 				2217A7A626CD123D00DB0651 /* HostingController.swift in Sources */,
 				1334BDC726CF991A0066AA7E /* KonsumsiDetail.swift in Sources */,
 				2217A7AC26CD123D00DB0651 /* NotificationController.swift in Sources */,
+				EF360F0226D3A4DF00559659 /* WatchReceiver.swift in Sources */,
 				2217A7AA26CD123D00DB0651 /* ExtensionDelegate.swift in Sources */,
 				447289C926CF8FE50036C526 /* ComplicationViews.swift in Sources */,
 				133575AE26CE5776000C6B0F /* ListKonsumsiItem.swift in Sources */,
@@ -931,7 +939,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
+				DEVELOPMENT_TEAM = Y4SYN8VK49;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -957,7 +965,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Y5NDG2SHLQ;
+				DEVELOPMENT_TEAM = Y4SYN8VK49;
 				INFOPLIST_FILE = Healco/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (

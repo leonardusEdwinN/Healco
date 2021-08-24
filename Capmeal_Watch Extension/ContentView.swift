@@ -81,7 +81,7 @@ struct ContentView: View {
     @State var activeView = currentView.firstView
     @State var viewState = CGSize.zero
     @State var navigationTitle = "Capmeal"
-
+    
     var body: some View {
         VStack(spacing:0){
             
@@ -164,7 +164,9 @@ struct ContentView: View {
             }
 
         }.frame(width: width, height: height)
-        
+        .onAppear{
+            
+        }
     }
 }
 

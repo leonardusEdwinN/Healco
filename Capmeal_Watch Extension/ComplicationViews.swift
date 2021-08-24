@@ -15,12 +15,36 @@ struct ComplicationViews: View {
 }
 
 struct ComplicationViewCircular: View {
-  @State var calorieIntake: CalorieIntake
+  var calorieIntake: CalorieIntake
 
   var body: some View {
     ZStack {
       ProgressView("\(calorieIntake.intakeCal)", value: (calorieIntake.percentCal), total: 1.0)
-        .progressViewStyle(CircularProgressViewStyle(tint: Color.blue))
+        .progressViewStyle(CircularProgressViewStyle(tint: Color.Avocado))
+    }
+  }
+}
+
+struct ComplicationViewCornerCircular: View {
+  var calorieIntake: CalorieIntake
+
+  var body: some View {
+    ZStack {
+        Circle().fill(Color.Avocado)
+        Text("\(calorieIntake.intakeCal)")
+            .foregroundColor(Color.white)
+    }
+  }
+}
+
+struct ComplicationViewRectangle: View {
+  var calorieIntake: CalorieIntake
+
+  var body: some View {
+    ZStack {
+        Rectangle().fill(Color.Avocado).cornerRadius(10.0)
+        Text("\(calorieIntake.intakeCal)")
+            .foregroundColor(Color.white)
     }
   }
 }
@@ -38,6 +62,19 @@ struct ComplicationViews_Previews: PreviewProvider {
                     calorieIntake: CalorieIntake(intakeCal: 300, percentCal: 0.7)
                 )
             ).previewContext()
+            
+            CLKComplicationTemplateGraphicCornerCircularView(
+                ComplicationViewCornerCircular(
+                    calorieIntake: CalorieIntake(intakeCal: 300, percentCal: 0.7)
+                )
+            ).previewContext()
+            
+            CLKComplicationTemplateGraphicRectangularFullView(
+                ComplicationViewRectangle(
+                    calorieIntake: CalorieIntake(intakeCal: 300, percentCal: 0.3)
+                )
+            )
+            .previewContext()
         }
     }
 }
