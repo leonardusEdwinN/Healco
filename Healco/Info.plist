@@ -43,6 +43,10 @@
 		<string>Quicksand-SemiBold.ttf</string>
 		<string>Quicksand-Regular.ttf</string>
 		<string>Quicksand-Light.ttf</string>
+        <string>SF-Compact-Display-Bold.otf</string>
+        <string>SF-Compact-Display-Medium.otf</string>
+        <string>SF-Compact-Display-Semibold.otf</string>
+        <string>SF-Compact-Display-Regular.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

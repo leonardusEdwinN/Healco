@@ -38,7 +38,7 @@ class CoreDataClass: ObservableObject {
             return try context.fetch(request)
         } catch let error {
             print("Error nih pas ngambil data jurnalnya, nih detailnya \(error)")
-            return []
+            return [] 
         }
     }
     

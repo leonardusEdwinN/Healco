@@ -14,11 +14,10 @@ struct KonsumsiDetailNutrientItem: View {
     
     
     var body: some View {
-        HStack{
-            Text("\(title) ")
-            Spacer()
-            Text("\(description) gr")
-        }.padding(.horizontal, 10)
+        VStack(alignment: .leading, spacing: 0){
+            Text("\(title) ").font(.custom("SF-Compact-Display-Regular", size: 14))
+            Text("\(description)").font(.custom("SF-Compact-Display-Semibold", size: 17))
+        }.padding(.horizontal, 20)
         
     }
 }
