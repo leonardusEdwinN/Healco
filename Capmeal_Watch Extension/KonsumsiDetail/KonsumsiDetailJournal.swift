@@ -15,15 +15,12 @@ struct KonsumsiDetailJournal: View {
     var perasaan : String
     
     var body: some View {
-            VStack{
-                Text("\(titleJournal)").font(.title3).padding(.vertical, 10)
-                
-                KonsumsiDetailJournalItem(title: "Porsi", detail: "\(porsi)")
-                
-                KonsumsiDetailJournalItem(title: "Aktivitas", detail: "\(aktivitas)")
-                
-                KonsumsiDetailJournalItem(title: "Perasaan", detail: "\(perasaan)").padding(.bottom, 10)
-            }.background(Color("DarkGray")).cornerRadius(20)
+        VStack(alignment: .leading, spacing: 10){
+                KonsumsiDetailNutrientItem(title: "Waktu Sarapan", description: "\(titleJournal)").padding(.top, 10)
+                KonsumsiDetailNutrientItem(title: "Porsi", description: "\(porsi)")
+                KonsumsiDetailNutrientItem(title: "Aktivitas", description: "\(aktivitas)")
+            KonsumsiDetailNutrientItem(title: "Perasaan", description: "\(perasaan)").padding(.bottom, 10)
+            }.frame(maxWidth: .infinity, alignment: .leading).background(Color("DarkGray")).cornerRadius(20)
         
         
     }

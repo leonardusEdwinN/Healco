@@ -25,8 +25,8 @@ struct KonsumsiDetail: View {
     }
 }
 
-//struct KonsumsiDetail_Previews: PreviewProvider {
-//    static var previews: some View {
-//        KonsumsiDetail(dataKonsumsi: FoodDummy(image: "breakfast", title: "Makanan Pagi"))
-//    }
-//}
+struct KonsumsiDetail_Previews: PreviewProvider {
+    static var previews: some View {
+        KonsumsiDetail(dataKonsumsi: FoodDummy(id: 1, image: "breakfast", title: "Makanan Pagi"))
+    }
+}

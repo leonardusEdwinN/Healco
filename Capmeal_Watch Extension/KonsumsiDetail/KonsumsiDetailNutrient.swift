@@ -16,13 +16,13 @@ struct KonsumsiDetailNutrient: View {
     
     
     var body: some View {
-            VStack{
-                Text("\(kalori) kal").font(.title2).padding(.vertical, 10)
-                KonsumsiDetailNutrientItem(title: "Karbohidrat", description: "\(karbohidrat)")
-                KonsumsiDetailNutrientItem(title: "Protein", description: "\(protein)")
-                KonsumsiDetailNutrientItem(title: "Lemak", description: "\(lemak)").padding(.bottom, 10)
+        VStack(alignment: .leading, spacing: 10){
+            KonsumsiDetailNutrientItem(title: "Total Kalori", description: "\(kalori) Kal").padding(.top, 10)
+                KonsumsiDetailNutrientItem(title: "Karbohidrat", description: "\(karbohidrat) gr")
+                KonsumsiDetailNutrientItem(title: "Protein", description: "\(protein) gr")
+                KonsumsiDetailNutrientItem(title: "Lemak", description: "\(lemak) gr").padding(.bottom, 10)
                
-            }.background(Color("DarkGray")).cornerRadius(20)
+        }.frame(maxWidth: .infinity, alignment: .leading).background(Color("DarkGray")).cornerRadius(20)
         
         
     }

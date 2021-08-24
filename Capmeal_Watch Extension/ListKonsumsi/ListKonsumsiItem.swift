@@ -18,13 +18,13 @@ struct ListKonsumsiItem: View {
             VStack{
                 Image(image).resizable()
                     .aspectRatio(contentMode: .fit).padding()
-                Text(title).padding(10)
+                Text(title).font(.custom("SF-Compact-Display-Bold", size: 17)).padding(10)
             }.background(Color("DarkGray")).cornerRadius(15)
     }
 }
 
 struct ListKonsumsiItem_Previews: PreviewProvider {
     static var previews: some View {
-        ListKonsumsiItem()
+        ListKonsumsiItem(image: "breakfast", title: "aaaa")
     }
 }

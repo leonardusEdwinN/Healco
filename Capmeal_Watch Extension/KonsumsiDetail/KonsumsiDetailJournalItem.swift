@@ -15,7 +15,6 @@ struct KonsumsiDetailJournalItem: View {
     var body: some View {
         HStack(alignment: .center, spacing: 5){
             Text("\(title)").frame(width: 75, height: 25, alignment: .leading)
-            Text(" : ")
             Text("\(detail)")
         }.frame(maxWidth: .infinity, alignment: .leading).padding(.leading, 10)
         
